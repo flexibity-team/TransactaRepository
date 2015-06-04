@@ -1,0 +1,3872 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parking.Data.Devices</name>
+    </assembly>
+    <members>
+        <member name="T:Parking.Data.Devices.BoardMode">
+            <summary>
+            Режимы работы табло
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.BoardMode.Unknown">
+            <summary>
+            Не определен
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.BoardMode.Passive">
+            <summary>
+            Пассивный
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.BoardMode.Active">
+            <summary>
+            Активный
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Board">
+            <summary>
+            Табло
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Device">
+            <summary>
+            Устройство
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Device.OnParameterChanged(Parking.Data.Devices.Parameters.DeviceParameter,System.Boolean)">
+            <summary>
+            Поднимает событие ParameterChanged
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Device.Create(Parking.Data.Devices.DeviceType)">
+            <summary>
+            Создаёт устройство указанного типа
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Device.InitializeNonSerializeable">
+            <summary>
+            Инициализация несериализуемых полей
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Device.Clone">
+            <summary>
+            Возвращает копию устройства
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Device.OnDeserialization(System.Object)">
+            <summary>
+            Метод обратного вызова для десериализации
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Device.UpdateOutputCommands">
+            <summary>
+            Обновляет сетевой адрес всех исходящих команд в очереди
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Device.PrepareOutputCommand(Parking.Data.Devices.Commands.DeviceCommand)">
+            <summary>
+            Подготовка исходящей команды (установка адреса и счётчика)
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Device.AppendOutputCommand(Parking.Data.Devices.Commands.DeviceCommand)">
+            <summary>
+            Добавляет комаду в исходящую очередь (на устройство)
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Device.GetRequestCommand">
+            <summary>
+            Возвращает команду запроса для устройства
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Device.PeekOutputCommand">
+            <summary>
+            Выбирает команду из исходящей очереди, без удаления из очереди.
+            Если в очереди нет команд, в очередь добавляется команда запроса
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Device.CommitOutputCommand">
+            <summary>
+            Подтверждает выборку команды путём удаления первой команды из очереди.
+            Используется после вызова PeekOutputCommand в случае успешной отправки команды.
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Device.ProcessInputCommand(Parking.Data.Devices.Commands.DeviceCommand)">
+            <summary>
+            Обрабатывает входящую команду (обычно это команда состояния)
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Device.CreateStatusCommand">
+            <summary>
+            Создаёт команду состояния
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Device.GetOutputQueueSize">
+            <summary>
+            Возвращает размер очереди исходящих команд
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Device.SetParameterDictionary(System.Collections.Generic.List{Parking.Data.Devices.Parameters.DeviceParameterDictionaryEntry})">
+            <summary>
+            Устанавливает словарь параметров устройства
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Device.RegisterParameter(Parking.Data.Devices.Parameters.DeviceParameter)">
+            <summary>
+            Добавляет параметр к списку параметров и подписывается на событие изменения
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Device.GetUsedZoneIDs">
+            <summary>
+            Возвращает список идентификаторов используемых зон
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Device.ToString">
+            <summary>
+            Возвращает строковое представление устройства
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Device.Type">
+            <summary>
+            Возвращает/устанавливает тип устройства
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Device.Version">
+            <summary>
+            Возвращает/устанавливает версию устройства
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Device.Name">
+            <summary>
+            Возвращает/устанавливает имя устройства
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Device.Enabled">
+            <summary>
+            Возвращает/устанавливает разрешение работы устройства
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Device.NetworkAddress">
+            <summary>
+            Возвращает/устанавливает сетевой адрес устройства
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Device.DisplayZoneID">
+            <summary>
+            Возвращает/устанавливает ID зоны отображения
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Device.OnlineStatus">
+            <summary>
+            Возвращает сетевое состояние устройства
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Device.Parameters">
+            <summary>
+            Возвращает список всех параметров устройства
+            </summary>
+        </member>
+        <member name="E:Parking.Data.Devices.Device.ParameterChanged">
+            <summary>
+            Изменился параметр устройства
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Board.InitializeNonSerializeable">
+            <summary>
+            Инициализация несериализуемых полей
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Board.OnDeserialization(System.Object)">
+            <summary>
+            Метод обратного вызова для десериализации
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Board.ProcessInputCommand(Parking.Data.Devices.Commands.DeviceCommand)">
+            <summary>
+            Обрабатывает входящую команду
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Board.CreateStatusCommand">
+            <summary>
+            Создаёт команду состояния
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Board.GetUsedZoneIDs">
+            <summary>
+            Возвращает список идентификаторов испольуемых зон
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Board.BoundZones">
+            <summary>
+            Возвращает список зон, обслуживаемых табло
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Board.MinFreePlaces">
+            <summary>
+            Возвращает/устанавливает минимальное количество свободных мест (используется для корректировки значений)
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Board.FreePlaces">
+            <summary>
+            Количество свободных мест
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Board.Threshold">
+            <summary>
+            Порог
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Board.Mode">
+            <summary>
+            Режим
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.CashBoxMode">
+            <summary>
+            Режимы работы кассы
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxMode.Unknown">
+            <summary>
+            Не определен
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxMode.Waiting">
+            <summary>
+            Ожидание
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxMode.SessionOpened">
+            <summary>
+            Смена открыта
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxMode.SessionClosed">
+            <summary>
+            Смена закрыта
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxMode.Breakdown">
+            <summary>
+            Аварийный останов
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxMode.HaltBetweenTransactions">
+            <summary>
+            Останов между транзакциями, ресурсы исчерпаны
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxMode.BreakdownBetweenTransactions">
+            <summary>
+            Аварийный останов между транзакциями
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxMode.BreakdownOnTransaction">
+            <summary>
+            Аварийный останов в процессе транзакции
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxMode.Service">
+            <summary>
+            Технологический режим
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.CashBoxState">
+            <summary>
+            Состояние кассы
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.OK">
+            <summary>
+            Норма
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.NoChange">
+            <summary>
+            Автомат не дал сдачи
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.LowTemperature">
+            <summary>
+            Температура ниже нормы
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.HighTemperature">
+            <summary>
+            Температура выше нормы
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.ConstantsNotDefined">
+            <summary>
+            Константы не введены
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.CashRegisterUnavailable">
+            <summary>
+            Нет связи с ККМ
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.LastCheckNotCommitted">
+            <summary>
+            Последний чек не проведен
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.CashRegisterNotReady">
+            <summary>
+            ККМ не готова
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.UnfinishedPurchase">
+            <summary>
+            Наличие незавершенной покупки
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.FewPaper">
+            <summary>
+            Мало бумаги
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.NoPaper">
+            <summary>
+            Нет бумаги
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.CashcodeUnavailable">
+            <summary>
+            Нет связи с банкнотоприемником
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.CashThresholdExcess">
+            <summary>
+            Превышение порога банкнот
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.CashcodeOverflow">
+            <summary>
+            Банкнотоприемник переполнен
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.CashDriveRemoved">
+            <summary>
+            Накопитель банкнот снят
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.BanknoteRumpledInHead">
+            <summary>
+            Замятие купюры в головке
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.BanknoteRumpledInDrive">
+            <summary>
+            Замятие купюры в накопителе
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.CashcodeHooliganism">
+            <summary>
+            Хулиганство с банкнотоприемником
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.CashcodeBroken">
+            <summary>
+            Банкнотоприемник неисправен
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.CoinThresholdExcess">
+            <summary>
+            Превышение порога монет
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.CoinDriveRemoved">
+            <summary>
+            Накопитель монет снят
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.CoincodeBlocked">
+            <summary>
+            Монетоприемник заблокировался
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.CashDispenserNotReady">
+            <summary>
+            Диспенсер банкнот не готов
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.InsufficientCashInDispenser">
+            <summary>
+            Недостаточно банкнот в диспенсере
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.FewCoinInHopper1">
+            <summary>
+            Мало монет в хоппере 1
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.Hopper1SensorError">
+            <summary>
+            Ошибка сенсора хоппера 1
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.FewCoinInHopper2">
+            <summary>
+            Мало монет в хоппере 2
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.Hopper2SensorError">
+            <summary>
+            Ошибка сенсора хоппера 2
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.TransporterUnavailable">
+            <summary>
+            Нет связи с транспортером
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.CardStuckInTransporter">
+            <summary>
+            Карта застряла в транспортере
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.WriteError">
+            <summary>
+            Ошибка записи
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.KeyInputError">
+            <summary>
+            Ошибка ввода ключей
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.BankServerNotAvailable">
+            <summary>
+            Нет ответа от сервера банковских транзакций
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxState.BankingCardReaderBroken">
+            <summary>
+            Неисправность ридера банковских карт
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.CashBoxExtendedAlarm">
+            <summary>
+            Расширенная тревога кассы
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxExtendedAlarm.None">
+            <summary>
+            Нет аварии
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxExtendedAlarm.TerminalSlaveDisconnected">
+            <summary>
+            Нет связи со slave-контроллером
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxExtendedAlarm.TerminalNoChange">
+            <summary>
+            Терминал не выдал сдачу
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxExtendedAlarm.FiscalDisconnected">
+            <summary>
+            Нет связи с фискальным регистратором
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxExtendedAlarm.FiscalLastReceiptError">
+            <summary>
+            Последний чек не проведен через фискальный регистратор
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxExtendedAlarm.FiscalNotReady">
+            <summary>
+            Фискальный регистратор не готов
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxExtendedAlarm.FiscalNoPaper">
+            <summary>
+            Нет бумаги в фискальном регистраторе
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxExtendedAlarm.CashcodeDisconnected">
+            <summary>
+            Нет связи с купюроприёмником
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxExtendedAlarm.CashcodeStackerOverflow">
+            <summary>
+            Превышение программного порога купюр в стекере
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxExtendedAlarm.CashcodeHardwareOverflow">
+            <summary>
+            Аппаратное переполнение на купюроприёмнике
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxExtendedAlarm.CashcodeStackerRemoved">
+            <summary>
+            Стекер снят
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxExtendedAlarm.CashcodeRumpleInHead">
+            <summary>
+            Замятие в головке
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxExtendedAlarm.CashcodeRumpleInStacker">
+            <summary>
+            Замятие с стекере
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxExtendedAlarm.CashcodeHooliganism">
+            <summary>
+            Хулиганство с купюроприёмником
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxExtendedAlarm.CashcodeFault">
+            <summary>
+            Неисправность купюроприёмника
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxExtendedAlarm.CoincodeOverflow">
+            <summary>
+            Монетоприёмник переполнен
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxExtendedAlarm.DispenserNotReady">
+            <summary>
+            Диспенсер банкнот не готов
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxExtendedAlarm.DispenserInsufficientBanknotes">
+            <summary>
+            Недостаточно банкнот в кассетах диспенсера
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxExtendedAlarm.Hopper1ChannelBlocked">
+            <summary>
+            Канал хоппера 1 перекрыт (застряли монеты или поломка)
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxExtendedAlarm.Hopper2ChannelBlocked">
+            <summary>
+            Канал хоппера 2 перекрыт (застряли монеты или поломка)
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxExtendedAlarm.HopperInsufficientCoins">
+            <summary>
+            Недостаточно монет в хопперах
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxExtendedAlarm.TransporterNotReady">
+            <summary>
+            Транспортёр не готов
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxExtendedAlarm.TransporterCardOutputFault">
+            <summary>
+            Проблемы с выдачей карты из транспортёра
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CashBoxExtendedAlarm.TransporterCardReaderMiFareNotReady">
+            <summary>
+            Считыватель карт MiFare на транспортёре не готов
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.CashBox">
+            <summary>
+            Касса
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.CashBox.InitializeNonSerializeable">
+            <summary>
+            Инициализация несериализуемых полей
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.CashBox.OnDeserialization(System.Object)">
+            <summary>
+            Метод обратного вызова для десериализации
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.CashBox.Mode">
+            <summary>
+            Режим работы кассы
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.CashBox.State">
+            <summary>
+            Состояние кассы
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.CashBox.Has220V">
+            <summary>
+            Наличие 220В
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.CashBox.BatteryDischarge">
+            <summary>
+            Разряд аккумулятора
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.CashBox.Overvoltage">
+            <summary>
+            Переняпряжение сети
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.CashBox.DriveDoor">
+            <summary>
+            Дверь накопителей
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.CashBox.ExternalDoor">
+            <summary>
+            Внешняя дверь
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.CashBox.BankTransactions">
+            <summary>
+            Банковские транзакции
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.CashBox.Temperature">
+            <summary>
+            Температура
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.CashBox.Power">
+            <summary>
+            [extended] Флаг включение питания
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.CashBox.LowPaper">
+            <summary>
+            [extended] Мало бумаги
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.CashBox.LowCoinsInFarHopper">
+            <summary>
+            [extended] Мало монет в дальнем хоппере
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.CashBox.LowCoinsInNearHopper">
+            <summary>
+            [extended] Мало монет в ближнем хоппере
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.CashBox.TemperatureOutOfRange">
+            <summary>
+            [extended] Выход температуры из допустимого диапазона
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.CashBox.Alarm1">
+            <summary>
+            [extended] Тревога 1
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.CashBox.Alarm2">
+            <summary>
+            [extended] Тревога 2
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.CashBox.Halt">
+            <summary>
+            [extended] Авария, приведшая к останову
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.CashBox.MoneyBoxes">
+            <summary>
+            [extended] Состояние денежных ёмкостей
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.ShortCommands">
+            <summary>
+            Короткие команды
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.ShortCommands.Unknown">
+            <summary>
+            Неизвестная команда
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.ShortCommands.Request">
+            <summary>
+            Запрос
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.ShortCommands.Status">
+            <summary>
+            Состояние устройства
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.ShortCommands.ModeControl">
+            <summary>
+            Управление режимом
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.ShortCommands.EnableLoopA">
+            <summary>
+            Включение антенны А
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.ShortCommands.Time">
+            <summary>
+            Запрос времени
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.ShortCommands.TimeSync">
+            <summary>
+            Синхронизация времени
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.ShortCommands.MetroDiscountReply">
+            <summary>
+            Ответ на запрос льготы
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.ShortCommands.GetStop">
+            <summary>
+            Запрос по стоп-листу
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.ShortCommands.GetStopDeny">
+            <summary>
+            Ответ на запрос по стоп-листу (проезд запрещён)
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.ShortCommands.GetStopFreePlaces">
+            <summary>
+            Запрос количества свободных мест (для версии оборудования 3.0)
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.ShortCommands.FreePlaces">
+            <summary>
+            Рассылка количества свободных мест
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.ShortCommands.EjectCard">
+            <summary>
+            Выдача карты
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.ShortCommands.BoardControl">
+            <summary>
+            Установка параметров табло
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.ShortCommands.BoardAdjust">
+            <summary>
+            Корректировка параметров табло
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.ShortCommands.BoardPassageNotify">
+            <summary>
+            Уведомление табло о проезде
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.ShortCommands.BoardVisualisationManagement">
+            <summary>
+            Управление отображением информации на табло
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.ShortCommands.ZoneControllerRequest">
+            <summary>
+            Запрос к контроллеру зон
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.LongCommands">
+            <summary>
+            Длинные команды
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.LongCommands.Unknown">
+            <summary>
+            Неизвестная команда
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.LongCommands.Tariff">
+            <summary>
+            Пересылка тарифа
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.LongCommands.CustomerGroups">
+            <summary>
+            Пересылка разрешенных групп
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.LongCommands.Transaction">
+            <summary>
+            Транзакция
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.LongCommands.Transaction30">
+            <summary>
+            Транзакция (для версии оборудования 3.0)
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.LongCommands.StopList">
+            <summary>
+            Пересылка стоп-листа
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.LongCommands.CashTransaction">
+            <summary>
+            Кассовая транзакция
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.LongCommands.CashExtendedStatus">
+            <summary>
+            Расширенное состояние кассы
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.LongCommands.EFTPOSMessage">
+            <summary>
+            Посылка для сервера EFTPOS
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.LongCommands.EFTPOSAnswer">
+            <summary>
+            Ответ от сервера EFTPOS
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.LongCommands.MetroDiscountRequest">
+            <summary>
+            Запрос на льготу
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.LongCommands.MetroDiscount">
+            <summary>
+            Использование льготы
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.LongCommands.DetectorState">
+            <summary>
+            Состояние датчиков машиномест
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.LongCommands.DetectorZone">
+            <summary>
+            Номера зон датчиков машиномест
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.LongCommands.DetectorSetZone">
+            <summary>
+            Установка номеров зон датчиков машиномест
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.LongCommands.DetectorHeight">
+            <summary>
+            Высота датчиков машиномест
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.LongCommands.DetectorSetHeight">
+            <summary>
+            Установка высоты датчиков машиномест
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.LongCommands.DetectorCarPlaceIndex">
+            <summary>
+            Номера машиномест датчиков
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.LongCommands.DetectorSetCarPlaceIndex">
+            <summary>
+            Установка номеров машиномест датчиков
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.LongCommands.DetectorDistance">
+            <summary>
+            Измеренное расстояние датчиков
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.LongCommands.DetectorTime">
+            <summary>
+            Время неизменного состояния датчиков
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.GetStopAction">
+            <summary>
+            Ответы на запрос о проезде
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.GetStopAction.Allow">
+            <summary>
+            Проезд разрешён
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.GetStopAction.AllowCardExpirationWarning">
+            <summary>
+            Проезд разрешен, срок действия карты подходит к концу
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.GetStopAction.DenyCardExpired">
+            <summary>
+            Проезд запрещён, срок действия карты истёк
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.GetStopAction.DenyCardBlocked">
+            <summary>
+            Проезд запрещён, карта заблокирована
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.GetStopAction.DenyNoFreePlaces">
+            <summary>
+            Проезд запрещён, нет свободных мест
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.GetStopAction.DenyCustomerGroupMismatch">
+            <summary>
+            Проезд запрещён, не совпадает группа клиентов
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.GetStopAction.DenyZoneMismatch">
+            <summary>
+            Проезд запрещён, не совпадает зона
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.GetStopAction.DenyPlateMismatch">
+            <summary>
+            Проезд запрещён, не совпадают гос. номера въезда и выезда
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.GetStopAction.DenyByOperator">
+            <summary>
+            Проезд запрещён оператором
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.GetStopAction.DenyPlateInBlackList">
+            <summary>
+            Проезд запрещён, гос. номер в чёрном списке
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.GetStopAction.DenyCardNotFound">
+            <summary>
+            Проезд запрещён, карта не зарегистрирована в системе
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.GetStopAction.DenyCustomerTypeMismatch">
+            <summary>
+            Проезд запрещён, не совпадает тип клиента
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.GetStopAction.DenyPassageRepeat">
+            <summary>
+            Проезд запрещён, повторный запрос на проезд
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.GetStopAction.DenyCustomerGroupLimit">
+            <summary>
+            Проезд запрещён, достигнут предел допуска для группы клиентов
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.GetStopAction.DenyCompanyLimit">
+            <summary>
+            Проезд запрещён, достигнут предел допуска для организации
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.GetStopAction.DenyCustomerLimit">
+            <summary>
+            Проезд запрещён, достигнут предел допуска для клиента
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.CardEjectionResult">
+            <summary>
+            Результат выдачи карты
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.CardEjectionResult.OK">
+            <summary>
+            Карта выдана
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.CardEjectionResult.NoCar">
+            <summary>
+            Нет автомобиля на антенне А
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.CardEjectionResult.CardStuck">
+            <summary>
+            Карта застряла
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.CashMessageType">
+            <summary>
+            Тип сообщения кассы
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.CashMessageType.Status">
+            <summary>
+            Состояние
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.CashMessageType.SessionOpen">
+            <summary>
+            Открытие смены
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.CashMessageType.SessionClose">
+            <summary>
+            Закрытие смены
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.CashMessageType.Transaction">
+            <summary>
+            Транзакция
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.CashTransactionType">
+            <summary>
+            Тип кассовой транзакции
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.CashTransactionType.Payment">
+            <summary>
+            Оплата услуг парковки
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.CashTransactionType.Fine">
+            <summary>
+            Оплата штрафа
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.CashTransactionType.Return">
+            <summary>
+            Возврат
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.CashTransactionType.Subscription">
+            <summary>
+            Оплата абонемента
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.CashTransactionType.SubscriptionDispose">
+            <summary>
+            Оплата абонемента с аннулированием
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.CashTransactionType.Income">
+            <summary>
+            Внесение суммы (незавершенные покупки)
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.EjectionResult">
+            <summary>
+            Результат выдачи
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.EjectionResult.Unknown">
+            <summary>
+            Неизвестно
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.EjectionResult.OK">
+            <summary>
+            Выдано
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.EjectionResult.NotEjected">
+            <summary>
+            Не выдано
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.CashDriveState">
+            <summary>
+            Состояние накопителя кассы
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.CashDriveState.Nominal">
+            <summary>
+            Номинал
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.CashDriveState.Output">
+            <summary>
+            Выдано
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.CashDriveState.Left">
+            <summary>
+            Остаток
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.CashDriveState.Rejected">
+            <summary>
+            Отброшено в отказ (только купюры)
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.DeviceCommand">
+            <summary>
+            Абстрактный базовый класс команды устройства
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.DeviceCommand.PackParam(System.Byte[])">
+            <summary>
+            Упаковывает параметры команды в поток байт
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.DeviceCommand.PackData(System.Byte[])">
+            <summary>
+            Упаковывает данные длинной команды в поток байт
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.DeviceCommand.UnpackParam(System.Byte[])">
+            <summary>
+            Распаковывает параметры команды из потока байт
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.DeviceCommand.UnpackData(System.Byte[])">
+            <summary>
+            Распаковывает данные длинной команды из потока байт
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.DeviceCommand.ToString">
+            <summary>
+            Возвращает строковое представление команды
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.DeviceCommand.ToLogString">
+            <summary>
+            Возвращает строковое представление команды для записи в лог
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.DeviceCommand.DeviceID">
+            <summary>
+            Возвращает ID устройства
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.DeviceCommand.Address">
+            <summary>
+            Возвращает/устанавливает сетевой адрес устройства
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.DeviceCommand.Counter">
+            <summary>
+            Возвращает/устанавливает значение счётчика команд
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.DeviceCommand.SeriesCount">
+            <summary>
+            Возвращает/устанавливает количество пакетов в серии
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.DeviceCommand.SeriesIndex">
+            <summary>
+            Возвращает/устанавливает номер пакета в серии
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.DeviceCommand.ShortCommand">
+            <summary>
+            Возвращает тип короткой команды
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.DeviceCommand.LongCommand">
+            <summary>
+            Возвращает тип длинной команды
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.DeviceCommand.InnerCommand">
+            <summary>
+            Возвращает внутреннюю команду
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.DeviceCommandExtensions">
+            <summary>
+            Вспомогательные методы для работы с командами устройств
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.DeviceCommandExtensions.GetString(Parking.Data.Devices.Commands.ShortCommands)">
+            <summary>
+            Возвращает строковое представление типа короткой команды устройства
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.DeviceCommandExtensions.GetString(Parking.Data.Devices.Commands.LongCommands)">
+            <summary>
+            Возвращает строковое представление типа длинной команды устройства
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.DeviceCommandExtensions.GetString(Parking.Data.Devices.Commands.GetStopAction)">
+            <summary>
+            Возвращает строковое представление ответа на запрос о проезде
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.DeviceCommandExtensions.GetString(Parking.Data.Devices.Commands.CardEjectionResult)">
+            <summary>
+            Возвращает строковое представление результата выдачи карты
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.DeviceCommandExtensions.GetString(Parking.Data.Devices.Commands.CashMessageType)">
+            <summary>
+            Возвращает строковое представление типа сообщения кассы
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.DeviceCommandExtensions.GetString(Parking.Data.Devices.Commands.CashTransactionType)">
+            <summary>
+            Возвращает строковое представление типа кассовой транзакции
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.DeviceCommandExtensions.IsSubscription(Parking.Data.Devices.Commands.CashTransactionType)">
+            <summary>
+            Возвращает true, если кассовая транзакция является оплатой абонемента, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.DeviceCommandExtensions.GetString(Parking.Data.Devices.Commands.EjectionResult)">
+            <summary>
+            Возвращает строковое представление результата выдачи
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.DeviceCommandExtensions.IsTransaction(Parking.Data.Devices.Commands.CashMessageType)">
+            <summary>
+            Возвращает true, если сообщение кассы является транзакцией, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.DeviceCommandExtensions.IsAllowed(Parking.Data.Devices.Commands.GetStopAction)">
+            <summary>
+            Возвращает true, если ответ на запрос проезда является разрешением, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.DeviceCommandExtensions.ConvertCustomerType(System.Int32)">
+            <summary>
+            Преобразует число к типу клиента (только для версии данных 3.0!)
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.DeviceCommandExtensions.PackMoneyBoxesState(Parking.Data.Devices.Commands.CashExtendedStatus35Command)">
+            <summary>
+            Упаковывает состояние денежных емкостей в массив
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.DeviceCommandExtensions.UnpackMoneyBoxesState(System.Int32[])">
+            <summary>
+            Распаковывает состояние денежных емкостей из массива
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.StandParameterIndex">
+            <summary>
+            Индексы параметров стойки
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.StatusCommand">
+            <summary>
+            Абстрактный базовый класс команды состояния устройства
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.StandStatusCommand">
+            <summary>
+            Состояние стойки
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.StandStatusCommand.Create(Parking.Data.Devices.Device)">
+            <summary>
+            Создаёт команду состояния стойки с учётом версии устройства
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.StandStatusCommand.Mode">
+            <summary>
+            Возвращает режим работы стойки
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.StandStatusCommand.Params">
+            <summary>
+            Возвращает параметры стойки
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.Stand30StatusCommand">
+            <summary>
+            Состояние стойки (для версии оборудования 3.0)
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.Stand35StatusCommand">
+            <summary>
+            Состояние стойки (для версии оборудования 3.5)
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.StandCashStatusCommand">
+            <summary>
+            Состояние кассы на выезде
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.StandCashStatusCommand.CashBoxMode">
+            <summary>
+            Режим работы кассы
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.StandCashStatusCommand.CashBoxState">
+            <summary>
+            Состояние кассы
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.StandCashStatusCommand.DriveDoor">
+            <summary>
+            Дверь накопителей
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.StandCashStatusCommand.ExternalDoor">
+            <summary>
+            Внешняя дверь
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.CashBoxStatusCommand">
+            <summary>
+            Состояние кассы
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.CashBoxStatusCommand.Mode">
+            <summary>
+            Режим работы кассы
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.CashBoxStatusCommand.State">
+            <summary>
+            Состояние кассы
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.CashBoxStatusCommand.Has220V">
+            <summary>
+            Наличие 220В
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.CashBoxStatusCommand.BatteryDischarge">
+            <summary>
+            Разряд аккумулятора
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.CashBoxStatusCommand.Overvoltage">
+            <summary>
+            Переняпряжения сети
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.CashBoxStatusCommand.DriveDoor">
+            <summary>
+            Дверь накопителей
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.CashBoxStatusCommand.ExternalDoor">
+            <summary>
+            Внешняя дверь
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.CashBoxStatusCommand.BankTransactions">
+            <summary>
+            Банковские транзакции
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.CashBoxStatusCommand.TransactionCount">
+            <summary>
+            Счётчик транзакций
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.CashBoxStatusCommand.Temperature">
+            <summary>
+            Температура
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.BoardStatusCommand">
+            <summary>
+            Состояние табло
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.BoardStatusCommand.FreePlaceCount">
+            <summary>
+            Количество свободных мест
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.BoardStatusCommand.Mode">
+            <summary>
+            Режим работы табло
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.BoardStatusCommand.EntryThreshold">
+            <summary>
+            Порог доступа
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.BoardStatusCommand.DelayOn">
+            <summary>
+            Задержка на включение
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.BoardStatusCommand.DelayOff">
+            <summary>
+            Задержка на выключение
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.BoardStatusCommand.Percent">
+            <summary>
+            Процент срабатывания
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.BoardStatusCommand.Brightness">
+            <summary>
+            Яркость
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.ZoneControllerStatusCommand">
+            <summary>
+            Состояние контроллера машиномест
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.ManualCashBoxStatusCommand">
+            <summary>
+            Состояние ручной кассы
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.ManualCashBoxStatusCommand.Mode">
+            <summary>
+            Режим работы кассы
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.GetStopCommand">
+            <summary>
+            Запрос по стоп-листу
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.GetStopCommand.Create(Parking.Data.Devices.Device)">
+            <summary>
+            Создаёт команду запроса по стоп-листу с учётом версии устройства
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.GetStopCommand.CardID">
+            <summary>
+            Возвращает/устанавливает ID карты
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.GetStopCommand.CustomerType">
+            <summary>
+            Возвращает тип клиента
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.GetStopCommand.CardType">
+            <summary>
+            Возвращает тип карты
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.GetStopCommand.EntryCount">
+            <summary>
+            Возвращает значение счётчика въездов
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.GetStopCommand.HasOnlineEntry">
+            <summary>
+            Возвращает признак онлайнового въезда (имеет смысл только для выезда)
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.GetStopCommand.Reverse">
+            <summary>
+            Возвращает true, если проезд происходит в обратном направлении и false, если в прямом
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.GetStop30Command">
+            <summary>
+            Запрос по стоп-листу (для версии оборудования 3.0)
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.GetStop35Command">
+            <summary>
+            Запрос по стоп-листу (для версии оборудования 3.5)
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.GetStopFreePlacesCommand">
+            <summary>
+            Запрос количества свободных мест (для версии оборудования 3.0)
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.EjectCardReplyCommand">
+            <summary>
+            Ответ на команду выдачи карты
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.EjectCardReplyCommand.Result">
+            <summary>
+            Возвращает результат выдачи карты
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.EjectCardReplyCommand.CardID">
+            <summary>
+            Возвращает идентификатор карты
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.EjectCardReplyCommand.TimeEntry">
+            <summary>
+            Возвращает время въезда
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.TransactionCommand">
+            <summary>
+            Транзакция
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.TransactionCommand.Create(Parking.Data.Devices.Device,Parking.Data.Devices.Commands.ShortCommands)">
+            <summary>
+            Создаёт команду транзакции в зависимости от версии устройства
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.Transaction30Command">
+            <summary>
+            Транзакция (для версии оборудования 3.0)
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.Transaction35Command">
+            <summary>
+            Транзакция (для версии оборудования 3.5)
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.CashMessageCommand">
+            <summary>
+            Сообщение кассы
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.CashMessageCommand.MessageEncoding">
+            <summary>
+            Кодировка текста в сообщении
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.CashExtendedStatusCommand">
+            <summary>
+            Расширенное состояние кассы
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.CashExtendedStatusCommand.Create(Parking.Data.Devices.Device)">
+            <summary>
+            Создаёт расширенное состояние кассы в зависимости от версии устройства
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.CashExtendedStatus35Command">
+            <summary>
+            Расширенное состояние кассы (версия 3.5)
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.CashExtendedStatus40Command">
+            <summary>
+            Расширенное состояние кассы (версия 4.0)
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.CashExtendedStatus40Command.Message">
+            <summary>
+            Возвращает сообщение
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.CashTransactionCommand">
+            <summary>
+            Кассовая транзакция
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.CashTransactionCommand.Create(Parking.Data.Devices.Device)">
+            <summary>
+            Создаёт кассовую транзакцию в зависимости от версии устройства
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.CashTransaction35Command">
+            <summary>
+            Кассовая транзакция (версия 3.5)
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.CashTransaction40Command">
+            <summary>
+            Кассовая транзакция (версия 4.0)
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.CashTransaction40Command.Message">
+            <summary>
+            Возвращает сообщение
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.DetectorCommand">
+            <summary>
+            Команда для работы с датчиками
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.DetectorCommand.Slave">
+            <summary>
+            Возвращает признак режима slave-контроллера
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.DetectorStateCommand">
+            <summary>
+            Состояние датчиков машиномест
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.DetectorStateCommand.State">
+            <summary>
+            Возвращает состояние датчиков
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.DetectorZoneCommand">
+            <summary>
+            Номера зон датчиков машиномест
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.DetectorZoneCommand.State">
+            <summary>
+            Возвращает состояние датчиков
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.DetectorZoneCommand.Zones">
+            <summary>
+            Возвращает номера зон датчиков
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.DetectorHeightCommand">
+            <summary>
+            Высота датчиков машиномест
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.DetectorHeightCommand.Height">
+            <summary>
+            Возвращает высоту датчиков
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.DetectorCarPlaceIndexCommand">
+            <summary>
+            Номера машиномест датчиков
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.DetectorCarPlaceIndexCommand.Line">
+            <summary>
+            Возвращает номер линии
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.DetectorCarPlaceIndexCommand.CarPlaceIndex">
+            <summary>
+            Возвращает номера машиномест
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.DetectorDistanceCommand">
+            <summary>
+            Измеренное расстояние датчиков
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.DetectorDistanceCommand.Distance">
+            <summary>
+            Возвращает высоту датчиков
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.TimeReplyCommand">
+            <summary>
+            Ответ на запрос времени
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.TimeReplyCommand.Time">
+            <summary>
+            Возвращает значение времени на устройстве
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.EFTPOSMessageCommand">
+            <summary>
+            Посылка для сервера EFTPOS
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.MetroDiscountRequestCommand">
+            <summary>
+            Запрос на льготу
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.MetroDiscountRequestCommand.TimeEntry">
+            <summary>
+            Возвращает время въезда на парковку
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.MetroDiscountRequestCommand.CardID">
+            <summary>
+            Возвращает номер карты
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.MetroDiscountRequestCommand.TicketID">
+            <summary>
+            Возвращает номер билета метро
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.MetroDiscountRequestCommand.CardIDLength">
+            <summary>
+            Длина номера карты в байтах
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.MetroDiscountRequestCommand.TicketIDLength">
+            <summary>
+            Длина номера билета метро в байтах
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.MetroDiscountCommand">
+            <summary>
+            Использование льготы
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.ZoneControllerRequestType">
+            <summary>
+            Тип запроса к контроллеру машиномест
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.ZoneControllerRequestType.State">
+            <summary>
+            Состояние датчиков
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.ZoneControllerRequestType.Zones">
+            <summary>
+            Зоны датчиков
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.ZoneControllerRequestType.Height">
+            <summary>
+            Высота датчиков
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.ZoneControllerRequestType.CarPlaceIndex">
+            <summary>
+            Номера машиномест
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.ZoneControllerRequestType.Distance">
+            <summary>
+            Расстояние
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Commands.ZoneControllerRequestType.Time">
+            <summary>
+            Время
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.RequestCommand">
+            <summary>
+            Команда запроса на устройство
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.CashBoxRequestCommand">
+            <summary>
+            Команда запроса для кассы
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.ModeControlCommand">
+            <summary>
+            Абстрактный базовый класс команды управления режимом работы устройства
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.ModeControlCommand.Mode">
+            <summary>
+            Возвращает/устанавливает режим работы устройства
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.StandModeControlCommand">
+            <summary>
+            Команда изменения режима работы стойки
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.StandModeControlCommand.Create(Parking.Data.Devices.Device)">
+            <summary>
+            Создаёт команду изменения режима работы стойки с учётом версии устройства
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.StandModeControlCommand.Mode">
+            <summary>
+            Возвращает/устанавливает режим работы стойки
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.Stand30ModeControlCommand">
+            <summary>
+            Команда изменения режима работы стойки (для версии оборудования 3.0)
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.Stand35ModeControlCommand">
+            <summary>
+            Команда изменения режима работы стойки (для версии оборудования 3.5)
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.TimeCommand">
+            <summary>
+            Команда запроса времени от устройства
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.TimeSyncCommand">
+            <summary>
+            Команда синхронизации времени
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.TimeSyncCommand.Time">
+            <summary>
+            Возвращает синхронизированное время
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.EnableLoopACommand">
+            <summary>
+            Команда включения антенны А
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.GetStopReplyCommand">
+            <summary>
+            Ответ на запрос о проезде
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.GetStopReplyCommand.Create(Parking.Data.Devices.Device,System.Int64,Parking.Data.Devices.Commands.GetStopAction)">
+            <summary>
+            Создаёт команду ответа на запрос проезда с учётом версии устройства
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.GetStopReplyCommand.Create(Parking.Data.Devices.Device,System.Int64,Parking.Data.Devices.Commands.GetStopAction,System.Decimal)">
+            <summary>
+            Создаёт команду ответа на запрос проезда с учётом версии устройства. Поддержка мобильного кошелька.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.GetStopReplyCommand.Action">
+            <summary>
+            Возвращает ответ на запрос о проезде
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.GetStopReply30Command">
+            <summary>
+            Ответ на запрос о проезде (для версии оборудования 3.0)
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.GetStopReply35Command">
+            <summary>
+            Ответ на запрос о проезде (для версии оборудования 3.5)
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.GetStopReply35Command.MobileCash">
+            <summary>
+            Возвращает сумму на мобильном кошельке
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.GetStopFreePlacesReplyCommand">
+            <summary>
+            Ответ на запрос количества свободных мест (для версии оборудования 3.0)
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.GetStopFreePlacesReplyCommand.FreePlaceCount">
+            <summary>
+            Возвращает/устанавливает количество свободных мест
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.FreePlacesCommand">
+            <summary>
+            Команда рассылки свободных мест
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.FreePlacesCommand.FreePlaceCount">
+            <summary>
+            Возвращает/устанавливает количество свободных мест
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.EjectCardCommand">
+            <summary>
+            Команда выдачи карты
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.TariffCommand">
+            <summary>
+            Команда рассылки тарифов
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.TariffCommand.Register``1(Parking.Data.TariffVersion)">
+            <summary>
+            Регистрирует тип команды для указанной версии тарифа
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Commands.TariffCommand.Create(Parking.Data.TariffVersion,System.Int64)">
+            <summary>
+            Создаёт команду для тарифа указанной версии
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.TariffCommand.Tariff">
+            <summary>
+            Возвращает/устанавливает тариф
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.CustomerGroupsCommand">
+            <summary>
+            Команда рассылки групп клиентов
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.CustomerGroupsCommand.CustomerGroups">
+            <summary>
+            Возвращает/устанавливает перечислитель групп клиентов
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.BoardControlCommand">
+            <summary>
+            Команда управления табло
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.BoardControlCommand.FreePlaceCount">
+            <summary>
+            Возвращает/устанавливает количество свободных мест
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.BoardControlCommand.EntryThreshold">
+            <summary>
+            Возвращает/устанавливает порог въезда
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.BoardAdjustCommand">
+            <summary>
+            Команда корректировки табло
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.BoardAdjustCommand.Value">
+            <summary>
+            Возвращает/устанавливает значение на табло
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.BoardAdjustCommand.MinFreePlaces">
+            <summary>
+            Возвращает/устанавливает минимальное количество свободных мест
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.BoardPassageNotifyCommand">
+            <summary>
+            Команда уведомления табло о проезде
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.BoardPassageNotifyCommand.Value">
+            <summary>
+            Возвращает/устанавливает количество проехавших автомобилей. На въезде положительное значение, на выезде отрицательное
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.BoardVisualisationManagementCommand">
+            <summary>
+            Команда управления отображением информации на табло
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.BoardVisualisationManagementCommand.ArrowDirection">
+            <summary>
+            Возвращает/устанавливает направление стрелки
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.BoardVisualisationManagementCommand.ArrowColor">
+            <summary>
+            Возвращает/устанавливает цвет стрелки
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.ZoneControllerRequestCommand">
+            <summary>
+            Команда запроса к контроллеру зон
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.ZoneControllerRequestCommand.Type">
+            <summary>
+            Возвращает тип запроса
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.DetectorSetZoneCommand">
+            <summary>
+            Установка номеров зон датчиков машиномест
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.DetectorSetZoneCommand.Zones">
+            <summary>
+            Номера зон датчиков
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.DetectorSetHeightCommand">
+            <summary>
+            Установка высоты датчиков машиномест
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.DetectorSetHeightCommand.Height">
+            <summary>
+            Высота датчиков
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.DetectorSetCarPlaceIndexCommand">
+            <summary>
+            Установка номеров машиномест датчиков
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.DetectorSetCarPlaceIndexCommand.Line">
+            <summary>
+            Возвращает/устанавливает номер линии
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.DetectorSetCarPlaceIndexCommand.CarPlaceIndex">
+            <summary>
+            Номера машиномест
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.EFTPOSAnswerCommand">
+            <summary>
+            Ответ от сервера EFTPOS
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.EFTPOSBreakCommand">
+            <summary>
+            Команда отмены ожидания ответа от сервера EFTPOS
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Commands.MetroDiscountReplyCommand">
+            <summary>
+            Ответ на запрос льготы
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Commands.MetroDiscountReplyCommand.Result">
+            <summary>
+            Возвращает/устанавливает ответ на запрос льготы
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.CrossStand">
+            <summary>
+            Переездная стойка
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Stand">
+            <summary>
+            Стойка
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.VideoDevice">
+            <summary>
+            Устройство, поддерживающее работу с видео
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.VideoDevice.VideoChannels">
+            <summary>
+            Список видеоканалов
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Stand.InitializeNonSerializeable">
+            <summary>
+            Инициализация несериализуемых полей
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Stand.OnDeserialization(System.Object)">
+            <summary>
+            Метод обратного вызова для десериализации
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Stand.ProcessInputCommand(Parking.Data.Devices.Commands.DeviceCommand)">
+            <summary>
+            Обрабатывает входящую команду
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Stand.CreateStatusCommand">
+            <summary>
+            Создаёт команду состояния
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Stand.ZoneBeforeID">
+            <summary>
+            Возвращает/устанавливает ID зоны до проезда
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Stand.ZoneAfterID">
+            <summary>
+            Возвращает/устанавливает ID зоны после проезда
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Stand.CustomerGroups">
+            <summary>
+            Список разрешённых групп клиентов
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Stand.Tariffs">
+            <summary>
+            Список тарифов
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Stand.Mode">
+            <summary>
+            Режим
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Stand.Barrier">
+            <summary>
+            Шлагбаум
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Stand.Power">
+            <summary>
+            Питание
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Stand.TopDoor">
+            <summary>
+            Верхняя дверь
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Stand.BottomDoor">
+            <summary>
+            Нижняя дверь
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Stand.LoopAClosedTooLong">
+            <summary>
+            Антенна А долго замкнута
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Stand.LoopBClosedTooLong">
+            <summary>
+            Антенна В долго замкнута
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Stand.IROpenedTooLong">
+            <summary>
+            ИК долго разомкнут
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Stand.BoomStuck">
+            <summary>
+            Застряла стрела шлагбаума
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Stand.ExternalReader">
+            <summary>
+            Внешний ридер
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Stand.InternalReader">
+            <summary>
+            Внутренний ридер
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Stand.BankingModule">
+            <summary>
+            Банковский модуль
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Stand.CarPosition">
+            <summary>
+            Положение автомобиля
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.CrossStand.PassageToOuterZone">
+            <summary>
+            Возвращает/устанавливает признак проезда во внешнюю зону
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.DeviceType">
+            <summary>
+            Тип устройства
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.DeviceType.EntryStand">
+            <summary>
+            Въездная стойка
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.DeviceType.ExitStand">
+            <summary>
+            Выездная стойка
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.DeviceType.CrossStand">
+            <summary>
+            Переездная стойка
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.DeviceType.CashBox">
+            <summary>
+            Касса
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.DeviceType.Board">
+            <summary>
+            Табло
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.DeviceType.StandCash">
+            <summary>
+            Касса на выезде
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.DeviceType.ZoneController">
+            <summary>
+            Контроллер машиномест
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.DeviceType.ManualCashBox">
+            <summary>
+            Ручная касса
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.HardwareVersion">
+            <summary>
+            Версия оборудования
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.HardwareVersion.Version20">
+            <summary>
+            Версия 2.0 (KC 4405)
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.HardwareVersion.Version30">
+            <summary>
+            Версия 3.0 (KC 02.4405)
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.HardwareVersion.Version35">
+            <summary>
+            Версия 3.5 (KC 05.4405)
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.DeviceExtensions">
+            <summary>
+            Вспомогательные методы для работы с устройствами
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.DeviceExtensions.IsStand(Parking.Data.Devices.DeviceType)">
+            <summary>
+            Возвращает true, если тип устройства - стойка, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.DeviceExtensions.IsExitStand(Parking.Data.Devices.DeviceType)">
+            <summary>
+            Возвращает true, если тип устройства - выездная стойка, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.DeviceExtensions.IsCashBox(Parking.Data.Devices.DeviceType)">
+            <summary>
+            Возвращает true, если тип устройства - касса, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.DeviceExtensions.GetString(Parking.Data.Devices.DeviceType)">
+            <summary>
+            Возвращает строковое представление типа устройства
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.DeviceExtensions.GetPassageType(Parking.Data.Devices.DeviceType)">
+            <summary>
+            Возвращает типа проезда
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.DeviceExtensions.GetString(Parking.Data.PassageType)">
+            <summary>
+            Возвращает строковое представление типа проезда
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.DeviceExtensions.GetString(Parking.Data.PassageMode)">
+            <summary>
+            Возвращает строковое представление режима проезда
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.DeviceExtensions.GetString(Parking.Data.TransactionType)">
+            <summary>
+            Возвращает строковое представление типа транзакции
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.DeviceExtensions.IsPassage(Parking.Data.TransactionType)">
+            <summary>
+            Возвращает true, если тип транзакции является проездом в нормальном режиме, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.DeviceExtensions.IsPassageAny(Parking.Data.TransactionType)">
+            <summary>
+            Возвращает true, если тип транзакции является любым проездом, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.DeviceExtensions.IsEntry(Parking.Data.TransactionType)">
+            <summary>
+            Возвращает true, если тип транзакции является въездом, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.DeviceExtensions.IsExit(Parking.Data.TransactionType)">
+            <summary>
+            Возвращает true, если тип транзакции является выездом, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.DeviceExtensions.GetPassageType(Parking.Data.TransactionType)">
+            <summary>
+            Возвращает типа проезда
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.DeviceExtensions.GetString(Parking.Data.Devices.HardwareVersion)">
+            <summary>
+            Возвращает строковое представление версии оборудования
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.DeviceExtensions.ThrowVersionNotSupported(Parking.Data.Devices.HardwareVersion)">
+            <summary>
+            Выбрасывает исключение NotSupportedException с сообщением об отсутствии поддержки указанной версии
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.DeviceExtensions.GetString(Parking.Data.Devices.StandMode)">
+            <summary>
+            Возвращает строковое представление режима стойки
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.DeviceExtensions.GetString(Parking.Data.Devices.CashBoxMode)">
+            <summary>
+            Возвращает строковое представление режима кассы
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.DeviceExtensions.GetString(Parking.Data.Devices.BoardMode)">
+            <summary>
+            Возвращает строковое представление режима табло
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.DeviceExtensions.GetString(Parking.Data.Devices.DetectorState)">
+            <summary>
+            Возвращает строковое представление состояния датчика машиномест
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.DeviceExtensions.IsActual(Parking.Data.Devices.DetectorState)">
+            <summary>
+            Возвращет true, если состояние датчика актуально, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.DeviceExtensions.GetPlate(Parking.Data.Transaction)">
+            <summary>
+            Возвращает гос. номер нв въезде или выезде в зависимости от типа транзакции
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.DeviceExtensions.ConvertDeviceType(System.Int32)">
+            <summary>
+            Преобразует число к типу устройства (только для версии данных 3.0!)
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.CardsAvailability">
+            <summary>
+            Наличие карт
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CardsAvailability.NoCardsNoSensor">
+            <summary>
+            Нет (датчик "мало карт" не работает)
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CardsAvailability.NoCards">
+            <summary>
+            Нет
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CardsAvailability.Few">
+            <summary>
+            Мало
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.CardsAvailability.Enough">
+            <summary>
+            Достаточно
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.EntryStand">
+            <summary>
+            Въездная стойка
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.EntryStand.OnCardEjected(Parking.Data.Devices.Commands.CardEjectionResult,System.Int64,System.DateTime)">
+            <summary>
+            Поднимает событие CardEjected
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.EntryStand.InitializeNonSerializeable">
+            <summary>
+            Инициализация несериализуемых полей
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.EntryStand.OnDeserialization(System.Object)">
+            <summary>
+            Метод обратного вызова для десериализации
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.EntryStand.ProcessInputCommand(Parking.Data.Devices.Commands.DeviceCommand)">
+            <summary>
+            Обрабатывает входящую команду
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.EntryStand.CardOutput">
+            <summary>
+            Выдача карты
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.EntryStand.RejectionCartridge">
+            <summary>
+            Отказная кассета
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.EntryStand.CarType">
+            <summary>
+            Тип автомобиля
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.EntryStand.CardsAvailability">
+            <summary>
+            Наличие карт
+            </summary>
+        </member>
+        <member name="E:Parking.Data.Devices.EntryStand.CardEjected">
+            <summary>
+            Карта выдана
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.ExitStand">
+            <summary>
+            Выездная стойка
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.ManualCashBox">
+            <summary>
+            Ручная касса
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.ManualCashBox.InitializeNonSerializeable">
+            <summary>
+            Инициализация несериализуемых полей
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.ManualCashBox.Mode">
+            <summary>
+            Режим работы кассы
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.DetectorState">
+            <summary>
+            Состояние датчика машиномест
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.DetectorState.Unknown">
+            <summary>
+            Неизвестно
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.DetectorState.Off">
+            <summary>
+            Не подключен
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.DetectorState.Free">
+            <summary>
+            Свободно
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.DetectorState.Engaged">
+            <summary>
+            Занято
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.DetectorState.Error">
+            <summary>
+            Неисправен
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Detector">
+            <summary>
+            Датчик машиномест
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Detector.Line">
+            <summary>
+            Линия
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Detector.Address">
+            <summary>
+            Адрес
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Detector.Zone">
+            <summary>
+            Зона
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Detector.Height">
+            <summary>
+            Высота
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Detector.CarPlaceIndex">
+            <summary>
+            Номер машиноместа
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Detector.State">
+            <summary>
+            Состояние
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Detector.Time">
+            <summary>
+            Время
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Detector.Distance">
+            <summary>
+            Измеренное расстояние
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.ZoneController">
+            <summary>
+            Контроллер машиномест
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.ZoneController.SlaveEnabled">
+            <summary>
+            Возвращает/устанавливает режим slave-контроллера
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.ZoneController.Detectors">
+            <summary>
+            Возвращает список датчиков машиномест
+            </summary>
+        </member>
+        <member name="T:Parking.Data.DiscountJournalRecord">
+            <summary>
+            Запись журнала скидок
+            </summary>
+        </member>
+        <member name="P:Parking.Data.DiscountJournalRecord.TransactionID">
+            <summary>
+            Возвращает/устанавливает ID транзакции
+            </summary>
+        </member>
+        <member name="P:Parking.Data.DiscountJournalRecord.Time">
+            <summary>
+            Возвращает/устанавливает время предоставления скидки
+            </summary>
+        </member>
+        <member name="P:Parking.Data.DiscountJournalRecord.DiscountID">
+            <summary>
+            Возвращает/устанавливает ID скидки
+            </summary>
+        </member>
+        <member name="P:Parking.Data.DiscountJournalRecord.ModuleID">
+            <summary>
+            Возвращает/устанавливает ID модуля
+            </summary>
+        </member>
+        <member name="P:Parking.Data.DiscountJournalRecord.Amount">
+            <summary>
+            Возвращает/устанавливает сумму скидки
+            </summary>
+        </member>
+        <member name="P:Parking.Data.DiscountJournalRecord.CardID">
+            <summary>
+            Возвращает/устанавливает ID карты
+            </summary>
+        </member>
+        <member name="P:Parking.Data.DiscountJournalRecord.IsPaid">
+            <summary>
+            Возвращает/устанавливает признак оплаты скидки (если true, скидка оплачена)
+            </summary>
+        </member>
+        <member name="P:Parking.Data.DiscountJournalRecord.MustPay">
+            <summary>
+            Возвращает/устанавливает сумму к оплате
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.PropertyNameFormatter">
+            <summary>
+            Форматирует имена свойств элементов данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.PropertyNameFormatter.FormatPropertyName(System.Type,System.String)">
+            <summary>
+            Возвращает имя свойства элемента данных
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.PropertyValueFormatter">
+            <summary>
+            Форматирует значения свойств элементов данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.PropertyValueFormatter.FormatPropertyValue(System.Type,System.String,System.Object,Parking.Data.IPropertyIDFormatter)">
+            <summary>
+            Возвращает строковое представление значения свойства элемента данных
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.TypeNameFormatter">
+            <summary>
+            Форматирует имена типов элементов данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.TypeNameFormatter.FormatTypeName(System.Type)">
+            <summary>
+            Возвращает имя типа элемента данных
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Parameters.BoardParameterType">
+            <summary>
+            Типы параметров табло
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.BoardParameterType.FreePlaces">
+            <summary>
+            Количество свободных мест
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.BoardParameterType.Threshold">
+            <summary>
+            Порог
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.BoardParameterType.Mode">
+            <summary>
+            Режим
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Parameters.BoardModeParameter">
+            <summary>
+            Режим работы стойки
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Parameters.EnumParameter`1">
+            <summary>
+            Параметр устройства с типом-перечислением
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Parameters.TypedDeviceParameter`1">
+            <summary>
+            Типизированный параметр устройства, содержащий словарь значений
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Parameters.DeviceParameter">
+            <summary>
+            Абстрактный базовый класс параметра устройства
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.DeviceParameter.OnChanged(System.Boolean)">
+            <summary>
+            Поднимает событие Changed
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.DeviceParameter.AddDictionaryEntry(Parking.Data.Devices.Parameters.DeviceParameterDictionaryEntry)">
+            <summary>
+            Добавляет запись в словарь параметра
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.DeviceParameter.ToLogString">
+            <summary>
+            Возвращает строковое представление параметра устройства для записи в лог
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Parameters.DeviceParameter.Type">
+            <summary>
+            Возвращает тип параметра
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Parameters.DeviceParameter.Name">
+            <summary>
+            Возвращает имя параметра
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Parameters.DeviceParameter.Category">
+            <summary>
+            Возвращает категорию параметра
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Parameters.DeviceParameter.Description">
+            <summary>
+            Возвращает описание параметра
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Parameters.DeviceParameter.Content">
+            <summary>
+            Возвращает/устанавливает содержимое параметра
+            </summary>
+        </member>
+        <member name="E:Parking.Data.Devices.Parameters.DeviceParameter.Changed">
+            <summary>
+            Параметр изменился
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.TypedDeviceParameter`1.AddDictionaryEntry(Parking.Data.Devices.Parameters.DeviceParameterDictionaryEntry)">
+            <summary>
+            Добавляет запись в словарь параметров
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.TypedDeviceParameter`1.IsEqual(`0,`0)">
+            <summary>
+            Возвращает true, если значения равны
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.TypedDeviceParameter`1.FromObject(System.Object,`0@)">
+            <summary>
+            Возвращает значение параметра
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.TypedDeviceParameter`1.IsStateChanged(Parking.Data.Devices.Parameters.DeviceParameterCategory,Parking.Data.Devices.Parameters.DeviceParameterCategory)">
+            <summary>
+            Возвращает true, если состояние параметра изменилось, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.TypedDeviceParameter`1.ToString">
+            <summary>
+            Вовращает строковое представление параметра
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.TypedDeviceParameter`1.ToLogString">
+            <summary>
+            Возвращает строковое представление параметра устройства для записи в лог
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Parameters.TypedDeviceParameter`1.Value">
+            <summary>
+            Возвращает/устанавливает значение параметра
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Parameters.TypedDeviceParameter`1.Category">
+            <summary>
+            Возвращает категорию параметра
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Parameters.TypedDeviceParameter`1.Description">
+            <summary>
+            Возвращает описание параметра
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.EnumParameter`1.FromObject(System.Object,`0@)">
+            <summary>
+            Возвращает значение параметра
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Parameters.EnumParameter`1.Content">
+            <summary>
+            Возвращает содержимое параметра
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.BoardModeParameter.IsEqual(Parking.Data.Devices.BoardMode,Parking.Data.Devices.BoardMode)">
+            <summary>
+            Возвращает true, если значения равны
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Parameters.CashBoxParameterType">
+            <summary>
+            Типы параметров кассы
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.CashBoxParameterType.Mode">
+            <summary>
+            Режим
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.CashBoxParameterType.State">
+            <summary>
+            Состояние
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.CashBoxParameterType.Has220V">
+            <summary>
+            Наличие 220В
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.CashBoxParameterType.BatteryDischarge">
+            <summary>
+            Состояние аккумулятора
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.CashBoxParameterType.Overvoltage">
+            <summary>
+            Напряжение в сети
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.CashBoxParameterType.DriveDoor">
+            <summary>
+            Дверь накопителей
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.CashBoxParameterType.ExternalDoor">
+            <summary>
+            Внешняя дверь
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.CashBoxParameterType.BankTransactions">
+            <summary>
+            Банковские транзакции
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.CashBoxParameterType.Temperature">
+            <summary>
+            Температура
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Parameters.CashBoxExtendedParameterType">
+            <summary>
+            Типы расширенных параметров кассы
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.CashBoxExtendedParameterType.InternalDoor">
+            <summary>
+            Внутренняя дверь
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.CashBoxExtendedParameterType.ExternalDoor">
+            <summary>
+            Внешняя дверь
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.CashBoxExtendedParameterType.Has220V">
+            <summary>
+            Наличие 220В
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.CashBoxExtendedParameterType.Power">
+            <summary>
+            Флаг включения питания
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.CashBoxExtendedParameterType.LowPaper">
+            <summary>
+            Мало бумаги
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.CashBoxExtendedParameterType.LowCoinsInFarHopper">
+            <summary>
+            Мало монет в дальнем хоппере
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.CashBoxExtendedParameterType.LowCoinsInNearHopper">
+            <summary>
+            Мало монет в ближнем хоппере
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.CashBoxExtendedParameterType.TemperatureOutOfRange">
+            <summary>
+            Выход температуры из допустимого диапазона
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.CashBoxExtendedParameterType.Alarm1">
+            <summary>
+            Тревога 1
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.CashBoxExtendedParameterType.Alarm2">
+            <summary>
+            Тревога 2
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.CashBoxExtendedParameterType.Halt">
+            <summary>
+            Авария, преведшая к останову
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.CashBoxExtendedParameterType.MoneyBoxes">
+            <summary>
+            Состояние денежных ёмкостей
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Parameters.CashBoxModeParameter">
+            <summary>
+            Режим работы кассы
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.CashBoxModeParameter.IsEqual(Parking.Data.Devices.CashBoxMode,Parking.Data.Devices.CashBoxMode)">
+            <summary>
+            Возвращает true, если значения равны
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Parameters.CashBoxStateParameter">
+            <summary>
+            Состояние кассы
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.CashBoxStateParameter.IsEqual(Parking.Data.Devices.CashBoxState,Parking.Data.Devices.CashBoxState)">
+            <summary>
+            Возвращает true, если значения равны
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Parameters.CashBoxExtendedAlarmParameter">
+            <summary>
+            Расширенная тревога касы
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.CashBoxExtendedAlarmParameter.IsEqual(Parking.Data.Devices.CashBoxExtendedAlarm,Parking.Data.Devices.CashBoxExtendedAlarm)">
+            <summary>
+            Возвращает true, если значения равны
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Parameters.DeviceParameterExtensions">
+            <summary>
+            Вспомогательные методы для работы с параметрами устройств
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.DeviceParameterExtensions.GetString(Parking.Data.Devices.Parameters.DeviceParameterType)">
+            <summary>
+            Возвращает строковое представление типа параметра устройства
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.DeviceParameterExtensions.GetString(Parking.Data.Devices.Parameters.StandParameterType)">
+            <summary>
+            Возвращает строковое представление типа параметра стойки
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.DeviceParameterExtensions.GetString(Parking.Data.Devices.Parameters.CashBoxParameterType)">
+            <summary>
+            Возвращает строковое представление типа параметра кассы
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.DeviceParameterExtensions.GetString(Parking.Data.Devices.Parameters.CashBoxExtendedParameterType)">
+            <summary>
+            Возвращает строковое представление типа расширенного параметра кассы
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.DeviceParameterExtensions.GetString(Parking.Data.Devices.Parameters.BoardParameterType)">
+            <summary>
+            Возвращает строковое представление типа параметра табло
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.DeviceParameterExtensions.GetString(Parking.Data.Devices.Parameters.DeviceParameterState)">
+            <summary>
+            Возвращает строковое представление состояния параметра устройства
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.DeviceParameterExtensions.GetString(Parking.Data.Devices.Parameters.DeviceOnlineStatus)">
+            <summary>
+            Возвращает строковое представление сетевого состояния устройства
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.DeviceParameterExtensions.GetString(Parking.Data.Devices.Parameters.DeviceParameterCategory)">
+            <summary>
+            Возвращает строковое представление сетевого состояния устройства
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.DeviceParameterExtensions.GetContentAsInteger(Parking.Data.Devices.Parameters.DeviceParameter)">
+            <summary>
+            Возвращает сожержимое параметра как целое число, или null, если преобразование невозможно
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.DeviceParameterExtensions.IsAlarmOrWarning(Parking.Data.Devices.Parameters.DeviceParameterCategory)">
+            <summary>
+            Возвращает true, если категория значения параметра устройства является тревогой или предупреждением,
+            иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.DeviceParameterExtensions.IsOnline(Parking.Data.Devices.Parameters.DeviceOnlineStatus)">
+            <summary>
+            Возвращает true, если состояние устройства "в сети", иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.DeviceParameterExtensions.IsCashBoxExtendedParameter(System.Int32)">
+            <summary>
+            Возвращает true, если параметр указанного типа является расширенным параметром кассы, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.DeviceParameterExtensions.GetString(Parking.Data.Devices.CashBoxExtendedAlarm)">
+            <summary>
+            Возвращает строковое представление расширенной тревоги кассы
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.DeviceParameterExtensions.ThrowIfOffline(Parking.Data.Devices.Device)">
+            <summary>
+            Выбрасывает исключение, если устройство не в сети
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.DeviceParameterExtensions.ThrowIfOffline(Parking.Data.Devices.Device,System.Object)">
+            <summary>
+            Выбрасывает исключение, если устройство не в сети
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Parameters.DeviceParameterType">
+            <summary>
+            Типы параметров устройств
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.DeviceParameterType.OnlineStatus">
+            <summary>
+            Сетевое состояние
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Parameters.DeviceParameterState">
+            <summary>
+            Состояние параметра устройства
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.DeviceParameterState.OK">
+            <summary>
+            Норма
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.DeviceParameterState.Alarm">
+            <summary>
+            Тревога
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Parameters.DeviceOnlineStatus">
+            <summary>
+            Сетевое состояние устройства
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.DeviceOnlineStatus.Unknown">
+            <summary>
+            Не определено
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.DeviceOnlineStatus.Offline">
+            <summary>
+            Автономное
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.DeviceOnlineStatus.Online">
+            <summary>
+            В сети
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Parameters.DeviceParameterCategory">
+            <summary>
+            Категории значений параметров устройств
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.DeviceParameterCategory.Unknown">
+            <summary>
+            Не определена
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.DeviceParameterCategory.Information">
+            <summary>
+            Информация
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.DeviceParameterCategory.Warning">
+            <summary>
+            Предупреждение
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.DeviceParameterCategory.Alarm">
+            <summary>
+            Тревога
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Parameters.DeviceParameterInfo">
+            <summary>
+            Описание параметра устройства
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.DeviceParameterInfo.Category">
+            <summary>
+            Возвращает категорию параметра
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.DeviceParameterInfo.Description">
+            <summary>
+            Возвращает описание параметра
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Parameters.DeviceParameterDictionaryEntry">
+            <summary>
+            Запись словаря параметров устройств
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Parameters.DeviceParameterDictionaryEntry.Type">
+            <summary>
+            Возвращает тип параметра
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Parameters.DeviceParameterDictionaryEntry.Value">
+            <summary>
+            Возвращает значение параметра
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Parameters.DeviceParameterDictionaryEntry.Info">
+            <summary>
+            Возвращает описание параметра
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Parameters.IntegerParameter">
+            <summary>
+            Параметр устройства с типом Int32
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.IntegerParameter.IsEqual(System.Int32,System.Int32)">
+            <summary>
+            Возвращает true, если значения равны
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.IntegerParameter.FromObject(System.Object,System.Int32@)">
+            <summary>
+            Возвращает значение параметра
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Parameters.IntegerParameter.Content">
+            <summary>
+            Возвращает содержимое параметра
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Parameters.IntegerRangeParameter">
+            <summary>
+            Параметр устройства с типом Int32, значения которого измеряются диапазонами
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.IntegerRangeParameter.IsEqual(RMLib.IntRange,RMLib.IntRange)">
+            <summary>
+            Возвращает true, если значения равны
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.IntegerRangeParameter.FromObject(System.Object,RMLib.IntRange@)">
+            <summary>
+            Возвращает значение параметра
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Parameters.IntegerRangeParameter.Category">
+            <summary>
+            Возвращает категорию параметра
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Parameters.IntegerRangeParameter.Description">
+            <summary>
+            Возвращает описание параметра
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Parameters.IntegerRangeParameter.Content">
+            <summary>
+            Возвращает содержимое параметра
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Parameters.IntegerArrayParameter">
+            <summary>
+            Параметр устройства, представленный массивом целых чисел
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.IntegerArrayParameter.IsEqual(System.Int32[],System.Int32[])">
+            <summary>
+            Возвращает true, если значения равны
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.IntegerArrayParameter.FromObject(System.Object,System.Int32[]@)">
+            <summary>
+            Возвращает значение параметра
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Parameters.IntegerArrayParameter.Content">
+            <summary>
+            Возвращает содержимое параметра
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Parameters.BooleanParameter">
+            <summary>
+            Параметр устройства с типом bool
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.BooleanParameter.IsEqual(System.Boolean,System.Boolean)">
+            <summary>
+            Возвращает true, если значения равны
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.BooleanParameter.FromObject(System.Object,System.Boolean@)">
+            <summary>
+            Возвращает значение параметра
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Parameters.BooleanParameter.Content">
+            <summary>
+            Возвращает содержимое параметра
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Parameters.StateParameter">
+            <summary>
+            Параметр устройства c типом-состоянием
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.StateParameter.IsEqual(Parking.Data.Devices.Parameters.DeviceParameterState,Parking.Data.Devices.Parameters.DeviceParameterState)">
+            <summary>
+            Возвращает true, если значения равны
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Parameters.OnlineStatusParameter">
+            <summary>
+            Сетевое состояние устройства
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.OnlineStatusParameter.IsEqual(Parking.Data.Devices.Parameters.DeviceOnlineStatus,Parking.Data.Devices.Parameters.DeviceOnlineStatus)">
+            <summary>
+            Возвращает true, если значения равны
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Parameters.StandParameterType">
+            <summary>
+            Типы параметров стойки
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.StandParameterType.Mode">
+            <summary>
+            Режим
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.StandParameterType.CardOutput">
+            <summary>
+            Выдача карты
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.StandParameterType.RejectionCartridge">
+            <summary>
+            Отказная кассета
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.StandParameterType.Barrier">
+            <summary>
+            Шлагбаум
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.StandParameterType.Clock">
+            <summary>
+            Часы
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.StandParameterType.Power">
+            <summary>
+            Питание
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.StandParameterType.TopDoor">
+            <summary>
+            Верхняя дверь
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.StandParameterType.BottomDoor">
+            <summary>
+            Нижняя дверь
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.StandParameterType.Has220V">
+            <summary>
+            Наличие 220В
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.StandParameterType.BatteryDischarge">
+            <summary>
+            Состояние аккумулятора
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.StandParameterType.BoomBroken">
+            <summary>
+            Отбой стрелы
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.StandParameterType.LoopAClosedTooLong">
+            <summary>
+            Антенна А долго замкнута
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.StandParameterType.LoopBClosedTooLong">
+            <summary>
+            Антенна В долго замкнута
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.StandParameterType.IROpenedTooLong">
+            <summary>
+            ИК долго разомкнут
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.StandParameterType.BoomStuck">
+            <summary>
+            Застряла стрела шлагбаума
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.StandParameterType.ExternalReader">
+            <summary>
+            Внешний ридер
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.StandParameterType.InternalReader">
+            <summary>
+            Внутренний ридер
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.StandParameterType.CarType">
+            <summary>
+            Тип автомобиля
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.StandParameterType.CarPosition">
+            <summary>
+            Положение автомобиля
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.StandParameterType.CardsAvailability">
+            <summary>
+            Наличие карт
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.Parameters.StandParameterType.BankingModule">
+            <summary>
+            Банковский модуль
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Parameters.StandModeParameter">
+            <summary>
+            Режим работы стойки
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.StandModeParameter.IsEqual(Parking.Data.Devices.StandMode,Parking.Data.Devices.StandMode)">
+            <summary>
+            Возвращает true, если значения равны
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Parameters.StandCarTypeParameter">
+            <summary>
+            Тип автомобиля
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.StandCarTypeParameter.IsEqual(Parking.Data.CarType,Parking.Data.CarType)">
+            <summary>
+            Возвращает true, если значения равны
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Parameters.StandCardsAvailabilityParameter">
+            <summary>
+            Наличие карт в стойке
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.Parameters.StandCardsAvailabilityParameter.IsEqual(Parking.Data.Devices.CardsAvailability,Parking.Data.Devices.CardsAvailability)">
+            <summary>
+            Возвращает true, если значения равны
+            </summary>
+        </member>
+        <member name="T:Parking.Data.PassageType">
+            <summary>
+            Тип проезда
+            </summary>
+        </member>
+        <member name="F:Parking.Data.PassageType.Entry">
+            <summary>
+            Въезд
+            </summary>
+        </member>
+        <member name="F:Parking.Data.PassageType.Exit">
+            <summary>
+            Выезд
+            </summary>
+        </member>
+        <member name="F:Parking.Data.PassageType.Cross">
+            <summary>
+            Переезд
+            </summary>
+        </member>
+        <member name="T:Parking.Data.PassageMode">
+            <summary>
+            Режим проезда
+            </summary>
+        </member>
+        <member name="F:Parking.Data.PassageMode.GetStop">
+            <summary>
+            По запросу от стойки
+            </summary>
+        </member>
+        <member name="F:Parking.Data.PassageMode.Plate">
+            <summary>
+            По гос. номеру
+            </summary>
+        </member>
+        <member name="T:Parking.Data.PassageRequest">
+            <summary>
+            Запрос на проезд
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PassageRequest.ToLogString">
+            <summary>
+            Возвращает строковое представление запроса на проезд для записи в лог
+            </summary>
+        </member>
+        <member name="P:Parking.Data.PassageRequest.Type">
+            <summary>
+            Возвращает тип проезда
+            </summary>
+        </member>
+        <member name="P:Parking.Data.PassageRequest.Mode">
+            <summary>
+            Возвращает режим проезда
+            </summary>
+        </member>
+        <member name="P:Parking.Data.PassageRequest.DeviceID">
+            <summary>
+            Возвращает ID устройства
+            </summary>
+        </member>
+        <member name="P:Parking.Data.PassageRequest.CardID">
+            <summary>
+            Возвращает ID карты
+            </summary>
+        </member>
+        <member name="P:Parking.Data.PassageRequest.CustomerType">
+            <summary>
+            Возвращает тип клиента
+            </summary>
+        </member>
+        <member name="P:Parking.Data.PassageRequest.HasOnlineEntry">
+            <summary>
+            Возвращает признак онлайнового въезда (имеет смысл только для выезда)
+            </summary>
+        </member>
+        <member name="P:Parking.Data.PassageRequest.Reverse">
+            <summary>
+            Возвращает true, если проезд происходит в обратном направлении и false, если в прямом
+            </summary>
+        </member>
+        <member name="P:Parking.Data.PassageRequest.Time">
+            <summary>
+            Возвращает время проезда
+            </summary>
+        </member>
+        <member name="P:Parking.Data.PassageRequest.PhotoEntry">
+            <summary>
+            Возвращает/устанавливает список фотографий с въезда
+            </summary>
+        </member>
+        <member name="P:Parking.Data.PassageRequest.PhotoExit">
+            <summary>
+            Возвращает/устанавливает список фотографий с выезда
+            </summary>
+        </member>
+        <member name="P:Parking.Data.PassageRequest.PlateEntry">
+            <summary>
+            Возвращает/устанавливает распознанный гос. номер на въезде
+            </summary>
+        </member>
+        <member name="P:Parking.Data.PassageRequest.PlateExit">
+            <summary>
+            Возвращает/устанавливает распознанный гос. номер на выезде
+            </summary>
+        </member>
+        <member name="P:Parking.Data.PassageRequest.Response">
+            <summary>
+            Возвращает/устанавливает текущий ответ на запрос
+            </summary>
+        </member>
+        <member name="P:Parking.Data.PassageRequest.MustRespond">
+            <summary>
+            Возвращает/устанавливает признак ожидания ответа
+            </summary>
+        </member>
+        <member name="T:Parking.Data.PassageResponse">
+            <summary>
+            Ответ на запрос проезда
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PassageResponse.ToLogString">
+            <summary>
+            Возвращает строковое представление ответа на запрос проезда для записи в лог
+            </summary>
+        </member>
+        <member name="P:Parking.Data.PassageResponse.Type">
+            <summary>
+            Возвращает тип проезда
+            </summary>
+        </member>
+        <member name="P:Parking.Data.PassageResponse.DeviceID">
+            <summary>
+            Возвращает ID устройства
+            </summary>
+        </member>
+        <member name="P:Parking.Data.PassageResponse.CardID">
+            <summary>
+            Возвращает ID карты
+            </summary>
+        </member>
+        <member name="P:Parking.Data.PassageResponse.Time">
+            <summary>
+            Возвращает время ответа на запрос
+            </summary>
+        </member>
+        <member name="P:Parking.Data.PassageResponse.Response">
+            <summary>
+            Возвращает/устанавливает ответ на запрос проезда
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.StandMode">
+            <summary>
+            Режимы работы стойки
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.StandMode.Unknown">
+            <summary>
+            Не определен
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.StandMode.Locked">
+            <summary>
+            Заблокировано
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.StandMode.Normal">
+            <summary>
+            Штатный
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.StandMode.FreeGreen">
+            <summary>
+            Свободный проезд с зелёным светофором
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.StandMode.FreeRed">
+            <summary>
+            Свободный проезд с красным светофором
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Devices.StandMode.FreeOnce">
+            <summary>
+            Свободный проезд одного автомобиля
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.StandCash">
+            <summary>
+            Касса на выезде
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.StandCash.InitializeNonSerializeable">
+            <summary>
+            Инициализация несериализуемых полей
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.StandCash.OnDeserialization(System.Object)">
+            <summary>
+            Метод обратного вызова для десериализации
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.StandCash.ProcessInputCommand(Parking.Data.Devices.Commands.DeviceCommand)">
+            <summary>
+            Обрабатывает входящую команду
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.StandCash.CreateStatusCommand">
+            <summary>
+            Создаёт команду состояния
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.StandCash.CashBoxMode">
+            <summary>
+            Режим работы кассы
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.StandCash.CashBoxState">
+            <summary>
+            Состояние кассы
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.StandCash.DriveDoor">
+            <summary>
+            Дверь накопителей
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.StandCash.ExternalDoor">
+            <summary>
+            Внешняя дверь
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.Properties.Resources">
+            <summary>
+              Класс ресурса со строгой типизацией для поиска локализованных строк и т.д.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Properties.Resources.ResourceManager">
+            <summary>
+              Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Devices.Properties.Resources.Culture">
+            <summary>
+              Перезаписывает свойство CurrentUICulture текущего потока для всех
+              обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Devices.PropertyExtensions">
+            <summary>
+            Методы для доступа к свойствам устройств по имени
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.PropertyExtensions.GetProperty(Parking.Data.Devices.Device,System.String)">
+            <summary>
+            Возвращает значение свойства устройства
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Devices.PropertyExtensions.SetProperty(Parking.Data.Devices.Device,System.String,System.Object)">
+            <summary>
+            Устанавливает значение свойства устройства
+            </summary>
+        </member>
+        <member name="T:Parking.Data.TransactionType">
+            <summary>
+            Тип транзакции
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.None">
+            <summary>
+            Пустое событие
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.Entry">
+            <summary>
+            Въезд
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.Exit">
+            <summary>
+            Выезд
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.CardReadError">
+            <summary>
+            Ошибка чтения карты
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.CardWriteError">
+            <summary>
+            Ошибка записи карты
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.PassageCardExpired">
+            <summary>
+            Попытка проезда по карте с истёкшим сроком действия
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.CardSteal">
+            <summary>
+            Кража карты
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.PassageCardBlocked">
+            <summary>
+            Попытка проезда по заблокированной карте
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.PassageNoFreePlaces">
+            <summary>
+            Попытка проезда на переполненную стоянку
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.PassageRepeat">
+            <summary>
+            Попытка повторного проезда
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.PassageCardUnpaid">
+            <summary>
+            Попытка проезда по неоплаченной карте
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.PassageCardGroupMismatch">
+            <summary>
+            Попытка проезда по карте с несовпадением группы клиентов
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.PassageCardZoneMismatch">
+            <summary>
+            Попытка проезда по карте с несовпадением территориальной зоны
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.PassageRejection">
+            <summary>
+            Отказ от проезда
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.PassageTrain">
+            <summary>
+            Проезд без карты ("паровоз")
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.PassageModeFree">
+            <summary>
+            Проезд в режиме "Свободный проезд"
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.PassageModeBlocked">
+            <summary>
+            Проезд в режиме "Блокировка" (отбой стрелы)
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.PassageModeNormal">
+            <summary>
+            Проезд в режиме "Штатный" (отбой стрелы)
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.PassageToNextZone">
+            <summary>
+            Проезд в следующую зону
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.PassageDeniedPlateMismatch">
+            <summary>
+            Проезд запрещён. Не совпадают гос. номера въезда и выезда
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.PassageDeniedByOperator">
+            <summary>
+            Проезд запрещён оператором
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.PassageDeniedPlateInStopList">
+            <summary>
+            Проезд запрещён. Гос. номер в чёрном списке
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.PassageDeniedCardNotRegistered">
+            <summary>
+            Проезд запрещён. Карта не зарегистрирована
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.PassageDeniedCustomerTypeMismatch">
+            <summary>
+            Проезд запрещён. Не совпадает тип клиента
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.CardLifetimeProlongation">
+            <summary>
+            Продление срока действия карты
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.PassageDeniedDeviceOffline">
+            <summary>
+            Проезд запрещён. Стойка не в сети
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.PassageRepeatError">
+            <summary>
+            Ошибка. Повторный запрос на проезд
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.EntryByPlate">
+            <summary>
+            Въезд по гос. номеру
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.ExitByPlate">
+            <summary>
+            Выезд по гос. номеру
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.PassageCancel">
+            <summary>
+            Пользователь нажал кнопку Отмена
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.PassageBlocked">
+            <summary>
+            Проезд заблокирован
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.PassageFree">
+            <summary>
+            Перевод в режим свободного проезда
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.PassageDeniedCustomerGroupLimit">
+            <summary>
+            Проезд запрещён. Достигнут предел допуска для группы клиентов
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.PassageDeniedCompanyLimit">
+            <summary>
+            Проезд запрещён. Достигнут предел допуска для организации
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.PassageDeniedCustomerLimit">
+            <summary>
+            Проезд запрещён. Достигнут предел допуска для клиента
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.PassageNormal">
+            <summary>
+            Перевод в штатный режим
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TransactionType.GetStopTimeout">
+            <summary>
+            Истекло время ожидания ответа на запрос проезда
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Transaction">
+            <summary>
+            Транзакция
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Transaction.ToString">
+            <summary>
+            Возвращает строковое представление транзакции
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Transaction.Type">
+            <summary>
+            Возвращает/устанавливает тип транзакции
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Transaction.DeviceID">
+            <summary>
+            Возвращает/устанавливает ID устройства
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Transaction.CardID">
+            <summary>
+            Возвращает/устанавливает ID карты
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Transaction.Time">
+            <summary>
+            Возвращает/устанавливает время транзакции
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Transaction.TimeEntry">
+            <summary>
+            Возвращает/устанавливает время въезда
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Transaction.TimeExit">
+            <summary>
+            Возвращает/устанавливает время выезда
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Transaction.TimePayment">
+            <summary>
+            Возвращает/устанавливает время оплаты
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Transaction.Payment">
+            <summary>
+            Возвращает/устанавливает сумму оплаты
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Transaction.Debt">
+            <summary>
+            Возвращает/устанавливает сумму долга
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Transaction.ECash">
+            <summary>
+            Возвращает/устанавливает сумму на электронном кошельке
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Transaction.CashBoxID">
+            <summary>
+            Возвращает/устанавливает ID кассы
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Transaction.PhotoEntry">
+            <summary>
+            Возвращает/устанавливает список фотографий с въезда
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Transaction.PhotoExit">
+            <summary>
+            Возвращает/устанавливает список фотографий с выезда
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Transaction.PlateEntry">
+            <summary>
+            Возвращает/устанавливает гос. номер на въезде
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Transaction.PlateExit">
+            <summary>
+            Возвращает/устанавливает гос. номер на выезде
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Transaction.ZoneBeforeID">
+            <summary>
+            Возвращает/устанавливает ID зоны до проезда
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Transaction.ZoneAfterID">
+            <summary>
+            Возвращает/устанавливает ID зоны после проезда
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Transaction.CustomerType">
+            <summary>
+            Возвращает/устанавливает тип клиента
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Transaction.CustomerGroupID">
+            <summary>
+            Возвращает/устанавливает ID группы клиентов
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Transaction.TariffID">
+            <summary>
+            Возвращает/устанавливает ID тарифа
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Transaction.DiscountCount">
+            <summary>
+            Возвращает/устанавливает количествл скидок
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Transaction.Discounts">
+            <summary>
+            Возвращает список скидок
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Transaction.PaymentMethod">
+            <summary>
+            Возвращает способ оплаты
+            </summary>
+        </member>
+    </members>
+</doc>

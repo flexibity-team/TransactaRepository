@@ -1,0 +1,9 @@
+D:\Pol\Projects\CashDesk\TestStart200K\TestStart200K\bin\Release\TestStart200K.exe.config
+D:\Pol\Projects\CashDesk\TestStart200K\TestStart200K\bin\Release\TestStart200K.exe
+D:\Pol\Projects\CashDesk\TestStart200K\TestStart200K\bin\Release\TestStart200K.pdb
+D:\Pol\Projects\CashDesk\TestStart200K\TestStart200K\obj\Release\TestStart200K.Form1.resources
+D:\Pol\Projects\CashDesk\TestStart200K\TestStart200K\obj\Release\TestStart200K.Properties.Resources.resources
+D:\Pol\Projects\CashDesk\TestStart200K\TestStart200K\obj\Release\TestStart200K.csproj.GenerateResource.Cache
+D:\Pol\Projects\CashDesk\TestStart200K\TestStart200K\obj\Release\TestStart200K.exe
+D:\Pol\Projects\CashDesk\TestStart200K\TestStart200K\obj\Release\TestStart200K.pdb
+D:\Pol\Projects\CashDesk\TestStart200K\TestStart200K\obj\Release\TestStart200K.csprojResolveAssemblyReference.cache

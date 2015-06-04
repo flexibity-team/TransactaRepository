@@ -1,0 +1,1102 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parking.Data</name>
+    </assembly>
+    <members>
+        <member name="T:Parking.Data.CardExtensions">
+            <summary>
+            Методы для работы с картой и клиентом
+            </summary>
+        </member>
+        <member name="M:Parking.Data.CardExtensions.SetTariff(Parking.Data.Card,Parking.Data.Tariff)">
+            <summary>
+            Устанавливает тариф на карту. Если тариф штрафной, время въезда будет устанавлено равное текущему
+            </summary>
+        </member>
+        <member name="M:Parking.Data.CardExtensions.MakePermanent(Parking.Data.Card,Parking.Data.Customer,System.Boolean@)">
+            <summary>
+            Преобразует разовую карту в карту постоянного клиента
+            </summary>
+        </member>
+        <member name="M:Parking.Data.CardExtensions.MakeOnceOnly(Parking.Data.Card,System.Boolean@)">
+            <summary>
+            Преобразует карту постоянного клиента в разовую карту
+            </summary>
+        </member>
+        <member name="M:Parking.Data.CardExtensions.ChangeCustomer(Parking.Data.Card,Parking.Data.Customer,System.Boolean@)">
+            <summary>
+            Изменяет клиента для карты постоянного клиента
+            </summary>
+        </member>
+        <member name="M:Parking.Data.CardExtensions.IsLightweight(Parking.Data.CardType)">
+            <summary>
+            Возвращает true, если карта указанного типа содержит только идентификатор, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.CardExtensions.GetString(Parking.Data.CardType)">
+            <summary>
+            Возвращает строковое представление типа карты
+            </summary>
+        </member>
+        <member name="M:Parking.Data.CardExtensions.GetString(Parking.Data.CardState)">
+            <summary>
+            Возвращает строковое представление состояния карты
+            </summary>
+        </member>
+        <member name="M:Parking.Data.CardWarnings.GetLifeTimeWarning(Parking.Data.Card,System.TimeSpan)">
+            <summary>
+            Проверяет срок действия карты
+            </summary>
+        </member>
+        <member name="M:Parking.Data.CardWarnings.GetLifeTimeWarning(Parking.Data.Card,System.TimeSpan,System.DateTime)">
+            <summary>
+            Проверяет срок действия карты
+            </summary>
+        </member>
+        <member name="M:Parking.Data.CardWarnings.IsLifeTime(Parking.Data.CardWarningType)">
+            <summary>
+            Возвращает true, если предупреждение относится к сроку действия
+            </summary>
+        </member>
+        <member name="M:Parking.Data.CardWarnings.GetString(Parking.Data.CardWarningType)">
+            <summary>
+            Возвращает строковое представление типа предупреждения по карте
+            </summary>
+        </member>
+        <member name="T:Parking.Data.PropertyNameFormatter">
+            <summary>
+            Форматирует имена свойств элементов данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PropertyNameFormatter.FormatPropertyName(System.Type,System.String)">
+            <summary>
+            Возвращает имя свойства элемента данных
+            </summary>
+        </member>
+        <member name="T:Parking.Data.PropertyValueFormatter">
+            <summary>
+            Форматирует значения свойств элементов данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PropertyValueFormatter.FormatPropertyValue(System.Type,System.String,System.Object,Parking.Data.IPropertyIDFormatter)">
+            <summary>
+            Возвращает строковое представление значения свойства элемента данных
+            </summary>
+        </member>
+        <member name="T:Parking.Data.TypeNameFormatter">
+            <summary>
+            Форматирует имена типов элементов данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.TypeNameFormatter.FormatTypeName(System.Type)">
+            <summary>
+            Возвращает имя типа элемента данных
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Properties.Resources">
+            <summary>
+              Класс ресурса со строгой типизацией для поиска локализованных строк и т.д.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Properties.Resources.ResourceManager">
+            <summary>
+              Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Properties.Resources.Culture">
+            <summary>
+              Перезаписывает свойство CurrentUICulture текущего потока для всех
+              обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
+            </summary>
+        </member>
+        <member name="T:Parking.Data.PropertyExtensions">
+            <summary>
+            Методы для доступа к свойствам элементов данных по имени
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PropertyExtensions.GetProperty(Parking.Data.Zone,System.String)">
+            <summary>
+            Возвращает значение свойства зоны
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PropertyExtensions.SetProperty(Parking.Data.Zone,System.String,System.Object)">
+            <summary>
+            Устанавливает значение свойства зоны
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PropertyExtensions.GetProperty(Parking.Data.Card,System.String)">
+            <summary>
+            Возвращает значение свойства карты
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PropertyExtensions.SetProperty(Parking.Data.Card,System.String,System.Object)">
+            <summary>
+            Устанавливает значение свойства карты
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PropertyExtensions.ThrowIfPropertyNotSupported(System.String)">
+            <summary>
+            Выбрасывает исключение если операция со свойством не поддерживается
+            </summary>
+        </member>
+        <member name="T:Parking.Data.BlackListEntry">
+            <summary>
+            Элемент чёрного списка
+            </summary>
+        </member>
+        <member name="M:Parking.Data.BlackListEntry.Clone">
+            <summary>
+            Возвращает копию элемента чёрного списка
+            </summary>
+        </member>
+        <member name="M:Parking.Data.BlackListEntry.ToString">
+            <summary>
+            Возвращает строковое представление элемента чёрного списка
+            </summary>
+        </member>
+        <member name="P:Parking.Data.BlackListEntry.Plate">
+            <summary>
+            Возвращает/устанавливает гос. номер
+            </summary>
+        </member>
+        <member name="P:Parking.Data.BlackListEntry.Description">
+            <summary>
+            Возвращает/устанавливает описание
+            </summary>
+        </member>
+        <member name="T:Parking.Data.DiscountModule">
+            <summary>
+            Модуль скидок
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DiscountModule.Clone">
+            <summary>
+            Возвращает копию модуля скидок
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DiscountModule.ToString">
+            <summary>
+            Возвращает строковое представление модуля скидок
+            </summary>
+        </member>
+        <member name="P:Parking.Data.DiscountModule.Name">
+            <summary>
+            Возвращает/устанавливает имя модуля
+            </summary>
+        </member>
+        <member name="P:Parking.Data.DiscountModule.Enabled">
+            <summary>
+            Возвращает/устанавливает разрешение работы модуля
+            </summary>
+        </member>
+        <member name="T:Parking.Data.SmartCardKeySet">
+            <summary>
+            Набор ключей для доступа к карте
+            </summary>
+        </member>
+        <member name="M:Parking.Data.SmartCardKeySet.Clone">
+            <summary>
+            Возвращает копию набора ключей
+            </summary>
+        </member>
+        <member name="P:Parking.Data.SmartCardKeySet.KeyA">
+            <summary>
+            Возвращает/устанавливает ключ типа A
+            </summary>
+        </member>
+        <member name="P:Parking.Data.SmartCardKeySet.KeyB">
+            <summary>
+            Возвращает/устанавливает ключ типа B
+            </summary>
+        </member>
+        <member name="T:Parking.Data.CameraViewType">
+            <summary>
+            Вид камеры
+            </summary>
+        </member>
+        <member name="F:Parking.Data.CameraViewType.Main">
+            <summary>
+            Основной
+            </summary>
+        </member>
+        <member name="F:Parking.Data.CameraViewType.Rear">
+            <summary>
+            Вид сзади
+            </summary>
+        </member>
+        <member name="F:Parking.Data.CameraViewType.Customer">
+            <summary>
+            Клиент
+            </summary>
+        </member>
+        <member name="F:Parking.Data.CameraViewType.External">
+            <summary>
+            Внешний
+            </summary>
+        </member>
+        <member name="T:Parking.Data.VideoChannel">
+            <summary>
+            Информация о видеоканале
+            </summary>
+        </member>
+        <member name="M:Parking.Data.VideoChannel.Clone">
+            <summary>
+            Возвращает копию информации о видеоканале
+            </summary>
+        </member>
+        <member name="M:Parking.Data.VideoChannel.ToString">
+            <summary>
+            Возвращает строковое представление информации о видеоканале
+            </summary>
+        </member>
+        <member name="P:Parking.Data.VideoChannel.View">
+            <summary>
+            Возвращает/устанавливает вид камеры
+            </summary>
+        </member>
+        <member name="P:Parking.Data.VideoChannel.Description">
+            <summary>
+            Возвращает/устанавливает описание видеоканала
+            </summary>
+        </member>
+        <member name="P:Parking.Data.VideoChannel.IsPlateSource">
+            <summary>
+            Возвращает/устанавливает признак поддержки распознавания гос. номера
+            </summary>
+        </member>
+        <member name="T:Parking.Data.CardState">
+            <summary>
+            Состояние карты
+            </summary>
+        </member>
+        <member name="F:Parking.Data.CardState.Undefined">
+            <summary>
+            Не определено
+            </summary>
+        </member>
+        <member name="F:Parking.Data.CardState.Unpaid">
+            <summary>
+            Не оплачена
+            </summary>
+        </member>
+        <member name="F:Parking.Data.CardState.Paid">
+            <summary>
+            Оплачена
+            </summary>
+        </member>
+        <member name="F:Parking.Data.CardState.Discounted">
+            <summary>
+            Скидочная
+            </summary>
+        </member>
+        <member name="F:Parking.Data.CardState.Penalty">
+            <summary>
+            Штрафная
+            </summary>
+        </member>
+        <member name="F:Parking.Data.CardState.Unknown">
+            <summary>
+            Неизвестный
+            </summary>
+        </member>
+        <member name="T:Parking.Data.CardWarningType">
+            <summary>
+            Тип предупреждения по карте
+            </summary>
+        </member>
+        <member name="F:Parking.Data.CardWarningType.None">
+            <summary>
+            Нет (карта действительна)
+            </summary>
+        </member>
+        <member name="F:Parking.Data.CardWarningType.LifetimeWarning">
+            <summary>
+            Срок действия заканчивается
+            </summary>
+        </member>
+        <member name="F:Parking.Data.CardWarningType.LifetimeExpired">
+            <summary>
+            Срок действия истёк
+            </summary>
+        </member>
+        <member name="F:Parking.Data.CardWarningType.CustomerGroupMismatch">
+            <summary>
+            Не совпадает группа клиента
+            </summary>
+        </member>
+        <member name="F:Parking.Data.CardWarningType.CustomerTypeMismatchOnPassage">
+            <summary>
+            Не совпадает тип клиента при проезде
+            </summary>
+        </member>
+        <member name="F:Parking.Data.CardWarningType.CustomerTypeMismatchOnTransaction">
+            <summary>
+            Не совпадает тип клиента по транзакции
+            </summary>
+        </member>
+        <member name="F:Parking.Data.CardWarningType.TariffMismatch">
+            <summary>
+            Не совпадает тариф
+            </summary>
+        </member>
+        <member name="T:Parking.Data.CardType">
+            <summary>
+            Тип карты
+            </summary>
+        </member>
+        <member name="F:Parking.Data.CardType.MiFareStandard">
+            <summary>
+            Карта MiFare Standard
+            </summary>
+        </member>
+        <member name="F:Parking.Data.CardType.RFIDTag">
+            <summary>
+            Радиочастотная идентификационная метка
+            </summary>
+        </member>
+        <member name="F:Parking.Data.CardType.Proximity">
+            <summary>
+            Бесконтактная карта
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Card">
+            <summary>
+            Карта
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Card.Clone">
+            <summary>
+            Возвращает копию карты
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Card.IsCorporate">
+            <summary>
+            Возвращает true, если карта принадлежит юридическому лицу, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Card.IsPermanent">
+            <summary>
+            Возвращает true, если карта принадлежит постоянному клиенту, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Card.IsActive">
+            <summary>
+            Возвращает true, если карта активна, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Card.ToString">
+            <summary>
+            Возвращает строковое представление карты
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Card.Name">
+            <summary>
+            Возвращает имя карты
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Card.Type">
+            <summary>
+            Возвращает/устанавливает тип карты
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Card.CompanyID">
+            <summary>
+            Возвращает/устанавливает ID организации
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Card.CustomerID">
+            <summary>
+            Возвращает/устанавливает ID клиента
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Card.CustomerType">
+            <summary>
+            Возвращает/устанавливает тип клиента
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Card.CustomerGroupID">
+            <summary>
+            Возвращает/устанавливает ID группы клиента
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Card.TariffID">
+            <summary>
+            Возвращает/устанавливает ID тарифа
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Card.TimeActivation">
+            <summary>
+            Возвращает/устанавливает время начала действия карты
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Card.TimeExpiration">
+            <summary>
+            Возвращает/устанавливает срок действия карты
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Card.ZoneID">
+            <summary>
+            Возвращает/устанавливает ID зоны, в которой находится карта
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Card.TimeEntry">
+            <summary>
+            Возвращает/устанавливает время въезда
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Card.TimeExit">
+            <summary>
+            Возвращает/устанавливает время выезда
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Card.PhotoEntry">
+            <summary>
+            Возвращает/устанавливает список фотографий с въезда
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Card.PhotoExit">
+            <summary>
+            Возвращает/устанавливает список фотографий с выезда
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Card.PlateEntry">
+            <summary>
+            Возвращает/устанавливает гос. номер на въезде
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Card.PlateExit">
+            <summary>
+            Возвращает/устанавливает гос. номер на выезде
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Card.Blocked">
+            <summary>
+            Возвращает/устанавливает признак блокировки карты (true, если заблокирована)
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Card.PassageControl">
+            <summary>
+            Возвращает/устанавливает признак контроля проезда (если true, проезд контролируется)
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Card.ECash">
+            <summary>
+            Возвращает/устанавливает сумму на электронном кошельке
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Card.MobileCash">
+            <summary>
+            Возвращает/устанавливает сумму на мобильном кошельке
+            </summary>
+        </member>
+        <member name="T:Parking.Data.CarType">
+            <summary>
+            Тип автомобиля
+            </summary>
+        </member>
+        <member name="F:Parking.Data.CarType.Unknown">
+            <summary>
+            Не определён
+            </summary>
+        </member>
+        <member name="F:Parking.Data.CarType.Car">
+            <summary>
+            Легковой
+            </summary>
+        </member>
+        <member name="F:Parking.Data.CarType.Van">
+            <summary>
+            Фургон
+            </summary>
+        </member>
+        <member name="F:Parking.Data.CarType.Truck">
+            <summary>
+            Грузовой
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Car">
+            <summary>
+            Автомобиль
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Car.Clone">
+            <summary>
+            Возвращает копию автомобиля
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Car.ToString">
+            <summary>
+            Возвращает строковое представление автомобиля
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Car.CardID">
+            <summary>
+            Возвращает/устанавливает ID карты
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Car.Model">
+            <summary>
+            Возвращает/устанавливает марку автомобиля
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Car.Color">
+            <summary>
+            Возвращает/устанавливает цвет автомобиля
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Car.Plate">
+            <summary>
+            Возвращает/устанавливает номер автомобиля
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Car.AllowPassageByPlate">
+            <summary>
+            Возвращает/устанавливает признак разрешения проезда по гос. номеру
+            </summary>
+        </member>
+        <member name="T:Parking.Data.CustomerType">
+            <summary>
+            Тип клиента
+            </summary>
+        </member>
+        <member name="F:Parking.Data.CustomerType.OnceOnly">
+            <summary>
+            Разовый
+            </summary>
+        </member>
+        <member name="F:Parking.Data.CustomerType.Permanent">
+            <summary>
+            Постоянный
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Customer">
+            <summary>
+            Клиент
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Customer.Clone">
+            <summary>
+            Возвращает копию клиента
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Customer.IsCorporate">
+            <summary>
+            Возвращает true, если клиент является юридическим лицом, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Customer.ToString">
+            <summary>
+            Возвращает строковое представление клиента
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Customer.CompanyID">
+            <summary>
+            Возвращает/устанавливает ID организации
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Customer.Name">
+            <summary>
+            Возвращает/устанавливает ФИО клиента
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Customer.Description">
+            <summary>
+            Возвращает/устанавливает описание клиента
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Customer.MaxAllowedCards">
+            <summary>
+            Возвращает/устанавливает максимальное количество карт, одновременно допускаемых на парковку
+            </summary>
+        </member>
+        <member name="T:Parking.Data.CustomerGroup">
+            <summary>
+            Группа клиентов
+            </summary>
+        </member>
+        <member name="M:Parking.Data.CustomerGroup.Clone">
+            <summary>
+            Возвращает копию группы клиента
+            </summary>
+        </member>
+        <member name="M:Parking.Data.CustomerGroup.ToString">
+            <summary>
+            Возвращает строковое представление группы клиентов
+            </summary>
+        </member>
+        <member name="P:Parking.Data.CustomerGroup.Name">
+            <summary>
+            Возвращает/устанавливает название группы клиентов
+            </summary>
+        </member>
+        <member name="P:Parking.Data.CustomerGroup.MaxAllowedClients">
+            <summary>
+            Возвращает/устанавливает максимальное количество клиентов, одновременно допускаемых на парковку
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Company">
+            <summary>
+            Организация
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Company.Clone">
+            <summary>
+            Возвращает копию организации
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Company.GetMaxAllowedCustomers(System.Int64)">
+            <summary>
+            Возвращает максимальное количество клиентов, одновременно допускаемых на парковку с учётом мест для гостей
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Company.GetMaxAllowedGuests(System.Int64)">
+            <summary>
+            Возвращает максимальное количество гостей, одновременно допускаемых на парковку с учётом мест для клиентов
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Company.ToString">
+            <summary>
+            Возвращает строковое представление организации
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Company.Name">
+            <summary>
+            Возвращает/устанавливает название организации
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Company.Phone">
+            <summary>
+            Возвращает/устанавливает номер телефона
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Company.Description">
+            <summary>
+            Возвращает/устанавливает описание организации
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Company.MaxAllowedCustomers">
+            <summary>
+            Возвращает/устанавливает максимальное количество клиентов, одновременно допускаемых на парковку
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Company.MaxAllowedGuests">
+            <summary>
+            Возвращает/устанавливает максимальное количество гостей, одновременно допускаемых на парковку
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Company.AllowGuestsOverCustomers">
+            <summary>
+            Возвращает/устанавливает разрешение гостям пользоваться местами для клиентов
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Company.AllowCustomersOverGuests">
+            <summary>
+            Возвращает/устанавливает разрешение клиентам пользоваться местами для гостей
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Company.TariffID">
+            <summary>
+            Возвращает/устанавливает ID тарифа
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Company.UserName">
+            <summary>
+            Возвращает/устанавливает имя пользователя
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Company.Salt">
+            <summary>
+            Возвращает/устанавливает синхропосылку
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Company.Hash">
+            <summary>
+            Возвращает/устанавливает хэш пароля
+            </summary>
+        </member>
+        <member name="T:Parking.Data.DataExtensions">
+            <summary>
+            Работа с данными
+            </summary>
+        </member>
+        <member name="F:Parking.Data.DataExtensions.Discount100PercentID">
+            <summary>
+            Идентификатор 100% скидки
+            </summary>
+        </member>
+        <member name="F:Parking.Data.DataExtensions.OnceOnlyDateTime">
+            <summary>
+            Дата/время по умолчанию для разовых карт
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataExtensions.GetString(Parking.Data.FreePlaceCountMode)">
+            <summary>
+            Возвращает строковое представление режима подсчета свободных мест
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataExtensions.GetString(Parking.Data.CustomerType)">
+            <summary>
+            Возвращает строковое представление типа клиента
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataExtensions.GetString(Parking.Data.GuestTransactionState)">
+            <summary>
+            Возвращает строковое представление состояния гостевой транзакции
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataExtensions.CanValidateTime(Parking.Data.GuestTransaction)">
+            <summary>
+            Возвращает true, если задано время пребывания, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataExtensions.IsValidTime(Parking.Data.GuestTransaction)">
+            <summary>
+            Возвращает true, если гостевая транзакция действительна по времени пребывания, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataExtensions.GetString(Parking.Data.CameraViewType)">
+            <summary>
+            Возвращает строковое представление вида камеры
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataExtensions.ParseKey(System.String)">
+            <summary>
+            Разбор ключа из строки
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataExtensions.GetIDs``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Возвращает строку, содержащую идентификаторы элементов данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataExtensions.GetIDs``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Возвращает строку, содержащую идентификаторы элементов данных, выбранных функцией selector.
+            Если функция не задана, выбираются все элементы данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataExtensions.Find100PercentDiscount(System.Collections.Generic.IEnumerable{Parking.Data.Discount})">
+            <summary>
+            Возвращает 100% скидку из списка или null, если её нет в списке
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataExtensions.ThrowIfAny``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.String)">
+            <summary>
+            Выбрасывает исключение ApplicationException, если в коллекции найдены элементы данных, 
+            выбранные функцией selector. Сообщение исключения будет содержать идентификаторы выбранных
+            элементов данных. Для этого в параметре format должен присутствовать агрумент форматирования {0}
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataExtensions.ConvertLightweightCardID(System.Int64)">
+            <summary>
+            Преобразует ID карты для облегчённых карт
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Discount">
+            <summary>
+            Скидка
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Discount.Create100Percent">
+            <summary>
+            Создаёт 100% скидку
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Discount.Clone">
+            <summary>
+            Возвращает копию скидки
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Discount.ToString">
+            <summary>
+            Возвращает строковое представление скидки
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Discount.Name">
+            <summary>
+            Возвращает/устанавливает название скидки
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Discount.Amount">
+            <summary>
+            Возвращает/устанавливает сумму скидки
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Discount.Time">
+            <summary>
+            Возвращает/устанавливает время предоставления скидки
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Discount.ModuleID">
+            <summary>
+            Возвращает/устанавливает ID модуля
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Discount.IsPaid">
+            <summary>
+            Возвращает/устанавливает признак оплаты скидки (если true, скидка оплачена)
+            </summary>
+        </member>
+        <member name="T:Parking.Data.GuestTransactionState">
+            <summary>
+            Состояние гостевой транзакции
+            </summary>
+        </member>
+        <member name="F:Parking.Data.GuestTransactionState.Created">
+            <summary>
+            Создана
+            </summary>
+        </member>
+        <member name="F:Parking.Data.GuestTransactionState.Registered">
+            <summary>
+            Зарегистрирована
+            </summary>
+        </member>
+        <member name="F:Parking.Data.GuestTransactionState.Completed">
+            <summary>
+            Завершена
+            </summary>
+        </member>
+        <member name="T:Parking.Data.GuestTransaction">
+            <summary>
+            Гостевая транзакция
+            </summary>
+        </member>
+        <member name="M:Parking.Data.GuestTransaction.Clone">
+            <summary>
+            Возвращает копию гостевой транзакции
+            </summary>
+        </member>
+        <member name="M:Parking.Data.GuestTransaction.Register(System.Int64,System.DateTime)">
+            <summary>
+            Регистрирует транзакцию
+            </summary>
+        </member>
+        <member name="M:Parking.Data.GuestTransaction.Complete(System.DateTime,System.Decimal)">
+            <summary>
+            Завершает транзакцию
+            </summary>
+        </member>
+        <member name="M:Parking.Data.GuestTransaction.ToString">
+            <summary>
+            Возвращает строковое представление гостевой транзакции
+            </summary>
+        </member>
+        <member name="P:Parking.Data.GuestTransaction.OrderTime">
+            <summary>
+            Возвращает/устанавливает дату подачи заявки
+            </summary>
+        </member>
+        <member name="P:Parking.Data.GuestTransaction.ArendatorID">
+            <summary>
+            Возвращает/устанавливает ID арендатора
+            </summary>
+        </member>
+        <member name="P:Parking.Data.GuestTransaction.CarPlate">
+            <summary>
+            Возвращает/устанавливает номер автомобиля
+            </summary>
+        </member>
+        <member name="P:Parking.Data.GuestTransaction.GuestName">
+            <summary>
+            Возвращает/устанавливает имя гостя
+            </summary>
+        </member>
+        <member name="P:Parking.Data.GuestTransaction.CardID">
+            <summary>
+            Возвращает/устанавливает ID карты
+            </summary>
+        </member>
+        <member name="P:Parking.Data.GuestTransaction.TimeValidFrom">
+            <summary>
+            Возвращает/устанавливает время пребывания с
+            </summary>
+        </member>
+        <member name="P:Parking.Data.GuestTransaction.TimeValidTo">
+            <summary>
+            Возвращает/устанавливает время пребывания по
+            </summary>
+        </member>
+        <member name="P:Parking.Data.GuestTransaction.TimeEntry">
+            <summary>
+            Возвращает/устанавливает время въезда
+            </summary>
+        </member>
+        <member name="P:Parking.Data.GuestTransaction.TimeExit">
+            <summary>
+            Возвращает/устанавливает время выезда
+            </summary>
+        </member>
+        <member name="P:Parking.Data.GuestTransaction.Payment">
+            <summary>
+            Возвращает/устанавливает сумму платежа
+            </summary>
+        </member>
+        <member name="P:Parking.Data.GuestTransaction.State">
+            <summary>
+            Возвращает/устанавливает состояние гостевой транзакции
+            </summary>
+        </member>
+        <member name="P:Parking.Data.GuestTransaction.CanRegister">
+            <summary>
+            Возвращает true, если транзакция может быть зарегистрирована, иначе false
+            </summary>
+        </member>
+        <member name="P:Parking.Data.GuestTransaction.CanComplete">
+            <summary>
+            Возвращает true, если транзакция может быть завершена, иначе false
+            </summary>
+        </member>
+        <member name="P:Parking.Data.GuestTransaction.IsCompleted">
+            <summary>
+            Возвращает true, если транзакция завершена, иначе false
+            </summary>
+        </member>
+        <member name="T:Parking.Data.FreePlaceCountMode">
+            <summary>
+            Режим подсчета свободных мест
+            </summary>
+        </member>
+        <member name="F:Parking.Data.FreePlaceCountMode.Manual">
+            <summary>
+            Вручную
+            </summary>
+        </member>
+        <member name="F:Parking.Data.FreePlaceCountMode.Passage">
+            <summary>
+            По проездам
+            </summary>
+        </member>
+        <member name="F:Parking.Data.FreePlaceCountMode.Detector">
+            <summary>
+            По датчикам машиномест
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Zone">
+            <summary>
+            Зона
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Zone.Outer">
+            <summary>
+            Возвращает внешнюю зону
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Zone.Clone">
+            <summary>
+            Возвращает копию зоны
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Zone.CanEnter">
+            <summary>
+            Возвращает true, возможен въезд в зону, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Zone.GetFreePlaces">
+            <summary>
+            Возвращает количество свободных мест
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Zone.ToString">
+            <summary>
+            Возвращает строковое представление зоны
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Zone.Name">
+            <summary>
+            Возвращает/устанавливает имя зоны
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Zone.HasCapacity">
+            <summary>
+            Возвращает/устанавливает признак учёта ёмкости
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Zone.Occupied">
+            <summary>
+            Возвращает/устанавливает количество занятых мест
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Zone.Capacity">
+            <summary>
+            Возвращает/устанавливает ёмкость зоны
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Zone.Reserved">
+            <summary>
+            Возвращает/устанавливает количество зарезервированных мест
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Zone.AllowPassage">
+            <summary>
+            Возвращает/устанавливает разрешение проезда в зону при отсутствии свободных мест
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Zone.CountMode">
+            <summary>
+            Возвращает/устанавливает разрешение проезда в зону при отсутствии свободных мест
+            </summary>
+        </member>
+        <member name="T:Parking.Data.VideoFrame">
+            <summary>
+            Видеокадр
+            </summary>
+        </member>
+        <member name="M:Parking.Data.VideoFrame.ToString">
+            <summary>
+            Возвращает строковое представление видеокадра
+            </summary>
+        </member>
+        <member name="M:Parking.Data.VideoFrame.ToLogString">
+            <summary>
+            Возвращает строковое представление видеокадра для записи в лог
+            </summary>
+        </member>
+        <member name="P:Parking.Data.VideoFrame.Time">
+            <summary>
+            Возвращает/устанавливает время получения кадра
+            </summary>
+        </member>
+        <member name="P:Parking.Data.VideoFrame.Image">
+            <summary>
+            Возвращает/устанавливает изображение
+            </summary>
+        </member>
+        <member name="P:Parking.Data.VideoFrame.Plate">
+            <summary>
+            Возвращает/устанавливает распознанный гос. номер
+            </summary>
+        </member>
+        <member name="P:Parking.Data.VideoFrame.Empty">
+            <summary>
+            Возвращает пустой видеокадр
+            </summary>
+        </member>
+        <member name="T:Parking.Data.VideoSystemFeatures">
+            <summary>
+            Возможности видеосистемы
+            </summary>
+        </member>
+        <member name="F:Parking.Data.VideoSystemFeatures.None">
+            <summary>
+            Отсутствует
+            </summary>
+        </member>
+        <member name="F:Parking.Data.VideoSystemFeatures.Photo">
+            <summary>
+            Фотографирование
+            </summary>
+        </member>
+        <member name="F:Parking.Data.VideoSystemFeatures.PlateRecognition">
+            <summary>
+            Распознавание номеров
+            </summary>
+        </member>
+        <member name="F:Parking.Data.VideoSystemFeatures.Video">
+            <summary>
+            Видеорегистрация
+            </summary>
+        </member>
+    </members>
+</doc>

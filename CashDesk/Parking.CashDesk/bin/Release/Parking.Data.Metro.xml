@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parking.Data.Metro</name>
+    </assembly>
+    <members>
+        <member name="T:Parking.Data.Metro.CalculatorMetro">
+            <summary>
+            Калькулятор для тарифов метро
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Metro.MetroDiscountState">
+            <summary>
+            Состояние скидки метро
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Metro.MetroDiscountState.Entered">
+            <summary>
+            Только въезд
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Metro.MetroDiscountState.Discounted">
+            <summary>
+            Предоставлена
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Metro.MetroDiscountState.Paid">
+            <summary>
+            Оплачена
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Metro.MetroDiscount">
+            <summary>
+            Скидка метро
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Metro.MetroDiscountHelper.GetString(Parking.Data.Metro.MetroDiscountState)">
+            <summary>
+            Возвращает строковое представление состояния скидки
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Metro.TariffMetroCommandType">
+            <summary>
+            Тип команды тарифа метро
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Metro.TariffMetroCommandType.CalculateInterval">
+            <summary>
+            Подсчёт суммы за интервал
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Metro.TariffMetroCommandType.Goto">
+            <summary>
+            Переход
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Metro.TariffMetroCommandType.End">
+            <summary>
+            Завершение
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Metro.TariffMetroCommand">
+            <summary>
+            Абстрактный базовый класс команды тарифа метро
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Metro.TariffMetroCommand.Clone">
+            <summary>
+            Возвращает копию команды
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Metro.TariffMetroCommand.Type">
+            <summary>
+            Возвращает тип команды
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Metro.TariffMetroCommandCalculateInterval">
+            <summary>
+            Подсчёт суммы за интервал [команда тарифа метро]
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Metro.TariffMetroCommandCalculateInterval.StartTime">
+            <summary>
+            Возвращает/устанавливает время начала интервала
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Metro.TariffMetroCommandCalculateInterval.IntervalAmount">
+            <summary>
+            Возвращает/устанавливает сумму за интервал
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Metro.TariffMetroCommandCalculateInterval.Discrete">
+            <summary>
+            Возвращает/устанавливает дискрет
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Metro.TariffMetroCommandCalculateInterval.PerDiscreteAmount">
+            <summary>
+            Возвращает/устанавливает сумму за дискрет
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Metro.TariffMetroCommandCalculateInterval.RountToNext">
+            <summary>
+            Возвращает/устанавливает принак округления времени
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Metro.TariffMetroCommandCalculateInterval.CanCalculateInterval">
+            <summary>
+            Возвращает true, если может быть произведён расчёт за интервал, иначе false
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Metro.TariffMetroCommandCalculateInterval.CanCalculateDiscrete">
+            <summary>
+            Возвращает true, если может быть произведён расчёт за дискрет, иначе false
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Metro.TariffMetroCommandGoto">
+            <summary>
+            Переход [команда тарифа метро]
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Metro.TariffMetroCommandGoto.Destination">
+            <summary>
+            Возвращает/устанавливает ID команды назначения
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Metro.TariffMetroCommandEnd">
+            <summary>
+            Завершение [команда тарифа метро]
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Metro.TariffMetro">
+            <summary>
+            Тариф метро
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Metro.TariffMetro.AddCommand(Parking.Data.Metro.TariffMetroCommand)">
+            <summary>
+            Добавляет команду
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Metro.TariffMetro.RemoveAllCommands">
+            <summary>
+            Удаляет все команды
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Metro.TariffMetro.Commands">
+            <summary>
+            Возвращает список команд
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Metro.TariffMetroHelper.GetString(Parking.Data.Metro.TariffMetroCommandType)">
+            <summary>
+            Возвращает строковое представление типа команды тарифа метро
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Metro.TariffMetroHelper.LoadFromFile(System.String)">
+            <summary>
+            Создаёт тариф метро из указанного файла
+            </summary>
+        </member>
+    </members>
+</doc>

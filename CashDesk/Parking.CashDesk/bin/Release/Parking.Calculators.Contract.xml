@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parking.Calculators.Contract</name>
+    </assembly>
+    <members>
+        <member name="M:Parking.Calculators.CalculatorExtensions.GetString(Parking.Calculators.CalculatorVersion)">
+            <summary>
+            Возвращает строковое представление версии калькулятора
+            </summary>
+        </member>
+        <member name="M:Parking.Calculators.CalculatorExtensions.ThrowNotSupported(Parking.Calculators.CalculatorVersion)">
+            <summary>
+            Выбрасывает исключение, означающее что указанная версия калькулятора не поддерживатся
+            </summary>
+        </member>
+        <member name="T:Parking.Calculators.CalculatorLoader">
+            <summary>
+            Загрузчик калькуляторов
+            </summary>
+        </member>
+        <member name="M:Parking.Calculators.CalculatorLoader.CreateCalculator(System.String,Parking.Calculators.CalculatorVersion)">
+            <summary>
+            Загружает калькулятор указанной версии
+            </summary>
+        </member>
+        <member name="T:Parking.Calculators.CalculatorVersion">
+            <summary>
+            Версия калькулятора
+            </summary>
+        </member>
+        <member name="F:Parking.Calculators.CalculatorVersion.Version30">
+            <summary>
+            Версия 3.0
+            </summary>
+        </member>
+        <member name="F:Parking.Calculators.CalculatorVersion.Version35">
+            <summary>
+            Версия 3.5
+            </summary>
+        </member>
+        <member name="F:Parking.Calculators.CalculatorVersion.Version40">
+            <summary>
+            Версия 4.0
+            </summary>
+        </member>
+        <member name="F:Parking.Calculators.CalculatorVersion.Version50">
+            <summary>
+            Версия 5.0
+            </summary>
+        </member>
+        <member name="T:Parking.Calculators.ICalculator">
+            <summary>
+            Интерфейс калькулятора
+            </summary>
+        </member>
+        <member name="M:Parking.Calculators.ICalculator.IsTariffSupported(Parking.Data.TariffVersion)">
+            <summary>
+            Возвращает true, если указанная версия тарифа поддерживается калькулятором, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Calculators.ICalculator.Calculate(Parking.Data.Tariff,System.DateTime,System.DateTime,System.DateTime@)">
+            <summary>
+            Расчитывает сумму для заданного тарифа и интервала времени
+            </summary>
+        </member>
+        <member name="M:Parking.Calculators.ICalculator.Calculate(Parking.Data.Tariff,System.DateTime,System.DateTime,System.Int32)">
+            <summary>
+            Расчитывает последовательность сумм для заданного тарифа и интервала времени
+            </summary>
+        </member>
+        <member name="P:Parking.Calculators.ICalculator.Version">
+            <summary>
+            Возвращает версию калькулятора
+            </summary>
+        </member>
+    </members>
+</doc>

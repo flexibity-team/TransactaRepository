@@ -1,0 +1,17 @@
+D:\Work\Sources\VC#\ParkTime\Parking35\CashDesk\Parking.FiscalDevice.Contract\bin\Release\Parking.FiscalDevice.Contract.dll
+D:\Work\Sources\VC#\ParkTime\Parking35\CashDesk\Parking.FiscalDevice.Contract\bin\Release\Parking.FiscalDevice.Contract.pdb
+D:\Work\Sources\VC#\ParkTime\Parking35\CashDesk\Parking.FiscalDevice.Contract\obj\Release\Parking.FiscalDevice.Contract.dll
+D:\Work\Sources\VC#\ParkTime\Parking35\CashDesk\Parking.FiscalDevice.Contract\obj\Release\Parking.FiscalDevice.Contract.pdb
+D:\Work\Sources\VC#\ParkTime\Parking35\CashDesk\Parking.FiscalDevice.Contract\bin\Release\Parking.FiscalDevice.Contract.xml
+R:\Work\Sources\VC#\ParkTime\Parking35\CashDesk\Parking.FiscalDevice.Contract\bin\Release\Parking.FiscalDevice.Contract.dll
+R:\Work\Sources\VC#\ParkTime\Parking35\CashDesk\Parking.FiscalDevice.Contract\bin\Release\Parking.FiscalDevice.Contract.pdb
+R:\Work\Sources\VC#\ParkTime\Parking35\CashDesk\Parking.FiscalDevice.Contract\obj\Release\Parking.FiscalDevice.Contract.dll
+R:\Work\Sources\VC#\ParkTime\Parking35\CashDesk\Parking.FiscalDevice.Contract\obj\Release\Parking.FiscalDevice.Contract.pdb
+R:\Work\Sources\VC#\ParkTime\Parking35\CashDesk\Parking.FiscalDevice.Contract\bin\Release\Parking.FiscalDevice.Contract.xml
+R:\Work\Sources\VC#\ParkTime\Parking35\CashDesk\Parking.FiscalDevice.Contract\obj\Release\Parking.FiscalDevice.Contract.csprojResolveAssemblyReference.cache
+C:\!DATA\!Projects\C#\!WorkProjects\TRANSACTA\CashDesk\Parking.FiscalDevice.Contract\bin\Release\Parking.FiscalDevice.Contract.xml
+C:\!DATA\!Projects\C#\!WorkProjects\TRANSACTA\CashDesk\Parking.FiscalDevice.Contract\bin\Release\Parking.FiscalDevice.Contract.dll
+C:\!DATA\!Projects\C#\!WorkProjects\TRANSACTA\CashDesk\Parking.FiscalDevice.Contract\bin\Release\Parking.FiscalDevice.Contract.pdb
+C:\!DATA\!Projects\C#\!WorkProjects\TRANSACTA\CashDesk\Parking.FiscalDevice.Contract\obj\Release\Parking.FiscalDevice.Contract.csprojResolveAssemblyReference.cache
+C:\!DATA\!Projects\C#\!WorkProjects\TRANSACTA\CashDesk\Parking.FiscalDevice.Contract\obj\Release\Parking.FiscalDevice.Contract.dll
+C:\!DATA\!Projects\C#\!WorkProjects\TRANSACTA\CashDesk\Parking.FiscalDevice.Contract\obj\Release\Parking.FiscalDevice.Contract.pdb

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parking.Network.Tcp.Server</name>
+    </assembly>
+    <members>
+        <member name="T:Parking.Network.Tcp.TcpProtocolServer">
+            <summary>
+            Серверная часть протокола обмена данными по TCP/IP
+            </summary>
+        </member>
+    </members>
+</doc>

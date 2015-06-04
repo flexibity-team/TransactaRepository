@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parking.SmartCards.Contract</name>
+    </assembly>
+    <members>
+        <member name="T:Parking.SmartCards.ISmartCard">
+            <summary>
+            Описывает основу работы с картой (раскладку и методы упаковки распаковки)
+            </summary>
+        </member>
+        <member name="M:Parking.SmartCards.ISmartCard.PackData">
+            <summary>
+            Упаковать данные на карте в массив байт
+            </summary>
+            <returns>Массив байт в формате раскладки карты</returns>
+        </member>
+        <member name="M:Parking.SmartCards.ISmartCard.UnpackData(System.Byte[])">
+            <summary>
+            Распаковать данные на карте из массива байт
+            </summary>
+            <param name="Data">массив байт в формате раскладки карты</param>
+        </member>
+        <member name="P:Parking.SmartCards.ISmartCard.Version">
+            <summary>
+            Версия раскладки карты
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.ISmartCard.Tariff">
+            <summary>
+            Тариф
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.ISmartCard.ServicesCount">
+            <summary>
+            Число услуг на карте
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.ISmartCard.Discounts">
+            <summary>
+            Список услуг на карте (9 штук - максимум)
+            </summary>
+        </member>
+        <member name="T:Parking.SmartCards.ISmartCardPx">
+            <summary>
+            Описывает раскладку карты Парктайм.
+            Точно повторяет раскладку Парктайм-3
+            Для карты Парктайм-2 будут избыточные поля
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.ISmartCardPx.TimeExpiration">
+            <summary>
+            Срок действия карты
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.ISmartCardPx.CustomerType">
+            <summary>
+            Тип клиента
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.ISmartCardPx.CustomerGroupID">
+            <summary>
+            Группа клиента
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.ISmartCardPx.CheckCounters">
+            <summary>
+            Контроль зон и счетчиков проездов (вездеход)
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.ISmartCardPx.ECash">
+            <summary>
+            Электронный кошелек
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.ISmartCardPx.TimeEntry">
+            <summary>
+            Время въезда
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.ISmartCardPx.TimeExit">
+            <summary>
+            Время выезда
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.ISmartCardPx.TimePayment">
+            <summary>
+            Время оплаты
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.ISmartCardPx.CounterEntry">
+            <summary>
+            Счетчик въездов
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.ISmartCardPx.CounterExit">
+            <summary>
+            Счетчик выездов
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.ISmartCardPx.ZonePreviousID">
+            <summary>
+            Зона, из которой приехала карта
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.ISmartCardPx.ZoneCurrentID">
+            <summary>
+            Текущая зона нахождения карты
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.ISmartCardPx.Payment">
+            <summary>
+            Оплаченная сумма
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.ISmartCardPx.Debt">
+            <summary>
+            Задолжность
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.ISmartCardPx.Discount">
+            <summary>
+            Скидка
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.ISmartCardPx.DeviceEntryID">
+            <summary>
+            Номер устройства последнего въезда
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.ISmartCardPx.DeviceExitID">
+            <summary>
+            Номер устройства последнего выезда
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.ISmartCardPx.CashBoxID">
+            <summary>
+            Номер кассы, в которой был совершен последний платеж
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.ISmartCardPx.Blocked">
+            <summary>
+            Флаг блокировки, True - карта заблокирована
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.ISmartCardPx.State">
+            <summary>
+            Состояние карты (Оплачено, Не оплачено, Штрафная, ...)
+            </summary>
+        </member>
+        <member name="T:Parking.SmartCards.ISmartCardMaster">
+            <summary>
+            Мастер-карта в системах П2 и П3
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.ISmartCardMaster.KeysA">
+            <summary>
+            4 Ключа А
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.ISmartCardMaster.KeysB">
+            <summary>
+            4 Ключа В
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.ISmartCardMaster.Groups">
+            <summary>
+            Список из 256 групп. 
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.ISmartCardMaster.NetworkAddress">
+            <summary>
+            Сетевой адрес для Модуля скидок (либо других автономных устройств)
+            </summary>
+        </member>
+        <member name="T:Parking.SmartCards.SmartCardLayoutVersion">
+            <summary>
+            Версия раскладки карты
+            </summary>
+        </member>
+        <member name="F:Parking.SmartCards.SmartCardLayoutVersion.Unknown">
+            <summary>
+            Неизвестно
+            </summary>
+        </member>
+        <member name="F:Parking.SmartCards.SmartCardLayoutVersion.Parking2">
+            <summary>
+            Раскладка карты версии 2
+            </summary>
+        </member>
+        <member name="F:Parking.SmartCards.SmartCardLayoutVersion.Parking3">
+            <summary>
+            Раскладка карты версии 3
+            </summary>
+        </member>
+        <member name="F:Parking.SmartCards.SmartCardLayoutVersion.Parking4">
+            <summary>
+            Раскладка карты версии 4
+            </summary>
+        </member>
+        <member name="F:Parking.SmartCards.SmartCardLayoutVersion.Lightweight">
+            <summary>
+            Карта без данных, только с номером
+            </summary>
+        </member>
+        <member name="F:Parking.SmartCards.SmartCardLayoutVersion.Master">
+            <summary>
+            Мастер-карта
+            </summary>
+        </member>
+        <member name="T:Parking.SmartCards.SmartCardLayoutHelper">
+            <summary>
+            Помощь по раскладке карты
+            </summary>
+        </member>
+        <member name="F:Parking.SmartCards.SmartCardLayoutHelper.FullSectorSize">
+            <summary>
+            Размер сектора на карте (48 пользовательских байт + 16 служебных)
+            </summary>
+        </member>
+        <member name="F:Parking.SmartCards.SmartCardLayoutHelper.UserSectorSize">
+            <summary>
+            Размер пользовательской части сектора на карте
+            </summary>
+        </member>
+        <member name="F:Parking.SmartCards.SmartCardLayoutHelper.BlockSize">
+            <summary>
+            Размер блока на карте
+            </summary>
+        </member>
+        <member name="F:Parking.SmartCards.SmartCardLayoutHelper.BlocksInSector">
+            <summary>
+            Количество секторов в блоке
+            </summary>
+        </member>
+        <member name="F:Parking.SmartCards.SmartCardLayoutHelper.MetroSectorIndex">
+            <summary>
+            Номер сектора для интеграции с метрополитеном
+            </summary>
+        </member>
+        <member name="F:Parking.SmartCards.SmartCardLayoutHelper.MetroKeyIndex">
+            <summary>
+            Номер сектора - источника ключей для сектора метро
+            </summary>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardLayoutHelper.GetSectorsCount(Parking.SmartCards.SmartCardLayoutVersion)">
+            <summary>
+            Возвращает количество используемых секторов на различных раскладках карт
+            </summary>
+        </member>
+    </members>
+</doc>

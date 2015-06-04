@@ -1,0 +1,692 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parking.Data.Contract</name>
+    </assembly>
+    <members>
+        <member name="F:Parking.Data.DataContract.Namespace">
+            <summary>
+            Пространство имён данных
+            </summary>
+        </member>
+        <member name="F:Parking.Data.DataContract.DefaultID">
+            <summary>
+            Идентификатор по умолчанию
+            </summary>
+        </member>
+        <member name="F:Parking.Data.DataContract.DefaultTemperature">
+            <summary>
+            Температура по умолчанию
+            </summary>
+        </member>
+        <member name="F:Parking.Data.DataContract.DefaultEnumValue">
+            <summary>
+            Значение для перечислений по умолчанию
+            </summary>
+        </member>
+        <member name="F:Parking.Data.DataContract.DefaultDateTime">
+            <summary>
+            Дата/время по умолчанию
+            </summary>
+        </member>
+        <member name="F:Parking.Data.DataContract.NormalTemperatureRange">
+            <summary>
+            Диапазон допустимых температур
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataContract.GetString(Parking.Data.DataItemOperation)">
+            <summary>
+            Возвращает строковое представление операции с элементом данных
+            </summary>
+        </member>
+        <member name="T:Parking.Data.TimeSpanFormat">
+            <summary>
+            Формат временного промежутка
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TimeSpanFormat.Short">
+            <summary>
+            Короткий (д ч м с)
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TimeSpanFormat.Normal">
+            <summary>
+            Средний (дн час мин сек)
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TimeSpanFormat.Long">
+            <summary>
+            Длинный (день час минута секунда)
+            </summary>
+        </member>
+        <member name="T:Parking.Data.ITypeNameFormatter">
+            <summary>
+            Описывает методы для форматирования имён типов элементов данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.ITypeNameFormatter.FormatTypeName(System.Type)">
+            <summary>
+            Возвращает имя типа элемента данных
+            </summary>
+        </member>
+        <member name="T:Parking.Data.IPropertyNameFormatter">
+            <summary>
+            Описывает методы для форматирования имён свойств элементов данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.IPropertyNameFormatter.FormatPropertyName(System.Type,System.String)">
+            <summary>
+            Возвращает имя свойства элемента данных
+            </summary>
+        </member>
+        <member name="T:Parking.Data.IPropertyValueFormatter">
+            <summary>
+            Описывает методы для форматирования значений свойств элементов данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.IPropertyValueFormatter.FormatPropertyValue(System.Type,System.String,System.Object,Parking.Data.IPropertyIDFormatter)">
+            <summary>
+            Возвращает строковое представление значения свойства элемента данных
+            </summary>
+        </member>
+        <member name="T:Parking.Data.IPropertyIDFormatter">
+            <summary>
+            Описывает методы для форматирования значений свойств-идентификаторов
+            </summary>
+        </member>
+        <member name="M:Parking.Data.IPropertyIDFormatter.FormatPropertyID(System.Type,System.Int64)">
+            <summary>
+            Возвращает строковое представление элемента данных представленного идентификатором
+            </summary>
+        </member>
+        <member name="T:Parking.Data.DataFormatter">
+            <summary>
+            Методы для форматирования элементов данных
+            </summary>
+        </member>
+        <member name="F:Parking.Data.DataFormatter.TypePropertyName">
+            <summary>
+            Имя свойства "тип"
+            </summary>
+        </member>
+        <member name="F:Parking.Data.DataFormatter.DefaultPropertyName">
+            <summary>
+            Имя свойства по умолчанию
+            </summary>
+        </member>
+        <member name="F:Parking.Data.DataFormatter.NameValueSeparator">
+            <summary>
+            Разделитель пары имя/значение
+            </summary>
+        </member>
+        <member name="F:Parking.Data.DataFormatter.UnknownValueString">
+            <summary>
+            Строка, представляющая неизвестное значение
+            </summary>
+        </member>
+        <member name="F:Parking.Data.DataFormatter.NotUsedValueString">
+            <summary>
+            Строка, представляющая неиспользуемое значение
+            </summary>
+        </member>
+        <member name="F:Parking.Data.DataFormatter.MaxStringLength">
+            <summary>
+            Максимальная длина строки
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.Register(Parking.Data.ITypeNameFormatter)">
+            <summary>
+            Регистрирует форматтер имён типов элементов данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.Register(Parking.Data.IPropertyNameFormatter)">
+            <summary>
+            Регистрирует форматтер имён свойств элементов данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.Register(Parking.Data.IPropertyValueFormatter)">
+            <summary>
+            Регистрирует форматтер значений свойств элементов данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.Register(Parking.Data.IPropertyIDFormatter)">
+            <summary>
+            Регистрирует форматтер значений свойств-идентификаторов
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.FormatTypeName(System.Type)">
+            <summary>
+            Форматирует имя типа элемента данных используя зарегистрированные форматтеры
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.FormatPropertyName(System.Type,System.String)">
+            <summary>
+            Форматирует имя свойства элемента данных используя зарегистрированные форматтеры
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.FormatPropertyValue(System.Type,System.String,System.Object)">
+            <summary>
+            Форматирует значение свойства элемента данных используя зарегистрированные форматтеры
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.ToHex(System.Int64)">
+            <summary>
+            Возвращает строку соответствующее шестнадцатеричному представлению числа
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.FromHex(System.String,System.Int64@)">
+            <summary>
+            Возвращает число, соответствующее шестнадцатеричному представлению в строке
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.GetString(System.Boolean)">
+            <summary>
+            Возвращает строковое представление логического типа
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.GetSafeString(System.String)">
+            <summary>
+            Возвращает строку длиной не более максимальной (MaxStringLength)
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.FormatMoney(System.Decimal)">
+            <summary>
+            Возвращает строковое представление денежной суммы
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.FormatTime(System.TimeSpan,Parking.Data.TimeSpanFormat)">
+            <summary>
+            Возвращает строковое представление TimeSpan в указанном формате
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.FormatTimeRussian(System.TimeSpan,Parking.Data.TimeSpanFormat)">
+            <summary>
+            Возвращает строковое представление TimeSpan в указанном формате для русского языка
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.FormatTimeOther(System.TimeSpan,Parking.Data.TimeSpanFormat)">
+            <summary>
+            Возвращает строковое представление TimeSpan в указанном формате для остальных языков
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.FormatTimeHM(System.TimeSpan)">
+            <summary>
+            Возвращает строковое представление TimeSpan в формате чч:мм
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.FormatTimeDHM(System.TimeSpan)">
+            <summary>
+            Возвращает строковое представление TimeSpan в формате ддд.чч:мм
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.FormatLimitedValue(System.Int32)">
+            <summary>
+            Возвращает строковое представление для ограниченных значений.
+            Если значений равно нулю, возвращает строку, представляющую отсутствующее ограничений
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.FormatDateTime(System.DateTime)">
+            <summary>
+            Возвращает строковое представление даты.
+            Если дата равна DefaultDateTime, возвращает строку, представляющую отсутствие данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.FormatPlate(System.String)">
+            <summary>
+            Возвращает строковое представление гос. номера.
+            Если номер не задан, возвращает строку, представляющую отсутствие данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.FormatObject(System.Object)">
+            <summary>
+            Возвращает строковое представление объекта.
+            Если объект равен null, возвращает строку, представляющую отсутствие данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.FormatList(System.Collections.IEnumerable)">
+            <summary>
+            Возвращает строку, содержащую строковые представления элементов списка.
+            Если список пуст (или равен null), возвращает строку, представляющую отсутствие данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.FormatList(System.Collections.IEnumerable,System.Converter{System.Object,System.String})">
+            <summary>
+            Возвращает строку, содержащую строковые представления элементов списка.
+            Если список пуст (или равен null), возвращает строку, представляющую отсутствие данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.FormatDictionary(System.Collections.IDictionary)">
+            <summary>
+            Возвращает строку, содержащую строковые представления элементов словаря.
+            Если список пуст (или равен null), возвращает строку, представляющую отсутствие данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.FormatDictionary(System.Collections.IDictionary,System.Converter{System.Object,System.String},System.Converter{System.Object,System.String})">
+            <summary>
+            Возвращает строку, содержащую строковые представления элементов словаря.
+            Если список пуст (или равен null), возвращает строку, представляющую отсутствие данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.FormatKey(System.Byte[])">
+            <summary>
+            Возвращает стороковое представление ключа
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.FormatByteArray(System.Byte[])">
+            <summary>
+            Возвращает стороковое представление байтового массива
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.FormatProperties(Parking.Data.DataItem)">
+            <summary>
+            Возвращает свойства элемента данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.FormatProperties(System.Object,System.Type)">
+            <summary>
+            Возвращает свойства объекта
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.ToLogString(Parking.Data.DataItem)">
+            <summary>
+            Возвращает строковое представление элемента данных для записи в лог
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.ToLogString(System.Object,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Возвращает строковое представление объекта для записи в лог
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatter.GetConverter``1(System.Func{``0,System.String})">
+            <summary>
+            Создаёт обёртку для функций GetString
+            </summary>
+        </member>
+        <member name="P:Parking.Data.DataFormatter.StringTypeName">
+            <summary>
+            Имя строкового типа
+            </summary>
+        </member>
+        <member name="P:Parking.Data.DataFormatter.MissingDataString">
+            <summary>
+            Строка, представляющая отсутствие данных
+            </summary>
+        </member>
+        <member name="P:Parking.Data.DataFormatter.EmptyImageString">
+            <summary>
+            Строка, представляющая отсутствующее изображение
+            </summary>
+        </member>
+        <member name="P:Parking.Data.DataFormatter.NotLimitedString">
+            <summary>
+            Строка, представляющая отсутствующее ограничений
+            </summary>
+        </member>
+        <member name="P:Parking.Data.DataFormatter.NotReadyString">
+            <summary>
+            Строка, представляющая отсутствие готовности
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatterInternal.Format(System.Collections.Generic.IDictionary{System.Type,System.String},System.Type)">
+            <summary>
+            Возвращает название типа данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatterInternal.Format(System.Collections.Generic.IDictionary{System.Type,System.Collections.Specialized.StringDictionary},System.Type,System.String)">
+            <summary>
+            Возвращает имя свойства элемента данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatterInternal.Format(System.Collections.Generic.IDictionary{System.Type,System.Func{System.Type,System.Object,System.String,Parking.Data.IPropertyIDFormatter,System.String}},System.Type,System.String,System.Object,Parking.Data.IPropertyIDFormatter)">
+            <summary>
+            Возвращает строковое представление значения свойства элемента данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatterInternal.IsPropertyMatch(System.String,System.String)">
+            <summary>
+            Возвращает true, если имя свойства совпадает с указанным, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataFormatterInternal.IsPropertyID(System.String)">
+            <summary>
+            Возвращает true, если свойство является идентификатором, иначе false
+            </summary>
+        </member>
+        <member name="T:Parking.Data.DataItemOperation">
+            <summary>
+            Операция с элеменетом данных
+            </summary>
+        </member>
+        <member name="F:Parking.Data.DataItemOperation.Add">
+            <summary>
+            Добавление
+            </summary>
+        </member>
+        <member name="F:Parking.Data.DataItemOperation.Remove">
+            <summary>
+            Удаление
+            </summary>
+        </member>
+        <member name="F:Parking.Data.DataItemOperation.Edit">
+            <summary>
+            Изменение
+            </summary>
+        </member>
+        <member name="F:Parking.Data.DataItemOperation.Property">
+            <summary>
+            Изменение свойства
+            </summary>
+        </member>
+        <member name="F:Parking.Data.DataItemOperation.Custom">
+            <summary>
+            Другие операции
+            </summary>
+        </member>
+        <member name="T:Parking.Data.DataItemComparer`1">
+            <summary>
+            Поддержка сравнения элементов данных
+            </summary>
+        </member>
+        <member name="T:Parking.Data.DataItem">
+            <summary>
+            Абстрактный базовый класс элемента данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataItem.GenerateID``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Возвращает следующий свободный идентификатор
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataItem.GenerateID``1(System.Collections.Generic.IEnumerable{``0},System.Int64,System.Boolean)">
+            <summary>
+            Возвращает следующий свободный идентификатор
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataItem.Clone">
+            <summary>
+            Возвращает копию элемента данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataItem.SerializeCustomProperties">
+            <summary>
+            Сериализует значения уникальных свойств устройства в строку
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataItem.SerializeCustomPropertiesCore(System.Xml.Linq.XElement)">
+            <summary>
+            Сериализует значения уникальных свойств устройства в строку
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataItem.DeserializeCustomProperties(System.String)">
+            <summary>
+            Десериализует значения уникальных свойств устройства из строки
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataItem.DeserializeCustomPropertiesCore(System.Xml.Linq.XElement)">
+            <summary>
+            Десериализует значения уникальных свойств устройства из строки
+            </summary>
+        </member>
+        <member name="P:Parking.Data.DataItem.ID">
+            <summary>
+            Возвращает/устанавливает идентификатор элемента данных
+            </summary>
+        </member>
+        <member name="T:Parking.Data.IDatabaseContext">
+            <summary>
+            Интерфейс контекста работы с БД
+            </summary>
+        </member>
+        <member name="M:Parking.Data.IDatabaseContext.Invoke(System.Action{System.Data.SqlClient.SqlConnection})">
+            <summary>
+            Выполняет операцию с БД SQL Server
+            </summary>
+        </member>
+        <member name="M:Parking.Data.IDatabaseContext.Invoke(System.Action{System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction})">
+            <summary>
+            Выполняет транзакцию с БД SQL Server
+            </summary>
+        </member>
+        <member name="P:Parking.Data.IDatabaseContext.ConnectionString">
+            <summary>
+            Возвращает строку соединения
+            </summary>
+        </member>
+        <member name="T:Parking.Data.GenericDatabaseContext">
+            <summary>
+            Базовый контекст работы с БД
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PropertyIDFormatter.FormatPropertyID(System.Type,System.Int64)">
+            <summary>
+            Возвращает строковое представление элемента данных представленного идентификатором
+            </summary>
+        </member>
+        <member name="T:Parking.Data.PropertyNameFormatter">
+            <summary>
+            Форматирует имена свойств элементов данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PropertyNameFormatter.FormatPropertyName(System.Type,System.String)">
+            <summary>
+            Возвращает имя свойства элемента данных
+            </summary>
+        </member>
+        <member name="T:Parking.Data.PropertyValueFormatter">
+            <summary>
+            Форматирует значения свойств элементов данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PropertyValueFormatter.FormatPropertyValue(System.Type,System.String,System.Object,Parking.Data.IPropertyIDFormatter)">
+            <summary>
+            Возвращает строковое представление значения свойства элемента данных
+            </summary>
+        </member>
+        <member name="T:Parking.Data.TypeNameFormatter">
+            <summary>
+            Форматирует имена типов элементов данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.TypeNameFormatter.FormatTypeName(System.Type)">
+            <summary>
+            Возвращает имя типа элемента данных
+            </summary>
+        </member>
+        <member name="T:Parking.Data.IDataItemList">
+            <summary>
+            Определяет общие методы объекта, управляющего списком данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.IDataItemList.Add(Parking.Data.DataItem)">
+            <summary>
+            Добавляет элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.IDataItemList.Remove(System.Int64)">
+            <summary>
+            Удаляет элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.IDataItemList.Set(Parking.Data.DataItem)">
+            <summary>
+            Устанавливает элемент данных
+            </summary>
+        </member>
+        <member name="E:Parking.Data.IDataItemList.Added">
+            <summary>
+            Элемент данных добавлен
+            </summary>
+        </member>
+        <member name="E:Parking.Data.IDataItemList.Removed">
+            <summary>
+            Элемент данных удалён
+            </summary>
+        </member>
+        <member name="E:Parking.Data.IDataItemList.Changed">
+            <summary>
+            Элемент данных изменён
+            </summary>
+        </member>
+        <member name="E:Parking.Data.IDataItemList.CollectionChanged">
+            <summary>
+            Коллекция элементов данных изменилась
+            </summary>
+        </member>
+        <member name="P:Parking.Data.IDataItemList.ItemType">
+            <summary>
+            Возвращает тип элемента данных
+            </summary>
+        </member>
+        <member name="P:Parking.Data.IDataItemList.Count">
+            <summary>
+            Возвращает количество элементов данных
+            </summary>
+        </member>
+        <member name="P:Parking.Data.IDataItemList.Item(System.Int64)">
+            <summary>
+            Возвращает элемент данных по идентификатору
+            </summary>
+        </member>
+        <member name="P:Parking.Data.IDataItemList.Items">
+            <summary>
+            Возвращает перечислитель элементов данных
+            </summary>
+        </member>
+        <member name="T:Parking.Data.LogPropertyAttribute">
+            <summary>
+            Укзывает, что свойство подлежит записи в лог
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Properties.Resources">
+            <summary>
+              Класс ресурса со строгой типизацией для поиска локализованных строк и т.д.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Properties.Resources.ResourceManager">
+            <summary>
+              Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Properties.Resources.Culture">
+            <summary>
+              Перезаписывает свойство CurrentUICulture текущего потока для всех
+              обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Tariff">
+            <summary>
+            Абстрактный базовый класс тарифа
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff._registeredTypes">
+            <summary>
+            Зарегистрированные типы тарифов
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Tariff.Register``1(Parking.Data.TariffVersion)">
+            <summary>
+            Регистрирует тип тарифа соответствующей версии
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Tariff.Create(Parking.Data.TariffVersion)">
+            <summary>
+            Создаёт тариф указанной версии
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Tariff.GetKnownTypes">
+            <summary>
+            Возвращает список известных типов
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Tariff.ToString">
+            <summary>
+            Возвращает строковое представление тарифа
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Tariff.Version">
+            <summary>
+            Возвращает версию тарифа
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Tariff.Name">
+            <summary>
+            Возвращает/устанавливает имя тарифа
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Tariff.Description">
+            <summary>
+            Возвращает/устанавливает описание тарифа
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Tariff.PaymentDiscrete">
+            <summary>
+            Возвращает/устанавливает дискретность оплаты
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Tariff.FreeTimeAtStart">
+            <summary>
+            Возвращает/устанавливает бесплатное время в начале
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Tariff.FreeTimeAfterPayment">
+            <summary>
+            Возвращает/устанавливает бесплатное время после оплаты
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Tariff.IsNoPayment">
+            <summary>
+            Возвращает true, если тариф бесплатный, иначе false
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Tariff.IsPenalty">
+            <summary>
+            Возвращает true, если тариф штрафной, иначе false
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Tariff.IsSubscription">
+            <summary>
+            Возвращает true, если тариф предназначен для абонементов, иначе false
+            </summary>
+        </member>
+        <member name="T:Parking.Data.TariffExtensions">
+            <summary>
+            Расширения для работы с тарифами
+            </summary>
+        </member>
+        <member name="M:Parking.Data.TariffExtensions.GetString(Parking.Data.TariffVersion)">
+            <summary>
+            Возвращает строковое представление версии тарифа
+            </summary>
+        </member>
+        <member name="M:Parking.Data.TariffExtensions.ThrowNotSupported(Parking.Data.TariffVersion)">
+            <summary>
+            Выбрасывает исключение, означающее что указанная версия тарифа не поддерживатся
+            </summary>
+        </member>
+        <member name="T:Parking.Data.TariffVersion">
+            <summary>
+            Версия тарифа
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TariffVersion.Version30">
+            <summary>
+            Версия 3.0
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TariffVersion.Version35">
+            <summary>
+            Версия 3.5
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TariffVersion.Version40">
+            <summary>
+            Версия 4.0
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TariffVersion.Version50">
+            <summary>
+            Версия 5.0
+            </summary>
+        </member>
+    </members>
+</doc>

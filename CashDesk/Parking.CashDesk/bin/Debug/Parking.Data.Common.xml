@@ -1,0 +1,484 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parking.Data.Common</name>
+    </assembly>
+    <members>
+        <member name="T:Parking.Data.AlarmState">
+            <summary>
+            Состояние тревоги
+            </summary>
+        </member>
+        <member name="F:Parking.Data.AlarmState.Unknown">
+            <summary>
+            Неизвестно
+            </summary>
+        </member>
+        <member name="F:Parking.Data.AlarmState.Active">
+            <summary>
+            Активна
+            </summary>
+        </member>
+        <member name="F:Parking.Data.AlarmState.Inactive">
+            <summary>
+            Неактивна
+            </summary>
+        </member>
+        <member name="T:Parking.Data.AlarmInfo">
+            <summary>
+            Информация о тревоге
+            </summary>
+        </member>
+        <member name="M:Parking.Data.AlarmInfo.Clone">
+            <summary>
+            Возвращает копию информации о парковке
+            </summary>
+        </member>
+        <member name="P:Parking.Data.AlarmInfo.Name">
+            <summary>
+            Возвращает/устанавливает имя тревоги
+            </summary>
+        </member>
+        <member name="P:Parking.Data.AlarmInfo.DeviceID">
+            <summary>
+            Возвращает/устанавливает ID устройства
+            </summary>
+        </member>
+        <member name="P:Parking.Data.AlarmInfo.Code">
+            <summary>
+            Возвращает/устанавливает код тревоги
+            </summary>
+        </member>
+        <member name="P:Parking.Data.AlarmInfo.State">
+            <summary>
+            Возвращает/устанавливает состояние тревоги
+            </summary>
+        </member>
+        <member name="P:Parking.Data.AlarmInfo.Time">
+            <summary>
+            Возвращает/устанавливает время тревоги
+            </summary>
+        </member>
+        <member name="P:Parking.Data.AlarmInfo.Value">
+            <summary>
+            Возвращает/устанавливает значение тревоги
+            </summary>
+        </member>
+        <member name="P:Parking.Data.AlarmInfo.TimeEnd">
+            <summary>
+            Возвращает/устанавливает время окончания тревоги
+            </summary>
+        </member>
+        <member name="P:Parking.Data.AlarmInfo.ValueEnd">
+            <summary>
+            Возвращает/устанавливает значение тревоги по окончанию
+            </summary>
+        </member>
+        <member name="T:Parking.Data.DatabasePatchInfo">
+            <summary>
+            Обновление базы данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DatabasePatchInfo.Clone">
+            <summary>
+            Возвращает копию обновления базы данных
+            </summary>
+        </member>
+        <member name="P:Parking.Data.DatabasePatchInfo.Time">
+            <summary>
+            Возвращает/устанавливает время применения обновления
+            </summary>
+        </member>
+        <member name="P:Parking.Data.DatabasePatchInfo.Index">
+            <summary>
+            Возвращает/устанавливает номер обновления
+            </summary>
+        </member>
+        <member name="P:Parking.Data.DatabasePatchInfo.Description">
+            <summary>
+            Возвращает/устанавливает описание обновления
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataCommonExtensions.CopyTo(Parking.Data.PhotoList,Parking.Data.PhotoList)">
+            <summary>
+            Копирует список фотографий
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataCommonExtensions.ToSqlBytes(Parking.Data.PhotoList)">
+            <summary>
+            Упаковывает список фотографий в байтовый формат БД
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataCommonExtensions.ToPhotoList(System.Data.SqlTypes.SqlBytes)">
+            <summary>
+            Распаковывает список фотографий из байтового формата БД
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataCommonExtensions.ToJpeg(System.Drawing.Image,System.Int64)">
+            <summary>
+            Преобразует изображение в формат Jpeg
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataCommonExtensions.GetString(System.Drawing.Image)">
+            <summary>
+            Возвращает строковое представление изображения
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataCommonExtensions.FormatCaption(System.String,System.String)">
+            <summary>
+            Форматирует заголовок с параметром
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataCommonExtensions.FormatDatabaseName(System.String,System.String)">
+            <summary>
+            Возвращает форматированную строку с названием БД
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataCommonExtensions.FormatDatabaseName(Parking.Data.IDatabaseContext)">
+            <summary>
+            Возвращает форматированную строку с названием БД из контекста
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataCommonExtensions.AppendEllipsis(System.String)">
+            <summary>
+            Добавляет многоточие в конец строки
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataCommonExtensions.GetString(Parking.Data.PaymentMethod)">
+            <summary>
+            Возвращает строковое представление способа оплаты
+            </summary>
+        </member>
+        <member name="T:Parking.Data.FreePlacesManager">
+            <summary>
+            Менеджер свободных мест
+            </summary>
+        </member>
+        <member name="M:Parking.Data.FreePlacesManager.OnChanged(System.Int32)">
+            <summary>
+            Поднимает событие Changed
+            </summary>
+        </member>
+        <member name="M:Parking.Data.FreePlacesManager.CheckValue(System.Int32)">
+            <summary>
+            Расчёт количества свободных мест на основе указанного значения
+            </summary>
+        </member>
+        <member name="M:Parking.Data.FreePlacesManager.Reset">
+            <summary>
+            Сброс значений
+            </summary>
+        </member>
+        <member name="P:Parking.Data.FreePlacesManager.RawValue">
+            <summary>
+            Возвращает реальное количество свободных мест
+            </summary>
+        </member>
+        <member name="P:Parking.Data.FreePlacesManager.Value">
+            <summary>
+            Возвращает расчётное количество свободных мест
+            </summary>
+        </member>
+        <member name="P:Parking.Data.FreePlacesManager.Threshold">
+            <summary>
+            Возвращает/устанавливает порог изменения
+            </summary>
+        </member>
+        <member name="P:Parking.Data.FreePlacesManager.Minimum">
+            <summary>
+            Возвращает/устанавливает минимальное значение
+            </summary>
+        </member>
+        <member name="P:Parking.Data.FreePlacesManager.NotifySameValue">
+            <summary>
+            Возвращает/устанавливает признак уведомления в случае, если расчётное значение не изменилось
+            </summary>
+        </member>
+        <member name="E:Parking.Data.FreePlacesManager.Changed">
+            <summary>
+            Количество свободных мест изменилось
+            </summary>
+        </member>
+        <member name="T:Parking.Data.ZoneFreePlacesManager">
+            <summary>
+            Менеджер свободных мест в зоне
+            </summary>
+        </member>
+        <member name="P:Parking.Data.ZoneFreePlacesManager.ZoneID">
+            <summary>
+            Возвращает идентификатор зоны
+            </summary>
+        </member>
+        <member name="E:Parking.Data.ZoneFreePlacesManager.ZoneChanged">
+            <summary>
+            Количество свободных мест в зоне изменилось
+            </summary>
+        </member>
+        <member name="F:Parking.Data.MoneyConverter.BanknoteNominals">
+            <summary>
+            Номиналы банкнот в рублях
+            </summary>
+        </member>
+        <member name="F:Parking.Data.MoneyConverter.CoinNominals">
+            <summary>
+            Номаналы монет в копейках
+            </summary>
+        </member>
+        <member name="M:Parking.Data.MoneyConverter.ToMoney(System.Int32)">
+            <summary>
+            Преобразует денежную сумму из копеек в рубли
+            </summary>
+        </member>
+        <member name="M:Parking.Data.MoneyConverter.ToMoney(System.Int64)">
+            <summary>
+            Преобразует денежную сумму из копеек в рубли
+            </summary>
+        </member>
+        <member name="M:Parking.Data.MoneyConverter.FromMoney(System.Decimal)">
+            <summary>
+            Преобразует денежную сумму из рублей в копейки
+            </summary>
+        </member>
+        <member name="M:Parking.Data.MoneyConverter.GetMoneyCaption(System.Decimal)">
+            <summary>
+            Возвращает название денежной единицы в зависимости от суммы
+            </summary>
+        </member>
+        <member name="M:Parking.Data.MoneyConverter.GetMoneyParts(System.Decimal,System.Int32@)">
+            <summary>
+            Возвращает целое количество рублей от указанной суммы и количество копеек
+            </summary>
+        </member>
+        <member name="M:Parking.Data.MoneyConverter.FormatMoney(System.Decimal)">
+            <summary>
+            Возвращает строковое представление денежной суммы
+            </summary>
+        </member>
+        <member name="T:Parking.Data.ParkingInfo">
+            <summary>
+            Информация о парковке
+            </summary>
+        </member>
+        <member name="M:Parking.Data.ParkingInfo.Clone">
+            <summary>
+            Возвращает копию информации о парковке
+            </summary>
+        </member>
+        <member name="P:Parking.Data.ParkingInfo.Name">
+            <summary>
+            Возвращает/устанавливает имя парковки
+            </summary>
+        </member>
+        <member name="P:Parking.Data.ParkingInfo.Address">
+            <summary>
+            Возвращает/устанавливает адрес парковки
+            </summary>
+        </member>
+        <member name="P:Parking.Data.ParkingInfo.Latitude">
+            <summary>
+            Возвращает/устанавливает координату широты
+            </summary>
+        </member>
+        <member name="P:Parking.Data.ParkingInfo.Longitude">
+            <summary>
+            Возвращает/устанавливает координату долготы
+            </summary>
+        </member>
+        <member name="T:Parking.Data.PaymentMethod">
+            <summary>
+            Способ оплаты
+            </summary>
+        </member>
+        <member name="F:Parking.Data.PaymentMethod.Unknown">
+            <summary>
+            Неизвестный
+            </summary>
+        </member>
+        <member name="F:Parking.Data.PaymentMethod.Cashless">
+            <summary>
+            Безденежный
+            </summary>
+        </member>
+        <member name="F:Parking.Data.PaymentMethod.Cash">
+            <summary>
+            Наличными
+            </summary>
+        </member>
+        <member name="F:Parking.Data.PaymentMethod.BankingCard">
+            <summary>
+            Банковской картой
+            </summary>
+        </member>
+        <member name="T:Parking.Data.PhotoList">
+            <summary>
+            Список фотографий
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PhotoList.GetSize">
+            <summary>
+            Возвращает размер всех изображений списка в байтах
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PhotoList.ToString">
+            <summary>
+            Возвращает строковое представление списка фотографий
+            </summary>
+        </member>
+        <member name="P:Parking.Data.PhotoList.Empty">
+            <summary>
+            Возвращает пустой список фотографий
+            </summary>
+        </member>
+        <member name="T:Parking.Data.PlateHelper">
+            <summary>
+            Методы для работы с гос. номерами
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PlateHelper.IsValid(System.String)">
+            <summary>
+            Возвращает true, если указанный гос. номер содержит допустимые символы, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PlateHelper.IsValidLength(System.String)">
+            <summary>
+            Возвращает true, если указанный гос. номер содержит допустимое количество символов, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PlateHelper.ToLatin(System.String)">
+            <summary>
+            Заменяет русские символы на соответствующие латинские в строке гос. номера
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PlateHelper.IsEqual(System.String,System.String)">
+            <summary>
+            Возвращает true, если гос. номера совпадают, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PlateHelper.IsEqual(System.String,System.String,System.Int32@)">
+            <summary>
+            Возвращает true, если гос. номера совпадают, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PlateHelper.IsEqual(System.String,System.String,System.Int32)">
+            <summary>
+            Возвращает true, если гос. номера совпадают, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PlateHelper.IsEqual(System.String,System.String,System.Int32,System.Int32@)">
+            <summary>
+            Возвращает true, если гос. номера совпадают, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PlateHelper.SelectBest(System.String,System.String)">
+            <summary>
+            Выбирает лучший из указанных номеров
+            </summary>
+        </member>
+        <member name="P:Parking.Data.PlateHelper.ValidChars">
+            <summary>
+            Возвращает список символов, разрешённых при вводе гос. номера
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Properties.Resources">
+            <summary>
+              Класс ресурса со строгой типизацией для поиска локализованных строк и т.д.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Properties.Resources.ResourceManager">
+            <summary>
+              Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Properties.Resources.Culture">
+            <summary>
+              Перезаписывает свойство CurrentUICulture текущего потока для всех
+              обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
+            </summary>
+        </member>
+        <member name="T:Parking.Data.TimerManager">
+            <summary>
+            Менеджер таймера
+            </summary>
+        </member>
+        <member name="M:Parking.Data.TimerManager.NormalizeTime(System.DateTime)">
+            <summary>
+            Возвращает нормализованное время
+            </summary>
+        </member>
+        <member name="M:Parking.Data.TimerManager.Start(System.DateTime)">
+            <summary>
+            Запуск таймера
+            </summary>
+        </member>
+        <member name="M:Parking.Data.TimerManager.Stop">
+            <summary>
+            Останов таймера
+            </summary>
+        </member>
+        <member name="M:Parking.Data.TimerManager.GetDefaultLastTime">
+            <summary>
+            Возвращает точку последнего события по умолчанию
+            </summary>
+        </member>
+        <member name="M:Parking.Data.TimerManager.GetCurrentHour(System.DateTime)">
+            <summary>
+            Возвращает разницу с базовым временем
+            </summary>
+        </member>
+        <member name="M:Parking.Data.TimerManager.TimeThread(System.Object)">
+            <summary>
+            Поток тамера
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Utils.ToBCD(System.Int32)">
+            <summary>
+            Переводит целое число из десятичной формы в BCD
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Utils.FromBCD(System.Byte)">
+            <summary>
+            Переводит байт из BCD в десятичную форму
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Utils.PackDateTime(System.Byte[],System.Int32,System.DateTime)">
+            <summary>
+            Упаковывает дату/время в поток байт
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Utils.PackDateTime(System.Byte[],System.Int32,System.DateTime,System.Boolean)">
+            <summary>
+            Упаковывает дату/время в поток байт
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Utils.UnpackDateTime(System.Byte[],System.Int32)">
+            <summary>
+            Распаковывает дату/время из потока байт
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Utils.UnpackDateTime(System.Byte[],System.Int32,System.Boolean)">
+            <summary>
+            Распаковывает дату/время из потока байт
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Utils.DateToString(System.DateTime)">
+            <summary>
+            Преобразование даты в строковое представление
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Utils.TimeToString(System.TimeSpan)">
+            <summary>
+            Преобразование даты в строку вида Х сут Х час Х мин Х сек
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Utils.ToSecureString(System.String)">
+            <summary>
+            Возвращает защищённую строку
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Utils.FromSecureString(System.Security.SecureString)">
+            <summary>
+            Возвращает содержимое защищённой строки
+            </summary>
+        </member>
+    </members>
+</doc>

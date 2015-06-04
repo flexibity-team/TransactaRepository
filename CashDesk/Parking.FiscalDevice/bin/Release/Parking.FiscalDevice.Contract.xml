@@ -1,0 +1,263 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parking.FiscalDevice.Contract</name>
+    </assembly>
+    <members>
+        <member name="M:Parking.FiscalDevice.FiscalDeviceContract.GetString(Parking.FiscalDevice.PaymentReason)">
+            <summary>
+            Возвращает строковое представление причины оплаты
+            </summary>
+        </member>
+        <member name="T:Parking.FiscalDevice.FiscalDeviceException">
+            <summary>
+            Исключения вызываемые фискальным регистратором
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.FiscalDeviceException.#ctor(System.Int32)">
+            <summary>
+            Создает исключение по номеру ошибки фискального регистратора
+            </summary>
+            <param name="nErr">Номер ошибки</param>
+        </member>
+        <member name="M:Parking.FiscalDevice.FiscalDeviceException.#ctor(System.Int32,System.String)">
+            <summary>
+            Создает исключение по номеру ошибки фискального регистратора
+            </summary>
+            <param name="nErr">Номер ошибки</param>
+            <param name="Msg">Дополнительный текст описания ошибки</param>
+        </member>
+        <member name="M:Parking.FiscalDevice.FiscalDeviceException.#ctor(System.String,Parking.FiscalDevice.FiscalDeviceException)">
+            <summary>
+            Создает исключение по номеру ошибки фискального регистратора
+            </summary>
+            <param name="err">Ошибка</param>
+            <param name="InnerException">Изначальное исключение</param>
+        </member>
+        <member name="M:Parking.FiscalDevice.FiscalDeviceException.#ctor(System.String)">
+            <summary>
+            Создает исключение фискального регистратора с текстовым сообщением
+            </summary>
+            <param name="Message">Текстовое сообщение</param>
+        </member>
+        <member name="M:Parking.FiscalDevice.FiscalDeviceException.GetErrorString(System.Int32,System.String@,System.String@,System.String@)">
+            <summary>
+            Возвращает ошибку, тип ошибки и рекомендации по устранению в текстовом виде
+            </summary>
+            <param name="nErr">Код ошибки</param>
+            <param name="sErrName">Текст ошибки</param>
+            <param name="sErrType">Тип ошибки</param>
+            <param name="sErrExt">Рекомендации по устранению</param>
+        </member>
+        <member name="P:Parking.FiscalDevice.FiscalDeviceException.FDError">
+            <summary>
+            Возвращает текст ошибки
+            </summary>
+        </member>
+        <member name="P:Parking.FiscalDevice.FiscalDeviceException.FDErrorType">
+            <summary>
+            Возвращает текст типа ошибки
+            </summary>
+        </member>
+        <member name="P:Parking.FiscalDevice.FiscalDeviceException.FDErrorPrompt">
+            <summary>
+            Возвращает рекомендации по устранению ошибки
+            </summary>
+        </member>
+        <member name="T:Parking.FiscalDevice.DocumentType">
+            <summary>
+            Тип документа
+            </summary>
+        </member>
+        <member name="F:Parking.FiscalDevice.DocumentType.Selling">
+            <summary>
+            Продажа
+            </summary>
+        </member>
+        <member name="F:Parking.FiscalDevice.DocumentType.SaleReturn">
+            <summary>
+            Возврат продажи
+            </summary>
+        </member>
+        <member name="F:Parking.FiscalDevice.DocumentType.Repayment">
+            <summary>
+            Возврат
+            </summary>
+        </member>
+        <member name="F:Parking.FiscalDevice.DocumentType.Buying">
+            <summary>
+            Покупка
+            </summary>
+        </member>
+        <member name="F:Parking.FiscalDevice.DocumentType.BuyReturn">
+            <summary>
+            Возврат покупки
+            </summary>
+        </member>
+        <member name="T:Parking.FiscalDevice.PaymentType">
+            <summary>
+            Тип оплаты
+            </summary>
+        </member>
+        <member name="F:Parking.FiscalDevice.PaymentType.Cash">
+            <summary>
+            Наличные
+            </summary>
+        </member>
+        <member name="F:Parking.FiscalDevice.PaymentType.Card">
+            <summary>
+            Карта
+            </summary>
+        </member>
+        <member name="T:Parking.FiscalDevice.PaymentReason">
+            <summary>
+            Причина оплаты
+            </summary>
+        </member>
+        <member name="F:Parking.FiscalDevice.PaymentReason.Parking">
+            <summary>
+            Оплата парковочной карты
+            </summary>
+        </member>
+        <member name="F:Parking.FiscalDevice.PaymentReason.Fine">
+            <summary>
+            Оплата штрафной карты
+            </summary>
+        </member>
+        <member name="F:Parking.FiscalDevice.PaymentReason.ECash">
+            <summary>
+            Пополнение электронного кошелька
+            </summary>
+        </member>
+        <member name="F:Parking.FiscalDevice.PaymentReason.Any">
+            <summary>
+            Платеж на произвольную сумму
+            </summary>
+        </member>
+        <member name="F:Parking.FiscalDevice.PaymentReason.Refund">
+            <summary>
+            Возврат денег
+            </summary>
+        </member>
+        <member name="T:Parking.FiscalDevice.PaymentDocument">
+            <summary>
+            Данные платежа
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.PaymentDocument.ToString">
+            <summary>
+            Возвращает строковое представление данных платежа
+            </summary>
+        </member>
+        <member name="P:Parking.FiscalDevice.PaymentDocument.ECash">
+            <summary>
+            Сумма на электронном кошельке
+            </summary>
+        </member>
+        <member name="P:Parking.FiscalDevice.PaymentDocument.Amount">
+            <summary>
+            Сумма платежа
+            </summary>
+        </member>
+        <member name="P:Parking.FiscalDevice.PaymentDocument.PaymentReason">
+            <summary>
+            Причина оплаты
+            </summary>
+        </member>
+        <member name="P:Parking.FiscalDevice.PaymentDocument.Type">
+            <summary>
+            Тип документа
+            </summary>
+        </member>
+        <member name="P:Parking.FiscalDevice.PaymentDocument.PaymentType">
+            <summary>
+            Тип оплаты
+            </summary>
+        </member>
+        <member name="P:Parking.FiscalDevice.PaymentDocument.CardID">
+            <summary>
+            Номер карты
+            </summary>
+        </member>
+        <member name="P:Parking.FiscalDevice.PaymentDocument.TimeEntry">
+            <summary>
+            Время въезда
+            </summary>
+        </member>
+        <member name="P:Parking.FiscalDevice.PaymentDocument.TimeExit">
+            <summary>
+            Время до которого оплачивается
+            </summary>
+        </member>
+        <member name="P:Parking.FiscalDevice.PaymentDocument.Payment">
+            <summary>
+            Сумма, которая уже оплачена
+            </summary>
+        </member>
+        <member name="P:Parking.FiscalDevice.PaymentDocument.Debt">
+            <summary>
+            Задолжность
+            </summary>
+        </member>
+        <member name="T:Parking.FiscalDevice.IFiscalDevice">
+            <summary>
+            Определяет интерфейс работы с фискальным регистратором
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.IFiscalDevice.Initialize(System.Int32,System.String)">
+            <summary>
+            Производит подключение к фискальному регистратору
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.IFiscalDevice.LogFileOn(System.Boolean)">
+            <summary>
+            Ведение лог-файла обмена с ККМ  
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.IFiscalDevice.GetKKMAmount">
+            <summary>
+            Возвращает количество денег в кассе
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.IFiscalDevice.GetSessionAmount">
+            <summary>
+            Возвращает выручку за смену 
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.IFiscalDevice.OpenSession">
+            <summary>
+            Открывает смену
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.IFiscalDevice.CloseSession">
+            <summary>
+            Закрывает смену
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.IFiscalDevice.PrintXReport">
+            <summary>
+            Печатает X-отчет
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.IFiscalDevice.CashIn(System.Double)">
+            <summary>
+            Положить деньги в кассу (например, для размена)
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.IFiscalDevice.CashOut(System.Double)">
+            <summary>
+            Забрать деньги из кассы (инкассация)
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.IFiscalDevice.Payment(Parking.FiscalDevice.PaymentDocument)">
+            <summary>
+            Оплата
+            </summary>
+        </member>
+        <member name="P:Parking.FiscalDevice.IFiscalDevice.IsSessionOpened">
+            <summary>
+            Возвращает состояние смены (открыта/закрыта)
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,111 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Parking.CashDesk.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SessionOpenTime" Type="System.DateTime" Scope="Application">
+      <Value Profile="(Default)">2000-01-01</Value>
+    </Setting>
+    <Setting Name="SessionCloseTime" Type="System.DateTime" Scope="Application">
+      <Value Profile="(Default)">2000-01-01</Value>
+    </Setting>
+    <Setting Name="FiscalDevicePort" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="DisplayPort" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="DisplayEnabled" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="KeyB2" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">none</Value>
+    </Setting>
+    <Setting Name="KeyB3" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">none</Value>
+    </Setting>
+    <Setting Name="KeyB4" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">none</Value>
+    </Setting>
+    <Setting Name="KeyB1" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">none</Value>
+    </Setting>
+    <Setting Name="Password" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">none</Value>
+    </Setting>
+    <Setting Name="ReceiptPerSession" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="PenaltyCardCount" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="PenaltyTarif" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="CashNumber" Type="System.Byte" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="ShowLog" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="DisplayBaudRate" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">9600</Value>
+    </Setting>
+    <Setting Name="ReaderType" Type="Parking.CardReaders.ReaderType" Scope="Application">
+      <Value Profile="(Default)">CM5x21</Value>
+    </Setting>
+    <Setting Name="FiscalDeviceMoney" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="Receipts" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="IsSessionOpen" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="CashPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">none</Value>
+    </Setting>
+    <Setting Name="KeyBM" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">none</Value>
+    </Setting>
+    <Setting Name="CashDeskLanguage" Type="Parking.CashDesk.CashDeskLanguage" Scope="Application">
+      <Value Profile="(Default)">Ru</Value>
+    </Setting>
+    <Setting Name="ParkingID" Type="System.Int16" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="MetroTariffK" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MetroTariffL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="CalculatorVersion" Type="Parking.Calculators.CalculatorVersion" Scope="Application">
+      <Value Profile="(Default)">Version35</Value>
+    </Setting>
+    <Setting Name="DisplayCodePage" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1251</Value>
+    </Setting>
+    <Setting Name="UseMetro" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="LogLevel" Type="RMLib.Log.LogLevel" Scope="Application">
+      <Value Profile="(Default)">Error</Value>
+    </Setting>
+    <Setting Name="FiscalDeviceEnabled" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="DeviceID" Type="System.Int64" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="DeviceNetworkAddress" Type="System.Int16" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="CounterDelay" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1000</Value>
+    </Setting>
+    <Setting Name="LogOn" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

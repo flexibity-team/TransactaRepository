@@ -1,0 +1,992 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parking.Data.Design</name>
+    </assembly>
+    <members>
+        <member name="T:Parking.Data.DatabaseConnectionForm">
+            <summary>
+            Окно редактирования параметров соединения с БД
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DatabaseConnectionForm.OnCreateContext(System.String)">
+            <summary>
+            Поднимает событие CreateContext
+            </summary>
+        </member>
+        <member name="F:Parking.Data.DatabaseConnectionForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DatabaseConnectionForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Parking.Data.DatabaseConnectionForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.DatabaseConnectionForm.MustCheckConnection">
+            <summary>
+            Возвращает/устанавливает признак проверки соединения после ввода.
+            Если false, соединение не проверяется
+            </summary>
+        </member>
+        <member name="P:Parking.Data.DatabaseConnectionForm.ShowCheckButton">
+            <summary>
+            Возвращает/устанавливает признак отображения кнопки проверки соединения.
+            Если false, кнопка не отображается
+            </summary>
+        </member>
+        <member name="E:Parking.Data.DatabaseConnectionForm.CreateContext">
+            <summary>
+            Создание контекста работы с БД
+            </summary>
+        </member>
+        <member name="T:Parking.Data.DataItemListBase">
+            <summary>
+            Список элементов данных с возможностью редактирования и поиска
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataItemListBase.GetSelectedItem">
+            <summary>
+            Возвращает первый выбранный элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataItemListBase.GetSelectedItems">
+            <summary>
+            Возвращает выбранные элементы данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataItemListBase.SelectFirstItem">
+            <summary>
+            Выбор первого элемента в списке
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataItemListBase.InsertCaptionLabel(System.String)">
+            <summary>
+            Добавляет текстовую метку в панель управления списком
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataItemListBase.EnableControls(Parking.Data.DataItem)">
+            <summary>
+            Разрешение элементов управления в зависимости от выбранного элемента списка
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataItemListBase.Find(System.Boolean)">
+            <summary>
+            Поиск текста по списку
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataItemListBase.OnLanguageChanged(System.Object,Parking.LanguageChangedArgs)">
+            <summary>
+            Переключение языка
+            </summary>
+        </member>
+        <member name="F:Parking.Data.DataItemListBase.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataItemListBase.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Parking.Data.DataItemListBase.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Parking.Data.DataItemView">
+            <summary>
+            Элемент для просмотра свойств объекта
+            </summary>
+        </member>
+        <member name="F:Parking.Data.DataItemView.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataItemView.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Parking.Data.DataItemView.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.DataItemView.ShowDescription">
+            <summary>
+            Возвращает/устанавливает признак видимости области описания
+            </summary>
+        </member>
+        <member name="P:Parking.Data.DataItemView.ListView">
+            <summary>
+            Возвращает список свойств
+            </summary>
+        </member>
+        <member name="T:Parking.Data.IDataItemStringProvider">
+            <summary>
+            Поставщик строк для элемента данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.IDataItemStringProvider.GetString(Parking.Data.DataItem,Parking.Data.DataItemOperation)">
+            <summary>
+            Возвращает строку для указанной операции с элементом данных
+            </summary>
+        </member>
+        <member name="P:Parking.Data.IDataItemStringProvider.TypeName">
+            <summary>
+            Возвращает имя типа элемента данных
+            </summary>
+        </member>
+        <member name="T:Parking.Data.DefaultStringProvider">
+            <summary>
+            Поставщик строк по умолчанию
+            </summary>
+        </member>
+        <member name="T:Parking.Data.PropertyViewForm">
+            <summary>
+            Окно просмотра текстового свойства
+            </summary>
+        </member>
+        <member name="F:Parking.Data.PropertyViewForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PropertyViewForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Parking.Data.PropertyViewForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Parking.Data.DataDesign">
+            <summary>
+            Методы для работы с визуальными элементами
+            </summary>
+        </member>
+        <member name="F:Parking.Data.DataDesign.LogoBackColor">
+            <summary>
+            Цвет фона в стиле логотипа
+            </summary>
+        </member>
+        <member name="F:Parking.Data.DataDesign.LogoForeColor">
+            <summary>
+            Цвет переднего плана в стиле логотипа
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataDesign.SetLogoIcon(System.Windows.Forms.Form)">
+            <summary>
+            Устанавливает иконку-логотип для указанной формы
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataDesign.SetLogoBackColor(System.Windows.Forms.Control)">
+            <summary>
+            Устанавливает цвет фона в стиле логотипа для указанного элемента
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataDesign.SetLogoBackColor(System.Windows.Forms.ToolStripItem)">
+            <summary>
+            Устанавливает цвет фона в стиле логотипа для указанного элемента
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataDesign.SetLogoForeColor(System.Windows.Forms.Control)">
+            <summary>
+            Устанавливает цвет переднего плана в стиле логотипа для указанного элемента
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataDesign.SetLogoForeColor(System.Windows.Forms.ToolStripItem)">
+            <summary>
+            Устанавливает цвет переднего плана в стиле логотипа для указанного элемента
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataDesign.SetDataItems``1(System.Windows.Forms.CheckedListBox,System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{System.Int64})">
+            <summary>
+            Заполняет список элементами данных из коллекции items, отмечая те элементы, 
+            идентификаторы которых содержатся в коллекции checkedIDs
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataDesign.SetDataItems``1(System.Windows.Forms.ListView,System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{System.Int64})">
+            <summary>
+            Заполняет список элементами данных из коллекции items, отмечая те элементы, 
+            идентификаторы которых содержатся в коллекции checkedIDs
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataDesign.SetDataItems``1(System.Windows.Forms.ListView,System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{System.Int64},System.Func{``0,System.Windows.Forms.ListViewGroup})">
+            <summary>
+            Заполняет список элементами данных из коллекции items, отмечая те элементы, 
+            идентификаторы которых содержатся в коллекции checkedIDs
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataDesign.SetDataItems``1(System.Windows.Forms.ComboBox,System.Collections.Generic.IEnumerable{``0},System.Int64)">
+            <summary>
+            Устанавливает элементы списка и выбирает элемент с указанным идентификатором
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataDesign.GetSorted``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Возвращает перечислитель, упорядоченный по строковому представлению элементов
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataDesign.ShowRow(System.Windows.Forms.TableLayoutPanel,System.Int32,System.Single)">
+            <summary>
+            Устанавливает видимость строки в таблице
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataDesign.ShowColumn(System.Windows.Forms.TableLayoutPanel,System.Int32,System.Single)">
+            <summary>
+            Устанавливает видимость столбца в таблице
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataDesign.ShowTab(System.Windows.Forms.TabControl,System.Windows.Forms.TabPage,System.Int32,System.Boolean)">
+            <summary>
+            Устанавливает видимость вкладки
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataDesign.SetCustomFormat(System.Windows.Forms.DateTimePicker)">
+            <summary>
+            Устанавливает формат даты/времени
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataDesign.SwitchColorAndFont(System.Windows.Forms.Control,System.Boolean,System.Drawing.Color,System.Drawing.Color)">
+            <summary>
+            Переключает цвет текста и шрифт элемента управления
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataDesign.SwitchColorAndFont(System.Windows.Forms.ToolStripItem,System.Boolean,System.Drawing.Color,System.Drawing.Color)">
+            <summary>
+            Переключает цвет текста и шрифт элемента управления
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataDesign.AutosizeColumnWidth(System.Windows.Forms.ListView)">
+            <summary>
+            Изменяет ширину последней колонки так, чтобы заполнить ширину списка
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataDesign.AutosizeColumnWidth(System.Windows.Forms.ListView,System.Int32)">
+            <summary>
+            Изменяет ширину указанной колонки так, чтобы заполнить ширину списка
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataDesign.AutosizeColumnWidth(System.Windows.Forms.ListView,System.Int32,System.Int32)">
+            <summary>
+            Изменяет ширину указанной колонки так, чтобы заполнить ширину списка
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataDesign.CreateProgressPanel">
+            <summary>
+            Создаёт панель заставки
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataDesign.SetGroupCaption(System.Windows.Forms.Control,System.String,System.Int32)">
+            <summary>
+            Устанавливает текст контейнера (GroupBox, TabPage), отражающий количество его содержимого
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataDesign.SetGroupCaption(System.Windows.Forms.Control,System.String,System.String)">
+            <summary>
+            Устанавливает текст контейнера (GroupBox, TabPage), отражающий количество его содержимого
+            </summary>
+        </member>
+        <member name="M:Parking.Data.FullScreenMode.OnFullscreenClosing">
+            <summary>
+            поднимает событие FullscreenClosing
+            </summary>
+        </member>
+        <member name="M:Parking.Data.FullScreenMode.On">
+            <summary>
+            Вход в полноэкранный режим
+            </summary>
+        </member>
+        <member name="M:Parking.Data.FullScreenMode.Off">
+            <summary>
+            Выход из полноэкранного режима
+            </summary>
+        </member>
+        <member name="M:Parking.Data.FullScreenMode.Switch">
+            <summary>
+            Переключение полноэкраного режима
+            </summary>
+        </member>
+        <member name="M:Parking.Data.FullScreenMode.HookKeyboard(System.Object,System.EventArgs)">
+            <summary>
+            Установка фильтра сообщений клавиатуры
+            </summary>
+        </member>
+        <member name="M:Parking.Data.FullScreenMode.UnhookKeyboard">
+            <summary>
+            Удаление фильтра сообщений клавиатуры
+            </summary>
+        </member>
+        <member name="M:Parking.Data.FullScreenMode.LowLevelKeyboardProc(System.Int32,System.Int32,Parking.Data.FullScreenMode.KBDLLHOOKSTRUCT@)">
+            <summary>
+            Фильтр сообщений клавиатуры
+            </summary>
+        </member>
+        <member name="P:Parking.Data.FullScreenMode.IsFullscreen">
+            <summary>
+            Возвращает true, если окно находится в полноэкранном режиме, иначе false
+            </summary>
+        </member>
+        <member name="P:Parking.Data.FullScreenMode.Form">
+            <summary>
+            Возвращает форму
+            </summary>
+        </member>
+        <member name="E:Parking.Data.FullScreenMode.FullscreenClosing">
+            <summary>
+            Запрос на выход из полноэкранного режима
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Images">
+            <summary>
+              Класс ресурса со строгой типизацией для поиска локализованных строк и т.д.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.ResourceManager">
+            <summary>
+              Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.Culture">
+            <summary>
+              Перезаписывает свойство CurrentUICulture текущего потока для всех
+              обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.Add">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.Calculator">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.DatabasePatch">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.Description">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.Edit">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.Error">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.Exit">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.Extension">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.Find">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.FindNext">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.Help">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.Idle">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.Language">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.Lock">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.Logo">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.Next">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.Off">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.OK">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.On">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.PhotoMissing">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.Previous">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.Print">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.Refresh">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.Remove">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.Report">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.Settings">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.Tools">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.Unlock">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.VideoMissing">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.View">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Images.Warning">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="T:Parking.Data.IntermediateCheckedHandler`1">
+            <summary>
+            Управляет списком элементов данных с поддержкой состояния Intermediate
+            </summary>
+        </member>
+        <member name="M:Parking.Data.IntermediateCheckedHandler`1.SetDataItems(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEnumerable{System.Int64})">
+            <summary>
+            Заполняет список элементами данных из коллекции items и элементами, идентификаторы которых содержатся
+            в коллекции checkedIDs. Если элемент, идентификатор которого содержатся в коллекции checkedIDs,
+            содержится в коллекции items, он отмечается состоянием Checked, иначе состоянием Intermediate.
+            </summary>
+        </member>
+        <member name="M:Parking.Data.IntermediateCheckedHandler`1.GetDataItems">
+            <summary>
+            Возвращает выбранные элементы данных
+            </summary>
+        </member>
+        <member name="F:Parking.Data.InvisibleForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Parking.Data.InvisibleForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Parking.Data.InvisibleForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Logo">
+            <summary>
+              Класс ресурса со строгой типизацией для поиска локализованных строк и т.д.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Logo.ResourceManager">
+            <summary>
+              Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Logo.Culture">
+            <summary>
+              Перезаписывает свойство CurrentUICulture текущего потока для всех
+              обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Logo.Icon">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Logo.Image">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="T:Parking.Data.MessageBoxExtensions">
+            <summary>
+            Методы для отображения сообщений пользователю
+            </summary>
+        </member>
+        <member name="M:Parking.Data.MessageBoxExtensions.RegisterSecurityErrorWindow(System.Type)">
+            <summary>
+            Регистрирует окно отображения ошибок безопасности
+            </summary>
+        </member>
+        <member name="M:Parking.Data.MessageBoxExtensions.RegisterErrorWindow(RMLib.Services.IServiceContainer)">
+            <summary>
+            Регистрирует окно отображения ошибок
+            </summary>
+        </member>
+        <member name="M:Parking.Data.MessageBoxExtensions.ShowQuestion(System.Windows.Forms.IWin32Window,System.String)">
+            <summary>
+            Отображает окно вопроса. Возвращает true, если пользователь выбрал утвердительный ответ, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.MessageBoxExtensions.ShowInformation(System.Windows.Forms.IWin32Window,System.String)">
+            <summary>
+            Отображает окно информации
+            </summary>
+        </member>
+        <member name="M:Parking.Data.MessageBoxExtensions.ShowWarning(System.Windows.Forms.IWin32Window,System.String)">
+            <summary>
+            Отображает окно предупреждения
+            </summary>
+        </member>
+        <member name="M:Parking.Data.MessageBoxExtensions.ShowWarning(System.Windows.Forms.IWin32Window,System.String,System.Windows.Forms.MessageBoxButtons)">
+            <summary>
+            Отображает окно предупреждения с выбором
+            </summary>
+        </member>
+        <member name="M:Parking.Data.MessageBoxExtensions.ShowError(System.Windows.Forms.IWin32Window,System.Exception)">
+            <summary>
+            Отображает окно ошибки
+            </summary>
+        </member>
+        <member name="M:Parking.Data.MessageBoxExtensions.ShowError(System.Windows.Forms.IWin32Window,System.String)">
+            <summary>
+            Отображает окно ошибки
+            </summary>
+        </member>
+        <member name="M:Parking.Data.MessageBoxExtensions.ShowError(System.Windows.Forms.IWin32Window,System.String,System.Windows.Forms.MessageBoxButtons)">
+            <summary>
+            Отображает окно ошибки с выбором
+            </summary>
+        </member>
+        <member name="M:Parking.Data.MessageBoxExtensions.GetCallerName(System.Windows.Forms.IWin32Window)">
+            <summary>
+            Возвращает имя вызывающего расширения. Если вызывающий не расширение, возвращает имя системы
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Resources">
+            <summary>
+              Класс ресурса со строгой типизацией для поиска локализованных строк и т.д.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Resources.ResourceManager">
+            <summary>
+              Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Resources.Culture">
+            <summary>
+              Перезаписывает свойство CurrentUICulture текущего потока для всех
+              обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
+            </summary>
+        </member>
+        <member name="T:Parking.Data.ITariffEditor">
+            <summary>
+            Описывает редактор тарифа
+            </summary>
+        </member>
+        <member name="M:Parking.Data.ITariffEditor.ValidateInput">
+            <summary>
+            Проверка ввода.
+            Возвращает true, если всё поля заполнены корректно, иначе false
+            </summary>
+        </member>
+        <member name="P:Parking.Data.ITariffEditor.SupportedVersion">
+            <summary>
+            Возвращает поддерживаемую версию тарифа
+            </summary>
+        </member>
+        <member name="P:Parking.Data.ITariffEditor.Editable">
+            <summary>
+            Возвращает/устанавливает признак разрешения редактирования
+            </summary>
+        </member>
+        <member name="P:Parking.Data.ITariffEditor.Tariff">
+            <summary>
+            Возвращает/устанавливает тариф
+            </summary>
+        </member>
+        <member name="F:Parking.Data.PhotoFlow.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PhotoFlow.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Parking.Data.PhotoFlow.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Parking.Data.PhotoForm">
+            <summary>
+            Окно для просмотра фотографии в реальном размере
+            </summary>
+        </member>
+        <member name="F:Parking.Data.PhotoForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PhotoForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Parking.Data.PhotoForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Parking.Data.PhotoStrip">
+            <summary>
+            Полоса просмотра фотографий
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PhotoStrip.OnSelectionChanged">
+            <summary>
+            Поднимает событие SelectionChanged
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PhotoStrip.RefreshStrip">
+            <summary>
+            Обновляет полосу
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PhotoStrip.Clear">
+            <summary>
+            Очищает список фотографий
+            </summary>
+        </member>
+        <member name="F:Parking.Data.PhotoStrip.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Parking.Data.PhotoStrip.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Parking.Data.PhotoStrip.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.PhotoStrip.PhotoList">
+            <summary>
+            Возвращает/устанавливает список фотографий
+            </summary>
+        </member>
+        <member name="P:Parking.Data.PhotoStrip.SelectedID">
+            <summary>
+            Возвращает ID выбранной фотографии
+            </summary>
+        </member>
+        <member name="P:Parking.Data.PhotoStrip.SelectedImage">
+            <summary>
+            Возвращает выбранную фотографию
+            </summary>
+        </member>
+        <member name="P:Parking.Data.PhotoStrip.ZoomOnClick">
+            <summary>
+            Возвращает/устанавливает разрешение детального просмотра
+            </summary>
+        </member>
+        <member name="P:Parking.Data.PhotoStrip.ToolTipText">
+            <summary>
+            Возвращает/устанавливает подсказку к фотографии
+            </summary>
+        </member>
+        <member name="P:Parking.Data.PhotoStrip.SizeModeZoom">
+            <summary>
+            Возвращает/устанавливает признак увеличения при масштабировании
+            </summary>
+        </member>
+        <member name="E:Parking.Data.PhotoStrip.SelectionChanged">
+            <summary>
+            Изменилась выбранная фотография
+            </summary>
+        </member>
+        <member name="T:Parking.Data.DataItemListView">
+            <summary>
+            Список элементов данных с возможностью редактирования
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataItemListView.OnItemRefresh(Parking.Data.DataItem)">
+            <summary>
+            Поднимает событие ItemRefresh
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataItemListView.AddItem">
+            <summary>
+            Добавление нового элемента данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataItemListView.EditItem">
+            <summary>
+            Редактирование существующего элемента данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataItemListView.RemoveItem">
+            <summary>
+            Удаление существующего элемента данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataItemListView.CreateNewItem">
+            <summary>
+            Создание нового элемента данных. Переопределяется, если не может быть использован конструктор
+            по умолчанию или элемент данных имеет версии
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataItemListView.OnItemsCollectionChanged">
+            <summary>
+            Обработка изменения списка
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataItemListView.UpdateItemList(System.Int64,Parking.Data.DataItem)">
+            <summary>
+            Обновление списка
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataItemListView.CreateItemInfo(System.Windows.Forms.ListViewItem,Parking.Data.DataItem)">
+            <summary>
+            Создание элемента списка
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataItemListView.RefreshItemInfo(System.Windows.Forms.ListViewItem,Parking.Data.DataItem)">
+            <summary>
+            Обнвление элемента списка
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataItemListView.FindItemInfo(System.Int64)">
+            <summary>
+            Поиск элемента списка по указанному идентификатору элемента данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataItemListView.BindDataItemList">
+            <summary>
+            Привязка событий объекта, управляющего списком элементов данных
+            </summary>
+        </member>
+        <member name="F:Parking.Data.DataItemListView.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DataItemListView.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Parking.Data.DataItemListView.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.DataItemListView.HasGroupControl">
+            <summary>
+            Возвращает/устанавливает признак использования родительского контейнера (GroupBox, TabPage)
+            для отображения заголовка списка
+            </summary>
+        </member>
+        <member name="P:Parking.Data.DataItemListView.List">
+            <summary>
+            Возвращает список данных
+            </summary>
+        </member>
+        <member name="P:Parking.Data.DataItemListView.EditForm">
+            <summary>
+            Возвращает окно редактирования
+            </summary>
+        </member>
+        <member name="P:Parking.Data.DataItemListView.StringProvider">
+            <summary>
+            Возвращает поставщик строк для элемента данных
+            </summary>
+        </member>
+        <member name="E:Parking.Data.DataItemListView.ItemRefresh">
+            <summary>
+            Обновление элемента
+            </summary>
+        </member>
+        <member name="T:Parking.Data.ListViewDataItemSorter">
+            <summary>
+            Сортировщик элементов ListView, содержащих DataItem
+            </summary>
+        </member>
+        <member name="T:Parking.Data.TreeViewDataItemSorter">
+            <summary>
+            Сортировщик элементов TreeView, содержащих DataItem
+            </summary>
+        </member>
+        <member name="T:Parking.Data.TariffEditor">
+            <summary>
+            Базовый класс редактора тарифа
+            </summary>
+        </member>
+        <member name="M:Parking.Data.TariffEditor.CheckTimeSpan(System.Windows.Forms.Control,RMLib.Forms.InputFilter)">
+            <summary>
+            Проверяет правильность ввода временного значения
+            </summary>
+        </member>
+        <member name="M:Parking.Data.TariffEditor.CheckMoney(System.Windows.Forms.Control,RMLib.Forms.InputFilter)">
+            <summary>
+            Проверяет правильность ввода денежной суммы
+            </summary>
+        </member>
+        <member name="M:Parking.Data.TariffEditor.ValidateInput">
+            <summary>
+            Проверка ввода.
+            Возвращает true, если всё поля заполнены корректно, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.TariffEditor.OnEditableChanged">
+            <summary>
+            Обрабатывает изменение разрешения редактирования
+            </summary>
+        </member>
+        <member name="M:Parking.Data.TariffEditor.OnSetTariff(Parking.Data.Tariff)">
+            <summary>
+            Устаналивает тариф для редактирования
+            </summary>
+        </member>
+        <member name="M:Parking.Data.TariffEditor.OnGetTariff">
+            <summary>
+            Возвращает тариф после редактирования
+            </summary>
+        </member>
+        <member name="M:Parking.Data.TariffEditor.AdjustColumnHeaders(System.Windows.Forms.ListView)">
+            <summary>
+            Настраивает размеры столбцов
+            </summary>
+        </member>
+        <member name="M:Parking.Data.TariffEditor.FormatMoneyField(System.Decimal)">
+            <summary>
+            Возвращает строковое представление денежной суммы в зависимости от режима редактирования
+            </summary>
+        </member>
+        <member name="F:Parking.Data.TariffEditor.components">
+            <summary> 
+            Требуется переменная конструктора.
+            </summary>
+        </member>
+        <member name="M:Parking.Data.TariffEditor.Dispose(System.Boolean)">
+            <summary> 
+            Освободить все используемые ресурсы.
+            </summary>
+            <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
+        </member>
+        <member name="M:Parking.Data.TariffEditor.InitializeComponent">
+            <summary> 
+            Обязательный метод для поддержки конструктора - не изменяйте 
+            содержимое данного метода при помощи редактора кода.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.TariffEditor.SupportedVersion">
+            <summary>
+            Возвращает поддерживаемую версию тарифа
+            </summary>
+        </member>
+        <member name="P:Parking.Data.TariffEditor.Editable">
+            <summary>
+            Возвращает/устанавливает признак разрешения редактирования
+            </summary>
+        </member>
+        <member name="P:Parking.Data.TariffEditor.Tariff">
+            <summary>
+            Возвращает/устанавливает тариф
+            </summary>
+        </member>
+    </members>
+</doc>

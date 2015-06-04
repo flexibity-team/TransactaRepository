@@ -1,0 +1,610 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parking.Data.Security</name>
+    </assembly>
+    <members>
+        <member name="T:Parking.Data.Security.AuthorizationOperation">
+            <summary>
+            Операция авторизации
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.AuthorizationOperation.Name">
+            <summary>
+            Возвращает/устанавливает имя операции
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.AuthorizationOperation.Description">
+            <summary>
+            Возвращает/устанавливает описание операции
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Security.Password">
+            <summary>
+            Класс для управления паролем
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.Password.Empty">
+            <summary>
+            Пустой пароль
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.Password.Generate">
+            <summary>
+            Генерирует случайный пароль
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.Password.GenerateRandom(System.Int32)">
+            <summary>
+            Создает массив случайных байтов указанной длины
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.Password.#ctor(System.Byte[],System.Byte[])">
+            <summary>
+            Инициализирует объект на основе указанных синхропосылки и хэша пароля
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.Password.#ctor(System.String,System.String)">
+            <summary>
+            Инициализирует объект на основе указанных синхропосылки и хэша пароля
+            в виде base64-закодированных строк
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.Password.#ctor(System.Char[])">
+            <summary>
+            Инициализирует объект на основе указанного пароля в открытом виде
+            </summary>
+            <remarks>
+            По соображениям безопасности, вызывающий должен как можно скорее обнулить этот массив
+            </remarks>
+        </member>
+        <member name="M:Parking.Data.Security.Password.Clone">
+            <summary>
+            Возвращает копию пароля
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.Password.Verify(System.Char[])">
+            <summary>
+            Проверяет, что указанный пароль в открытом виде соответствует
+            синхропосылке и хэшу, сохраненным в объекте
+            </summary>
+            <returns>
+            Возвращает true, если пароль соответствует
+            синхропосылке и хэшу, иначе false
+            </returns>
+        </member>
+        <member name="M:Parking.Data.Security.Password.HashPassword(System.Char[])">
+            <summary>
+            Хэширует указанный пароль в открытом в виде в комбинации с
+            синхропосылкой, находящейся в поле _salt
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.Password.Salt">
+            <summary>
+            Возвращает синхропосылку в виде base64-закодированной строки
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.Password.RawSalt">
+            <summary>
+            Возворащает синхропосылку в виде массива байтов
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.Password.Hash">
+            <summary>
+            Возвращает хэш пароля в виде base64-закодированной строки
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.Password.RawHash">
+            <summary>
+            Возвращает хэш пароля в виде массива байтов
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Security.AuthorizationTask">
+            <summary>
+            Задача авторизации
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.AuthorizationTask.Name">
+            <summary>
+            Возвращает/устанавливает имя задачи
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.AuthorizationTask.Description">
+            <summary>
+            Возвращает/устанавливает описание задачи
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.AuthorizationTask.InnerTasks">
+            <summary>
+            Возвращает список вложенных задач
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.AuthorizationTask.Operations">
+            <summary>
+            Возвращает список операций, определяемых задачей
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Security.Role">
+            <summary>
+            Роль
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.Role.Name">
+            <summary>
+            Возвращает/устанавливает имя роли
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.Role.Description">
+            <summary>
+            Возвращает/устанавливает описание роли
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.Role.InnerRoles">
+            <summary>
+            Возвращает список вложенных ролей
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.Role.Tasks">
+            <summary>
+            Возвращает список задач, определяемых ролью
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.Role.Operations">
+            <summary>
+            Возвращает список операций, определяемых ролью
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Security.RoleAssignment">
+            <summary>
+            Назначение роли
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.RoleAssignment.RoleID">
+            <summary>
+            Возвращает/устанавливает ID роли
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.RoleAssignment.Groups">
+            <summary>
+            Возвращает список групп пользователей
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.RoleAssignment.Users">
+            <summary>
+            Возвращает список пользователей
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Security.SecurityPropertyNameFormatter">
+            <summary>
+            Форматирует имена свойств элементов данных системы безопасности
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityPropertyNameFormatter.FormatPropertyName(System.Type,System.String)">
+            <summary>
+            Возвращает имя свойства элемента данных
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Security.SecurityPropertyValueFormatter">
+            <summary>
+            Форматирует значения свойств элементов данных системы безопасности
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityPropertyValueFormatter.FormatPropertyValue(System.Type,System.String,System.Object,Parking.Data.IPropertyIDFormatter)">
+            <summary>
+            Возвращает строковое представление значения свойства элемента данных 
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Security.SecurityData">
+            <summary>
+            Данные системы безопасности
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.GetKnownTypes">
+            <summary>
+            Возвращает список известных типов (для бизнес-правил)
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.AddOperation(Parking.Data.Security.AuthorizationOperation)">
+            <summary>
+            Добавляет операцию
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.SetOperation(Parking.Data.Security.AuthorizationOperation)">
+            <summary>
+            Устанавливает операцию
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.RemoveOperation(System.Int64)">
+            <summary>
+            Удаляет операцию
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.CheckOperationExists(Parking.Data.Security.AuthorizationOperation)">
+            <summary>
+            Выбрасывает исключение, если операция с таким именем уже существует
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.AddTask(Parking.Data.Security.AuthorizationTask)">
+            <summary>
+            Добавляет задачу
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.SetTask(Parking.Data.Security.AuthorizationTask)">
+            <summary>
+            Устанавливает операцию
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.RemoveTask(System.Int64)">
+            <summary>
+            Удаляет задачу
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.CheckTaskExists(Parking.Data.Security.AuthorizationTask)">
+            <summary>
+            Выбрасывает исключение, если задача с таким именем уже существует
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.AddTaskOperation(Parking.Data.Security.AuthorizationTask,Parking.Data.Security.AuthorizationOperation)">
+            <summary>
+            Добавляет операцию к задаче
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.RemoveTaskOperation(Parking.Data.Security.AuthorizationTask,System.Int64)">
+            <summary>
+            Удаляет операцию из задачи
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.ContainsTaskOperation(Parking.Data.Security.AuthorizationTask,System.Int64)">
+            <summary>
+            Возвращает true, если задача включает операцию с указанным идентификатором, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.AddTaskInner(Parking.Data.Security.AuthorizationTask,Parking.Data.Security.AuthorizationTask)">
+            <summary>
+            Добавляет вложенную задачу к указанной задаче
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.RemoveTaskInner(Parking.Data.Security.AuthorizationTask,System.Int64)">
+            <summary>
+            Удаляет вложенную задачу из указанной задачи
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.ContainsInnerTask(Parking.Data.Security.AuthorizationTask,System.Int64)">
+            <summary>
+            Возвращает true, если задача включает вложенную задачу с указанным идентификатором, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.GetInnerTasks(System.Collections.Generic.IEnumerable{System.Int64})">
+            <summary>
+            Возвращает список задач по указанным идентификаторам
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.AddUser(Parking.Data.Security.UserInfo,Parking.Data.Security.Password)">
+            <summary>
+            Добавляет пользователя
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.SetUser(Parking.Data.Security.UserInfo,Parking.Data.Security.Password)">
+            <summary>
+            Устанавливает пользователя
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.RemoveUser(System.Int64)">
+            <summary>
+            Удаляет пользователя
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.CheckUserExists(Parking.Data.Security.UserInfo)">
+            <summary>
+            Выбрасывает исключение, если пользователь с таким именем уже существует
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.AddUserGroup(Parking.Data.Security.UserGroup)">
+            <summary>
+            Добавляет группу пользователей
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.RemoveUserGroup(System.Int64)">
+            <summary>
+            Удаляет группу пользователей
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.AddUserGroupUser(Parking.Data.Security.UserGroup,Parking.Data.Security.UserInfo)">
+            <summary>
+            Добавляет пользователя в группу
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.RemoveUserGroupUser(Parking.Data.Security.UserGroup,System.Int64)">
+            <summary>
+            Удаляет пользователя из группы
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.AddUserGroupInner(Parking.Data.Security.UserGroup,Parking.Data.Security.UserGroup)">
+            <summary>
+            Добавляет вложенную группу к указанной группе пользователей
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.RemoveUserGroupInner(Parking.Data.Security.UserGroup,System.Int64)">
+            <summary>
+            Удаляет вложенную группу из указанной группы пользователей
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.ContainsInnerGroup(Parking.Data.Security.UserGroup,System.Int64)">
+            <summary>
+            Возвращает true, если группа пользователей включает вложенную группу с указанным идентификатором,
+            иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.GetInnerGroups(Parking.Data.Security.UserGroup)">
+            <summary>
+            Возвращает список вложенных групп для указанной группы пользователей
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.AddRole(Parking.Data.Security.Role)">
+            <summary>
+            Добавляет роль
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.SetRole(Parking.Data.Security.Role)">
+            <summary>
+            Устанавливает роль
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.RemoveRole(System.Int64)">
+            <summary>
+            Удаляет роль
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.CheckRoleExists(Parking.Data.Security.Role)">
+            <summary>
+            Выбрасывает исключение, если роль с таким именем уже существует
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.AddRoleOperation(Parking.Data.Security.Role,Parking.Data.Security.AuthorizationOperation)">
+            <summary>
+            Добавляет операцию к роли
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.RemoveRoleOperation(Parking.Data.Security.Role,System.Int64)">
+            <summary>
+            Удаляет операцию из роли
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.ContainsRoleOperation(Parking.Data.Security.Role,System.Int64)">
+            <summary>
+            Возвращает true, роль включает операцию с указанным идентификатором, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.AddRoleTask(Parking.Data.Security.Role,Parking.Data.Security.AuthorizationTask)">
+            <summary>
+            Добавляет задачу к роли
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.RemoveRoleTask(Parking.Data.Security.Role,System.Int64)">
+            <summary>
+            Удаляет задачу из роли
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.ContainsRoleTask(Parking.Data.Security.Role,System.Int64)">
+            <summary>
+            Возвращает true, роль включает задачу с указанным идентификатором, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.AddRoleInner(Parking.Data.Security.Role,Parking.Data.Security.Role)">
+            <summary>
+            Добавляет вложенную роль к указанной роли
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.RemoveRoleInner(Parking.Data.Security.Role,System.Int64)">
+            <summary>
+            Удаляет вложенную роль из указанной роли
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.ContainsInnerRole(Parking.Data.Security.Role,System.Int64)">
+            <summary>
+            Возвращает true, если роль включает вложенную роль с указанным идентификатором, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.GetInnerRoles(Parking.Data.Security.Role)">
+            <summary>
+            Возвращает список вложенных ролей для указанной роли
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.AddRoleAssignment(Parking.Data.Security.RoleAssignment)">
+            <summary>
+            Добавляет назначение роли
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.RemoveRoleAssignment(System.Int64)">
+            <summary>
+            Удаляет назначение роли
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.AddRoleAssignmentUser(Parking.Data.Security.RoleAssignment,Parking.Data.Security.UserInfo)">
+            <summary>
+            Добавляет пользователя к назначению
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.RemoveRoleAssignmentUser(Parking.Data.Security.RoleAssignment,System.Int64)">
+            <summary>
+            Удаляет пользователя из назначения
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.AddRoleAssignmentUserGroup(Parking.Data.Security.RoleAssignment,Parking.Data.Security.UserGroup)">
+            <summary>
+            Добавляет группу пользователей к назначению
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.RemoveRoleAssignmentUserGroup(Parking.Data.Security.RoleAssignment,System.Int64)">
+            <summary>
+            Удаляет группу пользователей из назначения
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.AddBusinessRule(Parking.Security.IBusinessRule,Parking.Data.Security.Role)">
+            <summary>
+            Добавляет бизнес-правило для указанной роли
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.AddBusinessRules(System.Collections.Generic.IEnumerable{Parking.Security.IBusinessRule},Parking.Data.Security.Role)">
+            <summary>
+            Добавляет бизнес-правила для указанной роли
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.RemoveBusinessRules(System.Int64)">
+            <summary>
+            Удаляет все бизнес-правила для указанной роли
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.RemoveBusinessRules(System.Int64,System.Predicate{Parking.Security.IBusinessRule})">
+            <summary>
+            Удаляет бизнес-правила для указанной роли
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.SafeGetBusinessRules(System.Int64)">
+            <summary>
+            Возвращает список бизнес-правил для роли. Если список не существует, он будет создан
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.GetPassword(System.Int64)">
+            <summary>
+            Возвращает пароль для пользователя с указанным идентификатором
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.FindUser(System.String)">
+            <summary>
+            Возвращает пользователя с указанным именем, или null, если такого пользователя не существует
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.FindRole(System.Int64)">
+            <summary>
+            Возвращает роль с указанным идентификатором, или null, если такой роли не существует
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.FindRole(Parking.Data.Security.UserInfo)">
+            <summary>
+            Возвращает роль к которой принадлежит пользователь, или null, если такой роли не существует
+            (группы пользователей не поддерживаются!!!)
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.FindRoleAssignment(Parking.Data.Security.Role)">
+            <summary>
+            Возвращает назначение для роли, или null, если для роли нет назначения
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.UpdateRoleAssignment(Parking.Data.Security.UserInfo,Parking.Data.Security.Role,Parking.Data.Security.UserInfo,Parking.Data.Security.Role)">
+            <summary>
+            Обновляет назначение роли при добавлении пользователя или изменении роли пользователя
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.GetBusinessRules(Parking.Data.Security.Role)">
+            <summary>
+            Возвращает список бизнес-правил для роли
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityData.Clear">
+            <summary>
+            Удаляет все данные
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.SecurityData.Operations">
+            <summary>
+            Возвращает список операций
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.SecurityData.Tasks">
+            <summary>
+            Возвращает список задач
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.SecurityData.Users">
+            <summary>
+            Возвращает список пользователей
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.SecurityData.Groups">
+            <summary>
+            Возвращает список групп пользователей
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.SecurityData.Roles">
+            <summary>
+            Возвращает список ролей
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.SecurityData.RoleAssignments">
+            <summary>
+            Возвращает список назначений
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.SecurityData.BusinessRules">
+            <summary>
+            Возвращает список бизнес-правил
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Security.UserGroup">
+            <summary>
+            Группа пользователей
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.UserGroup.Name">
+            <summary>
+            Возвращает/устанавливает имя группы пользователей
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.UserGroup.Description">
+            <summary>
+            Возвращает/устанавливает описание группы пользователей
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.UserGroup.InnerGroups">
+            <summary>
+            Возвращает список вложенных групп пользователей
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.UserGroup.Users">
+            <summary>
+            Возвращает список пользователей в группе
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Security.UserInfo">
+            <summary>
+            Информация о пользователе
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.UserInfo.Name">
+            <summary>
+            Возвращает/устанавливает имя пользователя
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.UserInfo.Surname">
+            <summary>
+            Возвращает/устанавливает ФИО пользователя
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.UserInfo.Post">
+            <summary>
+            Возвращает/устанавливает должность пользователя
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.UserInfo.Phone">
+            <summary>
+            Возвращает/устанавливает контактный телефон пользователя
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.UserInfo.Description">
+            <summary>
+            Возвращает/устанавливает описание пользователя
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Security.SecurityTypeNameFormatter">
+            <summary>
+            Форматирует имена типов элементов данных системы безопасности
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityTypeNameFormatter.FormatTypeName(System.Type)">
+            <summary>
+            Возвращает имя типа элемента данных
+            </summary>
+        </member>
+    </members>
+</doc>

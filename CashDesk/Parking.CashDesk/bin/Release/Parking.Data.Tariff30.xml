@@ -1,0 +1,379 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parking.Data.Tariff30</name>
+    </assembly>
+    <members>
+        <member name="T:Parking.Data.Tariff30TypeNameFormatter">
+            <summary>
+            Форматирует имена типов элементов данных тарифа версии 3.0
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Tariff30TypeNameFormatter.FormatTypeName(System.Type)">
+            <summary>
+            Возвращает имя типа элемента данных
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Tariff30PropertyNameFormatter">
+            <summary>
+            Форматирует имена свойств элементов данных тарифа версии 3.0
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Tariff30PropertyNameFormatter.FormatPropertyName(System.Type,System.String)">
+            <summary>
+            Возвращает имя свойства элемента данных
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Tariff30ValueFormat">
+            <summary>
+            Формат значений тарифа версии 3.0
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30ValueFormat.Default">
+            <summary>
+            Без форматирования
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30ValueFormat.TimeDHM">
+            <summary>
+            Время в формате ддд.чч:мм
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30ValueFormat.TimeHM">
+            <summary>
+            Время в формате чч:мм
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30ValueFormat.Currency">
+            <summary>
+            Денежный
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30ValueFormat.Percent">
+            <summary>
+            Процентный
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Tariff30PropertyValueFormatter">
+            <summary>
+            Форматирует значения свойств элементов данных тарифа версии 3.0
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Tariff30PropertyValueFormatter.FormatPropertyValue(System.Type,System.String,System.Object,Parking.Data.IPropertyIDFormatter)">
+            <summary>
+            Возвращает строковое представление значения свойства элемента данных
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Tariff30PropertyValueFormatter.FormatValue(System.Object,Parking.Data.Tariff30ValueFormat)">
+            <summary>
+            Возвращает строку в указанном формате
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Tariff30PropertyValueFormatter.FormatArray``1(``0[],System.Int32)">
+            <summary>
+            Возвращает строку со значениями массива без форматирования
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Tariff30PropertyValueFormatter.FormatArray``1(``0[],System.Int32,Parking.Data.Tariff30ValueFormat)">
+            <summary>
+            Возвращает строку со значениями массива в указанном формате
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Tariff30PropertyValueFormatter.ConvertToMoney(System.Int32)">
+            <summary>
+            Преобразует денежную сумму из копеек в рубли
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Properties.Resources">
+            <summary>
+              Класс ресурса со строгой типизацией для поиска локализованных строк и т.д.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Properties.Resources.ResourceManager">
+            <summary>
+              Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Properties.Resources.Culture">
+            <summary>
+              Перезаписывает свойство CurrentUICulture текущего потока для всех
+              обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Tariff30Type">
+            <summary>
+            Тип тарифа версии 3.0
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Type.MoneyByCurrentTariff">
+            <summary>
+            За деньги по текущему тарифу
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Type.MoneyByPeriodTotal">
+            <summary>
+            За деньги по сумме периодов
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Type.NoPayment">
+            <summary>
+            Без оплаты
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Type.Weekey">
+            <summary>
+            "Неделька"
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Type.WeekeySimple">
+            <summary>
+            "Неделька" (упрощённый)
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Tariff30Class">
+            <summary>
+            Класс тарифа версии 3.0
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Class.Normal">
+            <summary>
+            Обычный
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Class.Penalty">
+            <summary>
+            Штрафной
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Class.VIP">
+            <summary>
+            VIP
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Class.Car">
+            <summary>
+            Для легковых автомобилей
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Class.Van">
+            <summary>
+            Для фургонов
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Class.Truck">
+            <summary>
+            Для грузовиков
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Class.Permanent1">
+            <summary>
+            Для постоянных клиентов 1
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Class.Permanent2">
+            <summary>
+            Для постоянных клиентов 2
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Class.Permanent3">
+            <summary>
+            Для постоянных клиентов 3
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Class.Permanent4">
+            <summary>
+            Для постоянных клиентов 4
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Class.Permanent5">
+            <summary>
+            Для постоянных клиентов 5
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Class.Permanent6">
+            <summary>
+            Для постоянных клиентов 6
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Class.Permanent7">
+            <summary>
+            Для постоянных клиентов 7
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Class.Permanent8">
+            <summary>
+            Для постоянных клиентов 8
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Class.Permanent9">
+            <summary>
+            Для постоянных клиентов 9
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Class.Permanent10">
+            <summary>
+            Для постоянных клиентов 10
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Class.Subscription1">
+            <summary>
+            Для абонементов 1
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Class.Subscription2">
+            <summary>
+            Для абонементов 2
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Class.Subscription3">
+            <summary>
+            Для абонементов 3
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Class.Subscription4">
+            <summary>
+            Для абонементов 4
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Class.Subscription5">
+            <summary>
+            Для абонементов 5
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Class.Subscription6">
+            <summary>
+            Для абонементов 6
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Class.Subscription7">
+            <summary>
+            Для абонементов 7
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Class.Subscription8">
+            <summary>
+            Для абонементов 8
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Tariff30">
+            <summary>
+            Тариф версии 3.0
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Tariff30.ThrowIfTooManyItems(System.Int32)">
+            <summary>
+            Выбрасывает исключение при попытке задать количество расценок больше максимально допустимого (MaxItems)
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Tariff30.Type">
+            <summary>
+            Возвращает/устанавливает тип тарифа
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Tariff30.Class">
+            <summary>
+            Возвращает/устанавливает класс тарифа
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Tariff30.DiscreteChangeTime">
+            <summary>
+            Возвращает/устанавливает время смены дискрета
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Tariff30.DailyRateCount">
+            <summary>
+            Возвращает/устанавливает количество суточных расценок
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Tariff30.DailyRateStartTime">
+            <summary>
+            Возвращает время начала интервала суточной расценки
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Tariff30.DailyRateTimeUnitLength">
+            <summary>
+            Возвращает длительность временной единицы суточной расценки
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Tariff30.DailyRateTimeUnitCost">
+            <summary>
+            Возвращает стоимость за единицу суточной расценки
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Tariff30.DailyRateIntervalCost">
+            <summary>
+            Возвращает стоимость за весь интервал суточной расценки
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Tariff30.ExtraRateCount">
+            <summary>
+            Возвращает/устанавливает количество дополнительных расценок
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Tariff30.ExtraRateStartTime">
+            <summary>
+            Возвращает время начала дополнительной расценки
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Tariff30.ExtraRateTimeUnitLength">
+            <summary>
+            Возвращает длительность временной единицы дополнительной расценки
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Tariff30.ExtraRatePercent">
+            <summary>
+            Возвращает процент стоимости от текущего интервала суточных расценок
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Tariff30.ExtraRateNewUnitCost">
+            <summary>
+            Возвращает новую стоимость единицы дополнительной расценки
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Tariff30.LimitIntervalCount">
+            <summary>
+            Возвращает/устанавливает количество интервалов ограничения
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Tariff30.LimitIntervalStartTime">
+            <summary>
+            Возвращает время начала интервала ограничения
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Tariff30.LimitIntervalLength">
+            <summary>
+            Возвращает длину интервала ограничения
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Tariff30.LimitIntervalCost">
+            <summary>
+            Возвращает сумму интервала ограничения
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Tariff30Extensions">
+            <summary>
+            Расширения для работы с тарифом версии 3.0
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Tariff30Extensions.GetString(Parking.Data.Tariff30Type)">
+            <summary>
+            Возвращает строковое представление типа тарифа версии 3.0
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Tariff30Extensions.GetString(Parking.Data.Tariff30Class)">
+            <summary>
+            Возвращает строковое представление класа тарифа версии 3.0
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Tariff30Extensions.IsPermanent(Parking.Data.Tariff30Class)">
+            <summary>
+            Возвращает true, если класс тарифа предназначен для постоянных клиентов, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Tariff30Extensions.IsSubscription(Parking.Data.Tariff30Class)">
+            <summary>
+            Возвращает true, если класс тарифа предназначен для абонементов, иначе false
+            </summary>
+        </member>
+    </members>
+</doc>

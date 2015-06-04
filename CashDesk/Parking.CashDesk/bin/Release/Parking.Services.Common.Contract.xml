@@ -1,0 +1,288 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parking.Services.Common.Contract</name>
+    </assembly>
+    <members>
+        <member name="T:Parking.Services.IBaseServiceCallback">
+            <summary>
+            Методы обратного вызова базового сервиса
+            </summary>
+        </member>
+        <member name="T:Parking.Services.IBaseService">
+            <summary>
+            Контракт базового сервиса
+            </summary>
+        </member>
+        <member name="M:Parking.Services.IBaseService.Feedback">
+            <summary>
+            Подтверждение соединения и образование канала обратной связи
+            </summary>
+        </member>
+        <member name="T:Parking.Services.IListManager`1">
+            <summary>
+            Интерфейс менеджера списка данных
+            </summary>
+        </member>
+        <member name="T:Parking.Services.IServiceManager">
+            <summary>
+            Общий интерфейс для менеджера сервисов
+            </summary>
+        </member>
+        <member name="P:Parking.Services.IServiceManager.Name">
+            <summary>
+            Возвращает имя сервиса
+            </summary>
+        </member>
+        <member name="M:Parking.Services.IListManager`1.Add(`0)">
+            <summary>
+            Добавляет элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Services.IListManager`1.Remove(System.Int64)">
+            <summary>
+            Удаляет элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Services.IListManager`1.Set(`0)">
+            <summary>
+            Изменяет элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Services.IListManager`1.SetProperty(System.Int64,System.String,System.Object)">
+            <summary>
+            Изменяет свойство элемента данных
+            </summary>
+        </member>
+        <member name="E:Parking.Services.IListManager`1.Added">
+            <summary>
+            Элемент данных добавлен
+            </summary>
+        </member>
+        <member name="E:Parking.Services.IListManager`1.Removed">
+            <summary>
+            Элемент данных удалён
+            </summary>
+        </member>
+        <member name="E:Parking.Services.IListManager`1.Changed">
+            <summary>
+            Элемент данных изменён
+            </summary>
+        </member>
+        <member name="P:Parking.Services.IListManager`1.Count">
+            <summary>
+            Возвращает количество элементов данных
+            </summary>
+        </member>
+        <member name="P:Parking.Services.IListManager`1.Item(System.Int64)">
+            <summary>
+            Возвращает элемент данных по идентификатору
+            </summary>
+        </member>
+        <member name="P:Parking.Services.IListManager`1.Items">
+            <summary>
+            Возвращает список элементов данных
+            </summary>
+        </member>
+        <member name="T:Parking.Services.IListServiceCallback">
+            <summary>
+            Методы обратного вызова для сервиса, управляющего списком данных
+            </summary>
+        </member>
+        <member name="M:Parking.Services.IListServiceCallback.Added(System.Object)">
+            <summary>
+            Элемент данных добавлен
+            </summary>
+        </member>
+        <member name="M:Parking.Services.IListServiceCallback.Removed(System.Int64)">
+            <summary>
+            Элемент данных удалён
+            </summary>
+        </member>
+        <member name="M:Parking.Services.IListServiceCallback.Changed(System.Object)">
+            <summary>
+            Элемент данных изменён
+            </summary>
+        </member>
+        <member name="T:Parking.Services.IListServiceLite`1">
+            <summary>
+            Контракт сервиса, управляющего списком данных без обратной связи
+            </summary>
+        </member>
+        <member name="M:Parking.Services.IListServiceLite`1.Add(`0)">
+            <summary>
+            Добавляет элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Services.IListServiceLite`1.Remove(System.Int64)">
+            <summary>
+            Удаляет элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Services.IListServiceLite`1.Get(System.Int64)">
+            <summary>
+            Возвращает элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Services.IListServiceLite`1.Set(`0)">
+            <summary>
+            Устанавливает элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Services.IListServiceLite`1.SetProperty(System.Int64,System.String,System.Object)">
+            <summary>
+            Устанавливает свойство элемента данных
+            </summary>
+        </member>
+        <member name="M:Parking.Services.IListServiceLite`1.GetList">
+            <summary>
+            Возвращает список элементов данных
+            </summary>
+        </member>
+        <member name="M:Parking.Services.IListServiceLite`1.BeginGetList(System.AsyncCallback,System.Object)">
+            <summary>
+            Возвращает список элементов данных
+            </summary>
+        </member>
+        <member name="T:Parking.Services.IListService`1">
+            <summary>
+            Контракт сервиса, управляющего списком данных
+            </summary>
+        </member>
+        <member name="M:Parking.Services.IListService`1.Add(`0)">
+            <summary>
+            Добавляет элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Services.IListService`1.Remove(System.Int64)">
+            <summary>
+            Удаляет элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Services.IListService`1.Get(System.Int64)">
+            <summary>
+            Возвращает элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Services.IListService`1.Set(`0)">
+            <summary>
+            Устанавливает элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Services.IListService`1.SetProperty(System.Int64,System.String,System.Object)">
+            <summary>
+            Устанавливает свойство элемента данных
+            </summary>
+        </member>
+        <member name="M:Parking.Services.IListService`1.GetList">
+            <summary>
+            Возвращает список элементов данных
+            </summary>
+        </member>
+        <member name="M:Parking.Services.IListService`1.BeginGetList(System.AsyncCallback,System.Object)">
+            <summary>
+            Возвращает список элементов данных
+            </summary>
+        </member>
+        <member name="T:Parking.Services.ISecurityManager">
+            <summary>
+            Интерфейс менеджера безопасности
+            </summary>
+        </member>
+        <member name="M:Parking.Services.ISecurityManager.CheckSecurity(System.Int64,System.Object,System.Object)">
+            <summary>
+            Проверка прав доступа. Имеет смысл только в контексте удалённого вызова сервиса
+            </summary>
+        </member>
+        <member name="T:Parking.Services.IServiceHost">
+            <summary>
+            Интерфейс расположения сервисов
+            </summary>
+        </member>
+        <member name="M:Parking.Services.IServiceHost.GetService``1">
+            <summary>
+            Возвращает сервис указанного типа
+            </summary>
+        </member>
+        <member name="T:Parking.Services.ServiceContract">
+            <summary>
+            Методы для работы с контрактами сервисов
+            </summary>
+        </member>
+        <member name="F:Parking.Services.ServiceContract.Namespace">
+            <summary>
+            Пространство имён
+            </summary>
+        </member>
+        <member name="F:Parking.Services.ServiceContract.PathBase">
+            <summary>
+            Базовый путь
+            </summary>
+        </member>
+        <member name="F:Parking.Services.ServiceContract.ConfigurationFileName">
+            <summary>
+            Имя файла настроек
+            </summary>
+        </member>
+        <member name="F:Parking.Services.ServiceContract.PortBase">
+            <summary>
+            Базовый порт
+            </summary>
+        </member>
+        <member name="M:Parking.Services.ServiceContract.GetServiceFault``1(System.Exception)">
+            <summary>
+            Возвращает текст ошибки сервиса
+            </summary>
+        </member>
+        <member name="M:Parking.Services.ServiceContract.GetServiceFault``1(System.Exception,System.String)">
+            <summary>
+            Возвращает текст ошибки сервиса
+            </summary>
+        </member>
+        <member name="M:Parking.Services.ServiceContract.IsConnectionProblem(System.Exception)">
+            <summary>
+            Возвращает true, если исключение вызвано проблемами со связью, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Services.ServiceContract.IsCritical(Parking.Services.ServiceFaultType)">
+            <summary>
+            Возвращает true если ошибка сервиса является критической, иначе false
+            </summary>
+        </member>
+        <member name="T:Parking.Services.ServiceFaultType">
+            <summary>
+            Тип ошибки сервиса
+            </summary>
+        </member>
+        <member name="F:Parking.Services.ServiceFaultType.Generic">
+            <summary>
+            Ошибка общего типа
+            </summary>
+        </member>
+        <member name="F:Parking.Services.ServiceFaultType.Security">
+            <summary>
+            Ошибка системы безопасности
+            </summary>
+        </member>
+        <member name="F:Parking.Services.ServiceFaultType.Critical">
+            <summary>
+            Критическая ошибка
+            </summary>
+        </member>
+        <member name="T:Parking.Services.ServiceFaultData">
+            <summary>
+            Данные об ошибке сервиса
+            </summary>
+        </member>
+        <member name="P:Parking.Services.ServiceFaultData.Type">
+            <summary>
+            Возвращает тип ошибки
+            </summary>
+        </member>
+        <member name="P:Parking.Services.ServiceFaultData.Message">
+            <summary>
+            Возвращает сообщение об ошибке
+            </summary>
+        </member>
+    </members>
+</doc>

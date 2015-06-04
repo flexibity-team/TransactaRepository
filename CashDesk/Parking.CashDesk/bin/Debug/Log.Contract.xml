@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Log.Contract</name>
+    </assembly>
+    <members>
+        <member name="T:RMLib.Log.Formatters.ILogFormatter">
+            <summary>
+            Интерфейс форматтера сообщений лога
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Formatters.ILogFormatter.FormatMessage(RMLib.Log.ILogMessage)">
+            <summary>
+            Возвращает форматированное сообщение лога
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.ILogger">
+            <summary>
+            Определяет интерфейс логгера
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.ILogger.Write(System.Exception)">
+            <summary>
+            Ставит сообщение об ошибке в очередь
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.ILogger.Write(System.Exception,System.Int32)">
+            <summary>
+            Ставит сообщение об ошибке в очередь
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.ILogger.Write(System.Exception,System.String)">
+            <summary>
+            Ставит сообщение об ошибке в очередь
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.ILogger.Write(System.Exception,System.String,System.Int32)">
+            <summary>
+            Ставит сообщение об ошибке в очередь
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.ILogger.Write(RMLib.Log.LogLevel,System.String)">
+            <summary>
+            Ставит сообщение с указанными параметрами в очередь
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.ILogger.Write(RMLib.Log.LogLevel,System.String,System.Int32)">
+            <summary>
+            Ставит сообщение с указанными параметрами в очередь
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.ILogger.Write(RMLib.Log.ILogMessage)">
+            <summary>
+            Ставит сообщение в очередь
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.ILogger.CanWrite(RMLib.Log.LogLevel)">
+            <summary>
+            Проверяет возможность обработки сообщения с указанным уровнем
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.ILogger.Enabled">
+            <summary>
+            Возвращает/устанавливает разрешение на работу логгера
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.ILogger.Threshold">
+            <summary>
+            Возвращает/устанавливает максимальный уровень сообщений, обрабатываемых логгером
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.ILogMessage">
+            <summary>
+            Интерфейс сообщения лога
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.ILogMessage.TimeStamp">
+            <summary>
+            Возвращает штамп времени сообщения
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.ILogMessage.Level">
+            <summary>
+            Возвращает уровень сообщения
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.ILogMessage.Message">
+            <summary>
+            Возвращает текст сообщения
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.ILogMessage.Category">
+            <summary>
+            Возвращает категорию сообщения
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.ILogMessage.Source">
+            <summary>
+            Возвращает источник сообщения
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.ILogMessage.Context">
+            <summary>
+            Возвращает контекст источника сообщения
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.Writers.ILogWriter">
+            <summary>
+            Интерфейс регистора сообщений лога
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Writers.ILogWriter.WriteMessage(RMLib.Log.ILogMessage,RMLib.Log.Formatters.ILogFormatter)">
+            <summary>
+            Регистрирует сообщение лога
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.Writers.ILogWriter.Destination">
+            <summary>
+            Возвращает место назначения регистрации
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.Writers.ILogWriter.Threshold">
+            <summary>
+            Возвращает/устанавливает максимальный уровень сообщений, обрабатываемых регистратором
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.ISupportLogCategory">
+            <summary>
+            Интерфейс объекта, поддерживающего категории лога
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.ISupportLogCategory.GetLogCategoryName">
+            <summary>
+            Возвращает имя категории
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.ISupportLogCategory.GetLogCategoryRange">
+            <summary>
+            Возвращает диапазон значений категории
+            </summary>
+        </member>
+        <member name="F:RMLib.Log.LogContract.Namespace">
+            <summary>
+            Пространство имён лога
+            </summary>
+        </member>
+        <member name="F:RMLib.Log.LogContract.MessageSeparator">
+            <summary>
+            Разделитель полей сообщения лога
+            </summary>
+        </member>
+        <member name="F:RMLib.Log.LogContract.DefaultCategory">
+            <summary>
+            Категория лога по умолчанию
+            </summary>
+        </member>
+        <member name="F:RMLib.Log.LogContract.DefaultCategoryRange">
+            <summary>
+            Диапазон группы категорий лога по умолчанию
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.LogContract.GetString(RMLib.Log.LogLevel)">
+            <summary>
+            Возвращает строковое представление уровня лога
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.LogLevel">
+            <summary>
+            Уровни ведения лога
+            </summary>
+        </member>
+        <member name="F:RMLib.Log.LogLevel.Error">
+            <summary>
+            Ошибка
+            </summary>
+        </member>
+        <member name="F:RMLib.Log.LogLevel.Warning">
+            <summary>
+            Предупреждение
+            </summary>
+        </member>
+        <member name="F:RMLib.Log.LogLevel.Information">
+            <summary>
+            Информация
+            </summary>
+        </member>
+        <member name="F:RMLib.Log.LogLevel.Debug">
+            <summary>
+            Отладка
+            </summary>
+        </member>
+        <member name="F:RMLib.Log.LogLevel.Verbose">
+            <summary>
+            Подробно
+            </summary>
+        </member>
+    </members>
+</doc>

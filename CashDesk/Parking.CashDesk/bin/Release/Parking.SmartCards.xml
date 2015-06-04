@@ -1,0 +1,610 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parking.SmartCards</name>
+    </assembly>
+    <members>
+        <member name="F:Parking.SmartCards.MasterCard.Key">
+            <summary>
+            Ключ для мастер-карты
+            </summary>
+        </member>
+        <member name="T:Parking.SmartCards.SmartCardCustom">
+            <summary>
+            Болванка раскладки для рабочей и мастер карты
+            </summary>
+        </member>
+        <member name="F:Parking.SmartCards.SmartCardCustom._data">
+            <summary>
+            Массив данных для карты
+            </summary>
+        </member>
+        <member name="F:Parking.SmartCards.SmartCardCustom._tariff">
+            <summary>
+            Тариф
+            </summary>
+        </member>
+        <member name="F:Parking.SmartCards.SmartCardCustom._discounts">
+            <summary>
+            Список услуг и скидок на карте
+            </summary>
+        </member>
+        <member name="F:Parking.SmartCards.SmartCardCustom._version">
+            <summary>
+            Версия раскладки карты
+            </summary>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardCustom.#ctor(Parking.SmartCards.SmartCardLayoutVersion)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="version">Версия создаваемой карты</param>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardCustom.PackData">
+            <summary>
+            Упаковка карты в массив байт пригодный для записи на физическую карту
+            </summary>
+            <returns>Массив байт</returns>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardCustom.UnpackData(System.Byte[])">
+            <summary>
+            Распаковка массива байт прочитанного с физической карты 
+            </summary>
+            <param name="Data">Массив байт</param>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardCustom.PackDiscount">
+            <summary>
+            Упаковывает данные в буфер (в формате раскладки карты)
+            Разрмер данных 16 байт.
+            Должен быть переопределен, для реализации упаковки (мастер и рабочая карта хранят разные данные по скидкам)
+            </summary>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardCustom.PackTariff">
+            <summary>
+            Упаковывает тарив в переданный массив байт в формате раскладки карты
+            </summary>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardCustom.UnpackTariff">
+            <summary>
+            Распаковывает тариф из массива байт в формате раскладки карты
+            </summary>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardCustom.UnpackDiscount">
+            <summary>
+            Распаковывает данные из буфера (из формата раскладки карты)
+            Ожидается 16 байт данных
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardCustom.Version">
+            <summary>
+            Версия раскладки карты
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardCustom.Tariff">
+            <summary>
+            Тариф
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardCustom.ServicesCount">
+            <summary>
+            Количество услуг и скидок на карте
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardCustom.Discounts">
+            <summary>
+            Получить услуги или скидки
+            </summary>
+        </member>
+        <member name="T:Parking.SmartCards.SmartCardsP3x">
+            <summary>
+            Раскладка карты ПАРКТАЙМ-3
+            </summary>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardsP3x.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardsP3x.PackData">
+            <summary>
+            Упаковать данные на карте в массив байт
+            </summary>
+            <returns>Массив байт в формате карты ПАРКТАЙМ</returns>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardsP3x.PackDiscount">
+            <summary>
+            Упаковывает данные в буфер (в формате раскладки карты)
+            Разрмер данных 16 байт.
+            </summary>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardsP3x.UnpackData(System.Byte[])">
+            <summary>
+            Распаковать данные на карте из массива байт
+            </summary>
+            <param name="Data">массив байт в формате карты ПАРКТАЙМ</param>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardsP3x.UnpackDiscount">
+            <summary>
+            Распаковывает данные из буфера (из формата раскладки карты)
+            Ожидается 16 байт данных
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardsP3x.TimeExpiration">
+            <summary>
+            Срок действия карты
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardsP3x.CustomerType">
+            <summary>
+            Тип клиента
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardsP3x.CustomerGroupID">
+            <summary>
+            Группа клиента
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardsP3x.CheckCounters">
+            <summary>
+            Контроль зон и счетчиков проездов (вездеход)
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardsP3x.ECash">
+            <summary>
+            Электронный кошелек
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardsP3x.TimeEntry">
+            <summary>
+            Время въезда
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardsP3x.TimeExit">
+            <summary>
+            Время выезда
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardsP3x.TimePayment">
+            <summary>
+            Время оплаты
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardsP3x.CounterEntry">
+            <summary>
+            Счетчик въездов
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardsP3x.CounterExit">
+            <summary>
+            Счетчик выездов
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardsP3x.ZonePreviousID">
+            <summary>
+            Зона, из которой приехала карта
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardsP3x.ZoneCurrentID">
+            <summary>
+            Текущая зона нахождения карты
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardsP3x.Payment">
+            <summary>
+            Оплаченная сумма
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardsP3x.Debt">
+            <summary>
+            Задолжность
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardsP3x.Discount">
+            <summary>
+            Скидка
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardsP3x.DeviceEntryID">
+            <summary>
+            Номер устройства последнего въезда
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardsP3x.DeviceExitID">
+            <summary>
+            Номер устройства последнего выезда
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardsP3x.CashBoxID">
+            <summary>
+            Номер кассы, в которой был совершен последний платеж
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardsP3x.Blocked">
+            <summary>
+            Флаг блокировки, True - карта заблокирована
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardsP3x.State">
+            <summary>
+            Состояние карты (Оплачено, Не оплачено, Штрафная, ...)
+            </summary>
+        </member>
+        <member name="T:Parking.SmartCards.SmartCardMaster">
+            <summary>
+             Раскладка мастер-карты П3
+            </summary>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardMaster.PackData">
+            <summary>
+            Упаковать данные на карте в массив байт
+            </summary>
+            <returns>Массив байт в формате карты ПАРКТАЙМ</returns>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardMaster.PackDiscount">
+            <summary>
+            Упаковывает данные в буфер (в формате раскладки карты)
+            Разрмер данных 16 байт.
+            </summary>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardMaster.UnpackData(System.Byte[])">
+            <summary>
+            Распаковать данные на карте из массива байт
+            </summary>
+            <param name="Data">массив байт в формате карты ПАРКТАЙМ</param>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardMaster.UnpackDiscount">
+            <summary>
+            Распаковывает данные из буфера (из формата раскладки карты)
+            Ожидается 16 байт данных
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardMaster.KeysA">
+            <summary>
+            4 Ключа А
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardMaster.KeysB">
+            <summary>
+            4 Ключа В
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardMaster.Groups">
+            <summary>
+            Определяет доступ групп через стойку. 256 групп (0 не используется).
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardMaster.NetworkAddress">
+            <summary>
+            Сетевой адрес автономного устройства (например, модуля скидок)
+            </summary>
+        </member>
+        <member name="T:Parking.SmartCards.SmartCardManager">
+            <summary>
+            Реализует работу с картой MiFare в раскладке.
+            Данный класс скрывает рутинную работу с ридером и позволяет легко работать с данными на карте.
+            </summary>
+            <remarks>Рекомендуется вести всю работу с картами в системах через этот класс</remarks>
+        </member>
+        <member name="F:Parking.SmartCards.SmartCardManager._reader">
+            <summary>
+            Ридер, используемый для работы с картой
+            </summary>
+        </member>
+        <member name="F:Parking.SmartCards.SmartCardManager._keysA">
+            <summary>
+            Словарь ключей A. Используется для инициализации новых карт.
+            Первый параметр - Номер сектора на карте, второй Ключ доступа
+            </summary>
+        </member>
+        <member name="F:Parking.SmartCards.SmartCardManager._keysB">
+            <summary>
+            Словарь ключей B. Используется для доступа и инициализации новых карт.
+            Первый параметр - Номер сектора на карте, второй Ключ доступа
+            </summary>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardManager.#ctor(Parking.CardReaders.ISmartCardReader,System.Collections.Generic.Dictionary{System.Int32,Parking.SmartCards.Keys.IAccessKey},System.Collections.Generic.Dictionary{System.Int32,Parking.SmartCards.Keys.IAccessKey})">
+            <summary>
+            Конструктор провайдера
+            </summary>
+            <param name="reader">Ридер, который будет использоваться для чтения карт</param>
+            <param name="KeyA">Словарь ключей доступа A (сектор, ключ доступа)</param>
+            <param name="KeyB">Словарь ключей доступа B (сектор, ключ доступа)</param>
+            <remarks>Внимание! Провайдер сам выполняет метод init() ридера.</remarks>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardManager.ReadCard(Parking.SmartCards.ISmartCard)">
+            <summary>
+            Читает данные с карты
+            </summary>
+            <param name="card">Карта</param>
+            <remarks>Метод позволяет прочесть карту целиком. Количество секторов, которые будет прочитаны зависят от версии
+            карты указанной в параметре version объекта card. В случае возникновения ошибки при чтении выдается исключение 
+            Exception с номером сектора при котором произошла ошибка, содержащее ссылку InnerException на исключение
+            возникшее в классе ридера. Для обработки первопричины проверяйте InnerException исключений на всю глубину.</remarks>
+            <example> Пример чтения карты
+            <code>
+            manager - объект класса SmartCardManager 
+            IParkingSmartCard card = new SmartCardManager();
+            try
+            {
+                manager.ReadCard(ref card);
+            }
+            catch (Exception err)
+            {
+                // обработка исключения
+            }
+            </code>
+            </example> 
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardManager.WriteCard(Parking.SmartCards.ISmartCard)">
+            <summary>
+            Записывает карту
+            </summary>
+            <param name="card">Карта</param>
+            <remarks>Внимание! Для изменения параметров на карте рекомендуется следующий алгоритм:
+            - Чтение карты
+            - Изменение данных
+            - Запись карты
+            Это позволит избежать потери данных на карте.
+            Метод позволяет записать карту целиком. Количество секторов, которые будут записаны зависят от версии
+            карты указанной в параметре version объекта card. В случае возникновения ошибки при записи выдается исключение 
+            Exception с номером сектора при котором произошла ошибка, содержащее ссылку InnerException на исключение
+            возникшее в классе ридера. Для обработки первопричины проверяйте InnerException исключений на всю глубину.</remarks>
+            <example>
+            manager - объект класса ParkingSCardManager
+            <code>
+            ISmartCardPx card = new SmartCardsP3x();
+            try
+            {
+                manager.ReadCard(card);
+                card.Group = 3;
+                manager.Write(card);
+            }
+            catch (Exception err)
+            {
+                // обработка исключения
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardManager.ReadMasterCard(Parking.SmartCards.ISmartCardMaster)">
+            <summary>
+            Читает данные с мастер-карты
+            </summary>
+            <param name="card">Карта</param>
+            <remarks>Метод позволяет прочесть мастер-карту целиком. В случае возникновения ошибки при чтении выдается исключение 
+            Exception с номером сектора при котором произошла ошибка, содержащее ссылку InnerException на исключение
+            возникшее в классе ридера. Для обработки первопричины проверяйте InnerException исключений на всю глубину.</remarks>
+            <example> Пример чтения карты
+            <code>
+            manager - объект класса SmartCardManager 
+            ISmartCardMaster card = new SmartCardMaster();
+            try
+            {
+                manager.ReadMasterCard(card);
+            }
+            catch (Exception err)
+            {
+                // обработка исключения
+            }
+            </code>
+            </example> 
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardManager.WriteMasterCard(Parking.SmartCards.ISmartCardMaster)">
+            <summary>
+            Записывает карту
+            </summary>
+            <param name="card">Карта</param>
+            <remarks>Внимание! Для изменения параметров на карте рекомендуется следующий алгоритм:
+            - Чтение карты
+            - Изменение данных
+            - Запись карты
+            Это позволит избежать потери данных на карте.
+            Метод позволяет записать карту целиком. Количество секторов, которые будут записаны зависят от версии
+            карты указанной в параметре version объекта card. В случае возникновения ошибки при записи выдается исключение 
+            Exception с номером сектора при котором произошла ошибка, содержащее ссылку InnerException на исключение
+            возникшее в классе ридера. Для обработки первопричины проверяйте InnerException исключений на всю глубину.</remarks>
+            <example>
+            manager - объект класса ParkingSCardManager
+            <code>
+            ISmartCardPx card = new SmartCardsP3x();
+            try
+            {
+                manager.ReadCard(card);
+                card.Group = 3;
+                manager.Write(card);
+            }
+            catch (Exception err)
+            {
+                // обработка исключения
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardManager.GetCardID">
+            <summary>
+            Возвращает номер карты лежащей на ридере 
+            </summary>
+            <returns>Номер карты</returns>
+            <remarks>В случае ошибки чтения вызывает исключение ReaderException.</remarks>
+            <example>
+            provider - объект класса ParkingSCardProvider 
+            <code>
+            uint CardNumber = provider.GetCardNum();
+            </code>
+            </example>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardManager.CheckKey(System.UInt32,Parking.SmartCards.Keys.IAccessKey)">
+            <summary>
+            Проверка пригодности ключа для доступа к сектору
+            </summary>
+            <param name="Index">Номер сектора</param>
+            <param name="Key">Ключ</param>
+            <returns>True - возможен доступ, False - ключ не подходит</returns>
+            <remarks>В случае возникновения ошибки вызывает исключения ReaderException</remarks>
+            <example>
+            provider - объект класса ParkingSCardProvider
+            <code>
+            try
+            {
+                IAccessKey Key = new AccessKey("B1B1B1", KeyType.KeyB);
+                if (provider.CheckKey(1, Key) = true) Console.Write("Ключ подходит");
+                else Console.Write("Ключ не подходит");
+            }
+            catch (Exception err)
+            {
+                // обработка исключения
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardManager.CurrentKey(Parking.SmartCards.SmartCardLayoutVersion,System.Collections.Generic.Dictionary{System.Int32,Parking.SmartCards.Keys.IAccessKey}@)">
+            <summary>
+            Анализирует ключи на карте. Подбирает из 3х вариантов: Пользовательские, Заводские FFFFFFFFFFFF, Заводские A0A1A2A3A4A5
+            </summary>
+            <param name="version">Версия карты. В зависимости от версии в словарь будет заложено разное кол-во ключей.</param>
+            <param name="CurrKeyDic">Словарь с ключами для доступа</param>
+            <returns>True - ключь подобран. Словарь заполнен. False - Ключи неизвестен. Словарь пуст.</returns>
+            <remarks>Данный метод может быть использован для определения заводского ключа. Т.к. заводской ключ может быть двух
+            вариантов - FFFFFFFFFFFF или A0A1A2A3A4A5. Так же метод позволяет определить, что карта уже инициализирована.</remarks>
+            <example>
+            NewKeyA и NewKeyB - словари с новыми ключами для карты
+            <code>
+            <![CDATA[Dictionary<int, IAccessKey> keys = new Dictionary<int, IAccessKey>();]]>
+            bool Res = provider.CurrentKey(ParkingCardVersion.Parking3, ref CurrKey); // Подбор ключей
+            provider.InitCard(ParkingCardVersion.Parking3, CurrKey, NewKeyA, NewKeyB);
+            </code>
+            </example>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardManager.ChangeKey(System.UInt32,Parking.SmartCards.Keys.IAccessKey,Parking.SmartCards.Keys.IAccessKey,Parking.SmartCards.Keys.IAccessKey)">
+            <summary>
+            Изменяет ключ доступа к сектору на карте
+            </summary>
+            <param name="Index">Номер сектора</param>
+            <param name="CurrKey">Текущий ключ с правами доступа</param>
+            <param name="NewKeyA">Новый ключ А</param>
+            <param name="NewKeyB">Новый ключ В</param>
+            <remarks>Вместе с ключем изменяются параметры доступа к сектору. Назначается доступ R/W для ключа А и В.
+            В случае ошибки вызывает исключение ReaderException.
+            </remarks>
+            <example> Пример изменения ключа в секторе 1
+            <code>
+            IAccessKey Currkey = new AccessKey(KeyConst.FacrotyKeyFF, KeyType.KeyB);
+            IAccessKey NewkeyA = new AccessKey("A1A1A1", KeyType.KeyA);
+            IAccessKey NewkeyB = new AccessKey("B1B1B1", KeyType.KeyB);
+            try
+            {
+                provider.ChangeKey(1, Currkey, NewkeyA, NewkeyB);
+            }
+            catch (Exception err)
+            {
+                // Обработка исключения
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardManager.InitCard(Parking.SmartCards.SmartCardLayoutVersion)">
+             <summary>
+             Инициализирует карту
+             </summary>
+             <param name="version">Версия раскладки карты</param>
+             <remarks>Инициализация (или подготовка) карты - это операция по смене заводских ключей (или других известных ключей)
+             на уникальные ключи объекта. Известно что заводские ключи бывают 2х видов FFFFFFFFFFFF или A0A1A2A3A4A5.
+             После выполнения оперции инициализации часто бывает нужно занести на карту некоторые начальные данные (WriteCard).
+             Внимание! В отличие от инициализации в П3 эта инициализация не стирает данные с карты.
+             </remarks>
+             <example> Пример инициалзации карты.            
+             <code>
+             try
+             {
+                 provider.InitCard(SmartCardLayoutVersion.Parking3);
+             }
+             catch (Exception err)
+             {
+                 // Обработка исключения
+             }
+             </code>
+            </example>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardManager.InitMasterCard(Parking.SmartCards.SmartCardLayoutVersion)">
+             <summary>
+             Инициализирует мастер карту
+             </summary>
+             <param name="version">Версия раскладки карты</param>
+             <remarks>Инициализация (или подготовка) мастер карты - это операция по смене заводских ключей (или других известных ключей)
+             на ключи мастер-карты. Известно что заводские ключи бывают 2х видов FFFFFFFFFFFF или A0A1A2A3A4A5.
+             После выполнения оперции инициализации можно заполнить карту данными (WriteMasterCard).
+             Внимание! В отличие от инициализации в П3 эта инициализация не стирает данные с карты.
+             </remarks>
+             <example> Пример инициалзации карты.            
+             <code>
+             try
+             {
+                 provider.InitMasterCard(ParkingCardVersion.Master);
+             }
+             catch (Exception err)
+             {
+                 // Обработка исключения
+             }
+             </code>
+            </example>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardManager.Reader">
+            <summary>
+            Ридер, используемый для работы с картой
+            </summary>
+            <remarks>Старайтесь не использовать методы ридера напрямую. В большенстве случаев достаточно методов провайдера</remarks>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardManager.KeysA">
+            <summary>
+            Задает словарь ключей доступа к карте. Тип А. Используется для инициализации новых карт.
+            Первый параметр - Номер сектора на карте, второй Ключ доступа
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.SmartCardManager.KeysB">
+            <summary>
+            Задает словарь ключей доступа к карте. Тип В. Используется для инициализации новых карт.
+            Первый параметр - Номер сектора на карте, второй Ключ доступа
+            </summary>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardUtils.MoneyToBytesInKopeck(System.Decimal,System.Byte[],System.Int32)">
+            <summary>
+            Преобразование денег в рублях в массив байт (в копейках)
+            </summary>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardUtils.BytesInKopeckToMoney(System.Byte[],System.Int32)">
+            <summary>
+            Преобразование денег в рублях из массив байт (в копейках)
+            </summary>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardUtils.TimeSpanToBytes(System.TimeSpan,System.Byte[],System.Int32)">
+            <summary>
+            Копирует временной интервал в массив
+            </summary>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardUtils.BytesToInt24(System.Byte[],System.Int32)">
+            <summary>
+            Преобразует 3 байта массива в целое число
+            </summary>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardUtils.Int24ToBytes(System.Int32,System.Byte[],System.Int32)">
+            <summary>
+            Записывает 3 байта целого числа в массив
+            </summary>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardUtils.BytesToInt16(System.Byte[],System.Int32)">
+            <summary>
+            Преобразует 3 байта массива в целое число
+            </summary>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardUtils.Int16ToBytes(System.Int16,System.Byte[],System.Int32)">
+            <summary>
+            Записывает 2 байта целого числа в массив
+            </summary>
+        </member>
+        <member name="M:Parking.SmartCards.SmartCardUtils.MoneyToECashBytes(System.Int32)">
+            <summary>
+            Преобразует сумму в копейках для массива электронного кошелька
+            </summary>
+        </member>
+    </members>
+</doc>

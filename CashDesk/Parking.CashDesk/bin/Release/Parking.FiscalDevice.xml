@@ -1,0 +1,398 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parking.FiscalDevice</name>
+    </assembly>
+    <members>
+        <member name="M:Parking.FiscalDevice.Start200Control.OpenDLL(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Инициализация DLL
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Start200Control.StartSeans">
+            <summary>
+            Открытие сессии с ККМ  
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Start200Control.CloseDLL">
+            <summary>
+            Освобождение ККМ
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Start200Control.ShiftOpen(System.String)">
+            <summary>
+            Открыть смену
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Start200Control.ShiftClose">
+            <summary>
+            Закрыть смену и печатать Z-Отчет
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Start200Control.ChangeOpName(System.String)">
+            <summary>
+            Задать имя кассира
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Start200Control.GetLastDllError">
+            <summary>
+            Код ошибки последней операции
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Start200Control.XReport">
+            <summary>
+            Печать X отчета
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Start200Control.GetLastDoc">
+            <summary>
+            Электронный отчёт
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Start200Control.ToCash(System.Int32)">
+            <summary>
+            Внесение денег в кассу
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Start200Control.FromCash(System.Int32)">
+            <summary>
+            Инкассация денег
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Start200Control.OpenFiscalDoc(System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Int32,System.Int32,System.Byte,System.Int32)">
+            <summary>
+            Открыть формирование чека (ПФД)
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Start200Control.AddFreeField(System.Int32,System.Int32,System.Byte,System.Byte,System.Byte,System.String)">
+            <summary>
+            Добавить строку к чеку
+            </summary>
+        </member>
+        <member name="F:Parking.FiscalDevice.Start200Control.cashierName">
+            <summary>
+            Возвращает состояние смены (открыта/закрыта)
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Start200Control.Initialize(System.Int32,System.String)">
+            <summary>
+            Производит подключение к фискальному регистратору
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Start200Control.Payment(Parking.FiscalDevice.PaymentDocument)">
+            <summary>
+            Оплата
+            </summary>
+        </member>
+        <member name="T:Parking.FiscalDevice.VirtualFiscalDevice">
+            <summary>
+            Виртуальный фискальный регистратор.
+            Используется для работы без физического фискального регистратора.
+            Оперирует теми же данными что и Прим-08ТК
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.VirtualFiscalDevice.Initialize(System.Int32,System.String)">
+            <summary>
+            Производит подключение к фискальному регистратору
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.VirtualFiscalDevice.GetKKMAmount">
+            <summary>
+            Возвращает количество денег в кассе
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.VirtualFiscalDevice.GetSessionAmount">
+            <summary>
+            Возвращает выручку за смену 
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.VirtualFiscalDevice.OpenSession">
+            <summary>
+            Открывает смену
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.VirtualFiscalDevice.CloseSession">
+            <summary>
+            Закрывает смену
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.VirtualFiscalDevice.PrintXReport">
+            <summary>
+            Печатает X-отчет
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.VirtualFiscalDevice.CashIn(System.Double)">
+            <summary>
+            Положить деньги в кассу (например, для размена)
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.VirtualFiscalDevice.CashOut(System.Double)">
+            <summary>
+            Забрать деньги из кассы (инкассация)
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.VirtualFiscalDevice.Payment(Parking.FiscalDevice.PaymentDocument)">
+            <summary>
+            Оплата
+            </summary>
+        </member>
+        <member name="P:Parking.FiscalDevice.VirtualFiscalDevice.IsSessionOpened">
+            <summary>
+            Возвращает состояние смены (открыта/закрыта)
+            </summary>
+        </member>
+        <member name="T:Parking.FiscalDevice.VirtualFiscalDevice.VFDMemory">
+            <summary>
+            Имитирует память фискального регистратора, сохраняя данные в файле конфигурации приложения
+            </summary>
+        </member>
+        <member name="P:Parking.FiscalDevice.VirtualFiscalDevice.VFDMemory.MoneyInKKM">
+            <summary>
+            Денег в кассе
+            </summary>
+        </member>
+        <member name="P:Parking.FiscalDevice.VirtualFiscalDevice.VFDMemory.Receipts">
+            <summary>
+            Выручка за день
+            </summary>
+        </member>
+        <member name="P:Parking.FiscalDevice.VirtualFiscalDevice.VFDMemory.IsSessionOpen">
+            <summary>
+            Состояние сессии (True - открыта/ False - закрыта)
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.KKMStateForm.SetMessage(System.String)">
+            <summary>
+            Отображает сообщение на экране
+            </summary>
+        </member>
+        <member name="F:Parking.FiscalDevice.KKMStateForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.KKMStateForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Parking.FiscalDevice.KKMStateForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Parking.FiscalDevice.Prim08Control">
+            <summary>
+            ККМ Прим-08ТК
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control._Init(System.Int32,System.Byte@,System.Boolean)">
+            <summary>
+            Инициализация ККМ
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control._Resume">
+            <summary>
+            Подготовка ККМ к работе 
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control._Close">
+            <summary>
+            Освобождение ККМ
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control._SetOperDateTime(System.Double)">
+            <summary>
+            Задание время начала операционного дня
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control._SessionOpen">
+            <summary>
+            Открытие сеанса обмена с ККМ
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control._GetErrorNumber">
+            <summary>
+            Состояние ККМ
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control._GetTransState">
+            <summary>
+            Состояние выполнения транзакции (true - простой, false - занят выполнением операции)
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control._ZAccount">
+            <summary>
+            Печать Z отчета
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control._XAccount">
+            <summary>
+            Печать X отчета
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control._GetAccount">
+            <summary>
+            Электронный отчёт
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control._GetOpened">
+            <summary>
+            Состояние смены (true - открыта, false - закрыта)
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control._GetMoneyInCCM">
+            <summary>
+            Получить количество денег в кассе
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control._GetMoneyPerChange">
+            <summary>
+            Получить выручку за смену
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control._SetChangeName(System.Byte@)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control._ChangeOpen">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control._SetCurrentMoney(System.Double)">
+            <summary>
+            Установка суммы денег для проведения операции
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control._AddRequisite(System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Добавить строку к чеку
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control._SetCashierName(System.String)">
+            <summary>
+            Задать имя кассира
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control._SetCashierID(System.Byte)">
+            <summary>
+            Задать ID кассира (в исходном варианте всегда 0)
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control._CashIn">
+            <summary>
+            Внесение денег в кассу
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control._CashOut">
+            <summary>
+            Инкассация денег
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control._isExecuted">
+            <summary>
+            Проверка занятости ККМ
+            (true - свободен, false - занят)
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control._ClearRequisites">
+            <summary>
+            Очистка чека (перед заполнением)
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control._WholeCheck">
+            <summary>
+            Печать чека
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control._SetCurrentPayType(System.Int32)">
+            <summary>
+            Назначение типа оплаты
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control._SetCurrentDocType(System.Int32)">
+            <summary>
+            Назначение типа документа
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control.Initialize(System.Int32,System.String)">
+            <summary>
+            Производит подключение к фискальному регистратору
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control.GetKKMAmount">
+            <summary>
+            Возвращает количество денег в кассе
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control.GetSessionAmount">
+            <summary>
+            Возвращает выручку за смену 
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control.OpenSession">
+            <summary>
+            Открывает смену
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control.CloseSession">
+            <summary>
+            Закрывает смену
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control.PrintXReport">
+            <summary>
+            Печатает X-отчет
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control.CashIn(System.Double)">
+            <summary>
+            Положить деньги в кассу (например, для размена)
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control.CashOut(System.Double)">
+            <summary>
+            Забрать деньги из кассы (инкассация)
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control.Payment(Parking.FiscalDevice.PaymentDocument)">
+            <summary>
+            Оплата
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control.SetOperDateTime(System.DateTime)">
+            <summary>
+            Задает время операции в фискальном регистраторе
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control.SetChangeName">
+            <summary>
+            Назначает имя сессии
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control.SetCurrentMoney(System.Double)">
+            <summary>
+            Устанавливает сумму в фискальном регистраторе для дальнейшей операции внесения или вынесения
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control.OpenSessionInternal">
+            <summary>
+            Открывает смену
+            </summary>
+        </member>
+        <member name="M:Parking.FiscalDevice.Prim08Control.PrintZReport">
+            <summary>
+            Печать Z отчета
+            </summary>
+        </member>
+        <member name="P:Parking.FiscalDevice.Prim08Control.IsSessionOpened">
+            <summary>
+            Возвращает состояние смены (открыта/закрыта)
+            </summary>
+        </member>
+    </members>
+</doc>

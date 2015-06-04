@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parking.Security.Contract</name>
+    </assembly>
+    <members>
+        <member name="T:Parking.Security.AuthorizationTaskAttribute">
+            <summary>
+            Определяет задачу авторизации
+            </summary>
+        </member>
+        <member name="P:Parking.Security.AuthorizationTaskAttribute.ID">
+            <summary>
+            Возвращает идентификатор задачи
+            </summary>
+        </member>
+        <member name="T:Parking.Security.AuthorizationOperationAttribute">
+            <summary>
+            Определяет операцию авторизации
+            </summary>
+        </member>
+        <member name="P:Parking.Security.AuthorizationOperationAttribute.ID">
+            <summary>
+            Возвращает идентификатор операции
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Security.BusinessRule">
+            <summary>
+            Абстрактный базовый класс бизнес-правила
+            </summary>
+        </member>
+        <member name="T:Parking.Security.IBusinessRule">
+            <summary>
+            Интерфейс бизнес-правила
+            </summary>
+        </member>
+        <member name="M:Parking.Security.IBusinessRule.Validate(System.Collections.IDictionary)">
+            <summary>
+            Проверка параметров бизнес-правила
+            </summary>
+        </member>
+        <member name="P:Parking.Security.IBusinessRule.OperationID">
+            <summary>
+            Возвращает ID операции, с которой связано бизнес-правило
+            </summary>
+        </member>
+        <member name="P:Parking.Data.Security.BusinessRule.OperationID">
+            <summary>
+            Возвращает ID операции, с которой связано бизнес-правило
+            </summary>
+        </member>
+        <member name="T:Parking.Security.BusinessRuleComparer">
+            <summary>
+            Объект для сравнения бизнес-правил
+            </summary>
+        </member>
+        <member name="T:Parking.Security.BusinessRules">
+            <summary>
+            Зарегистрированные бизнес-правила
+            </summary>
+        </member>
+        <member name="M:Parking.Security.BusinessRules.Register(Parking.Security.IBusinessRule)">
+            <summary>
+            Регистрирует бизнес-правило
+            </summary>
+        </member>
+        <member name="M:Parking.Security.BusinessRules.UnregisterAll">
+            <summary>
+            Снимает с регистрации все зарегистрированные бизнес-правила
+            </summary>
+        </member>
+        <member name="M:Parking.Security.BusinessRules.GetBusinessRules(System.Int64)">
+            <summary>
+            Возвращает список правил для операции с указанным идентификатором
+            </summary>
+        </member>
+        <member name="M:Parking.Security.BusinessRules.GetBusinessRules(System.Collections.Generic.IEnumerable{System.Int64})">
+            <summary>
+            Возвращает список бизнес-правил для указанных операций
+            </summary>
+        </member>
+        <member name="P:Parking.Security.BusinessRules.KnownTypes">
+            <summary>
+            Возвращает список типов бизнес-правил. Используется для сериализации/десериализации объектов типа IBusinessRule
+            </summary>
+        </member>
+        <member name="P:Parking.Security.BusinessRules.Comparer">
+            <summary>
+            Возвращает объект для сравнения бизнес-правил
+            </summary>
+        </member>
+        <member name="T:Parking.Security.AuthorizationParameters">
+            <summary>
+            Параметры авторизации
+            </summary>
+        </member>
+        <member name="M:Parking.Security.AuthorizationParameters.Create">
+            <summary>
+            Создаёт параметры для проверки доступа или бизнес-правил
+            </summary>
+        </member>
+        <member name="M:Parking.Security.AuthorizationParameters.AddTasks(System.Collections.IDictionary,System.Collections.Generic.IEnumerable{System.Int64})">
+            <summary>
+            Добавляет задачи к параметрам проверки доступа
+            </summary>
+        </member>
+        <member name="M:Parking.Security.AuthorizationParameters.AddOperations(System.Collections.IDictionary,System.Collections.Generic.IEnumerable{System.Int64})">
+            <summary>
+            Добавляет операции к параметрам проверки доступа
+            </summary>
+        </member>
+        <member name="M:Parking.Security.AuthorizationParameters.FromAttributes">
+            <summary>
+            Возвращает параметры для авторизации из атрибутов вызывающего метода
+            </summary>
+        </member>
+        <member name="M:Parking.Security.AuthorizationParameters.FromAttributes(System.Int32)">
+            <summary>
+            Возвращает параметры для авторизации из атрибутов вызывающего метода
+            </summary>
+        </member>
+        <member name="T:Parking.Security.IAuthenticationProvider">
+            <summary>
+            Интерфейс поставщика аутентификации
+            </summary>
+        </member>
+        <member name="M:Parking.Security.IAuthenticationProvider.LogOn(System.Security.Principal.IIdentity@)">
+            <summary>
+            Вход в систему с указаной identity
+            </summary>
+        </member>
+        <member name="M:Parking.Security.IAuthenticationProvider.LogOff(System.Security.Principal.IIdentity)">
+            <summary>
+            Выход из системы для указаной identity
+            </summary>
+        </member>
+        <member name="M:Parking.Security.IAuthenticationProvider.SetLockMode(System.Boolean)">
+            <summary>
+            Установка состояния блокировки системы
+            </summary>
+        </member>
+        <member name="T:Parking.Security.IAuthorizationProvider">
+            <summary>
+            Интерфейс поставщика авторизации
+            </summary>
+        </member>
+        <member name="M:Parking.Security.IAuthorizationProvider.IsInRole(System.Security.Principal.IIdentity,System.String)">
+            <summary>
+            Проверяет принадлежность identity к указанной роли
+            </summary>
+        </member>
+        <member name="M:Parking.Security.IAuthorizationProvider.CheckAccess(System.Security.Principal.IIdentity,System.Collections.IDictionary,System.Collections.IDictionary)">
+            <summary>
+            Проверяет права доступа для указанной identity
+            </summary>
+        </member>
+        <member name="T:Parking.Security.SecurityIdentity">
+            <summary>
+            Identity с подтверждением успешной аутентификации
+            </summary>
+        </member>
+    </members>
+</doc>

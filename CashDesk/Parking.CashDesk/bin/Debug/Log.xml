@@ -1,0 +1,908 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Log</name>
+    </assembly>
+    <members>
+        <member name="T:RMLib.LoggedApplication`2">
+            <summary>
+            Расширяемое приложение с возможностью записи в лог
+            </summary>
+        </member>
+        <member name="M:RMLib.LoggedApplication`2.OnLogError(System.String)">
+            <summary>
+            Записывает ошибку в лог
+            </summary>
+        </member>
+        <member name="M:RMLib.LoggedApplication`2.OnLogError(System.String,System.Int32)">
+            <summary>
+            Записывает ошибку в лог
+            </summary>
+        </member>
+        <member name="M:RMLib.LoggedApplication`2.OnLogException(System.Exception,System.String)">
+            <summary>
+            Записывает исключение в лог
+            </summary>
+        </member>
+        <member name="M:RMLib.LoggedApplication`2.OnLogException(System.Exception,System.String,System.Int32)">
+            <summary>
+            Записывает исключение в лог
+            </summary>
+        </member>
+        <member name="M:RMLib.LoggedApplication`2.OnLogMessage(RMLib.Log.LogLevel,System.String)">
+            <summary>
+            Записывает сообщение в лог
+            </summary>
+        </member>
+        <member name="M:RMLib.LoggedApplication`2.OnLogMessage(RMLib.Log.LogLevel,System.String,System.Int32)">
+            <summary>
+            Записывает сообщение в лог
+            </summary>
+        </member>
+        <member name="P:RMLib.LoggedApplication`2.Logger">
+            <summary>
+            Возвращает/устанавливает логгер
+            </summary>
+        </member>
+        <member name="P:RMLib.LoggedApplication`2.LogCategories">
+            <summary>
+            Возвращает/устанавливает категории лога
+            </summary>
+        </member>
+        <member name="T:RMLib.Services.Wcf.LoggedWcfClient`3">
+            <summary>
+            Абстрактный базовый класс клиента
+            </summary>
+        </member>
+        <member name="M:RMLib.Services.Wcf.LoggedWcfClient`3.OnLogError(System.String)">
+            <summary>
+            Записывает ошибку в лог
+            </summary>
+        </member>
+        <member name="M:RMLib.Services.Wcf.LoggedWcfClient`3.OnLogError(System.String,System.Int32)">
+            <summary>
+            Записывает ошибку в лог
+            </summary>
+        </member>
+        <member name="M:RMLib.Services.Wcf.LoggedWcfClient`3.OnLogException(System.Exception,System.String)">
+            <summary>
+            Записывает исключение в лог
+            </summary>
+        </member>
+        <member name="M:RMLib.Services.Wcf.LoggedWcfClient`3.OnLogException(System.Exception,System.String,System.Int32)">
+            <summary>
+            Записывает исключение в лог
+            </summary>
+        </member>
+        <member name="M:RMLib.Services.Wcf.LoggedWcfClient`3.OnLogMessage(RMLib.Log.LogLevel,System.String)">
+            <summary>
+            Записывает сообщение в лог
+            </summary>
+        </member>
+        <member name="M:RMLib.Services.Wcf.LoggedWcfClient`3.OnLogMessage(RMLib.Log.LogLevel,System.String,System.Int32)">
+            <summary>
+            Записывает сообщение в лог
+            </summary>
+        </member>
+        <member name="M:RMLib.Services.Wcf.LoggedWcfClient`3.ToString">
+            <summary>
+            Возвращает строковое представление клиента
+            </summary>
+        </member>
+        <member name="P:RMLib.Services.Wcf.LoggedWcfClient`3.Logger">
+            <summary>
+            Возвращает логгер
+            </summary>
+        </member>
+        <member name="T:RMLib.Services.Wcf.LoggedWcfServiceManager`1">
+            <summary>
+            Менеджер сервиса WCF с возможностью записи в лог
+            </summary>
+        </member>
+        <member name="M:RMLib.Services.Wcf.LoggedWcfServiceManager`1.OnLogError(System.String)">
+            <summary>
+            Записывает ошибку лог
+            </summary>
+        </member>
+        <member name="M:RMLib.Services.Wcf.LoggedWcfServiceManager`1.OnLogError(System.String,System.Int32)">
+            <summary>
+            Записывает ошибку лог
+            </summary>
+        </member>
+        <member name="M:RMLib.Services.Wcf.LoggedWcfServiceManager`1.OnLogException(System.Exception,System.String)">
+            <summary>
+            Записывает исключение в лог
+            </summary>
+        </member>
+        <member name="M:RMLib.Services.Wcf.LoggedWcfServiceManager`1.OnLogException(System.Exception,System.String,System.Int32)">
+            <summary>
+            Записывает исключение в лог
+            </summary>
+        </member>
+        <member name="M:RMLib.Services.Wcf.LoggedWcfServiceManager`1.OnLogMessage(RMLib.Log.LogLevel,System.String)">
+            <summary>
+            Записывает сообщение в лог
+            </summary>
+        </member>
+        <member name="M:RMLib.Services.Wcf.LoggedWcfServiceManager`1.OnLogMessage(RMLib.Log.LogLevel,System.String,System.Int32)">
+            <summary>
+            Записывает сообщение в лог
+            </summary>
+        </member>
+        <member name="M:RMLib.Services.Wcf.LoggedWcfServiceManager`1.PreProcessLogMessage(RMLib.Log.LogLevel,System.String)">
+            <summary>
+            Предварительная обработка текста сообщения лога
+            </summary>
+        </member>
+        <member name="M:RMLib.Services.Wcf.LoggedWcfServiceManager`1.ToString">
+            <summary>
+            Возвращает строковое представление менеджера
+            </summary>
+        </member>
+        <member name="P:RMLib.Services.Wcf.LoggedWcfServiceManager`1.Logger">
+            <summary>
+            Возвращает логгер
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.Formatters.ExplicitStringLogFormatter">
+            <summary>
+            Возвращает строковое представление сообщения лога
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Formatters.ExplicitStringLogFormatter.FormatMessage(RMLib.Log.ILogMessage)">
+            <summary>
+            Возвращает форматированное сообщение лога
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.Formatters.MultilineStringLogFormatter">
+            <summary>
+            Возвращает строковое представление сообщения лога без символов новой строки
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.Formatters.StringLogFormatter">
+            <summary>
+            Возвращает строковое представление сообщения лога
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Formatters.StringLogFormatter.TryParse(System.String,RMLib.Log.ILogMessage@)">
+            <summary>
+            Создаёт сообщение лога из строки
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Formatters.StringLogFormatter.ToBase64(System.String)">
+            <summary>
+            Преобразование строки в base64
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Formatters.StringLogFormatter.FromBase64(System.String)">
+            <summary>
+            Преобразование строки из base64
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Formatters.StringLogFormatter.FormatMessage(RMLib.Log.ILogMessage)">
+            <summary>
+            Возвращает форматированное сообщение лога
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.Formatters.StringLogFormatter.MessageEncoding">
+            <summary>
+            Возвращает/устанавливает используемую кодировку для сообщений
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.Formatters.StringLogFormatter.AutoParseBase64">
+            <summary>
+            Поддержка автоматического определения и преобразования base64
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Formatters.MultilineStringLogFormatter.FormatMessage(RMLib.Log.ILogMessage)">
+            <summary>
+            Возвращает форматированное сообщение лога
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.Formatters.SafeStringLogFormatter">
+            <summary>
+            Возвращает строковое представление сообщения лога с заменой недопустимых символов
+            и возможностью ограничения по длине
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Formatters.SafeStringLogFormatter.FormatMessage(RMLib.Log.ILogMessage)">
+            <summary>
+            Возвращает форматированное сообщение лога
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.Formatters.XmlLogFormatter">
+            <summary>
+            Возвращает XML-представление сообщения лога
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Formatters.XmlLogFormatter.TryParse(System.String,RMLib.Log.ILogMessage@)">
+            <summary>
+            Создаёт сообщение лога из строки
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Formatters.XmlLogFormatter.FormatMessage(RMLib.Log.ILogMessage)">
+            <summary>
+            Возвращает форматированное сообщение лога
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.LogCategoryInfo">
+            <summary>
+            Описание категории лога
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.LogCategoryInfo.TypeName">
+            <summary>
+            Возвращает имя типа
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.LogCategoryInfo.Name">
+            <summary>
+            Возвращает имя категории
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.LogCategoryInfo.Range">
+            <summary>
+            Возвращает диапазон значений
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.LogCategoryMap">
+            <summary>
+            Карта категорий лога
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.LogCategoryMap.Create(System.Collections.Generic.IEnumerable{RMLib.Log.ISupportLogCategory})">
+            <summary>
+            Создаёт карту категорий лога и записывает её в файл
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.LogCategoryMap.Create(System.Collections.Generic.IEnumerable{RMLib.Log.ISupportLogCategory},System.String)">
+            <summary>
+            Создаёт карту категорий лога и записывает её в файл
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.LogCategoryMap.Load(System.String)">
+            <summary>
+            Загружает карту категорий лога из файла
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.LogCategoryMap.GetMapFileName(System.String)">
+            <summary>
+            Возвращает имя файла категорий лога для указанного имени файла лога
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.LogCategoryMap.AddEntry(RMLib.Log.LogCategoryInfo)">
+            <summary>
+            Добавляет описание категории лога
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.LogCategoryMap.Clear">
+            <summary>
+            Очищает карту категорий лога
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.LogCategoryMap.Find(System.Int32)">
+            <summary>
+            Возвращает описание для указанной категории
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.LogCategoryMap.Entries">
+            <summary>
+            Возвращает коллекцию описаний категорий лога
+            </summary>
+        </member>
+        <member name="T:RMLib.LoggedExtension`1">
+            <summary>
+            Расширение с возможностью записи в лог
+            </summary>
+        </member>
+        <member name="M:RMLib.LoggedExtension`1.OnLogError(System.String)">
+            <summary>
+            Записывает ошибку в лог
+            </summary>
+        </member>
+        <member name="M:RMLib.LoggedExtension`1.OnLogError(System.String,System.Int32)">
+            <summary>
+            Записывает ошибку в лог
+            </summary>
+        </member>
+        <member name="M:RMLib.LoggedExtension`1.OnLogException(System.Exception,System.String)">
+            <summary>
+            Записывает исключение в лог
+            </summary>
+        </member>
+        <member name="M:RMLib.LoggedExtension`1.OnLogException(System.Exception,System.String,System.Int32)">
+            <summary>
+            Записывает исключение в лог
+            </summary>
+        </member>
+        <member name="M:RMLib.LoggedExtension`1.OnLogMessage(RMLib.Log.LogLevel,System.String)">
+            <summary>
+            Записывает сообщение в лог
+            </summary>
+        </member>
+        <member name="M:RMLib.LoggedExtension`1.OnLogMessage(RMLib.Log.LogLevel,System.String,System.Int32)">
+            <summary>
+            Записывает сообщение в лог
+            </summary>
+        </member>
+        <member name="P:RMLib.LoggedExtension`1.Logger">
+            <summary>
+            Возвращает/устанавливает логгер
+            </summary>
+        </member>
+        <member name="T:RMLib.ServiceContainerExtensions">
+            <summary>
+            Методы для поддержки контейнера сервисов
+            </summary>
+        </member>
+        <member name="M:RMLib.ServiceContainerExtensions.RegisterLogger(RMLib.Services.IServiceContainer)">
+            <summary>
+            Создаёт и регистрирует логгер.
+            Возвращает созданный объект логгера
+            </summary>
+        </member>
+        <member name="M:RMLib.ServiceContainerExtensions.RegisterLogger(RMLib.Services.IServiceContainer,RMLib.Log.LogLevel)">
+            <summary>
+            Создаёт и регистрирует логгер.
+            Возвращает созданный объект логгера
+            </summary>
+        </member>
+        <member name="M:RMLib.ServiceContainerExtensions.RegisterLogger(RMLib.Services.IServiceContainer,RMLib.Log.LogLevel,System.String,System.String)">
+            <summary>
+            Создаёт и регистрирует логгер.
+            Возвращает созданный объект логгера
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.LogExtensions">
+            <summary>
+            Методы для работы с логгером
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.LogExtensions.ToLogLevel(System.Diagnostics.EventLogEntryType)">
+            <summary>
+            Преобразует тип системного события в уровень лога
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.LogExtensions.ToLogMessage(System.Diagnostics.EventLogEntry)">
+            <summary>
+            Преобразует запись системного события в сообщение лога
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.LogStatistics">
+            <summary>
+            Статистика работы логгера
+            </summary>
+        </member>
+        <member name="F:RMLib.Log.LogStatistics.MessageReceived">
+            <summary>
+            Количество полученных сообщений
+            </summary>
+        </member>
+        <member name="F:RMLib.Log.LogStatistics.MessageEnqueued">
+            <summary>
+            Количество сообщений, поставленных в очередь
+            </summary>
+        </member>
+        <member name="F:RMLib.Log.LogStatistics.MessageWritten">
+            <summary>
+            Количество сообщений, обработанных хотя бы одним регистратором
+            </summary>
+        </member>
+        <member name="F:RMLib.Log.LogStatistics.MessageSkipped">
+            <summary>
+            Количество пропущенных сообщений (по порогу или фильтру)
+            </summary>
+        </member>
+        <member name="F:RMLib.Log.LogStatistics.MessageLost">
+            <summary>
+            Количество потерянных сообщений (удалённых из очереди)
+            </summary>
+        </member>
+        <member name="F:RMLib.Log.LogStatistics.ErrorsCount">
+            <summary>
+            Количество ошибок
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.LogStatistics.Reset">
+            <summary>
+            Сброс счётчиков статистики
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.LogStatistics.ToString">
+            <summary>
+            Возвращает строковое представление статистики работы лога
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.Services.ILogService">
+            <summary>
+            Интерфейс сервиса сообщений лога
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Services.ILogService.GetSourceName">
+            <summary>
+            Возвращает имя источника
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Services.ILogService.GetCategoryMap">
+            <summary>
+            Возвращает карту категорий лога
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Services.ILogService.GetMessages">
+            <summary>
+            Возвращает сообщения
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.Services.LogFaultData">
+            <summary>
+            Данные об ошибке сервиса лога
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.Services.LogFaultData.Message">
+            <summary>
+            Возвращает сообщение об ошибке
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.Services.LogClientProxy">
+            <summary>
+            Клиент сервиса сообщений лога
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Services.LogClientProxy.GetSourceName">
+            <summary>
+            Запрашивает имя источника
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Services.LogClientProxy.GetCategoryMap">
+            <summary>
+            Запрашивает карту категорий лога
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Services.LogClientProxy.GetMessages">
+            <summary>
+            Запрашивает список сообщений
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.Services.LogClient">
+            <summary>
+            Клиент сообщений лога
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Services.LogClient.GetSourceName">
+            <summary>
+            Возвращает имя источника
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Services.LogClient.GetCategoryMap">
+            <summary>
+            Возвращает карту категорий лога
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Services.LogClient.GetMessages">
+            <summary>
+            Возвращает список сообщений
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.Services.NamedPipeLogClient">
+            <summary>
+            Клиент сообщений лога, поддерживающий протокол NamedPipe
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Services.NamedPipeLogClient.CreateConfigurator(System.String)">
+            <summary>
+            Создаёт конфигуратор для настройки клиента
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.Services.TCPLogClient">
+            <summary>
+            Клиент сообщений лога, поддерживающий протокол TCP/IP
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Services.TCPLogClient.CreateConfigurator(System.String,System.Int32,System.String)">
+            <summary>
+            Создаёт конфигуратор для настройки клиента
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.Services.LogService">
+            <summary>
+            Сервис сообщений лога
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Services.LogService.OnSourceNameGet">
+            <summary>
+            Поднимает событие SourceNameGet
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Services.LogService.OnCategoryMapGet">
+            <summary>
+            Поднимает событие CategoryMapGet
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Services.LogService.OnMessagesGet">
+            <summary>
+            Поднимает событие MessagesGet
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Services.LogService.GetSourceName">
+            <summary>
+            Запрос имени источника
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Services.LogService.GetCategoryMap">
+            <summary>
+            Запрос карты категорий лога
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Services.LogService.GetMessages">
+            <summary>
+            Запрос списка сообщений
+            </summary>
+        </member>
+        <member name="E:RMLib.Log.Services.LogService.SourceNameGet">
+            <summary>
+            Запрос имени источника
+            </summary>
+        </member>
+        <member name="E:RMLib.Log.Services.LogService.CategoryMapGet">
+            <summary>
+            Запрос карты категорий лога
+            </summary>
+        </member>
+        <member name="E:RMLib.Log.Services.LogService.MessagesGet">
+            <summary>
+            Запрос списка сообщений
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.Services.LogServiceManager">
+            <summary>
+            Менеджер сервисов сообщений лога. Поступающие от логгера сообщения хранятся в списке.
+            При запросе возвращает текущее содержимое списка.
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Services.LogServiceManager.OnServiceGetSourceName">
+            <summary>
+            Возвращает имя источника
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Services.LogServiceManager.OnServiceGetCategoryMap">
+            <summary>
+            Возвращает карту категорий лога
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Services.LogServiceManager.OnServiceGetMessages">
+            <summary>
+            Возвращает список сообщений
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Services.LogServiceManager.AppendMessage(RMLib.Log.ILogMessage)">
+            <summary>
+            Добавляет сообщение в список
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Services.LogServiceManager.ThrowFault(System.Exception,System.String)">
+            <summary>
+            Выбрасывает исключение при ошибке выполнения запроса сервиса
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Services.LogServiceManager.ThrowFault(System.String,System.String)">
+            <summary>
+            Выбрасывает исключение при ошибке выполнения запроса сервиса
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.Writers.ConsoleLogWriter">
+            <summary>
+            Выводит сообщения на консоль
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.Writers.LogWriterBase">
+            <summary>
+            Абстрактный базовый класс регистора сообщений лога
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Writers.LogWriterBase.WriteMessageCore(RMLib.Log.ILogMessage,RMLib.Log.Formatters.ILogFormatter)">
+            <summary>
+            Регистрирует сообщение лога
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.Writers.LogWriterBase.Destination">
+            <summary>
+            Возвращает место назначения регистрации
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.Writers.LogWriterBase.Threshold">
+            <summary>
+            Возвращает/устанавливает максимальный уровень сообщений, обрабатываемых регистратором
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.Writers.ConsoleLogWriter.Destination">
+            <summary>
+            Возвращает место назначения регистрации
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.Writers.FileLogWriter">
+            <summary>
+            Записывает сообщения в файлы
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.Writers.FileLogWriter.Destination">
+            <summary>
+            Возвращает место назначения регистрации
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.Logger">
+            <summary>
+            Логгер
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Logger.OnMessageFilter(RMLib.Log.ILogMessage)">
+            <summary>
+            Поднимает событие MessageFilter
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Logger.Write(System.Exception)">
+            <summary>
+            Ставит сообщение об ошибке в очередь
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Logger.Write(System.Exception,System.Int32)">
+            <summary>
+            Ставит сообщение об ошибке в очередь
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Logger.Write(System.Exception,System.String)">
+            <summary>
+            Ставит сообщение об ошибке в очередь
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Logger.Write(System.Exception,System.String,System.Int32)">
+            <summary>
+            Ставит сообщение об ошибке в очередь
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Logger.Write(RMLib.Log.LogLevel,System.String)">
+            <summary>
+            Ставит сообщение с указанными параметрами в очередь
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Logger.Write(RMLib.Log.LogLevel,System.String,System.Int32)">
+            <summary>
+            Ставит сообщение с указанными параметрами в очередь
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Logger.Write(RMLib.Log.ILogMessage)">
+            <summary>
+            Ставит сообщение в очередь
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Logger.CanWrite(RMLib.Log.LogLevel)">
+            <summary>
+            Возвращает true, если сообщение указанного уровня может быть обработано
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Logger.WriteCore(RMLib.Log.ILogMessage)">
+            <summary>
+            Ставит сообщение в очередь
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Logger.ProcessQueueThread(System.Object)">
+            <summary>
+            Метод выполняемый в рабочем потоке лога. Обрабатывает очередь сообщений
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.Logger.Enabled">
+            <summary>
+            Возвращает/устанавливает разрешение на работу логгера
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.Logger.Threshold">
+            <summary>
+            Возвращает/устанавливает максимальный уровень сообщений, обрабатываемых логгером
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.Logger.Statistics">
+            <summary>
+            Возвращает статистику работы логгера
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.Logger.Writers">
+            <summary>
+            Возвращает список регистраторов
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.Logger.Formatter">
+            <summary>
+            Возвращает используемый форматтер
+            </summary>
+        </member>
+        <member name="E:RMLib.Log.Logger.MessageFilter">
+            <summary>
+            Фильтр сообщений
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.LogMessage">
+            <summary>
+            Cообщение лога
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.LogMessage.AdjustStackDepth(System.Int32@)">
+            <summary>
+            Возвращает скорректированную глубину трассировки стека
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.LogMessage.FormatStackFrame(System.Diagnostics.StackFrame)">
+            <summary>
+            Возвращает строковое представление кадра стека
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.LogMessage.GetExceptionStack(System.Exception)">
+            <summary>
+            Возвращает строковое представление стека вызовов исключения
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.LogMessage.GetContextString">
+            <summary>
+            Возвращает строку, содержащую контекст вызова
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.LogMessage.ToString">
+            <summary>
+            Возвращает строковое представление сообщения лога
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.LogMessage.TimeStamp">
+            <summary>
+            Возвращает время создания сообщения
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.LogMessage.Level">
+            <summary>
+            Возвращает уровень сообщения
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.LogMessage.Message">
+            <summary>
+            Возвращает текст сообщения
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.LogMessage.Category">
+            <summary>
+            Возвращает категорию сообщения
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.LogMessage.Source">
+            <summary>
+            Возвращает источник сообщения
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.LogMessage.Context">
+            <summary>
+            Возвращает контекст источника сообщения
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.LogMessage.MaxStackDepth">
+            <summary>
+            Возвращает/устанавливает максимальную глубину трассировки стека
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.LogMessageQueue">
+            <summary>
+            Очередь сообщений лога
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.LogMessageQueue.LostCount">
+            <summary>
+            Возвращает количество потерянных сообщений
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.Writers.MemoryLogWriter">
+            <summary>
+            Хранит сообщения в памяти
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.Writers.MemoryLogWriter.Destination">
+            <summary>
+            Возвращает место назначения регистрации
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.Writers.MemoryLogWriter.Messages">
+            <summary>
+            Возвращает список зарегистрированных сообщений
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.Writers.NamedPipeLogWriter">
+            <summary>
+            Отправляет сообщения c использованием WCF по протоколу NamedPipes
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.Writers.RemoteLogWriter">
+            <summary>
+            Абстрактный базовый класс для регистраторов пишуших сообщения для удалённых клиентов (WCF)
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.Writers.RemoteLogWriter.Destination">
+            <summary>
+            Возвращает место назначения регистрации
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.Writers.NullLogWriter">
+            <summary>
+            Null-регистриратор
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.Writers.NullLogWriter.Destination">
+            <summary>
+            Возвращает место назначения регистрации
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.Writers.RollingFileLogWriter">
+            <summary>
+            Записывает сообщения в последовательные цепочки файлов
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.Writers.RollingFileLogWriter.MaxFileSize">
+            <summary>
+            Возвращает максимальный размер файла лога
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.Writers.RollingFileLogWriter.MaxStorageTime">
+            <summary>
+            Возвращает время жизни файла лога
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.Writers.RollingFileHelper">
+            <summary>
+            Методы для работы с цепочками файлов
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Writers.RollingFileHelper.GetFiles(System.String)">
+            <summary>
+            Возвращает список файлов лога
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Writers.RollingFileHelper.TakeBySize(System.Collections.Generic.IEnumerable{System.IO.FileInfo},System.Int64)">
+            <summary>
+            Возвращает список файлов лога, общий размер которых не превышает заданного
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Writers.RollingFileHelper.TakeByTime(System.Collections.Generic.IEnumerable{System.IO.FileInfo},System.DateTime)">
+            <summary>
+            Возвращает список файлов лога, записанных не позднее указанного времени
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Writers.RollingFileHelper.TakeRecent(System.Collections.Generic.IEnumerable{System.IO.FileInfo})">
+            <summary>
+            Возвращает последний файл, в который производилась запись
+            </summary>
+        </member>
+        <member name="M:RMLib.Log.Writers.RollingFileHelper.GetOriginalFileName(System.String)">
+            <summary>
+            Возвращает имя файла (без расширения) без порядковой части
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.Writers.SystemLogWriter">
+            <summary>
+            Выводит сообщения в журнал системных событий
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.Writers.SystemLogWriter.Destination">
+            <summary>
+            Возвращает место назначения регистрации
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.Writers.TCPLogWriter">
+            <summary>
+            Отправляет сообщения c использованием WCF по протоколу TCP/IP
+            </summary>
+        </member>
+        <member name="T:RMLib.Log.Writers.TraceLogWriter">
+            <summary>
+            Выводит сообщения в окно трассировки
+            </summary>
+        </member>
+        <member name="P:RMLib.Log.Writers.TraceLogWriter.Destination">
+            <summary>
+            Возвращает место назначения регистрации
+            </summary>
+        </member>
+    </members>
+</doc>

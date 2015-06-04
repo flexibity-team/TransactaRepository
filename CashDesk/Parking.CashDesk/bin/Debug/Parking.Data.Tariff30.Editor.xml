@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parking.Data.Tariff30.Editor</name>
+    </assembly>
+    <members>
+        <member name="T:Parking.Data.DailyRateForm">
+            <summary>
+            Окно редактирования суточной расценки
+            </summary>
+        </member>
+        <member name="F:Parking.Data.DailyRateForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Parking.Data.DailyRateForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Parking.Data.DailyRateForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Parking.Data.ExtraRateForm">
+            <summary>
+            Окно редактирования дополнительной расценки
+            </summary>
+        </member>
+        <member name="F:Parking.Data.ExtraRateForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Parking.Data.ExtraRateForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Parking.Data.ExtraRateForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Parking.Data.LimitsForm">
+            <summary>
+            Окно редактирования ограничения
+            </summary>
+        </member>
+        <member name="F:Parking.Data.LimitsForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Parking.Data.LimitsForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Parking.Data.LimitsForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Tariff30Editor">
+            <summary>
+            Редактор тарифа версии 3.0
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Tariff30Editor.RefreshTariffInfo">
+            <summary>
+            Обновляет информацию о тарифе
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Tariff30Editor.RefreshTariffMoneyFields">
+            <summary>
+            Обновляет редактируемые денежные поля тарифа
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Tariff30Editor.ApplyEditable">
+            <summary>
+            Устанавливает режим редактирования
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Tariff30Editor.EnableToolStripButtons(System.Windows.Forms.ListView)">
+            <summary>
+            Разрешает кнопки редактирования расценок и ограничений
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Tariff30Editor.UpdateDailyRate(Parking.Data.DailyRateInfo)">
+            <summary>
+            Обновляет список суточных расценок
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Tariff30Editor.RefreshDailyRate(System.Windows.Forms.ListViewItem,Parking.Data.DailyRateInfo)">
+            <summary>
+            Обновляет информацию о суточной расценке
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Tariff30Editor.UpdateExtraRate(Parking.Data.ExtraRateInfo)">
+            <summary>
+            Обновляет список дополнительных расценок
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Tariff30Editor.RefreshExtraRate(System.Windows.Forms.ListViewItem,Parking.Data.ExtraRateInfo)">
+            <summary>
+            Обновляет информацию о дополнительной расценке
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Tariff30Editor.UpdateLimit(Parking.Data.LimitInfo)">
+            <summary>
+            Обновляет список ограничений
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Tariff30Editor.RefreshLimit(System.Windows.Forms.ListViewItem,Parking.Data.LimitInfo)">
+            <summary>
+            Обновляет информацию об ограничении
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Tariff30Editor.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Tariff30Editor.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Parking.Data.Tariff30Editor.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Parking.Data.DailyRateInfo">
+            <summary>
+            Суточная расценка
+            </summary>
+        </member>
+        <member name="T:Parking.Data.ExtraRateInfo">
+            <summary>
+            Дополнительная расценка
+            </summary>
+        </member>
+        <member name="T:Parking.Data.LimitInfo">
+            <summary>
+            Ограничение
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Tariff30EditorHelper">
+            <summary>
+            Методы для работы с редактором тарифов версии 3.0
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Tariff30EditorHelper.GetIntervalString(System.TimeSpan)">
+            <summary>
+            Возвращает строковое представление временного интервала
+            </summary>
+        </member>
+    </members>
+</doc>

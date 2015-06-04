@@ -1,0 +1,423 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parking.Workstation.Contract</name>
+    </assembly>
+    <members>
+        <member name="T:Parking.Workstation.ISystemClient">
+            <summary>
+            Интерфейс системного клиента
+            </summary>
+        </member>
+        <member name="M:Parking.Workstation.ISystemClient.Debug(System.Object)">
+            <summary>
+            Отладочный вызов
+            </summary>
+        </member>
+        <member name="P:Parking.Workstation.ISystemClient.DatabaseContext">
+            <summary>
+            Возвращает контекст работы с БД
+            </summary>
+        </member>
+        <member name="P:Parking.Workstation.ISystemClient.VideoSystemFeatures">
+            <summary>
+            Возвращает возможности видеосистемы
+            </summary>
+        </member>
+        <member name="P:Parking.Workstation.ISystemClient.ParkingInfo">
+            <summary>
+            Возвращает информацию о парковке
+            </summary>
+        </member>
+        <member name="P:Parking.Workstation.ISystemClient.ServerVersion">
+            <summary>
+            Возвращает версию сервера
+            </summary>
+        </member>
+        <member name="E:Parking.Workstation.ISystemClient.DebugCallback">
+            <summary>
+            Ответ на отладочный вызов
+            </summary>
+        </member>
+        <member name="T:Parking.Workstation.ISecurityClient">
+            <summary>
+            Интерфейс системного клиента безопасности
+            </summary>
+        </member>
+        <member name="M:Parking.Workstation.ISecurityClient.CanGetSecurityData">
+            <summary>
+            Возвращает true, если данные могут быть получены текущим пользователем, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Workstation.ISecurityClient.GetSecurityData">
+            <summary>
+            Возвращает данные системы безопасности
+            </summary>
+        </member>
+        <member name="M:Parking.Workstation.ISecurityClient.SetSecurityData(Parking.Data.Security.SecurityData)">
+            <summary>
+            Устанавливает данные системы безопасности
+            </summary>
+        </member>
+        <member name="M:Parking.Workstation.ISecurityClient.CheckAccess(Parking.Data.Security.SecurityOperations)">
+            <summary>
+            Проверяет доступ к выполнению указанной операции
+            </summary>
+        </member>
+        <member name="M:Parking.Workstation.ISecurityClient.CheckAccess(Parking.Data.Security.SecurityOperations,System.Object,System.Object)">
+            <summary>
+            Проверяет доступ к выполнению указанной операции
+            </summary>
+        </member>
+        <member name="E:Parking.Workstation.ISecurityClient.Changed">
+            <summary>
+            Данные системы безопасности изменились
+            </summary>
+        </member>
+        <member name="T:Parking.Workstation.IKeyClient">
+            <summary>
+            Интерфейс клиента ключей
+            </summary>
+        </member>
+        <member name="M:Parking.Workstation.IKeyClient.SetKeys(System.Collections.Generic.IEnumerable{Parking.Data.SmartCardKeySet})">
+            <summary>
+            Устанавливает ключи
+            </summary>
+        </member>
+        <member name="E:Parking.Workstation.IKeyClient.Changed">
+            <summary>
+            Ключи изменились
+            </summary>
+        </member>
+        <member name="P:Parking.Workstation.IKeyClient.Items">
+            <summary>
+            Возвращает перечислитель ключей
+            </summary>
+        </member>
+        <member name="T:Parking.Workstation.ICardClient">
+            <summary>
+            Интерфейс клиента сервиса карт
+            </summary>
+        </member>
+        <member name="M:Parking.Workstation.ICardClient.GetCardPhotoEntry(System.Int64)">
+            <summary>
+            Возвращает фотографии с въезда для указанной карты
+            </summary>
+        </member>
+        <member name="M:Parking.Workstation.ICardClient.GetCardPhotoExit(System.Int64)">
+            <summary>
+            Возвращает фотографии с выезда для указанной карты
+            </summary>
+        </member>
+        <member name="M:Parking.Workstation.ICardClient.GetHiddenCards">
+            <summary>
+            Возвращает список скрытых карт
+            </summary>
+        </member>
+        <member name="E:Parking.Workstation.ICardClient.Warning">
+            <summary>
+            Предупреждение по карте
+            </summary>
+        </member>
+        <member name="T:Parking.Workstation.ICarClient">
+            <summary>
+            Интерфейс клиента сервиса автомобилей
+            </summary>
+        </member>
+        <member name="T:Parking.Workstation.ICustomerClient">
+            <summary>
+            Интерфейс клиента сервиса клиентов
+            </summary>
+        </member>
+        <member name="T:Parking.Workstation.ICustomerGroupClient">
+            <summary>
+            Интерфейс клиента сервиса групп клиентов
+            </summary>
+        </member>
+        <member name="T:Parking.Workstation.ICompanyClient">
+            <summary>
+            Интерфейс клиента сервиса организаций
+            </summary>
+        </member>
+        <member name="T:Parking.Workstation.IDiscountClient">
+            <summary>
+            Интерфейс клиента сервиса скидок
+            </summary>
+        </member>
+        <member name="T:Parking.Workstation.IDiscountModuleClient">
+            <summary>
+            Интерфейс клиента сервиса модулей скидок
+            </summary>
+        </member>
+        <member name="T:Parking.Workstation.IDeviceClient">
+            <summary>
+            Интерфейс клиента сервиса устройств
+            </summary>
+        </member>
+        <member name="M:Parking.Workstation.IDeviceClient.SetStandMode(System.Int64,Parking.Data.Devices.StandMode)">
+            <summary>
+            Изменяет режим работы стойки
+            </summary>
+        </member>
+        <member name="M:Parking.Workstation.IDeviceClient.SetBoardAdjustment(System.Int64,System.Int32,System.Int32)">
+            <summary>
+            Изеняет значения на табло
+            </summary>
+        </member>
+        <member name="M:Parking.Workstation.IDeviceClient.EjectCard(System.Int64)">
+            <summary>
+            Запрос на выдачу карты на въезде
+            </summary>
+        </member>
+        <member name="E:Parking.Workstation.IDeviceClient.DeviceParameterChanged">
+            <summary>
+            Параметр устройства изменился
+            </summary>
+        </member>
+        <member name="E:Parking.Workstation.IDeviceClient.EntryStandCardEjected">
+            <summary>
+            Выдана карта
+            </summary>
+        </member>
+        <member name="T:Parking.Workstation.ITariffClient">
+            <summary>
+            Интерфейс клиента сервиса тарифов
+            </summary>
+        </member>
+        <member name="T:Parking.Workstation.IZoneClient">
+            <summary>
+            Интерфейс клиента сервиса зон
+            </summary>
+        </member>
+        <member name="T:Parking.Workstation.IGuestClient">
+            <summary>
+            Интерфейс клиента сервиса гостевых транзакций
+            </summary>
+        </member>
+        <member name="M:Parking.Workstation.IGuestClient.CreateTransaction(System.Int64,System.String,System.String)">
+            <summary>
+            Создаёт гостевую транзакцию
+            </summary>
+        </member>
+        <member name="M:Parking.Workstation.IGuestClient.CreateTransaction(System.Int64,System.String,System.String,System.DateTime,System.DateTime)">
+            <summary>
+            Создаёт гостевую транзакцию
+            </summary>
+        </member>
+        <member name="M:Parking.Workstation.IGuestClient.RegisterTransaction(System.Int64,System.Int64,System.DateTime,System.Int64)">
+            <summary>
+            Регистрирует гостевую транзакцию
+            </summary>
+        </member>
+        <member name="M:Parking.Workstation.IGuestClient.ChangeTransaction(System.Int64,System.Int64,System.String,System.String)">
+            <summary>
+            Изменяет параметры гостевой транзакции
+            </summary>
+        </member>
+        <member name="M:Parking.Workstation.IGuestClient.RemoveTransaction(System.Int64)">
+            <summary>
+            Удаляет гостевую транзакцию
+            </summary>
+        </member>
+        <member name="M:Parking.Workstation.IGuestClient.GetTransactionReport(System.Int64,System.DateTime,System.DateTime)">
+            <summary>
+            Возвращает данные для отчёта по завершённым гостевым транзакциям
+            </summary>
+        </member>
+        <member name="M:Parking.Workstation.IGuestClient.GetTransactions(System.Int64)">
+            <summary>
+            Возвращает данные для отчёта по завершённым гостевым транзакциям
+            </summary>
+        </member>
+        <member name="E:Parking.Workstation.IGuestClient.TransactionCreated">
+            <summary>
+            Гостевая транзакция создана
+            </summary>
+        </member>
+        <member name="E:Parking.Workstation.IGuestClient.TransactionRegistered">
+            <summary>
+            Гостевая транзакция зарегистрирована
+            </summary>
+        </member>
+        <member name="E:Parking.Workstation.IGuestClient.TransactionCompleted">
+            <summary>
+            Гостевая транзакция завершена
+            </summary>
+        </member>
+        <member name="E:Parking.Workstation.IGuestClient.TransactionChanged">
+            <summary>
+            Гостевая транзакция изменена
+            </summary>
+        </member>
+        <member name="E:Parking.Workstation.IGuestClient.TransactionRemoved">
+            <summary>
+            Гостевая транзакция удалена
+            </summary>
+        </member>
+        <member name="P:Parking.Workstation.IGuestClient.Count">
+            <summary>
+            Возвращает количество гостевых транзакций
+            </summary>
+        </member>
+        <member name="P:Parking.Workstation.IGuestClient.Item(System.Int64)">
+            <summary>
+            Возвращает гостевую транзакцию по идентификатору
+            </summary>
+        </member>
+        <member name="P:Parking.Workstation.IGuestClient.Items">
+            <summary>
+            Возвращает перечислитель гостевых транзакций
+            </summary>
+        </member>
+        <member name="T:Parking.Workstation.ITransactionClient">
+            <summary>
+            Интерфейс клиента сервиса транзакций
+            </summary>
+        </member>
+        <member name="M:Parking.Workstation.ITransactionClient.GetLastTransactions(System.Int64,System.Int32)">
+            <summary>
+            Возвращает список последних транзакций для карты
+            </summary>
+        </member>
+        <member name="M:Parking.Workstation.ITransactionClient.GetTransactions(System.DateTime,System.DateTime,System.String)">
+            <summary>
+            Возвращает список транзакций для указанного диапазона времени
+            </summary>
+        </member>
+        <member name="M:Parking.Workstation.ITransactionClient.GetTransactionPhotos(System.Int64,Parking.Data.PhotoList@,Parking.Data.PhotoList@)">
+            <summary>
+            Возвращает фотографии для указанной транзакции
+            </summary>
+        </member>
+        <member name="T:Parking.Workstation.IPassageClient">
+            <summary>
+            Интерфейс клиента проездов
+            </summary>
+        </member>
+        <member name="M:Parking.Workstation.IPassageClient.PassageResponse(Parking.Data.PassageRequest,Parking.Data.PassageResponse)">
+            <summary>
+            Ответ по запросу на проезд
+            </summary>
+        </member>
+        <member name="E:Parking.Workstation.IPassageClient.IsDeviceServiced">
+            <summary>
+            Запрос на обслуживание устройства
+            </summary>
+        </member>
+        <member name="E:Parking.Workstation.IPassageClient.PassageRequest">
+            <summary>
+            Запрос на проезд
+            </summary>
+        </member>
+        <member name="T:Parking.Workstation.IVideoClient">
+            <summary>
+            Интерфейс клиента видеосервиса
+            </summary>
+        </member>
+        <member name="E:Parking.Workstation.IVideoClient.Refresh">
+            <summary>
+            Обновление списка видеоканалов
+            </summary>
+        </member>
+        <member name="P:Parking.Workstation.IVideoClient.Count">
+            <summary>
+            Возвращает количество видеоканалов
+            </summary>
+        </member>
+        <member name="P:Parking.Workstation.IVideoClient.Item(System.Int64)">
+            <summary>
+            Возвращает видеоканал по идентификатору
+            </summary>
+        </member>
+        <member name="P:Parking.Workstation.IVideoClient.Items">
+            <summary>
+            Возвращает перечислитель видеоканалов
+            </summary>
+        </member>
+        <member name="T:Parking.Workstation.IBlackListClient">
+            <summary>
+            Интерфейс клиента сервиса чёрного списка
+            </summary>
+        </member>
+        <member name="T:Parking.Workstation.IWorkstation">
+            <summary>
+            Интерфейс рабочей станции
+            </summary>
+        </member>
+        <member name="M:Parking.Workstation.IWorkstation.GetClient``1">
+            <summary>
+            Возвращает клиент указанного типа
+            </summary>
+        </member>
+        <member name="E:Parking.Workstation.IWorkstation.Connected">
+            <summary>
+            Установленио соединение с сервером
+            </summary>
+        </member>
+        <member name="E:Parking.Workstation.IWorkstation.Disconnected">
+            <summary>
+            Прервано соединение с сервером
+            </summary>
+        </member>
+        <member name="E:Parking.Workstation.IWorkstation.UserChanged">
+            <summary>
+            Выполнен вход в систему
+            </summary>
+        </member>
+        <member name="P:Parking.Workstation.IWorkstation.Logger">
+            <summary>
+            Возвращает логгер
+            </summary>
+        </member>
+        <member name="P:Parking.Workstation.IWorkstation.Calculator">
+            <summary>
+            Возвращает калькулятор
+            </summary>
+        </member>
+        <member name="P:Parking.Workstation.IWorkstation.CardReader">
+            <summary>
+            Возвращает интерфейс доступа к считывателю карт
+            </summary>
+        </member>
+        <member name="T:Parking.Workstation.WorkstationMode">
+            <summary>
+            Режим работы рабочей станции
+            </summary>
+        </member>
+        <member name="F:Parking.Workstation.WorkstationMode.Normal">
+            <summary>
+            Обычный
+            </summary>
+        </member>
+        <member name="F:Parking.Workstation.WorkstationMode.NoCardReader">
+            <summary>
+            Допускается отсутствие считывателя карт
+            </summary>
+        </member>
+        <member name="F:Parking.Workstation.WorkstationMode.NoSecurity">
+            <summary>
+            Запуск без поддержки системы безопасности
+            </summary>
+        </member>
+        <member name="F:Parking.Workstation.WorkstationMode.NoTrace">
+            <summary>
+            Запуск без поддержки трассировки
+            </summary>
+        </member>
+        <member name="F:Parking.Workstation.WorkstationMode.NoPhoto">
+            <summary>
+            Предписание не загружать фотографии
+            </summary>
+        </member>
+        <member name="F:Parking.Workstation.WorkstationMode.NoDiscounts">
+            <summary>
+            Запуск без поддержки скидок на смарт-карте
+            </summary>
+        </member>
+        <member name="F:Parking.Workstation.WorkstationMode.UseMetro">
+            <summary>
+            Поддержка работы с метрополитеном на смарт-карте
+            </summary>
+        </member>
+    </members>
+</doc>

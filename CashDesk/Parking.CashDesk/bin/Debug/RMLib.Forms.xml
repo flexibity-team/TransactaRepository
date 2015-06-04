@@ -1,0 +1,1690 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RMLib.Forms</name>
+    </assembly>
+    <members>
+        <member name="T:RMLib.Forms.AboutForm">
+            <summary>
+            Окно "О программе". Может использоваться в качестве окна заставки
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.IProgressState">
+            <summary>
+            Интерфейс управления состоянием прогресса
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.IProgressState.ProgressChanged(System.Int32)">
+            <summary>
+            Сообщает об изменении значения прогресса
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.IProgressState.ProgressChanged(System.String)">
+            <summary>
+            Сообщает об изменении описания действия
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.AboutForm.ShowSplash">
+            <summary>
+            Отображает окно как заставку
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.AboutForm.ShowAbout(System.Windows.Forms.IWin32Window)">
+            <summary>
+            Отображает окно как диалог "О программе"
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.AboutForm.SetComponents">
+            <summary>
+            Устанавливает список компонентов приложения
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.AboutForm.SetComponents(System.Collections.Generic.IEnumerable{System.Reflection.Assembly})">
+            <summary>
+            Устанавливает список компонентов приложения
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.AboutForm.GetProductName">
+            <summary>
+            Возвращает имя программы
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.AboutForm.GetProductVersion">
+            <summary>
+            Возвращает версию программы
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.AboutForm.SetDescriptionLabelMaxSize">
+            <summary>
+            Устанавливает максимальный размер для строки описания
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.AboutForm.GetComponents">
+            <summary>
+            Возвращает список компонентов, загруженных из корневого каталога приложения
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.AboutForm.AppendThisAssembly(System.Collections.Generic.IEnumerable{System.Reflection.Assembly})">
+            <summary>
+            Добавляет к списку сборок выполняющуюся сборку
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.AboutForm.SetMode(System.Boolean)">
+            <summary>
+            Устанавливает режим отображения окна
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.AboutForm.SetModeCore(System.Boolean)">
+            <summary>
+            Устанавливает режим отображения окна
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.AboutForm.SetComponentsVisible">
+            <summary>
+            Устанавливает видимость списка компонентов
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.AboutForm.ProgressChangedCore(System.Int32)">
+            <summary>
+            Обновляет значение прогресса загрузки (только в режиме заставки)
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.AboutForm.UpdateProgressValue(System.Int32)">
+            <summary>
+            Устанавливает значение прогресса загрузки
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.AboutForm.ProgressChangedCore(System.String)">
+            <summary>
+            Обновляет описание прогресса загрузки (только в режиме заставки)
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.AboutForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.AboutForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:RMLib.Forms.AboutForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.AboutForm.HelpLink">
+            <summary>
+            Возвращает/устанавливает ссылку разработчика
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.AboutForm.HelpLinkText">
+            <summary>
+            Возвращает/устанавливает отображаемый текст ссылки
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.AboutForm.AssemblyInfo">
+            <summary>
+            Возвращает информацию об описываемой сборке
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.ApplicationFormServices">
+            <summary>
+            Методы для работы с окнами приложения
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.ApplicationFormServices.AboutWindowName">
+            <summary>
+            Имя с которым регистрируется окно заставки
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.ApplicationFormServices.ErrorWindowName">
+            <summary>
+            Имя с которым регистрируется окно отображения ошибки
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ApplicationFormServices.RegisterAboutWindow(RMLib.Services.IServiceContainer,System.Boolean)">
+            <summary>
+            Создаёт и регистрирует окно "о программе" в контейнере как тип Form с именем, определённым константой
+            AboutWindowName. Это же окно используется в качестве заставки
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ApplicationFormServices.RegisterAboutWindow(RMLib.Services.IServiceContainer,System.Boolean,RMLib.Forms.AboutForm)">
+            <summary>
+            Регистрирует указанное окно "о программе" в контейнере как тип Form с именем, определённым константой
+            AboutWindowName. Это же окно используется в качестве заставки
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ApplicationFormServices.RegisterErrorServices(RMLib.Services.IServiceContainer)">
+            <summary>
+            Создаёт и регистрирует обработчик необработанных исключений (как тип UnhandledExceptionHandler).
+            Создаёт окно отображения ошибок (как тип Form с именем с именем, определённым константой ErrorWindowName)
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ApplicationFormServices.RegisterErrorServices(RMLib.Services.IServiceContainer,RMLib.Forms.UnhandledExceptionHandler)">
+            <summary>
+            Регистрирует указанный обработчик необработанных исключений (как тип UnhandledExceptionHandler).
+            Создаёт окно отображения ошибок (как тип Form с именем с именем, определённым константой ErrorWindowName)
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ApplicationFormServices.RegisterFontService(RMLib.Services.IServiceContainer,System.Collections.Generic.IEnumerable{System.IO.FileInfo})">
+            <summary>
+            Регистрирует обработчик шрифтов приложения
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ApplicationFormServices.EnsureNotRunning">
+            <summary>
+            Проверка повторного запуска приложения
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ApplicationFormServices.SafeInvoke(System.Action)">
+            <summary>
+            Выполняет действие в потоке главного окна
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ApplicationFormServices.SafeInvoke(System.Func{System.Object})">
+            <summary>
+            Выполняет действие в потоке главного окна
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ApplicationFormServices.ShowDialog(System.Windows.Forms.Form)">
+            <summary>
+            Отображает окно диалога
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ApplicationFormServices.ShowDialog(System.Windows.Forms.Form,System.Boolean)">
+            <summary>
+            Отображает окно диалога
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ApplicationFormServices.Run(RMLib.Services.IServiceContainer)">
+            <summary>
+            Запускает приложение, используя метод Application.Run().
+            В контейнере должен быть зарегистрирован объект приложения, реализующий интерфейс IApplication, как тип IApplication, без имени.
+            Если приложение использует главную форму, она также должна быть зарегистрирована в контейнере как тип Form без имени.
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ApplicationFormServices.Run(RMLib.Services.IServiceContainer,System.Boolean)">
+            <summary>
+            Запускает приложение, используя метод Application.Run().
+            В контейнере должен быть зарегистрирован объект приложения, реализующий интерфейс IApplication, как тип IApplication, без имени.
+            Если приложение использует главную форму, она также должна быть зарегистрирована в контейнере как тип Form без имени.
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.IExtensionWindow">
+            <summary>
+            Интерфейс окна расширения
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.IExtensionWindow.ExtensionAttached(RMLib.IExtensionObject)">
+            <summary>
+            Уведомление о подключении расширения
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.IExtensionWindow.ExtensionDetached(RMLib.IExtensionObject)">
+            <summary>
+            Уведомление об отключении расширения
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.IExtensionWindow.Activate">
+            <summary>
+            Уведомление об активации окна
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.IExtensionWindow.Deactivate">
+            <summary>
+            Уведомление о деактивации окна
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.IExtensionWindow.Extension">
+            <summary>
+            Возвращает расширение, которому принадлежит окно
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.IExtensionWindowSupport">
+            <summary>
+            Определяет расширение с поддержкой окна
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.IExtensionWindowSupport.Image">
+            <summary>
+            Возвращает изображение расширения
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.IExtensionWindowSupport.Window">
+            <summary>
+            Возвращает окно расширения
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.UnhandledExceptionHandler">
+            <summary>
+            Обработчик необработанных исключений
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.UnhandledExceptionHandler.OnThreadException(System.Object,System.Threading.ThreadExceptionEventArgs)">
+            <summary>
+            Обрабатывает необработанное исключение главного потока
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.UnhandledExceptionHandler.OnUnhandledException(System.Object,System.UnhandledExceptionEventArgs)">
+            <summary>
+            Обрабатывает необработанное исключение
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.UnhandledExceptionHandler.HideSplashScreen">
+            <summary>
+            Убирает с экрана окно-заставку
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.UnhandledExceptionHandler.ShowMessageBox(System.String)">
+            <summary>
+            Отображает системное окно сообщений с сообщением об ошибке
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.ControlPool`2">
+            <summary>
+            Пул повторно используемых элементов управления или объектов, содержащих элементы управления
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlPool`2.Show(`0)">
+            <summary>
+            Делает видимым только элемент управления с указанным идентификатором
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlPool`2.UnwrapControl(`1)">
+            <summary>
+            Получение элемента управления из контейнера
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.ControlsHelper">
+            <summary>
+            Методы для работы с элементами управления
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlsHelper.SetEnum``1(System.Windows.Forms.ListControl,System.Func{``0,System.String})">
+            <summary>
+            Заполненяет список элементами перечисления, кроме повторяющихся и комбинаций флагов
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlsHelper.SetEnum``1(System.Windows.Forms.ListControl,System.Func{``0,System.String},RMLib.EnumOptions)">
+            <summary>
+            Заполненяет список элементами перечисления
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlsHelper.SetEnumAsInt``1(System.Windows.Forms.ListControl,System.Func{``0,System.String})">
+            <summary>
+            Заполненяет список значениями элементов перечисления, кроме повторяющихся и комбинаций флагов (как тип int).
+            Добавляет в начало списка значение Int32.MaxValue как пустую строку, означающую отсутствие выбора в списке
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlsHelper.SetEnumAsInt``1(System.Windows.Forms.ListControl,System.Func{``0,System.String},RMLib.EnumOptions)">
+            <summary>
+            Заполненяет список значениями элементов перечисления (как тип int).
+            Добавляет в начало списка значение Int32.MaxValue как пустую строку, означающую отсутствие выбора в списке
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlsHelper.SetList``1(System.Windows.Forms.ListControl,System.Func{``0,System.String},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Заполненяет список элементами указанного типа
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlsHelper.ClearList(System.Windows.Forms.ListControl)">
+            <summary>
+            Удаляет все элементы в списке
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlsHelper.SelectValue``1(System.Windows.Forms.ListControl,``0)">
+            <summary>
+            Выбирает значение в списке, заполненном с помощью метода SetEnum или SetList
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlsHelper.GetSelectedValue``1(System.Windows.Forms.ListControl)">
+            <summary>
+            Возвращает выбранное значение из списка, заполненного с помощью метода SetEnum или SetList
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlsHelper.UnwrapValue``1(System.Object)">
+            <summary>
+            Возвращает значение указанного элемента списка, заполненного с помощью методов SetList
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlsHelper.ThrowNotSupported(System.Windows.Forms.Control)">
+            <summary>
+            Выбрасывает исключение NotSupportedException
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlsHelper.SetEnum``1(System.Windows.Forms.ToolStripDropDownMenu,System.Func{``0,System.String})">
+            <summary>
+            Заполненяет меню элементами перечисления, кроме повторяющихся и равных нулю.
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlsHelper.SetEnum``1(System.Windows.Forms.ToolStripDropDownMenu,System.Func{``0,System.String},RMLib.EnumOptions)">
+            <summary>
+            Заполненяет меню элементами перечисления
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlsHelper.SetList``1(System.Windows.Forms.ToolStripDropDownMenu,System.Func{``0,System.String},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Заполненяет меню элементами указанного типа
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlsHelper.GetValue``1(System.Windows.Forms.ToolStripDropDownMenu,System.Int32)">
+            <summary>
+            Возвращает значение связанное с элементом меню, заполненного с помощью метода SetEnum
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlsHelper.GetValue``1(System.Windows.Forms.ToolStripItem)">
+            <summary>
+            Возвращает значение связанное с элементом меню, заполненного с помощью метода SetEnum
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlsHelper.ShowAtControl(System.Windows.Forms.ToolStripDropDownMenu,System.Windows.Forms.Control)">
+            <summary>
+            Отображает меню около элемента управления
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlsHelper.ShowAtControl(System.Windows.Forms.ToolStripDropDownMenu,System.Windows.Forms.Control,System.Windows.Forms.ToolStripDropDownDirection)">
+            <summary>
+            Отображает меню около элемента управления
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlsHelper.SetImage(System.Windows.Forms.PictureBox,System.Drawing.Image)">
+            <summary>
+            Устанавливает изображение в PictureBox, уничтожая предыдущее
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlsHelper.SelectEnsure(System.Windows.Forms.ListViewItem)">
+            <summary>
+            Выбирает, выделяет и делает видимым элемент списка
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlsHelper.SelectEnsure(System.Windows.Forms.ListViewItem,System.Boolean)">
+            <summary>
+            Выбирает, выделяет и делает видимым элемент списка
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlsHelper.SelectEnsure(System.Windows.Forms.TreeNode)">
+            <summary>
+            Выбирает и делает видимым узел дерева
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlsHelper.SelectEnsure(System.Windows.Forms.TreeNode,System.Boolean)">
+            <summary>
+            Выбирает и делает видимым узел дерева
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlsHelper.SafeSetValue(System.Windows.Forms.DateTimePicker,System.DateTime)">
+            <summary>
+            Устанавливает значение календаря, с учётом диапазона его возможных значений
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlsHelper.HitTest(System.Windows.Forms.TabControl,System.Drawing.Point)">
+            <summary>
+            Возвращает вкладку, которая находится в указанной точке
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlsHelper.SetDropDownWidth(System.Windows.Forms.ComboBox)">
+            <summary>
+            Устанавливает ширину выпадающего списка по размеру элементов
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlsHelper.SetFontRecursive(System.Windows.Forms.Form,System.Drawing.Font)">
+            <summary>
+            Устанавливает указанный шрифт для элемента управления и всех дочерних элементов
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlsHelper.SetFontRecursive(System.Windows.Forms.Control,System.Drawing.Font)">
+            <summary>
+            Устанавливает указанный шрифт для элемента управления и всех дочерних элементов
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ControlsHelper.SetFontRecursive(System.Windows.Forms.ToolStripItem,System.Drawing.Font)">
+            <summary>
+            Устанавливает указанный шрифт для элемента управления и всех дочерних элементов
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.ControlsHelper.Wrapper`1">
+            <summary>
+            Класс-обёртка для использования указанного строкового представления
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.DumpViewer">
+            <summary>
+            Таблица для просмотра массива байтов
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.DumpViewer.OnFormatRowCaption(System.Int32)">
+            <summary>
+            Поднимает событие FormatRowCaption
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.DumpViewer.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.DumpViewer.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:RMLib.Forms.DumpViewer.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:RMLib.Forms.DumpViewer.FormatRowCaption">
+            <summary>
+            Форматирование заголовка строки
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.SelectionList.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.SelectionList.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:RMLib.Forms.SelectionList.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.ToolStripDateTime">
+            <summary>
+            Элемент управления дата/время для отображения на полосе и в меню
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.ToolStripDateTime.ActiveItem">
+            <summary>
+            Возвращает/устанавливает элемент, выбирающийся после закрытия календаря
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.ToolStripDateTime.Picker">
+            <summary>
+            Возвращает элемент управления дата/время
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.ToolStripDateTime.CalendarVisible">
+            <summary>
+            Возвращает признак видимости календаря
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.EditForm">
+            <summary>
+            Абстрактный базовый класс окна редактирования
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.EditForm.Setup(System.Object)">
+            <summary>
+            Установка начальных значений
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.EditForm.Setup(System.Object,RMLib.Forms.EditType)">
+            <summary>
+            Установка начальных значений
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.EditForm.Setup(System.Object,RMLib.Forms.EditType,System.String)">
+            <summary>
+            Установка начальных значений
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.EditForm.GetResult``1">
+            <summary>
+            Возвращает результат редактирования
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.EditForm.OnSetup(System.Object)">
+            <summary>
+            Установка начальных значений
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.EditForm.OnGetResult(System.Object)">
+            <summary>
+            Обновление объекта
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.EditForm.OnValidateInput">
+            <summary>
+            Проверка ввода
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.EditForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.EditForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:RMLib.Forms.EditForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.EditForm.EditType">
+            <summary>
+            Возвращает тип редактирования
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.EditForm.CurrentItem">
+            <summary>
+            Возвращает редактируемый объект
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.EditForm.InputFilter">
+            <summary>
+            Возвращает фильтр ввода
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.ErrorForm">
+            <summary>
+            Окно отображения ошибки
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.ErrorForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ErrorForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:RMLib.Forms.ErrorForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.EditType">
+            <summary>
+            Тип редактирования
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.EditType.Undefined">
+            <summary>
+            Неопределён
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.EditType.New">
+            <summary>
+            Новый элемент
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.EditType.Existing">
+            <summary>
+            Существующий элемент
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.EditType.Custom">
+            <summary>
+            Другой
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.FormsHelper">
+            <summary>
+            Методы для работы с окнами
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.FormsHelper.SafeInvoke(System.Windows.Forms.Control,System.Delegate,System.Object[])">
+            <summary>
+            Выполняет делегат в потоке указанного элемента управления
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.FormsHelper.SafeInvoke(System.Windows.Forms.Control,System.Delegate,System.Action{System.Exception},System.Object[])">
+            <summary>
+            Выполняет делегат в потоке указанного элемента управления с обработкой ошибок
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.FormsHelper.BeginSafeInvoke(System.Windows.Forms.Control,System.Delegate,System.Object[])">
+            <summary>
+            Асинхронно выполняет делегат в потоке указанного элемента управления
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.FormsHelper.BeginSafeInvoke(System.Windows.Forms.Control,System.Delegate,System.Action{System.Exception},System.Object[])">
+            <summary>
+            Асинхронно выполняет делегат в потоке указанного элемента управления с обработкой ошибок
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.FormsHelper.EndSafeInvoke(System.Windows.Forms.Control,System.IAsyncResult)">
+            <summary>
+            Завершает асинхронное выполнение в потоке указанного элемента управления
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.FormsHelper.EndSafeInvoke(System.Windows.Forms.Control,System.IAsyncResult,System.Action{System.Exception})">
+            <summary>
+            Завершает асинхронное выполнение в потоке указанного элемента управления с обработкой ошибок
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.FormsHelper.ForceCreate(System.Windows.Forms.Control)">
+            <summary>
+            Явно создаёт элемент управления
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.FormsHelper.ShowOnControl(System.Windows.Forms.Form,System.Windows.Forms.Control)">
+            <summary>
+            Отображает форму в элементе управления
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.FormsHelper.HideOnControl(System.Windows.Forms.Form)">
+            <summary>
+            Скрывает форму, отображаемую на элементе управления
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.FormsHelper.GetThreadID(System.Windows.Forms.Control)">
+            <summary>
+            Возвращает идентификатор потока, создавшего элемент управления
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.FormsHelper.GetControlAtPoint(System.Windows.Forms.Control)">
+            <summary>
+            Возвращает элемент управления, находящийся под курсором
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.FormsHelper.GetControlAtPoint(System.Windows.Forms.Control,System.Drawing.Point)">
+            <summary>
+            Возвращает элемент управления, находящийся по указанным координатам
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.FormsHelper.UpdateList``2(System.Windows.Forms.ListView,``0,``1,System.Action{System.Windows.Forms.ListViewItem,``1},System.Action{System.Windows.Forms.ListViewItem,``1},System.Action{``1})">
+            <summary>
+            Метод используется для работы с элементом управления ListView, хранящего в тэгах своих
+            элементов (ListViewItem.Tag) ссылки на объекты, отображаемые в списке
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.FormsHelper.GetSelectedItem``1(System.Windows.Forms.ListView)">
+            <summary>
+            Возвращает объект из тэга выбранного элемента списка (ListViewItem.Tag)
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.FormsHelper.UpdateTree``2(System.Windows.Forms.TreeView,System.Windows.Forms.TreeNode,``0,``1,System.Action{System.Windows.Forms.TreeNode,``1},System.Action{System.Windows.Forms.TreeNode,``1},System.Action{``1})">
+            <summary>
+            Метод используется для работы с элементом управления TreeView, хранящего в тэгах своих
+            узлов (TreeNode.Tag) ссылки на объекты, отображаемые в дереве
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.FormsHelper.GetSelectedItem``1(System.Windows.Forms.TreeView)">
+            <summary>
+            Возвращает объект из тэга выбранного узла (TreeNode.Tag)
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.FormsHelper.UpdateList``1(System.Windows.Forms.ListView.ListViewItemCollection,``0,System.Predicate{``0},System.Action{System.Windows.Forms.ListViewItem,``0},System.Action{System.Windows.Forms.ListViewItem,``0},System.Action{``0})">
+            <summary>
+            Метод используется для работы с элементом управления ListView, хранящего в тэгах своих
+            элементов (ListViewItem.Tag) ссылки на объекты, отображаемые в списке
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.FormsHelper.UpdateTree``1(System.Windows.Forms.TreeNodeCollection,``0,System.Predicate{``0},System.Action{System.Windows.Forms.TreeNode,``0},System.Action{System.Windows.Forms.TreeNode,``0},System.Action{``0})">
+            <summary>
+            Метод используется для работы с элементом управления TreeView, хранящего в тэгах своих
+            узлов (TreeNode.Tag) ссылки на объекты, отображаемые в дереве
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.ChordInfo">
+            <summary>
+            Информация о сочетании горячих клавиш
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.ChordKeyHandler">
+            <summary>
+            Обработчик нажатия сочетаний горячих клавиш
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ChordKeyHandler.OnChordPressed(System.Int32)">
+            <summary>
+            Поднимает событие ChordPressed
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ChordKeyHandler.AddChord(System.Windows.Forms.Keys,System.Windows.Forms.Keys,System.Windows.Forms.Keys)">
+            <summary>
+            Добавляет сочетание горячих клавиш.
+            Возвращает идентификатор, с помощью которого может быть обработано событие
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ChordKeyHandler.RemoveChord(System.Int32)">
+            <summary>
+            Удаляет сочетание горячих клавиш из обработки
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.ChordKeyHandler.Control">
+            <summary>
+            Возвращает элемент управления, для которого производится обработка
+            </summary>
+        </member>
+        <member name="E:RMLib.Forms.ChordKeyHandler.ChordPressed">
+            <summary>
+            Нажато сочетание горячих клавиш с указанным идентификатором
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.DragOptions">
+            <summary>
+            Опции перетаскивания
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.DragOptions.None">
+            <summary>
+            Нет
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.DragOptions.AllowMoveOutsideControl">
+            <summary>
+            Разрешить перетаскивание за пределы элемента управления
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.DragOptions.AllowMoveOutsideForm">
+            <summary>
+            Разрешить перетаскивание за пределы формы
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.DragOptions.AllowDropOnParentItem">
+            <summary>
+            Разрешить перетаскивание на родительский элемент
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.DragOptions.AllowDropOnSelf">
+            <summary>
+            Разрешить перетаскивание на себя
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.DragOptions.AllowDropOnChild">
+            <summary>
+            Разрешить перетаскивание на дочерние элементы
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.DragHandler">
+            <summary>
+            Обработчик операции перетаскивания
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.DragHandler.Control">
+            <summary>
+            Возвращает элемент управления
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.DragHandler.Options">
+            <summary>
+            Возвращает/устанавливает опции перетаскивания
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.DragHandler.IsDragging">
+            <summary>
+            Возвращает true, если идёт процесс перетаскивания, иначе false
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.DragHandler.ScrollMargin">
+            <summary>
+            Возвращает/устанавливает границу области прокрутки при перетаскивании
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.ListBoxCheckedHandler">
+            <summary>
+            Обработчик отмеченных элементов списка
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.ListBoxCheckedHandler.ListBox">
+            <summary>
+            Возвращает ListBox
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.ListViewColumnVisibilityHandler">
+            <summary>
+            Обработчик видимости заголовков списка
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.ListViewColumnVisibilityHandler.ListView">
+            <summary>
+            Возвращает список
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.ListViewColumnVisibilityHandler.Item(System.Int32)">
+            <summary>
+            Возвращает/устанавливает признак видимости заголовка с указанным индексом
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.ListDragHandler">
+            <summary>
+            Обработчик операции перетаскивания элементов списка
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.SearchHandler">
+            <summary>
+            Осуществляет поиск по коллекции данных элемента управления и выделение цветом найденных элементов
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.SearchHandler.Position">
+            <summary>
+            Возвращает/устанавливает текущую позицию поиска
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.SearchHandler.Cycle">
+            <summary>
+            Возвращает/устанавливает признак зацикливания поиска
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.SearchHandler.SelectFound">
+            <summary>
+            Возвращает/устанавливает признак выбора найденного элемента. Если true, найденный элемент будет выбран
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.SearchHandler.Control">
+            <summary>
+            Возвращает элемент управления
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.SearchHandler.HighlightColor">
+            <summary>
+            Возвращает/устанавливает цвет подсветки найденных элементов
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.StateTimer">
+            <summary>
+            Обработчик элемента, отображающего текст состояния, который сбрасывается по таймеру
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.StateTimer.UpdateStateText">
+            <summary>
+            Обновляет текст состояния в текст по умолчанию
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.StateTimer.UpdateStateText(System.String)">
+            <summary>
+            Обновляет текст состояния
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.StateTimer.UpdateStateText(System.String,System.Boolean)">
+            <summary>
+            Обновляет текст состояния и запускает таймер для установки текста по умолчанию
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.StateTimer.UpdateStateTextCore(System.String)">
+            <summary>
+            Обновляет текст состояния
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.StateTimer.OnTimer(System.Object,System.EventArgs)">
+            <summary>
+            Останавливает таймер и устанавливает текст по умолчанию
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.StateTimer.DefaultText">
+            <summary>
+            Возвращает/устанавливает текст состояния по умолчанию
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.ToolStripStateTimer">
+            <summary>
+            Обработчик элемента, отображающего текст состояния, который сбрасывается по таймеру
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.ToolStripStateTimer.Item">
+            <summary>
+            Возвращает элемент
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.ControlStateTimer">
+            <summary>
+            Обработчик элемента управления, отображающего текст состояния, который сбрасывается по таймеру
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.ControlStateTimer.Control">
+            <summary>
+            Возвращает элемент управления
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.TreeViewCheckedHandler">
+            <summary>
+            Обработчик отмеченных для узлов дерева
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.TreeViewCheckedHandler.CheckParentIfAnyChecked">
+            <summary>
+            Отмечает родительский узел, если хотя бы один дочерний отмечен
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.TreeViewCheckedHandler.TreeView">
+            <summary>
+            Возвращает TreeView
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.TreeViewDragHandler">
+            <summary>
+            Обработчик операции перетаскивания узлов дерева
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.InputFilterOptions">
+            <summary>
+            Условия проверки ввода
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.InputFilterOptions.Any">
+            <summary>
+            Разрешает любой ввод, кроме пустой строки
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.InputFilterOptions.Digits">
+            <summary>
+            Разрешает ввод цифр, кроме нуля
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.InputFilterOptions.NegativeSign">
+            <summary>
+            Разрешает ввод символа отрицательного числа
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.InputFilterOptions.DecimalPoint">
+            <summary>
+            Разрешает ввод символа плавающей точки
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.InputFilterOptions.AllowEmpty">
+            <summary>
+            Разрешает ввод пустой строки
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.InputFilterOptions.AllowZero">
+            <summary>
+            Разрашает ввод нуля
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.InputFilterOptions.AllowNaN">
+            <summary>
+            Разрешает ввод 'NaN'
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.InputFilterOptions.UnsignedInteger">
+            <summary>
+            Разрешает ввод беззнакового целого числа, кроме нуля
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.InputFilterOptions.Integer">
+            <summary>
+            Разрешает ввод знакового целого числа, кроме нуля
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.InputFilterOptions.UnsignedNumber">
+            <summary>
+            Разрешает ввод любого беззнакового числа, кроме нуля
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.InputFilterOptions.Number">
+            <summary>
+            Разрешает ввод любого числа, кроме нуля
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.InputFilter">
+            <summary>
+            Фильтр ввода
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.InputFilter.OnProvideErrorText(System.Windows.Forms.Control,RMLib.DoubleRange,System.String)">
+            <summary>
+            Поднимает событие ProvideErrorText
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.InputFilter.OnCancelValidate">
+            <summary>
+            Поднимает событие CancelValidate
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.InputFilter.GetRangeErrorMessage(RMLib.DoubleRange)">
+            <summary>
+            Возвращает сообщение о том, что значение должно быть в пределах указанного диапазона
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.InputFilter.GetStringLengthErrorMessage(RMLib.DoubleRange)">
+            <summary>
+            Возвращает сообщение о том, что длина строки должна быть в пределах указанного диапазона
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.InputFilter.AddControl(System.Windows.Forms.Control,RMLib.Forms.InputFilterOptions)">
+            <summary>
+            Добавляет элемент управления для проверки ввода
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.InputFilter.AddControl(System.Windows.Forms.Control,RMLib.Forms.InputFilterOptions,RMLib.DoubleRange)">
+            <summary>
+            Добавляет элемент управления для проверки ввода
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.InputFilter.AddControl(System.Windows.Forms.Control,RMLib.Forms.InputFilterOptions,System.Boolean)">
+            <summary>
+            Добавляет элемент управления для проверки ввода
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.InputFilter.AddControl(System.Windows.Forms.Control,RMLib.Forms.InputFilterOptions,RMLib.DoubleRange,System.Boolean)">
+            <summary>
+            Добавляет элемент управления для проверки ввода
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.InputFilter.AddControl(System.Windows.Forms.Control,RMLib.Forms.InputFilterOptions,RMLib.DoubleRange,System.Boolean,System.String)">
+            <summary>
+            Добавляет элемент управления для проверки ввода
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.InputFilter.AddControl(System.Windows.Forms.Control,System.Predicate{System.String})">
+            <summary>
+            Добавляет элемент управления для проверки ввода
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.InputFilter.AddControl(System.Windows.Forms.Control,System.Predicate{System.String},System.Boolean)">
+            <summary>
+            Добавляет элемент управления для проверки ввода
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.InputFilter.AddControl(System.Windows.Forms.Control,System.Predicate{System.String},System.Boolean,System.String)">
+            <summary>
+            Добавляет элемент управления для проверки ввода
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.InputFilter.RemoveControl(System.Windows.Forms.Control)">
+            <summary>
+            Отменяет проверку ввода для указанного элемента управления
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.InputFilter.Clear">
+            <summary>
+            Отменяет проверку ввода для всех зарегистрированных элементов управления
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.InputFilter.Validate(System.Windows.Forms.Control)">
+            <summary>
+            Проверяет ввод элемента управления, если он зарегистрирован
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.InputFilter.ValidateAll">
+            <summary>
+            Проверяет ввод всех зарегистрированных элементов управления
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.InputFilter.ValidateCore(RMLib.Forms.InputFilter.FilterInfo)">
+            <summary>
+            Проверка ввода
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.InputFilter.FindControl(System.Windows.Forms.Control)">
+            <summary>
+            Поиск элемента управления
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.InputFilter.CanValidate(System.Windows.Forms.Control)">
+            <summary>
+            Возвращает true, если элемент управления может быть проверен, иначе false
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.InputFilter.SelectControl(System.Windows.Forms.Control)">
+            <summary>
+            Выбирает элемент управления и показывает его, если он находится на другой вкладке (TabPage)
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.InputFilter.GetErrorText(RMLib.Forms.InputFilter.FilterInfo,System.String)">
+            <summary>
+            Возвращает текст ошибки
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.InputFilter.OnControlLeave(System.Object,System.EventArgs)">
+            <summary>
+            Обработка события потери фокуса (для автопроверки)
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.InputFilter.ToolTip">
+            <summary>
+            Возвращает элемент управления всплывающей подсказкой
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.InputFilter.CancelButton">
+            <summary>
+            Возвращает/устанавливает кнопку, при нажатии которой не происходит проверки ввода
+            (обычно это кнопка "Отмена")
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.InputFilter.CheckInvisible">
+            <summary>
+            Возвращает/устанавливает признак проверки невидимых элементов управления
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.InputFilter.CheckDisabled">
+            <summary>
+            Возвращает/устанавливает признак проверки недоступных элементов управления
+            </summary>
+        </member>
+        <member name="E:RMLib.Forms.InputFilter.ProvideErrorText">
+            <summary>
+            Запрашивает текст ошибки
+            </summary>
+        </member>
+        <member name="E:RMLib.Forms.InputFilter.CancelValidate">
+            <summary>
+            Позволяет отменить проверку ввода. Проверка ввода не будет производится, если обработчик вернёт true.
+            Если задана кнопка отмены (свойство CancelButton), событие игнорируется
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.InputForm">
+            <summary>
+            Окно ввода
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.InputForm.Setup(System.String)">
+            <summary>
+            Настраивает окно ввода
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.InputForm.Setup(System.String,System.Object)">
+            <summary>
+            Настраивает окно ввода
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.InputForm.Setup(System.String,System.Object,RMLib.Forms.InputFilterOptions)">
+            <summary>
+            Настраивает окно ввода
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.InputForm.Setup(System.String,System.Object,RMLib.Forms.InputFilterOptions,RMLib.DoubleRange)">
+            <summary>
+            Настраивает окно ввода
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.InputForm.GetResult">
+            <summary>
+            Возвращает результат ввода
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.InputForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.InputForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:RMLib.Forms.InputForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.InputForm.Style">
+            <summary>
+            Возвращает/устанавливает стиль окна ввода
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.InputFormStyle">
+            <summary>
+            Стиль формы ввода
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.InputFormStyle.TextBoxOnly">
+            <summary>
+            Только поле ввода
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.InputFormStyle.UseLabelAsCaption">
+            <summary>
+            Выводить название в метке, а не в заголовке формы
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.InputFormStyle.ShowRange">
+            <summary>
+            Показывать диапазон допустимых значений
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.InputFormStyle.ShowButtons">
+            <summary>
+            Показывать кнопки "ОК" и "Отмена"
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.InputFormStyle.Multiline">
+            <summary>
+            Многострочный ввод
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.InputFormStyle.Password">
+            <summary>
+            Ввод пароля
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.ListViewSorter">
+            <summary>
+            Сортировщик элементов ListView
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.ListViewSorter.ListView">
+            <summary>
+            Возвращает ListView
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.ListViewSorter.ColumnIndex">
+            <summary>
+            Возвращает/устанавливает индекс сортируемой колонки
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.ListViewSorter.SortOrder">
+            <summary>
+            Возвращает/устанавливает порядок сортировки
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.MenuTrayService">
+            <summary>
+            Сервис значка панели задач с поддержкой меню
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.TrayService">
+            <summary>
+            Сервис значка панели задач
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.TrayService.ShowBalloonTip">
+            <summary>
+            Отображает подсказку-баллон над значком
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.TrayService.ShowBalloonTip(System.TimeSpan)">
+            <summary>
+            Отображает подсказку-баллон над значком
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.TrayService.SetBalloonTipText(System.String)">
+            <summary>
+            Устанавливает текст сообщения подсказки-баллона
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.TrayService.SetTipText(System.String)">
+            <summary>
+            Устанавливает текст сообщения подсказки
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.TrayService.OnSetMainForm(System.Windows.Forms.Form)">
+            <summary>
+            Установка главного окна
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.TrayService.GetApplicationNameOrDescription">
+            <summary>
+            Возвращает строку с описанием приложения
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.TrayService.SwitchMainFormVisible">
+            <summary>
+            Переключает видимость главного окна
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.TrayService.OnTrayClick(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Обработчик щелчка на значке
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.TrayService.OnTrayDoubleClick(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Обработчик двойного щелчка на значке
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.TrayService.OnTrayBalloonClick(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик щелчка на подсказке
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.TrayService.GetApplicationState(System.Object)">
+            <summary>
+            Определяет состояние приложения
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.TrayService.OnApplicationReady(System.Object)">
+            <summary>
+            Обработчик события готовности приложения к работе
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.TrayService.OnGetVersion(RMLib.AssemblyInfo)">
+            <summary>
+            Возвращает версию приложения
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.TrayService.Icon">
+            <summary>
+            Возвращает/устанавливает иконку, отображаемую в панели задач
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.TrayService.Tray">
+            <summary>
+            Возвращает значок панели задач
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.TrayService.MainForm">
+            <summary>
+            Возвращает главное окно приложения
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.TrayService.ApplicationObject">
+            <summary>
+            Возвращает приложение
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.TrayService.AppReady">
+            <summary>
+            Признак готовности приложения к работе
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.MenuTrayService.IconClosing">
+            <summary>
+            Возвращает/устанавливает иконку, отображаемую при закрытии приложения
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.MenuTrayService.Menu">
+            <summary>
+            Возвращает меню значка панели задач
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.ProgressWindowStyle">
+            <summary>
+            Стиль окна отображения прогресса
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.ProgressWindowStyle.WindowOnly">
+            <summary>
+            Только окно
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.ProgressWindowStyle.ShowDescription">
+            <summary>
+            Отображать описание
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.ProgressWindowStyle.ShowProgress">
+            <summary>
+            Отображать прогрессбар
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.ProgressWindowStyle.ShowValue">
+            <summary>
+            Отображать значения прогресса
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.ProgressWindowStyle.ShowCancel">
+            <summary>
+            Отображать кнопку отмены
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.ProgressWindowStyle.Modal">
+            <summary>
+            Отображать окно модально (диалог)
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.IProgressWindow">
+            <summary>
+            Интерфейс окна отображения прогресса
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.IProgressWindow.ProgressStart(System.Windows.Forms.Control)">
+            <summary>
+            Уведомляет окно отображения прогресса о начале действия
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.IProgressWindow.ProgressComplete">
+            <summary>
+            Уведомляет окно отображения прогресса о завершении действия
+            </summary>
+        </member>
+        <member name="E:RMLib.Forms.IProgressWindow.ProgressUserCancelled">
+            <summary>
+            Пользователь отменил действие
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.IProgressWindow.ProgressSettings">
+            <summary>
+            Возвращает настройки окна отображения прогресса
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.IProgressWindow.ProgressCancelled">
+            <summary>
+            Возвращает признак, отмены действия
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.ProgressWindowSettings">
+            <summary>
+            Настройки окна отображения прогресса
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.ProgressWindowSettings.Caption">
+            <summary>
+            Возвращает/устанавливает заголовок окна
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.ProgressWindowSettings.Range">
+            <summary>
+            Возвращает/устанавливает диапазон допустимых значений прогресса
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.ProgressWindowSettings.UseCustomFormat">
+            <summary>
+            Возвращает/устанавливает признак использования пользовательского форматирования.
+            Если true, значение прогресса будет отформатировано в соответствии со заданным форматом, иначе
+            значение прогресса будет приведено к процентному виду в соответствии с заданным диапазоном
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.ProgressWindowSettings.CustomFormat">
+            <summary>
+            Возвращает/устанавливает строку пользовательского форматирования.
+            Строка может обрабатывать один агрумент (значение прогресса).
+            Используется если UseCustomFormat = true
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.ProgressWindowSettings.Delay">
+            <summary>
+            Возвращает/устанавливает задержку при появлении окна
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.ProgressWindowSettings.Threshold">
+            <summary>
+            Возвращает/устанавливает пороговое значения прогресса (в долях), по достижении которого
+            окно сможет появиться (от 0.0 до 1.0)
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.ProgressWindowSettings.Style">
+            <summary>
+            Возвращает/устанавливает стиль окна
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.ProgressWindowSettings.Description">
+            <summary>
+            Возвращает/устанавливает описание операции
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.ProgressWindowSettings.DisableOwner">
+            <summary>
+            Возвращает/устанавливает признак запрета использования владельца
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.ProgressForm">
+            <summary>
+            Окно отображения прогресса
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ProgressForm.ProgressStartCore(System.Windows.Forms.Control)">
+            <summary>
+            Показывает окно или запускает таймер
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ProgressForm.ProgressChangedCore(System.Int32)">
+            <summary>
+            Изменяет значение
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ProgressForm.ProgressChangedCore(System.String)">
+            <summary>
+            Изменяет описание
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ProgressForm.ProgressCompleteCore">
+            <summary>
+            Скрывает окно и останавливает таймер
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ProgressForm.ProgressShow">
+            <summary>
+            Отображает окно
+            </summary>
+        </member>
+        <member name="F:RMLib.Forms.ProgressForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ProgressForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:RMLib.Forms.ProgressForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.ProgressForm.ProgressSettings">
+            <summary>
+            Возвращает настройки окна отображения прогресса
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.ProgressForm.ProgressStarted">
+            <summary>
+            Возвращает true, если окно задействовано, иначе false
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.ProgressForm.ProgressCancelled">
+            <summary>
+            Возвращает true, если операция была отменена, иначе false
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.ProgressWorkItem">
+            <summary>
+            Данные для работы потока
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.ProgressThreadException">
+            <summary>
+            Ошибка в потоке прогресса
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.ProgressThread">
+            <summary>
+            Выполняет действие в отдельном потоке с отображением окна прогресса
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ProgressThread.Invoke(System.Func{System.Object,RMLib.Forms.IProgressState,RMLib.ICancelTracking,System.Object})">
+            <summary>
+            Выполняет указанное действие в отдельном потоке
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ProgressThread.Invoke(System.Func{System.Object,RMLib.Forms.IProgressState,RMLib.ICancelTracking,System.Object},System.Windows.Forms.Control)">
+            <summary>
+            Выполняет указанное действие в отдельном потоке
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ProgressThread.Invoke(System.Func{System.Object,RMLib.Forms.IProgressState,RMLib.ICancelTracking,System.Object},System.Action{System.Object,System.Exception})">
+            <summary>
+            Выполняет указанное действие в отдельном потоке
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ProgressThread.Invoke(System.Func{System.Object,RMLib.Forms.IProgressState,RMLib.ICancelTracking,System.Object},System.Object,System.Action{System.Object,System.Exception},System.Windows.Forms.Control)">
+            <summary>
+            Выполняет указанное действие в отдельном потоке
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ProgressThread.CancelRunningActions">
+            <summary>
+            Отменяет все выполняющиеся действия
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.ProgressThread.ThreadWork(System.Object)">
+            <summary>
+            Рабочий метод потока
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.Properties.Resources">
+            <summary>
+              Класс ресурса со строгой типизацией для поиска локализованных строк и т.д.
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.Properties.Resources.ResourceManager">
+            <summary>
+              Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.Properties.Resources.Culture">
+            <summary>
+              Перезаписывает свойство CurrentUICulture текущего потока для всех
+              обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.Properties.Resources.about">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.Properties.Resources.error">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.Properties.Resources.progress">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.PropertyGridHelper">
+            <summary>
+            Методы для работы с таблицей свойств
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.PropertyGridHelper.GetPropertyGrid(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            Извлекает ссылку на объект страницы свойств из контекста описания типа
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.PropertyGridHelper.GetGridView(System.Windows.Forms.PropertyGrid)">
+            <summary>
+            Извлекает ссылку на внутренний объект страницы свойств из объекта страницы свойств
+            </summary>
+        </member>
+        <member name="M:RMLib.Forms.PropertyGridHelper.SetNormalFont(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            Изменяет жирный шрифт, на шрифт используемый объектом страницы свойств
+            </summary>
+        </member>
+        <member name="T:RMLib.Forms.TreeViewSorter">
+            <summary>
+            Сортировщик элементов TreeView
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.TreeViewSorter.TreeView">
+            <summary>
+            Возвращает TreeView
+            </summary>
+        </member>
+        <member name="P:RMLib.Forms.TreeViewSorter.SortOrder">
+            <summary>
+            Возвращает/устанавливает порядок сортировки
+            </summary>
+        </member>
+    </members>
+</doc>

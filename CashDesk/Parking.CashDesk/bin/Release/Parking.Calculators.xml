@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parking.Calculators</name>
+    </assembly>
+    <members>
+        <member name="T:Parking.Calculators.Calculator">
+            <summary>
+            Абстрактный базовый класс калькулятора
+            </summary>
+        </member>
+        <member name="M:Parking.Calculators.Calculator.IsTariffSupported(Parking.Data.TariffVersion)">
+            <summary>
+            Возвращает true, если указанная версия тарифа поддерживается калькулятором, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Calculators.Calculator.Calculate(Parking.Data.Tariff,System.DateTime,System.DateTime,System.DateTime@)">
+            <summary>
+            Расчитывает сумму для заданного тарифа и интервала времени
+            </summary>
+        </member>
+        <member name="M:Parking.Calculators.Calculator.Calculate(Parking.Data.Tariff,System.DateTime,System.DateTime,System.Int32)">
+            <summary>
+            Расчитывает последовательность сумм для заданного тарифа и интервала времени
+            </summary>
+        </member>
+        <member name="M:Parking.Calculators.Calculator.CalculateCore(Parking.Data.Tariff,System.DateTime,System.DateTime,System.DateTime@)">
+            <summary>
+            Расчитывает сумму для заданного тарифа и интервала времени
+            </summary>
+        </member>
+        <member name="P:Parking.Calculators.Calculator.Version">
+            <summary>
+            Возвращает версию калькулятора
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,428 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parking.Data.Security.Operations</name>
+    </assembly>
+    <members>
+        <member name="T:Parking.Data.Security.SecurityOperations">
+            <summary>
+            Операции безопасности
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.DiscountAdd">
+            <summary>
+            Добавление услуги/скидки
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.DiscountEdit">
+            <summary>
+            Редактирование услуги/скидки
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.DiscountRemove">
+            <summary>
+            Удаление услуги/скидки
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.CustomerGroupAdd">
+            <summary>
+            Добавление группы клиентов
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.CustomerGroupEdit">
+            <summary>
+            Редактирование группы клиентов
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.CustomerGroupRemove">
+            <summary>
+            Удаление группы клиентов
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.KeysView">
+            <summary>
+            Просмотр ключей
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.KeysEdit">
+            <summary>
+            Редактирование ключей
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.SecurityView">
+            <summary>
+            Просмотр данных безопасности
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.SecurityEdit">
+            <summary>
+            Редактирование данных безопасности
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.ZoneAdd">
+            <summary>
+            Добавление зоны
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.ZoneEdit">
+            <summary>
+            Редактирование зоны
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.ZoneRemove">
+            <summary>
+            Удаление зоны
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.DeviceAdd">
+            <summary>
+            Добавление устройства
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.DeviceEdit">
+            <summary>
+            Редактирование устройства
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.DeviceRemove">
+            <summary>
+            Удаление устройства
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.DeviceControl">
+            <summary>
+            Управление устройством
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.CompanyAdd">
+            <summary>
+            Добавление организации
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.CompanyEdit">
+            <summary>
+            Редактирование организации
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.CompanyRemove">
+            <summary>
+            Удаление организации
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.CustomerAdd">
+            <summary>
+            Добавление клиента
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.CustomerEdit">
+            <summary>
+            Редактирование клиента
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.CustomerRemove">
+            <summary>
+            Удаление клиента
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.CardAdd">
+            <summary>
+            Добавление карты
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.CardRemove">
+            <summary>
+            Удаление карты
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.CardEditCustomerGroup">
+            <summary>
+            Изменение группы клиентов на карте
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.CardEditTariff">
+            <summary>
+            Изменение тарифа на карте
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.CardEditTimeExpiration">
+            <summary>
+            Продление срока действия карты
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.CardEditZone">
+            <summary>
+            Изменение зоны на карте
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.CardEditBlock">
+            <summary>
+            Блокировка карты
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.CardEditPassageControl">
+            <summary>
+            Изменение контроля проездов на карте
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.CarAdd">
+            <summary>
+            Добавление автомобиля
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.CarEdit">
+            <summary>
+            Редактирование автомобиля
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.CarRemove">
+            <summary>
+            Удаление автомобиля
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.PlateAdd">
+            <summary>
+            Добавление номера
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.PlateEdit">
+            <summary>
+            Редактирование номера
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.PlateRemove">
+            <summary>
+            Удаление номера
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.PassageDecision">
+            <summary>
+            Принятие решения о проезде
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.PassageSetup">
+            <summary>
+            Настройка контроля проездов
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.TariffAdd">
+            <summary>
+            Добавление тарифа
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.TariffEdit">
+            <summary>
+            Редактирование тарифа
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.TariffRemove">
+            <summary>
+            Удаление тарифа
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.ReportsViewCommon">
+            <summary>
+            Просмотр общих отчётов
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.ReportsViewFinancial">
+            <summary>
+            Просмотр финансовых отчётов
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.ReportsViewTechnical">
+            <summary>
+            Просмотр технических отчётов
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.ReportsViewBankOperations">
+            <summary>
+            Просмотр отчётов по банковским операциям
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.ReportsViewDiscounts">
+            <summary>
+            Просмотр отчётов по услугам и скидкам
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.CardEdit">
+            <summary>
+            Редактирование карты
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.MasterCardCreate">
+            <summary>
+            Создание мастер-карты
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.TransactionRemove">
+            <summary>
+            Удаление транзакции
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.GuestTransactionCreate">
+            <summary>
+            Создание гостевой транзакции
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.GuestTransactionRegister">
+            <summary>
+            Регистрация гостевой транзакции
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.GuestTransactionChange">
+            <summary>
+            Изменение гостевой транзакции
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.GuestTransactionRemove">
+            <summary>
+            Удаление гостевой транзакции
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.GuestTransactionReport">
+            <summary>
+            Отчёт по гостевым транзакциям
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.CardECashAdd">
+            <summary>
+            Добавление суммы к электронному кошльку на карте
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.CardEditTimeEntry">
+            <summary>
+            Изменение времени въезда на карте
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.CardECashClear">
+            <summary>
+            Обнуление электронного кошлька на карте
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.CardCreateFine">
+            <summary>
+            Создание штрафной карты
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.ApplicationLock">
+            <summary>
+            Блокировка приложения
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityOperations.ApplicationClose">
+            <summary>
+            Закрытие приложения
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityExtensions.Operations">
+            <summary>
+            Все операции
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityExtensions.Tasks">
+            <summary>
+            Все задачи
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityExtensions.GetString(Parking.Data.Security.SecurityTasks)">
+            <summary>
+            Возвращает строковое представление задачи безопасности
+            </summary>
+        </member>
+        <member name="M:Parking.Data.Security.SecurityExtensions.GetString(Parking.Data.Security.SecurityOperations)">
+            <summary>
+            Возвращает строковое представление операции безопасности
+            </summary>
+        </member>
+        <member name="T:Parking.Data.Security.SecurityTasks">
+            <summary>
+            Задачи безопасности
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityTasks.DiscountManagement">
+            <summary>
+            Управление услугами и скидками
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityTasks.CustomerGroupManagement">
+            <summary>
+            Управление группами клиентов
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityTasks.MasterCardManagement">
+            <summary>
+            Операции с мастер-картой
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityTasks.KeyManagement">
+            <summary>
+            Управление ключами доступа к картам
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityTasks.SecurityManagement">
+            <summary>
+            Управление данными безопасности
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityTasks.ZoneManagement">
+            <summary>
+            Управление зонами
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityTasks.DeviceManagement">
+            <summary>
+            Управление устройствами
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityTasks.CompanyManagement">
+            <summary>
+            Управление организациями
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityTasks.CustomerManagement">
+            <summary>
+            Управление клиентами
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityTasks.CardManagement">
+            <summary>
+            Управление картами
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityTasks.CarManagement">
+            <summary>
+            Управление автомобилями
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityTasks.BlackListManagement">
+            <summary>
+            Управление чёрным списком
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityTasks.PassageManagement">
+            <summary>
+            Управление проездом
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityTasks.TariffManagement">
+            <summary>
+            Управление тарифами
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityTasks.Reports">
+            <summary>
+            Отчёты и статистика
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityTasks.GuestTransactionManagement">
+            <summary>
+            Управление гостевыми транзакциями
+            </summary>
+        </member>
+        <member name="F:Parking.Data.Security.SecurityTasks.ApplicationControl">
+            <summary>
+            Управление приложением
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parking.Common</name>
+    </assembly>
+    <members>
+        <member name="T:Parking.ITraceWindowSource">
+            <summary>
+            Источник сообщений для окна трассировки
+            </summary>
+        </member>
+        <member name="P:Parking.ITraceWindowSource.Filter">
+            <summary>
+            Возвращает/устанавливает фильтр сообщений лога
+            </summary>
+        </member>
+        <member name="E:Parking.ITraceWindowSource.MessageCaptured">
+            <summary>
+            Получено сообщение
+            </summary>
+        </member>
+        <member name="T:Parking.Common">
+            <summary>
+            Общие вспомогательные методы
+            </summary>
+        </member>
+        <member name="M:Parking.Common.GetExtensionDescription(RMLib.IExtensionObject,System.Type,System.Reflection.Assembly)">
+            <summary>
+            Возвращает имя расширения, типа или сборки для указанного объекта расширения
+            </summary>
+        </member>
+        <member name="M:Parking.Common.IsExtensionRequired(System.Type)">
+            <summary>
+            Возвращает true, если расширение обязательное, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Common.MakeLogCategoryMapFileName(System.String,System.String)">
+            <summary>
+            Возвращает полное имя файла катагорий лога
+            </summary>
+        </member>
+        <member name="M:Parking.Common.GetSafeLogComment(System.String)">
+            <summary>
+            Проверяет пригодность комментария для записи в лог
+            </summary>
+        </member>
+        <member name="M:Parking.Common.GetSystemRootPath">
+            <summary>
+            Возвращает путь к корневому каталогу системы
+            </summary>
+        </member>
+        <member name="M:Parking.Common.GetSystemRootPath(System.Int32)">
+            <summary>
+            Возвращает путь к корневому каталогу системы с указанием уровня вложенности вызывающей программы
+            </summary>
+        </member>
+        <member name="M:Parking.Common.GetTimerString(System.TimeSpan)">
+            <summary>
+            Возвращает строковое представление для таймеров
+            </summary>
+        </member>
+        <member name="M:Parking.Common.SerializeSettings(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Сериализует конфигурацию в строку
+            </summary>
+        </member>
+        <member name="M:Parking.Common.NormalizeSettingValue(System.String)">
+            <summary>
+            Подготавливает значение параметра для записи
+            </summary>
+        </member>
+        <member name="M:Parking.Common.DeserializeSettings(System.String)">
+            <summary>
+            Десериализует конфигурацию сборки из строки
+            </summary>
+        </member>
+        <member name="M:Parking.Common.GetAssemblySettings(System.String)">
+            <summary>
+            Возвращает конфигурацию для сборки, находящейся по указанному пути, не загружая её в домен приложения
+            </summary>
+        </member>
+        <member name="M:Parking.Common.GetAssemblySettings(System.String,System.String)">
+            <summary>
+            Возвращает конфигурацию для сборки, находящейся по указанному пути, не загружая её в домен приложения
+            </summary>
+        </member>
+        <member name="M:Parking.Common.SetAssemblySettings(System.String,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Записывает конфигурацию для сборки, находящейся по указанному пути, не загружая её в домен приложения
+            </summary>
+        </member>
+        <member name="M:Parking.Common.SetAssemblySettings(System.String,System.Collections.Specialized.NameValueCollection,System.String)">
+            <summary>
+            Записывает конфигурацию для сборки, находящейся по указанному пути, не загружая её в домен приложения
+            </summary>
+        </member>
+        <member name="M:Parking.Common.IsInternetReady">
+            <summary>
+            Возвращает true, если есть подключение к интернету, иначе false
+            </summary>
+        </member>
+        <member name="T:Parking.ISupportLogString">
+            <summary>
+            Поддержка строкового представления для записи в лог
+            </summary>
+        </member>
+        <member name="M:Parking.ISupportLogString.ToLogString">
+            <summary>
+            Возвращает строковое представление объекта для записи в лог
+            </summary>
+        </member>
+        <member name="T:Parking.GenericArguments">
+            <summary>
+            Типовые агрументы программ
+            </summary>
+        </member>
+        <member name="P:Parking.GenericArguments.IsNoTrace">
+            <summary>
+            Возвращает true, если указан аргумент "Трассировка отключена"
+            </summary>
+        </member>
+        <member name="T:Parking.GenericPathManager">
+            <summary>
+            Типовой менеджер путей для программ
+            </summary>
+        </member>
+        <member name="P:Parking.GenericPathManager.CalculatorsPath">
+            <summary>
+            Возвращает путь к сборкам калькуляторов
+            </summary>
+        </member>
+        <member name="T:Parking.ApplicationReportProvider">
+            <summary>
+            Поставщик отчётов о состоянии приложения
+            </summary>
+        </member>
+        <member name="T:Parking.TraceTCPLogWriter">
+            <summary>
+            Регистратор сообщений лога для трассировки
+            </summary>
+        </member>
+        <member name="T:Parking.TraceExtensions">
+            <summary>
+            Методы для поддержки трассировки
+            </summary>
+        </member>
+        <member name="M:Parking.TraceExtensions.RegisterTraceLogWriter(RMLib.Services.IServiceContainer,System.String)">
+            <summary>
+            Создаёт регистратор лога для трассировки и регистрирует его в контейнере
+            </summary>
+        </member>
+        <member name="M:Parking.TraceExtensions.RegisterTraceLogWriter(RMLib.Services.IServiceContainer,System.String,RMLib.Log.LogCategoryMap)">
+            <summary>
+            Создаёт регистратор лога для трассировки и регистрирует его в контейнере
+            </summary>
+        </member>
+        <member name="M:Parking.TraceExtensions.RegisterTraceLogWriter(RMLib.Services.IServiceContainer,System.String,RMLib.Log.LogCategoryMap,System.Predicate{RMLib.Log.ILogMessage})">
+            <summary>
+            Создаёт регистратор лога для трассировки и регистрирует его в контейнере
+            </summary>
+        </member>
+        <member name="M:Parking.TraceExtensions.RegisterTraceWindowLogWriter``1(RMLib.Services.IServiceContainer)">
+            <summary>
+            Создаёт, регистрирует и возвращает логгер
+            </summary>
+        </member>
+        <member name="M:Parking.TraceExtensions.RegisterTraceWindowLogWriter``1(RMLib.Services.IServiceContainer,``0)">
+            <summary>
+            Создаёт, регистрирует и возвращает логгер
+            </summary>
+        </member>
+    </members>
+</doc>

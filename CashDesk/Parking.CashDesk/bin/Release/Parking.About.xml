@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parking.About</name>
+    </assembly>
+    <members>
+        <member name="T:Parking.LogoExtensions">
+            <summary>
+            Методы для работы с логотипами
+            </summary>
+        </member>
+        <member name="M:Parking.LogoExtensions.SetLogoImages(System.Windows.Forms.Form,System.Windows.Forms.PictureBox,System.Windows.Forms.StatusStrip)">
+            <summary>
+            Устанавливает изображения-логотипы для указанной формы
+            </summary>
+        </member>
+        <member name="M:Parking.LogoExtensions.SetBackgroundImage(Parking.ParkingAboutForm)">
+            <summary>
+            Устанавливает фоновое изображение для окна заставки
+            </summary>
+        </member>
+        <member name="T:Parking.LogoSilver">
+            <summary>
+              Класс ресурса со строгой типизацией для поиска локализованных строк и т.д.
+            </summary>
+        </member>
+        <member name="P:Parking.LogoSilver.ResourceManager">
+            <summary>
+              Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
+            </summary>
+        </member>
+        <member name="P:Parking.LogoSilver.Culture">
+            <summary>
+              Перезаписывает свойство CurrentUICulture текущего потока для всех
+              обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
+            </summary>
+        </member>
+        <member name="P:Parking.LogoSilver.Splash">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.LogoSilver.StatusBackground">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.LogoSilver.TopPanel">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.LogoSilver.TopPanelBackground">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="T:Parking.LogoYellow">
+            <summary>
+              Класс ресурса со строгой типизацией для поиска локализованных строк и т.д.
+            </summary>
+        </member>
+        <member name="P:Parking.LogoYellow.ResourceManager">
+            <summary>
+              Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
+            </summary>
+        </member>
+        <member name="P:Parking.LogoYellow.Culture">
+            <summary>
+              Перезаписывает свойство CurrentUICulture текущего потока для всех
+              обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
+            </summary>
+        </member>
+        <member name="P:Parking.LogoYellow.Splash">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.LogoYellow.StatusBackground">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.LogoYellow.TopPanel">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Parking.LogoYellow.TopPanelBackground">
+            <summary>
+              Поиск локализованного ресурса типа System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="T:Parking.ParkingAboutForm">
+            <summary>
+            Окно заставки / "о программе"
+            </summary>
+        </member>
+        <member name="F:Parking.ParkingAboutForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Parking.ParkingAboutForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Parking.ParkingAboutForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>

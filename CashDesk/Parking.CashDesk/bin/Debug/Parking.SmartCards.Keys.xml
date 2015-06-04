@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parking.SmartCards.Keys</name>
+    </assembly>
+    <members>
+        <member name="T:Parking.SmartCards.Keys.AccessKey">
+            <summary>
+            Ключ для доступа к сектору
+            </summary>
+        </member>
+        <member name="T:Parking.SmartCards.Keys.IAccessKey">
+            <summary>
+            Ключ доступа к сектору
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.Keys.IAccessKey.Type">
+            <summary>
+            Возвращает/устанавливает тип ключа
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.Keys.IAccessKey.Value">
+            <summary>
+            Возвращает/устанавливает значение ключа
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.Keys.AccessKey.Type">
+            <summary>
+            Возвращает/устанавливает тип ключа
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.Keys.AccessKey.Value">
+            <summary>
+            Возвращает/устанавливает значение ключа
+            </summary>
+        </member>
+        <member name="M:Parking.SmartCards.Keys.AccessKeyHelper.GetKeyFromString(System.String)">
+            <summary>
+            Возвращает ключ из строки
+            </summary>
+        </member>
+        <member name="T:Parking.SmartCards.Keys.FactoryKeys">
+            <summary>
+            Заводские ключи
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.Keys.FactoryKeys.KeyFF">
+            <summary>
+            Возвращает заводской ключ FFFFFFFFFFFF
+            </summary>
+        </member>
+        <member name="P:Parking.SmartCards.Keys.FactoryKeys.KeyAx">
+            <summary>
+            Возвращает заводской ключ A0A1A2A3A4A5
+            </summary>
+        </member>
+        <member name="T:Parking.SmartCards.Keys.KeyType">
+            <summary>
+            Типы ключей
+            </summary>
+        </member>
+        <member name="F:Parking.SmartCards.Keys.KeyType.KeyA">
+            <summary>
+            Ключ А
+            </summary>
+        </member>
+        <member name="F:Parking.SmartCards.Keys.KeyType.KeyB">
+            <summary>
+            Ключ Б
+            </summary>
+        </member>
+    </members>
+</doc>

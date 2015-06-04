@@ -1,0 +1,428 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parking.Network</name>
+    </assembly>
+    <members>
+        <member name="T:Parking.Network.LoopbackProtocol">
+            <summary>
+            Протокол для отладки
+            </summary>
+        </member>
+        <member name="T:Parking.Network.NetworkProtocol">
+            <summary>
+            Абстрактный базовый класс сетевого протокола
+            </summary>
+        </member>
+        <member name="T:Parking.Network.INetworkProtocol">
+            <summary>
+            Интерфейс сетевого протокола
+            </summary>
+        </member>
+        <member name="M:Parking.Network.INetworkProtocol.Open">
+            <summary>
+            Открывает протокол
+            </summary>
+        </member>
+        <member name="M:Parking.Network.INetworkProtocol.Close">
+            <summary>
+            Закрывает протокол
+            </summary>
+        </member>
+        <member name="M:Parking.Network.INetworkProtocol.SendPacket(Parking.Network.Packet)">
+            <summary>
+            Отправляет пакет
+            </summary>
+        </member>
+        <member name="P:Parking.Network.INetworkProtocol.Type">
+            <summary>
+            Возвращает типа протокола
+            </summary>
+        </member>
+        <member name="P:Parking.Network.INetworkProtocol.State">
+            <summary>
+            Возвращает состояние протокола
+            </summary>
+        </member>
+        <member name="P:Parking.Network.INetworkProtocol.PacketTimeout">
+            <summary>
+            Возвращает время ожидания пакета
+            </summary>
+        </member>
+        <member name="P:Parking.Network.INetworkProtocol.Index">
+            <summary>
+            Возвращает/устанавливает порядковый номер протокола
+            </summary>
+        </member>
+        <member name="E:Parking.Network.INetworkProtocol.PacketReceived">
+            <summary>
+            Получен пакет
+            </summary>
+        </member>
+        <member name="E:Parking.Network.INetworkProtocol.Error">
+            <summary>
+            Ошибка протокола
+            </summary>
+        </member>
+        <member name="M:Parking.Network.NetworkProtocol.Open">
+            <summary>
+            Открывает протокол
+            </summary>
+        </member>
+        <member name="M:Parking.Network.NetworkProtocol.Close">
+            <summary>
+            Закрывает протокол
+            </summary>
+        </member>
+        <member name="M:Parking.Network.NetworkProtocol.SendPacket(Parking.Network.Packet)">
+            <summary>
+            Отправляет пакет
+            </summary>
+        </member>
+        <member name="M:Parking.Network.NetworkProtocol.LoadSettings">
+            <summary>
+            Загружает настройки протокола
+            </summary>
+        </member>
+        <member name="M:Parking.Network.NetworkProtocol.OpenCore">
+            <summary>
+            Открывает протокол
+            </summary>
+        </member>
+        <member name="M:Parking.Network.NetworkProtocol.GetSetting(System.String,System.Int32)">
+            <summary>
+            Возвращает настройку для протокола с указанным номером
+            </summary>
+        </member>
+        <member name="M:Parking.Network.NetworkProtocol.ParseBytes(System.ArraySegment{System.Byte})">
+            <summary>
+            Разбирает поток байтов
+            </summary>
+        </member>
+        <member name="M:Parking.Network.NetworkProtocol.CreatePacket">
+            <summary>
+            Создает новый пакет
+            </summary>
+        </member>
+        <member name="P:Parking.Network.NetworkProtocol.Settings">
+            <summary>
+            Возвращает настройки протокола
+            </summary>
+        </member>
+        <member name="P:Parking.Network.NetworkProtocol.PacketParser">
+            <summary>
+            Возвращает разборщик потока данных
+            </summary>
+        </member>
+        <member name="P:Parking.Network.NetworkProtocol.Type">
+            <summary>
+            Возвращает тип протокола
+            </summary>
+        </member>
+        <member name="P:Parking.Network.NetworkProtocol.State">
+            <summary>
+            Возвращает состояние протокола
+            </summary>
+        </member>
+        <member name="P:Parking.Network.NetworkProtocol.PacketTimeout">
+            <summary>
+            Возвращает время ожидания пакета
+            </summary>
+        </member>
+        <member name="P:Parking.Network.NetworkProtocol.Index">
+            <summary>
+            Возвращает/устанавливает порядковый номер протокола
+            </summary>
+        </member>
+        <member name="E:Parking.Network.NetworkProtocol.PacketReceived">
+            <summary>
+            Получен пакет
+            </summary>
+        </member>
+        <member name="E:Parking.Network.NetworkProtocol.Error">
+            <summary>
+            Ошибка протокола
+            </summary>
+        </member>
+        <member name="M:Parking.Network.LoopbackProtocol.OpenCore">
+            <summary>
+            Подготавливает буфера
+            </summary>
+        </member>
+        <member name="M:Parking.Network.LoopbackProtocol.SendPacket(Parking.Network.Packet)">
+            <summary>
+            Эмулирует отправку пакета
+            </summary>
+        </member>
+        <member name="M:Parking.Network.LoopbackProtocol.FillBuffer(System.Int32,System.Byte[])">
+            <summary>
+            Заполняет буфер тестовыми данными и возвращает индекс следующего бита
+            </summary>
+        </member>
+        <member name="M:Parking.Network.LoopbackProtocol.ToString">
+            <summary>
+            Возвращает название протокола
+            </summary>
+        </member>
+        <member name="T:Parking.Network.NetworkProtocolHelper">
+            <summary>
+            Вспомогательные методы
+            </summary>
+        </member>
+        <member name="M:Parking.Network.NetworkProtocolHelper.GetString(Parking.Network.NetworkProtocolType)">
+            <summary>
+            Возвращает строковое представление типа сетевого протокола
+            </summary>
+        </member>
+        <member name="M:Parking.Network.NetworkProtocolHelper.GetString(Parking.Network.NetworkProtocolState)">
+            <summary>
+            Возвращает строковое представление состояния сетевого протокола
+            </summary>
+        </member>
+        <member name="T:Parking.Network.PacketType">
+            <summary>
+            Тип пакета
+            </summary>
+        </member>
+        <member name="F:Parking.Network.PacketType.Unknown">
+            <summary>
+            Неизвестный пакет
+            </summary>
+        </member>
+        <member name="F:Parking.Network.PacketType.Short">
+            <summary>
+            Короткий пакет
+            </summary>
+        </member>
+        <member name="F:Parking.Network.PacketType.Long">
+            <summary>
+            Длинный пакет
+            </summary>
+        </member>
+        <member name="T:Parking.Network.Packet">
+            <summary>
+            Пакет данных
+            </summary>
+        </member>
+        <member name="M:Parking.Network.Packet.CreateParser">
+            <summary>
+            Создаёт разборщик потока
+            </summary>
+        </member>
+        <member name="M:Parking.Network.Packet.ToByteStream">
+            <summary>
+            Формирует поток байтов
+            </summary>
+        </member>
+        <member name="M:Parking.Network.Packet.FromByteStream(System.ArraySegment{System.Byte})">
+            <summary>
+            Разбирает поток байтов
+            </summary>
+        </member>
+        <member name="M:Parking.Network.Packet.GetCheckSum">
+            <summary>
+            Расчитывает контрольную сумму
+            </summary>
+        </member>
+        <member name="M:Parking.Network.Packet.ToString">
+            <summary>
+            Возвращает строковое представление пакета
+            </summary>
+        </member>
+        <member name="M:Parking.Network.Packet.ToLogString">
+            <summary>
+            Возвращает строковое представление пакета для записи в лог
+            </summary>
+        </member>
+        <member name="P:Parking.Network.Packet.Type">
+            <summary>
+            Возвращает тип пакета
+            </summary>
+        </member>
+        <member name="P:Parking.Network.Packet.Address">
+            <summary>
+            Возвращает/устанавливает адрес устройства назначения
+            </summary>
+        </member>
+        <member name="P:Parking.Network.Packet.CommandCounter">
+            <summary>
+            Возвращает/устанавливает счётчик команд
+            </summary>
+        </member>
+        <member name="P:Parking.Network.Packet.ShortCommand">
+            <summary>
+            Возвращает/устанавливает короткую команду
+            </summary>
+        </member>
+        <member name="P:Parking.Network.Packet.Params">
+            <summary>
+            Возвращает параметры
+            </summary>
+        </member>
+        <member name="P:Parking.Network.Packet.Flag2">
+            <summary>
+            Возвращает флаг #2
+            </summary>
+        </member>
+        <member name="P:Parking.Network.Packet.LongCommand">
+            <summary>
+            Возвращает/устанавливает длинную команду
+            </summary>
+        </member>
+        <member name="P:Parking.Network.Packet.SeriesCount">
+            <summary>
+            Возвращает/устанавливает количество пакетов в серии
+            </summary>
+        </member>
+        <member name="P:Parking.Network.Packet.SeriesIndex">
+            <summary>
+            Возвращает/устанавливает номер пакета
+            </summary>
+        </member>
+        <member name="P:Parking.Network.Packet.Data">
+            <summary>
+            Возвращает данные
+            </summary>
+        </member>
+        <member name="P:Parking.Network.Packet.DataLength">
+            <summary>
+            Возвращает/устанавливает длину данных
+            </summary>
+        </member>
+        <member name="T:Parking.Network.IPacketParser">
+            <summary>
+            Интерфейс разборщика пакетов
+            </summary>
+        </member>
+        <member name="M:Parking.Network.IPacketParser.Reset">
+            <summary>
+            Сброс
+            </summary>
+        </member>
+        <member name="M:Parking.Network.IPacketParser.Parse(System.ArraySegment{System.Byte})">
+            <summary>
+            Разбирает поток байтов на пакеты. Возвращает:
+            -1 (пакетов не найдено - ещё не разобран "заголовок" или запрещены пакеты по частям),
+            0 (разбор не закончен, требуются ещё данные),
+            >0 (пакет разобран, значение - индекс следующего за ним бита)
+            </summary>
+        </member>
+        <member name="P:Parking.Network.IPacketParser.AllowPartial">
+            <summary>
+            Возвращает/устанавливает разрешение получения пакетов по частям
+            </summary>
+        </member>
+        <member name="P:Parking.Network.IPacketParser.ParsedData">
+            <summary>
+            Возвращает поток байтов, содержащий пакет
+            </summary>
+        </member>
+        <member name="T:Parking.Network.PacketParser">
+            <summary>
+            Разборщик потока байтов на пакеты
+            </summary>
+        </member>
+        <member name="M:Parking.Network.PacketParser.Reset">
+            <summary>
+            Сброс
+            </summary>
+        </member>
+        <member name="M:Parking.Network.PacketParser.Parse(System.ArraySegment{System.Byte})">
+            <summary>
+            Разбирает поток байтов на пакеты.
+            Разбор состоит из 3х этапов: сначала разбирается "заголовок" (преамбула и старт), 
+            затем байты до поля "длина" включительно, а затем всё остальное ("хвост").
+            Возвращает:
+            -1 (пакетов не найдено - ещё не разобран "заголовок" или запрещены пакеты по частям),
+            0 (разбор не закончен, требуются ещё данные),
+            >0 (пакет разобран, значение - индекс следующего за ним бита)
+            </summary>
+        </member>
+        <member name="P:Parking.Network.PacketParser.AllowPartial">
+            <summary>
+            Возвращает/устанавливает разрешение получения пакетов по частям
+            </summary>
+        </member>
+        <member name="P:Parking.Network.PacketParser.ParsedData">
+            <summary>
+            Возвращает поток байтов, содержащий пакет
+            </summary>
+        </member>
+        <member name="T:Parking.Network.PacketParser2">
+            <summary>
+            Разборщик потока байтов на пакеты
+            </summary>
+        </member>
+        <member name="M:Parking.Network.PacketParser2.Reset">
+            <summary>
+            Сброс
+            </summary>
+        </member>
+        <member name="M:Parking.Network.PacketParser2.Parse(System.ArraySegment{System.Byte})">
+            <summary>
+            Разбирает поток байтов на пакеты.
+            Разбор состоит из 3х этапов: сначала разбирается "заголовок" (преамбула и старт), 
+            затем байты до поля "длина" включительно, а затем всё остальное ("хвост").
+            Возвращает:
+            -1 (пакетов не найдено - ещё не разобран "заголовок" или запрещены пакеты по частям),
+            0 (разбор не закончен, требуются ещё данные),
+            >0 (пакет разобран, значение - индекс следующего за ним бита)
+            </summary>
+        </member>
+        <member name="P:Parking.Network.PacketParser2.AllowPartial">
+            <summary>
+            Возвращает/устанавливает разрешение получения пакетов по частям
+            </summary>
+        </member>
+        <member name="P:Parking.Network.PacketParser2.ParsedData">
+            <summary>
+            Возвращает поток байтов, содержащий пакет
+            </summary>
+        </member>
+        <member name="T:Parking.Network.NetworkProtocolType">
+            <summary>
+            Тип сетевого протокола
+            </summary>
+        </member>
+        <member name="F:Parking.Network.NetworkProtocolType.Virtual">
+            <summary>
+            Виртуальный
+            </summary>
+        </member>
+        <member name="F:Parking.Network.NetworkProtocolType.SerialPort">
+            <summary>
+            RS-232
+            </summary>
+        </member>
+        <member name="F:Parking.Network.NetworkProtocolType.Tcp">
+            <summary>
+            Tcp
+            </summary>
+        </member>
+        <member name="T:Parking.Network.NetworkProtocolState">
+            <summary>
+            Состоянине сетевого протокола
+            </summary>
+        </member>
+        <member name="F:Parking.Network.NetworkProtocolState.Undefined">
+            <summary>
+            Не определено
+            </summary>
+        </member>
+        <member name="F:Parking.Network.NetworkProtocolState.Closed">
+            <summary>
+            Закрыт
+            </summary>
+        </member>
+        <member name="F:Parking.Network.NetworkProtocolState.Opened">
+            <summary>
+            Открыт
+            </summary>
+        </member>
+        <member name="F:Parking.Network.NetworkProtocolState.Error">
+            <summary>
+            Ошибка
+            </summary>
+        </member>
+    </members>
+</doc>

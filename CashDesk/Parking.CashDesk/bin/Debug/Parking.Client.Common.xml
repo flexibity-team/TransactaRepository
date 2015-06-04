@@ -1,0 +1,503 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parking.Client.Common</name>
+    </assembly>
+    <members>
+        <member name="T:Parking.Client.BaseServiceCallback">
+            <summary>
+            Базовый класс обратного вызова сервиса
+            </summary>
+        </member>
+        <member name="T:Parking.Client.BaseClient`2">
+            <summary>
+            Абстрактный базовый класс клиента
+            </summary>
+        </member>
+        <member name="T:Parking.Client.IClientConnection">
+            <summary>
+            Интерфейс соединения клиента
+            </summary>
+        </member>
+        <member name="M:Parking.Client.IClientConnection.Ping">
+            <summary>
+            Выполняет запрос для проверки соединения
+            </summary>
+        </member>
+        <member name="M:Parking.Client.BaseClient`2.Ping">
+            <summary>
+            Выполняет запрос для проверки соединения.
+            Возвращает true, если сервер ответил на запрос, иначе false
+            </summary>
+        </member>
+        <member name="M:Parking.Client.BaseClient`2.ToString">
+            <summary>
+            Возвращает строковое представление клиента
+            </summary>
+        </member>
+        <member name="T:Parking.Client.BaseProxyLite`1">
+            <summary>
+            Базовый прокси-класс клиента без обратной связи
+            </summary>
+        </member>
+        <member name="T:Parking.Client.BaseProxy`1">
+            <summary>
+            Базовый прокси-класс клиента
+            </summary>
+        </member>
+        <member name="M:Parking.Client.BaseProxy`1.Feedback">
+            <summary>
+            Подтверждение соединения и образование канала обратной связи
+            </summary>
+        </member>
+        <member name="T:Parking.Client.DataClient`3">
+            <summary>
+            Клиент сервиса, работающего с данными
+            </summary>
+        </member>
+        <member name="P:Parking.Client.DataClient`3.DataTypeName">
+            <summary>
+            Возвращает имя типа данных
+            </summary>
+        </member>
+        <member name="T:Parking.Client.ListServiceCallback`1">
+            <summary>
+            Класс обратного вызова сервиса, работающего с набором данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListServiceCallback`1.OnItemAdded(`0)">
+            <summary>
+            Поднимает событие ItemAdded
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListServiceCallback`1.OnItemRemoved(System.Int64)">
+            <summary>
+            Поднимает событие ItemRemoved
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListServiceCallback`1.OnItemChanged(`0)">
+            <summary>
+            Поднимает событие ItemChanged
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListServiceCallback`1.Added(System.Object)">
+            <summary>
+            Уведомляет о добавлении элемента данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListServiceCallback`1.Removed(System.Int64)">
+            <summary>
+            Уведомляет об удалении элемента данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListServiceCallback`1.Changed(System.Object)">
+            <summary>
+            Уведомляет об изменении элемента данных
+            </summary>
+        </member>
+        <member name="E:Parking.Client.ListServiceCallback`1.ItemAdded">
+            <summary>
+            Элемент данных добавлен
+            </summary>
+        </member>
+        <member name="E:Parking.Client.ListServiceCallback`1.ItemRemoved">
+            <summary>
+            Элемент данных удалён
+            </summary>
+        </member>
+        <member name="E:Parking.Client.ListServiceCallback`1.ItemChanged">
+            <summary>
+            Элемент данных изменён
+            </summary>
+        </member>
+        <member name="T:Parking.Client.ListClientLite`3">
+            <summary>
+            Клиент сервиса, работающего с набором данных без обратной связи
+            </summary>
+        </member>
+        <member name="T:Parking.Client.IListClient`1">
+            <summary>
+            Интерфейс клиента сервиса списка данных
+            </summary>
+        </member>
+        <member name="T:Parking.Client.IServiceClient">
+            <summary>
+            Общий интерфейс клиентов
+            </summary>
+        </member>
+        <member name="M:Parking.Client.IListClient`1.Add(`0)">
+            <summary>
+            Добавляет элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.IListClient`1.Remove(System.Int64)">
+            <summary>
+            Удаляет элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.IListClient`1.Set(`0)">
+            <summary>
+            Устанавливает элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.IListClient`1.SetProperty(System.Int64,System.String,System.Object)">
+            <summary>
+            Устанавливает свойство элемента данных
+            </summary>
+        </member>
+        <member name="E:Parking.Client.IListClient`1.Added">
+            <summary>
+            Элемент данных добавлен
+            </summary>
+        </member>
+        <member name="E:Parking.Client.IListClient`1.Removed">
+            <summary>
+            Элемент данных удалён
+            </summary>
+        </member>
+        <member name="E:Parking.Client.IListClient`1.Changed">
+            <summary>
+            Элемент данных изменён
+            </summary>
+        </member>
+        <member name="E:Parking.Client.IListClient`1.CollectionChanged">
+            <summary>
+            Коллекция элементов данных изменилась
+            </summary>
+        </member>
+        <member name="P:Parking.Client.IListClient`1.Count">
+            <summary>
+            Возвращает количество элементов данных
+            </summary>
+        </member>
+        <member name="P:Parking.Client.IListClient`1.Item(System.Int64)">
+            <summary>
+            Возвращает элемент данных по идентификатору
+            </summary>
+        </member>
+        <member name="P:Parking.Client.IListClient`1.Items">
+            <summary>
+            Возвращает перечислитель элементов данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClientLite`3.OnAdded(`2)">
+            <summary>
+            Поднимает событие Added
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClientLite`3.OnRemoved(`2)">
+            <summary>
+            Поднимает событие Removed
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClientLite`3.OnChanged(`2)">
+            <summary>
+            Поднимает событие Changed
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClientLite`3.OnCollectionChanged(System.ComponentModel.CollectionChangeAction,`2)">
+            <summary>
+            Поднимает событие CollectionChanged
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClientLite`3.Add(`2)">
+            <summary>
+            Добавляет элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClientLite`3.Remove(System.Int64)">
+            <summary>
+            Удаляет элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClientLite`3.Set(`2)">
+            <summary>
+            Устанавливает элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClientLite`3.SetProperty(System.Int64,System.String,System.Object)">
+            <summary>
+            Устанавливает значение свойства элемента данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClientLite`3.AddCore(`2)">
+            <summary>
+            Вызов метода добавления элемента данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClientLite`3.RemoveCore(System.Int64)">
+            <summary>
+            Вызом метода удаления элемента данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClientLite`3.UpdateItem(`2)">
+            <summary>
+            Обновляет элемент данных при операции изменения и возвращает обновлённый элемент.
+            Метод нужен для типов данных, которые имеют динамические поля и не могут быть просто перезаписаны
+            (например, устройства)
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClientLite`3.SetItemProperty(`2,System.String,System.Object)">
+            <summary>
+            Устанавливает значение свойства элемента данных
+            </summary>
+        </member>
+        <member name="P:Parking.Client.ListClientLite`3.Count">
+            <summary>
+            Возвращает количество элементов данных
+            </summary>
+        </member>
+        <member name="P:Parking.Client.ListClientLite`3.Item(System.Int64)">
+            <summary>
+            Возвращает элемент данных
+            </summary>
+        </member>
+        <member name="P:Parking.Client.ListClientLite`3.Items">
+            <summary>
+            Возвращает перечислитель элементов данных
+            </summary>
+        </member>
+        <member name="E:Parking.Client.ListClientLite`3.Added">
+            <summary>
+            Элемент данных добавлен
+            </summary>
+        </member>
+        <member name="E:Parking.Client.ListClientLite`3.Removed">
+            <summary>
+            Элемент данных удалён
+            </summary>
+        </member>
+        <member name="E:Parking.Client.ListClientLite`3.Changed">
+            <summary>
+            Элемент данных изменён
+            </summary>
+        </member>
+        <member name="E:Parking.Client.ListClientLite`3.CollectionChanged">
+            <summary>
+            Коллекция элементов данных изменилась
+            </summary>
+        </member>
+        <member name="T:Parking.Client.ListClient`3">
+            <summary>
+            Клиент сервиса, работающего с набором данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClient`3.OnAdded(`2)">
+            <summary>
+            Поднимает событие Added
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClient`3.OnRemoved(`2)">
+            <summary>
+            Поднимает событие Removed
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClient`3.OnChanged(`2)">
+            <summary>
+            Поднимает событие Changed
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClient`3.OnCollectionChanged(System.ComponentModel.CollectionChangeAction,`2)">
+            <summary>
+            Поднимает событие CollectionChanged
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClient`3.Add(`2)">
+            <summary>
+            Добавляет элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClient`3.Remove(System.Int64)">
+            <summary>
+            Удаляет элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClient`3.Set(`2)">
+            <summary>
+            Устанавливает элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClient`3.SetProperty(System.Int64,System.String,System.Object)">
+            <summary>
+            Устанавливает значение свойства элемента данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClient`3.AddCore(`2)">
+            <summary>
+            Вызов метода добавления элемента данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClient`3.RemoveCore(System.Int64)">
+            <summary>
+            Вызом метода удаления элемента данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClient`3.OnAddedCallback(`2)">
+            <summary>
+            Обработчик уведомления о добавлении элемента данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClient`3.OnRemovedCallback(System.Int64)">
+            <summary>
+            Обработчик уведомления об удалении элемента данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClient`3.OnChangedCallback(`2)">
+            <summary>
+            Обработчик уведомления об изменении элемента данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClient`3.UpdateItem(`2)">
+            <summary>
+            Обновляет элемент данных при операции изменения и возвращает обновлённый элемент.
+            Метод нужен для типов данных, которые имеют динамические поля и не могут быть просто перезаписаны
+            (например, устройства)
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClient`3.SetItemProperty(`2,System.String,System.Object)">
+            <summary>
+            Устанавливает значение свойства элемента данных
+            </summary>
+        </member>
+        <member name="P:Parking.Client.ListClient`3.Count">
+            <summary>
+            Возвращает количество элементов данных
+            </summary>
+        </member>
+        <member name="P:Parking.Client.ListClient`3.Item(System.Int64)">
+            <summary>
+            Возвращает элемент данных
+            </summary>
+        </member>
+        <member name="P:Parking.Client.ListClient`3.Items">
+            <summary>
+            Возвращает перечислитель элементов данных
+            </summary>
+        </member>
+        <member name="E:Parking.Client.ListClient`3.Added">
+            <summary>
+            Элемент данных добавлен
+            </summary>
+        </member>
+        <member name="E:Parking.Client.ListClient`3.Removed">
+            <summary>
+            Элемент данных удалён
+            </summary>
+        </member>
+        <member name="E:Parking.Client.ListClient`3.Changed">
+            <summary>
+            Элемент данных изменён
+            </summary>
+        </member>
+        <member name="E:Parking.Client.ListClient`3.CollectionChanged">
+            <summary>
+            Коллекция элементов данных изменилась
+            </summary>
+        </member>
+        <member name="T:Parking.Client.ListClientProxyLite`2">
+            <summary>
+            Прокси-класс клиента сервиса, работающего с набором данных без обратной связи
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClientProxyLite`2.Add(System.Object)">
+            <summary>
+            Добавляет элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClientProxyLite`2.Remove(System.Int64)">
+            <summary>
+            Удаляет элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClientProxyLite`2.Get(System.Int64)">
+            <summary>
+            Получает элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClientProxyLite`2.Set(System.Object)">
+            <summary>
+            Устанавливает элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClientProxyLite`2.SetProperty(System.Int64,System.String,System.Object)">
+            <summary>
+            Устанавливает значение свойства элемента данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClientProxyLite`2.GetList">
+            <summary>
+            Возвращает список элементов данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClientProxyLite`2.BeginGetList(System.AsyncCallback,System.Object)">
+            <summary>
+            Возвращает список элементов данных
+            </summary>
+        </member>
+        <member name="T:Parking.Client.ListClientProxy`2">
+            <summary>
+            Прокси-класс клиента сервиса, работающего с набором данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClientProxy`2.Add(System.Object)">
+            <summary>
+            Добавляет элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClientProxy`2.Remove(System.Int64)">
+            <summary>
+            Удаляет элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClientProxy`2.Get(System.Int64)">
+            <summary>
+            Получает элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClientProxy`2.Set(System.Object)">
+            <summary>
+            Устанавливает элемент данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClientProxy`2.SetProperty(System.Int64,System.String,System.Object)">
+            <summary>
+            Устанавливает значение свойства элемента данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClientProxy`2.GetList">
+            <summary>
+            Возвращает список элементов данных
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ListClientProxy`2.BeginGetList(System.AsyncCallback,System.Object)">
+            <summary>
+            Возвращает список элементов данных
+            </summary>
+        </member>
+        <member name="T:Parking.Client.ClientConnectionMonitor">
+            <summary>
+            Монитор соединений клиентов
+            </summary>
+        </member>
+        <member name="T:Parking.Client.ClientExtensions">
+            <summary>
+            Методы для работы с клиентами
+            </summary>
+        </member>
+        <member name="M:Parking.Client.ClientExtensions.Rethrow(System.Exception,System.String)">
+            <summary>
+            Перебрасывает исключение сервиса
+            </summary>
+        </member>
+        <member name="P:Parking.Client.ClientExtensions.IncomingMessageSize">
+            <summary>
+            Возвращает размер входящих сообщений
+            </summary>
+        </member>
+        <member name="P:Parking.Client.ClientExtensions.ClientName">
+            <summary>
+            Возвращает/устанавливает имя клиента
+            </summary>
+        </member>
+    </members>
+</doc>

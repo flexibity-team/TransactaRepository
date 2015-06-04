@@ -1,0 +1,587 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parking.CardReaders.Contract</name>
+    </assembly>
+    <members>
+        <member name="T:Parking.CardReaders.SCARD_READERSTATE">
+            <summary>
+            Состояние ридера
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCARD_READERSTATE.szReader">
+            <summary>
+            Reader
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCARD_READERSTATE.pvUserData">
+            <summary>
+            User Data
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCARD_READERSTATE.dwCurrentState">
+            <summary>
+            Current State
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCARD_READERSTATE.dwEventState">
+            <summary>
+            Event State/ New State
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCARD_READERSTATE.cbAtr">
+            <summary>
+            ATR Length
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCARD_READERSTATE.rgbAtr">
+            <summary>
+            Card ATR
+            </summary>
+        </member>
+        <member name="T:Parking.CardReaders.SCardCurrentState">
+            <summary>
+            Текущее состояние
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardCurrentState.SCARD_STATE_UNAWARE">
+            <summary>
+            The application is unaware of the current state and would like to know it. 
+            The use of this value results in an immediate return from state transition 
+            monitoring services. This is represented by all bits set to zero. 
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardCurrentState.SCARD_STATE_IGNORE">
+            <summary>
+            The application is not interested in this reader, and it should not be considered 
+            during monitoring operations. If this bit value is set, all other bits are ignored. 
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardCurrentState.SCARD_STATE_UNAVAILABLE">
+            <summary>
+            The application believes that this reader is not available for use. 
+            If this bit is set, then all the following bits are ignored. 
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardCurrentState.SCARD_STATE_EMPTY">
+            <summary>
+            The application believes that there is not a card in the reader. 
+            If this bit is set, all the following bits are ignored. 
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardCurrentState.SCARD_STATE_PRESENT">
+            <summary>
+            The application believes that there is a card in the reader. 
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardCurrentState.SCARD_STATE_ATRMATCH">
+            <summary>
+            The application believes that there is a card in the reader with an ATR matching 
+            one of the target cards. If this bit is set, SCARD_STATE_PRESENT is assumed. 
+            This bit has no meaning to SCardGetStatusChange beyond SCARD_STATE_PRESENT. 
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardCurrentState.SCARD_STATE_EXCLUSIVE">
+            <summary>
+            The application believes that the card in the reader is allocated for exclusive 
+            use by another application. If this bit is set, SCARD_STATE_PRESENT is assumed. 
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardCurrentState.SCARD_STATE_INUSE">
+            <summary>
+            The application believes that the card in the reader is in use by one or more other 
+            applications, but it may be connected to in shared mode. If this bit is set, 
+            SCARD_STATE_PRESENT is assumed. 
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardCurrentState.SCARD_STATE_MUTE">
+            <summary>
+            The application believes that there is an unresponsive card in the reader. 
+            </summary>
+        </member>
+        <member name="T:Parking.CardReaders.SCardEventState">
+            <summary>
+            Изменение состояния карты на ридере
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardEventState.SCARD_STATE_IGNORE">
+            <summary>
+            This reader should be ignored. 
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardEventState.SCARD_STATE_CHANGED">
+            <summary>
+            There is a difference between the state believed by the application and the state 
+            known by the resource manager. When this bit is set, the application may assume a 
+            significant state change has occurred on this reader. 
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardEventState.SCARD_STATE_UNKNOWN">
+            <summary>
+            The given reader name is not recognized by the resource manager. If this bit is set, SCARD_STATE_CHANGED and SCARD_STATE_IGNORE will also be set. 
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardEventState.SCARD_STATE_UNAVAILABLE">
+            <summary>
+            The actual state of this reader is not available. 
+            If this bit is set, all the following bits are clear. 
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardEventState.SCARD_STATE_EMPTY">
+            <summary>
+            There is no card in the reader. If this bit is set, all the following bits are be clear. 
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardEventState.SCARD_STATE_PRESENT">
+            <summary>
+            There is a card in the reader. 
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardEventState.SCARD_STATE_ATRMATCH">
+            <summary>
+            There is a card in the reader with an ATR matching one of the target cards. 
+            If this bit is set, SCARD_STATE_PRESENT will also be set. This bit is only returned 
+            on the SCardLocateCards function. 
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardEventState.SCARD_STATE_EXCLUSIVE">
+            <summary>
+            The card in the reader is allocated for exclusive use by another application. 
+            If this bit is set, SCARD_STATE_PRESENT will also be set. 
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardEventState.SCARD_STATE_INUSE">
+            <summary>
+            The card in the reader is in use by one or more other applications, 
+            but it may be connected to in shared mode. If this bit is set, 
+            SCARD_STATE_PRESENT will also be set. 
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardEventState.SCARD_STATE_MUTE">
+            <summary>
+            There is an unresponsive card in the reader. 
+            </summary>
+        </member>
+        <member name="T:Parking.CardReaders.SCardShareMode">
+            <summary>
+            Specifies a flag that indicates whether other applications can form connections to the card. 
+            The following table shows the possible values for dwShareMode. 
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardShareMode.SCARD_SHARE_SHARED">
+            <summary>
+            This application is willing to share the card with other applications.. 
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardShareMode.SCARD_SHARE_EXCLUSIVE">
+            <summary>
+            This application is not willing to share the card with other applications. 
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardShareMode.SCARD_SHARE_DIRECT">
+            <summary>
+            Unsupported.
+            </summary>
+        </member>
+        <member name="T:Parking.CardReaders.SCardProtocolMode">
+            <summary>
+            Протокол работы с ридером
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardProtocolMode.SCARD_PROTOCOL_UNDEFINED">
+            <summary>
+            There is no active protocol.
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardProtocolMode.SCARD_PROTOCOL_T0">
+            <summary>
+            // T=0 is the active protocol.
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardProtocolMode.SCARD_PROTOCOL_T1">
+            <summary>
+            T=1 is the active protocol.
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardProtocolMode.SCARD_PROTOCOL_RAW">
+            <summary>
+            Raw is the active protocol.
+            </summary>
+        </member>
+        <member name="T:Parking.CardReaders.ReaderError">
+            <summary>
+            Общие ошибки ридера.
+            По этим ошибкам можно получить общее представление о проблеме при выполнении операции
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.ReaderError.OK">
+            <summary>
+            Неизвестная ошибка
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.ReaderError.AuthError">
+            <summary>
+            Ошибка аутентификации карты
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.ReaderError.ReadError">
+            <summary>
+            Ошибка чтения карты
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.ReaderError.WriteError">
+            <summary>
+            Ошибка записи карты
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.ReaderError.WrongKey">
+            <summary>
+            Неверные ключи доступа
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.ReaderError.CardNotPresent">
+            <summary>
+            Нет карты на ридере
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.ReaderError.ReaderNotPresent">
+            <summary>
+            Ридер не подключен
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.ReaderError.CRCError">
+            <summary>
+            Ошибка контрольной суммы
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.ReaderError.Custom">
+            <summary>
+            Левые ошибки от левых ридеров типа KC4428, которые сами не знают, что хотят
+            И передаваться они будут текстом.
+            </summary>
+        </member>
+        <member name="T:Parking.CardReaders.ReaderErrorText">
+            <summary>
+            Текстовое описание ошибок ридера
+            </summary>
+        </member>
+        <member name="M:Parking.CardReaders.ReaderErrorText.GetString(Parking.CardReaders.ReaderError)">
+            <summary>
+            Возвращает текстовое описание ошибки ридера
+            </summary>
+            <param name="err">Ошибка</param>
+            <returns>Текст ошибки</returns>
+        </member>
+        <member name="T:Parking.CardReaders.ReaderException">
+            <summary>
+            Обшее исключения для ридера
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.ReaderException._error">
+            <summary>
+            Ошибка классифицированная по ReaderError
+            </summary>
+        </member>
+        <member name="M:Parking.CardReaders.ReaderException.#ctor(Parking.CardReaders.ReaderError)">
+            <summary>
+            Создает исключения по ошибке из ReaderError
+            </summary>
+            <param name="err">Ошибка</param>
+        </member>
+        <member name="M:Parking.CardReaders.ReaderException.#ctor(Parking.CardReaders.ReaderError,System.Exception)">
+            <summary>
+            Создает исключения по ошибке из ReaderError
+            </summary>
+            <param name="err">Ошибка</param>
+            <param name="InnerException">Изначальное исключение</param>
+        </member>
+        <member name="P:Parking.CardReaders.ReaderException.error">
+            <summary>
+            Ошибка классифицированная по ReaderError
+            </summary>
+        </member>
+        <member name="T:Parking.CardReaders.SmartCardReader">
+            <summary>
+            Универсальный класс ридера
+            </summary>
+        </member>
+        <member name="T:Parking.CardReaders.ISmartCardReader">
+            <summary>
+            Определяет общий интерфейс работы с считывателем
+            </summary>
+        </member>
+        <member name="M:Parking.CardReaders.ISmartCardReader.ReadCardNumber">
+            <summary>
+            Читает номер карты
+            </summary>
+            <returns>Буфер с номером карты</returns>
+        </member>
+        <member name="M:Parking.CardReaders.ISmartCardReader.ReadBlock(System.UInt32,Parking.SmartCards.Keys.IAccessKey,System.Byte[])">
+            <summary>
+            Читает блок (16 байт) с карты
+            </summary>
+            <param name="Key">Ключ для чтения блока</param>
+            <param name="Index">Номер блока</param>
+            <param name="Buffer">Буфер - приемник</param>
+        </member>
+        <member name="M:Parking.CardReaders.ISmartCardReader.ReadSector(System.UInt32,Parking.SmartCards.Keys.IAccessKey,System.Byte[],System.Int32)">
+            <summary>
+            Читает сектор (48 байт) с карты
+            </summary>
+            <param name="Key">Ключ для чтения сектора</param>
+            <param name="Index">Номер сектора</param>
+            <param name="Buffer">Буфер - приемник</param>
+        </member>
+        <member name="M:Parking.CardReaders.ISmartCardReader.WriteBlock(System.UInt32,Parking.SmartCards.Keys.IAccessKey,System.Byte[])">
+            <summary>
+            Записывает блок (16 байт) на карту
+            </summary>
+            <param name="Key">Ключ для записи блока</param>
+            <param name="Index">Номер блока</param>
+            <param name="Buffer">Записываемый Буфер</param>
+        </member>
+        <member name="M:Parking.CardReaders.ISmartCardReader.WriteSector(System.UInt32,Parking.SmartCards.Keys.IAccessKey,System.Byte[])">
+            <summary>
+            Записывает сектор (48 байт) на карту
+            </summary>
+            <param name="Key">Ключ для записи сектора</param>
+            <param name="Index">Номер блока</param>
+            <param name="Buffer">Записываемый Буфер</param>
+        </member>
+        <member name="M:Parking.CardReaders.ISmartCardReader.Decrement(System.UInt32,Parking.SmartCards.Keys.IAccessKey,System.UInt32)">
+            <summary>
+            Вычитает передаваемое значение из значения в блоке на карте
+            </summary>
+            <param name="Index">Номер блока</param>
+            <param name="Key">Ключ для доступа</param>
+            <param name="Value">Вычитаемое значение</param>
+        </member>
+        <member name="M:Parking.CardReaders.ISmartCardReader.Increment(System.UInt32,Parking.SmartCards.Keys.IAccessKey,System.UInt32)">
+            <summary>
+            Прибавляет передаваемое значение к значению в блоке на карте
+            </summary>
+            <param name="Index">Номер блока</param>
+            <param name="Key">Ключ для доступа</param>
+            <param name="Value">Прибавляемое значение</param>
+        </member>
+        <member name="E:Parking.CardReaders.ISmartCardReader.PutCard">
+            <summary>
+            Карта положена на считыватель
+            Параметром передается измененное состояние
+            </summary>
+        </member>
+        <member name="E:Parking.CardReaders.ISmartCardReader.RemovedCard">
+            <summary>
+            Карта снята с считывателя
+            Параметром передается измененное состояние
+            </summary>
+        </member>
+        <member name="E:Parking.CardReaders.ISmartCardReader.ConnectedCard">
+            <summary>
+            Успешное подключение к карте
+            Параметром передается измененное состояние
+            </summary>
+        </member>
+        <member name="E:Parking.CardReaders.ISmartCardReader.ConnectCardError">
+            <summary>
+            Подключение к карте закончилось неудачно
+            Параметром передается код ошибки
+            </summary>
+        </member>
+        <member name="M:Parking.CardReaders.SmartCardReader.SCardListReaders(System.IntPtr,System.Byte[],System.Byte[],System.UInt32@)">
+            <summary>
+            Возвращает список найденых ридеров
+            </summary>
+            <param name="hContext"></param>
+            <param name="mszGroups"></param>
+            <param name="mszReaders"></param>
+            <param name="pcchReaders"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Parking.CardReaders.SmartCardReader.#ctor(System.String)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="ReaderName">Название ридера</param>
+        </member>
+        <member name="F:Parking.CardReaders.SmartCardReader.Connected">
+            <summary>
+            Определяет состояние ридера ( подключен/не подключен )
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SmartCardReader._CardState">
+            <summary>
+            Карта на считывателе
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SmartCardReader.hContext">
+            <summary>
+            Хендл семейства ридеров
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SmartCardReader.hCard">
+            <summary>
+            Хендл карты на ридере
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SmartCardReader.pcchReaders">
+            <summary>
+            ???
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SmartCardReader._READER_NAME">
+            <summary>
+            Определяет имя ридера (для поиска в списке ридеров)
+            </summary>
+        </member>
+        <member name="M:Parking.CardReaders.SmartCardReader.Init">
+            <summary>
+            Поиск и подключение ридера
+            </summary>
+        </member>
+        <member name="M:Parking.CardReaders.SmartCardReader.thReaderWatch">
+            <summary>
+            Поток слежения за состоянием ридера
+            </summary>
+        </member>
+        <member name="M:Parking.CardReaders.SmartCardReader.ReadCardNumber">
+            <summary>
+            Возвращает UID (номер) карты
+            </summary>
+            <returns>UID (номер) карты</returns>
+        </member>
+        <member name="M:Parking.CardReaders.SmartCardReader.ReadBlock(System.UInt32,Parking.SmartCards.Keys.IAccessKey,System.Byte[])">
+            <summary>
+            Читает блок с карты
+            </summary>
+            <param name="Index">Номер блока</param>
+            <param name="Key">Ключ доступа</param>
+            <param name="Buffer">Буфер</param>
+        </member>
+        <member name="M:Parking.CardReaders.SmartCardReader.ReadSector(System.UInt32,Parking.SmartCards.Keys.IAccessKey,System.Byte[],System.Int32)">
+            <summary>
+            Читает сектор с карты
+            </summary>
+            <param name="Index">Номер сектора</param>
+            <param name="Key">Ключ доступа</param>
+            <param name="Buffer">Буфер</param>
+        </member>
+        <member name="M:Parking.CardReaders.SmartCardReader.WriteBlock(System.UInt32,Parking.SmartCards.Keys.IAccessKey,System.Byte[])">
+            <summary>
+            Записывает блок на карту
+            </summary>
+            <param name="Index">Номер блока</param>
+            <param name="Key">Ключ доступа</param>
+            <param name="Buffer">Буфер</param>
+        </member>
+        <member name="M:Parking.CardReaders.SmartCardReader.WriteSector(System.UInt32,Parking.SmartCards.Keys.IAccessKey,System.Byte[])">
+            <summary>
+            Записывает сектор на карту
+            </summary>
+            <param name="Index">Номер блока</param>
+            <param name="Key">Ключ доступа</param>
+            <param name="Buffer">Буфер</param>
+            <param name="Offset">Смещение буфера</param>
+        </member>
+        <member name="M:Parking.CardReaders.SmartCardReader.Decrement(System.UInt32,Parking.SmartCards.Keys.IAccessKey,System.UInt32)">
+            <summary>
+            Вычитает передаваемое значение из значения в блоке на карте
+            </summary>
+            <param name="Index">Номер блока</param>
+            <param name="Value">Вычитаемое значение</param>
+        </member>
+        <member name="M:Parking.CardReaders.SmartCardReader.Increment(System.UInt32,Parking.SmartCards.Keys.IAccessKey,System.UInt32)">
+            <summary>
+            Прибавляет передаваемое значение к значению в блоке на карте
+            </summary>
+            <param name="Index">Номер блока</param>
+            <param name="Value">Прибавляемое значение</param>
+        </member>
+        <member name="M:Parking.CardReaders.SmartCardReader.Dispose">
+            <summary>
+            Заканчивает работу с ридером
+            </summary>
+        </member>
+        <member name="P:Parking.CardReaders.SmartCardReader.CardState">
+            <summary>
+            Наличие и состояние карты на считывателе
+            </summary>
+        </member>
+        <member name="E:Parking.CardReaders.SmartCardReader.PutCard">
+            <summary>
+            Карта на ридере
+            </summary>
+        </member>
+        <member name="E:Parking.CardReaders.SmartCardReader.RemovedCard">
+            <summary>
+            Карта снята с ридера
+            </summary>
+        </member>
+        <member name="E:Parking.CardReaders.SmartCardReader.ConnectedCard">
+            <summary>
+            Карта на ридере. Подключение произошло
+            </summary>
+        </member>
+        <member name="E:Parking.CardReaders.SmartCardReader.ConnectCardError">
+            <summary>
+            Карта на ридере. Подключение завершилось неудачей
+            Передается возращенное значение функции подключения
+            </summary>
+        </member>
+        <member name="T:Parking.CardReaders.ReaderType">
+            <summary>
+            Тип считывателя
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.ReaderType.Virtual">
+            <summary>
+            Виртуальный
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.ReaderType.KC4428">
+            <summary>
+            КС4428
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.ReaderType.CM5x21">
+            <summary>
+            OmniKey CardMan CM5x21
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.ReaderType.PCSC">
+            <summary>
+            Считыватель, поддерживающий стандарт PCSC
+            </summary>
+        </member>
+        <member name="T:Parking.CardReaders.SCardState">
+            <summary>
+            Положение карты на считывателе
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardState.Present">
+            <summary>
+            Карта на считывателе
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardState.Changed">
+            <summary>
+            Изменили карту на считывателе
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardState.Absent">
+            <summary>
+            Карты нет на считывателе
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardState.Connected">
+            <summary>
+            Карта подключена
+            </summary>
+        </member>
+        <member name="F:Parking.CardReaders.SCardState.ConnectFailed">
+            <summary>
+            Подключение карты не удалось
+            </summary>
+        </member>
+    </members>
+</doc>

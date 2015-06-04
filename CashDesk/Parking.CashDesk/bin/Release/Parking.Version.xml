@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parking.Version</name>
+    </assembly>
+    <members>
+        <member name="T:Parking.SystemVersion">
+            <summary>
+            Методы для работы с версией системы
+            </summary>
+        </member>
+        <member name="F:Parking.SystemVersion.Version">
+            <summary>
+            Возвращает версию системы
+            </summary>
+        </member>
+        <member name="F:Parking.SystemVersion.IsBackwardCompatible">
+            <summary>
+            Признак совместимости с предыдущими версиями
+            </summary>
+        </member>
+        <member name="F:Parking.SystemVersion.Edition">
+            <summary>
+            Возвращает редакцию системы
+            </summary>
+        </member>
+        <member name="F:Parking.SystemVersion.LockVersion">
+            <summary>
+            Требование совпадения версий
+            </summary>
+        </member>
+        <member name="F:Parking.SystemVersion.RequiredFrameworkVersion">
+            <summary>
+            Возвращает версию .NET Framework, необходимую для работы текущей версии системы
+            </summary>
+        </member>
+        <member name="F:Parking.SystemVersion.RequiredFrameworkServicePackLevel">
+            <summary>
+            Возвращает номер пакета обновления .NET Framework, необходимый для работы текущей версии системы
+            </summary>
+        </member>
+        <member name="F:Parking.SystemVersion.RequiredDatabasePatchIndex">
+            <summary>
+            Возвращает номер обновления БД, необходимый для работы текущей версии системы
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,14 @@
+D:\Work\Sources\VC#\ParkTime\Parking35\CashDesk\Parking.FiscalDevice.Contract\bin\Debug\Parking.FiscalDevice.Contract.dll
+D:\Work\Sources\VC#\ParkTime\Parking35\CashDesk\Parking.FiscalDevice.Contract\bin\Debug\Parking.FiscalDevice.Contract.pdb
+D:\Work\Sources\VC#\ParkTime\Parking35\CashDesk\Parking.FiscalDevice.Contract\obj\Debug\Parking.FiscalDevice.Contract.dll
+D:\Work\Sources\VC#\ParkTime\Parking35\CashDesk\Parking.FiscalDevice.Contract\obj\Debug\Parking.FiscalDevice.Contract.pdb
+D:\Work\Sources\VC#\ParkTime\Parking35\CashDesk\Parking.FiscalDevice.Contract\obj\Debug\Parking.FiscalDevice.Contract.csprojResolveAssemblyReference.cache
+R:\Work\Sources\VC#\ParkTime\Parking35\CashDesk\Parking.FiscalDevice.Contract\bin\Debug\Parking.FiscalDevice.Contract.dll
+R:\Work\Sources\VC#\ParkTime\Parking35\CashDesk\Parking.FiscalDevice.Contract\bin\Debug\Parking.FiscalDevice.Contract.pdb
+R:\Work\Sources\VC#\ParkTime\Parking35\CashDesk\Parking.FiscalDevice.Contract\obj\Debug\Parking.FiscalDevice.Contract.csprojResolveAssemblyReference.cache
+R:\Work\Sources\VC#\ParkTime\Parking35\CashDesk\Parking.FiscalDevice.Contract\obj\Debug\Parking.FiscalDevice.Contract.dll
+R:\Work\Sources\VC#\ParkTime\Parking35\CashDesk\Parking.FiscalDevice.Contract\obj\Debug\Parking.FiscalDevice.Contract.pdb
+D:\Pol\Projects\CashDesk\Parking.FiscalDevice.Contract\bin\Debug\Parking.FiscalDevice.Contract.dll
+D:\Pol\Projects\CashDesk\Parking.FiscalDevice.Contract\bin\Debug\Parking.FiscalDevice.Contract.pdb
+D:\Pol\Projects\CashDesk\Parking.FiscalDevice.Contract\obj\Debug\Parking.FiscalDevice.Contract.dll
+D:\Pol\Projects\CashDesk\Parking.FiscalDevice.Contract\obj\Debug\Parking.FiscalDevice.Contract.pdb

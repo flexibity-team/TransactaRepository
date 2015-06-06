@@ -18,7 +18,7 @@ namespace Parking.CashDesk
     public static String ByteToString(ref Byte[] bSource, int len)
     {
       int i;
-      String sDest = "";
+      var sDest = "";
 
       for (i = 0; i < len; i++)
       {
@@ -30,48 +30,44 @@ namespace Parking.CashDesk
     ////////////////////////////////////////////////////
     // Преобразование числа в формат BCD
     ////////////////////////////////////////////////////
-    public static Byte IntToBCD(int iIn)
+    public static Byte IntToBcd(int iIn)
     {
-      Byte bTH, bTL, bT;
-
       iIn = iIn - (iIn / 100) * 100;
-      bTH = Convert.ToByte((iIn / 10));
-      bTL = Convert.ToByte(iIn - bTH * 10);
-      bT = Convert.ToByte(bTL + (bTH << 4));
+      var bTH = Convert.ToByte((iIn / 10));
+      var bTL = Convert.ToByte(iIn - bTH * 10);
+      var bT = Convert.ToByte(bTL + (bTH << 4));
       return bT;
     }
 
     ////////////////////////////////////////////////////
     //преобразование формата BCD в число
     ////////////////////////////////////////////////////
-    public static int BCDToInt(Byte bIn)
+    public static int BcdToInt(Byte bIn)
     {
-      int iT;
-      iT = (bIn / 16) * 10 + bIn - (bIn / 16) * 16;
-      return iT;
+        var iT = (bIn / 16) * 10 + bIn - (bIn / 16) * 16;
+        return iT;
     }
 
-    ////////////////////////////////////////////////////
+      ////////////////////////////////////////////////////
     //Преобразует дату и время из формата DateTime в массив байт для представления на карте
     ////////////////////////////////////////////////////
     public static void DateToBytes(int iStart, ref Byte[] bDat, DateTime dtDate)
     {
       // Public Sub DateToBytes(ByVal dtValue As DateTime, ByVal iStart As Int16, ByRef bDat() As Byte)
-      int dw;
-      //TODO: разобраться как передавать день недели.
+        //TODO: разобраться как передавать день недели.
       //dw = dtDate.DayOfWeek
-      dw = 0;
+      var dw = 0;
       if (dw == 0) dw = 7;
 
       if (dtDate.ToOADate() > 0 /*DateTime(1 / 1 / 2000)*/)
       {
-        bDat[iStart] = IntToBCD(dtDate.Second);
-        bDat[iStart + 1] = IntToBCD(dtDate.Minute);
-        bDat[iStart + 2] = IntToBCD(dtDate.Hour);
-        bDat[iStart + 3] = IntToBCD(dw);
-        bDat[iStart + 4] = IntToBCD(dtDate.Day);
-        bDat[iStart + 5] = IntToBCD(dtDate.Month);
-        bDat[iStart + 6] = IntToBCD(dtDate.Year);
+        bDat[iStart] = IntToBcd(dtDate.Second);
+        bDat[iStart + 1] = IntToBcd(dtDate.Minute);
+        bDat[iStart + 2] = IntToBcd(dtDate.Hour);
+        bDat[iStart + 3] = IntToBcd(dw);
+        bDat[iStart + 4] = IntToBcd(dtDate.Day);
+        bDat[iStart + 5] = IntToBcd(dtDate.Month);
+        bDat[iStart + 6] = IntToBcd(dtDate.Year);
       }
       else
       {
@@ -85,20 +81,18 @@ namespace Parking.CashDesk
     ////////////////////////////////////////////////////
     public static DateTime BytesToDate(int iStart, ref Byte[] bDat)
     {
-      Char[] cT = new Char[5];
-      int ho, mi, se, da, mo, ye, dw;//, dw2;
-      DateTime dtT;
+        DateTime dtT;
       try
       {
-        da = BCDToInt(bDat[iStart + 4]);
-        mo = BCDToInt(bDat[iStart + 5]);
-        ye = BCDToInt(bDat[iStart + 6]);
+        var da = BcdToInt(bDat[iStart + 4]);//, dw2;
+        var mo = BcdToInt(bDat[iStart + 5]);//, dw2;
+        var ye = BcdToInt(bDat[iStart + 6]);//, dw2;
         ye += 2000;
 
-        dw = BCDToInt(bDat[iStart + 3]);
-        ho = BCDToInt(bDat[iStart + 2]);
-        mi = BCDToInt(bDat[iStart + 1]);
-        se = BCDToInt(bDat[iStart]);
+        BcdToInt(bDat[iStart + 3]);
+        var ho = BcdToInt(bDat[iStart + 2]);//, dw2;
+        var mi = BcdToInt(bDat[iStart + 1]);//, dw2;
+        var se = BcdToInt(bDat[iStart]);//, dw2;
 
 
         if (ye + mo + da + ho + mi + se == 2000)

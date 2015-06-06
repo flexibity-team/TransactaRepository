@@ -18,7 +18,7 @@ namespace Parking.CashDesk
     #region [ imports ]
 
     [DllImport(VFDDisplayPath, CharSet = CharSet.Ansi)]
-    private static extern int Init(int NPort);
+    private static extern int Init(int nPort);
 
     [DllImport(VFDDisplayPath, CharSet = CharSet.Ansi)]
     private static extern int CloseVFD();
@@ -27,24 +27,24 @@ namespace Parking.CashDesk
     private static extern int ClearVFD();
 
     [DllImport(VFDDisplayPath, CharSet = CharSet.Ansi)]
-    private static extern int SetVFDString(int Line, ref Byte bStr);
+    private static extern int SetVFDString(int line, ref Byte bStr);
 
     #endregion
 
-    private ILogger _logger;
-    private int _codePage;
+    private readonly ILogger logger;
+    private int codePage;
 
     public UserDisplay(ILogger logger)
     {
-      _logger = logger;
-      _codePage = DefaultCodePage;
+      this.logger = logger;
+      codePage = DefaultCodePage;
     }
 
     // Инициализация дисплея
     // Параметны: nPortNum - номер порта подключения дисплея
     public int Initialize(int nPortNum, int codePage)
     {
-      _codePage = codePage;
+      this.codePage = codePage;
 
       return Init(nPortNum);
     }
@@ -68,17 +68,14 @@ namespace Parking.CashDesk
       byte[] ba = null;
       try
       {
-        ba = Encoding.GetEncoding(_codePage).GetBytes(str);
+        ba = Encoding.GetEncoding(codePage).GetBytes(str);
       }
       catch (Exception e)
       {
-        _logger.Write(e, "Ошибка кодирования строки для вывода на дисплей пользователя");
+        logger.Write(e, "Ошибка кодирования строки для вывода на дисплей пользователя");
       }
 
-      if (ba == null)
-        return 0;
-
-      return SetVFDString(lineIndex, ref ba[0]);
+      return ba == null ? 0 : SetVFDString(lineIndex, ref ba[0]);
     }
   }
 }

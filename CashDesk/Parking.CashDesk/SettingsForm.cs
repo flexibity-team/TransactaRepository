@@ -16,10 +16,10 @@ namespace Parking.CashDesk
 {
   public partial class SettingsForm : Form
   {
-    private SmartCardManager _smartCardManager;
-    private ILogger _logger;
-    private TariffViewForm _tariffForm;
-    private CashDeskLanguage _cashDeskLanguage;
+    private readonly SmartCardManager smartCardManager;
+    private readonly ILogger logger;
+    private TariffViewForm tariffForm;
+    private CashDeskLanguage cashDeskLanguage;
 
     public SettingsForm(ILogger logger, SmartCardManager smartCardManager)
     {
@@ -31,11 +31,11 @@ namespace Parking.CashDesk
       btnTariffPenaltyShow.ImageIndex = 0;
       btnTariffMetroShow.ImageIndex = 0;
 
-      _logger = logger;
-      _smartCardManager = smartCardManager;
-      _tariffForm = null;
+      this.logger = logger;
+      this.smartCardManager = smartCardManager;
+      tariffForm = null;
       cboLanguage.SetEnum<CashDeskLanguage>(CashDeskHelper.GetString);
-      _cashDeskLanguage = Settings.Default.CashDeskLanguage;
+      cashDeskLanguage = Settings.Default.CashDeskLanguage;
       ApplyLanguage();
     }
 
@@ -49,13 +49,13 @@ namespace Parking.CashDesk
       edDisplayPort.Text = Convert.ToString(Settings.Default.DisplayPort);
       edCashNum.Text = Convert.ToString(Settings.Default.CashNumber);
 
-      cboLanguage.SelectedIndex = (int)_cashDeskLanguage;
+      cboLanguage.SelectedIndex = (int)cashDeskLanguage;
 
-      if (!Settings.Default.UseMetro)
-      {
+        if (Settings.Default.UseMetro)
+            return;
+
         tableMain.ShowRow(12, 0);
         tableMain.ShowRow(13, 0);
-      }
     }
 
     private void btnOK_Click(object sender, EventArgs e)
@@ -66,8 +66,8 @@ namespace Parking.CashDesk
       Settings.Default["DisplayPort"] = Convert.ToInt32(edDisplayPort.Text);
       Settings.Default["CashNumber"] = Convert.ToByte(edCashNum.Text);
 
-      _cashDeskLanguage = (CashDeskLanguage)cboLanguage.SelectedIndex;
-      Settings.Default["CashDeskLanguage"] = _cashDeskLanguage;
+      cashDeskLanguage = (CashDeskLanguage)cboLanguage.SelectedIndex;
+      Settings.Default["CashDeskLanguage"] = cashDeskLanguage;
       Settings.Default.Save();
       ApplyLanguage();
     }
@@ -83,26 +83,26 @@ namespace Parking.CashDesk
       ISmartCardMaster master = new SmartCardMaster();
       try
       {
-        _smartCardManager.ReadMasterCard(master);
+        smartCardManager.ReadMasterCard(master);
       }
       catch (Exception ex)
       {
-        _logger.Write(ex, "Ошибка чтения мастер-карты");
+        logger.Write(ex, "Ошибка чтения мастер-карты");
         MessageBox.Show(this, "Ошибка чтения мастер-карты", ApplicationServices.GetApplicationName(), MessageBoxButtons.OK, MessageBoxIcon.Error);
         return;
       }
       
       // Распределение ключей. На мастер карте хранится 4 ключа для 9 секторов.
-      _smartCardManager.KeysB[1] = master.KeysB[0];
-      _smartCardManager.KeysB[2] = master.KeysB[1];
-      _smartCardManager.KeysB[3] = master.KeysB[2];
-      _smartCardManager.KeysB[4] = master.KeysB[2];
-      _smartCardManager.KeysB[5] = master.KeysB[2];
-      _smartCardManager.KeysB[6] = master.KeysB[2];
-      _smartCardManager.KeysB[7] = master.KeysB[3];
-      _smartCardManager.KeysB[8] = master.KeysB[3];
-      _smartCardManager.KeysB[9] = master.KeysB[3];
-      _smartCardManager.KeysB[SmartCardLayoutHelper.MetroSectorIndex] = GetKeyForDiscountSector(master.KeysB[3]);
+      smartCardManager.KeysB[1] = master.KeysB[0];
+      smartCardManager.KeysB[2] = master.KeysB[1];
+      smartCardManager.KeysB[3] = master.KeysB[2];
+      smartCardManager.KeysB[4] = master.KeysB[2];
+      smartCardManager.KeysB[5] = master.KeysB[2];
+      smartCardManager.KeysB[6] = master.KeysB[2];
+      smartCardManager.KeysB[7] = master.KeysB[3];
+      smartCardManager.KeysB[8] = master.KeysB[3];
+      smartCardManager.KeysB[9] = master.KeysB[3];
+      smartCardManager.KeysB[SmartCardLayoutHelper.MetroSectorIndex] = GetKeyForDiscountSector(master.KeysB[3]);
 
       // Шифрование и Запись прочитанных с мастер-карты ключей в конфигурацию.
       // Непосредственно запись произойдет, если пользователь нажмет кнопку "ОК".
@@ -116,7 +116,7 @@ namespace Parking.CashDesk
       }
       catch (Exception ex)
       {
-        _logger.Write(ex, "Ошибка кодирования полученных с мастер-карты ключей");
+        logger.Write(ex, "Ошибка кодирования полученных с мастер-карты ключей");
         MessageBox.Show(this, "Ошибка кодирования полученных с мастер-карты ключей", ApplicationServices.GetApplicationName(), MessageBoxButtons.OK, MessageBoxIcon.Error);
         return;
       }
@@ -128,7 +128,7 @@ namespace Parking.CashDesk
       }
       catch (Exception ex)
       {
-        _logger.Write(ex, "Ошибка чтения тарифа с мастер-карты");
+        logger.Write(ex, "Ошибка чтения тарифа с мастер-карты");
         MessageBox.Show(this, "Ошибка чтения тарифа с мастер-карты", ApplicationServices.GetApplicationName(), MessageBoxButtons.OK, MessageBoxIcon.Error);
         return;
       }
@@ -150,7 +150,7 @@ namespace Parking.CashDesk
       }
       catch (Exception ex)
       {
-        _logger.Write(ex, "Ошибка чтения тарифов метро");
+        logger.Write(ex, "Ошибка чтения тарифов метро");
         MessageBox.Show(this, "Ошибка чтения тарифов метро", ApplicationServices.GetApplicationName(), MessageBoxButtons.OK, MessageBoxIcon.Error);
         return;
       }
@@ -164,7 +164,7 @@ namespace Parking.CashDesk
 
     private void btnTariffShow_Click(object sender, EventArgs e)
     {
-      string tariff = (sender == btnTariffPenaltyShow) ? Settings.Default.PenaltyTarif : String.Empty;
+      var tariff = (sender == btnTariffPenaltyShow) ? Settings.Default.PenaltyTarif : String.Empty;
 
       if (String.IsNullOrEmpty(tariff))
       {
@@ -172,13 +172,13 @@ namespace Parking.CashDesk
         return;
       }
 
-      if (_tariffForm == null)
-        _tariffForm = new TariffViewForm();
+      if (tariffForm == null)
+        tariffForm = new TariffViewForm();
 
       try
       {
-        _tariffForm.Setup(CashDeskHelper.DeserializeTariff(tariff));
-        _tariffForm.ShowDialog();
+        tariffForm.Setup(CashDeskHelper.DeserializeTariff(tariff));
+        tariffForm.ShowDialog();
       }
       catch (Exception ex)
       {
@@ -188,58 +188,54 @@ namespace Parking.CashDesk
 
     private void btnChangePassword_Click(object sender, EventArgs e)
     {
-      String passFirstEnter;
-      PasswordForm pass = new PasswordForm();
-      pass.lblPass.Text = "Введите новый пароль";
-      if (pass.ShowDialog() == DialogResult.OK)   // Открытие диалога ввода пароля 1 раз
-      {
-        passFirstEnter = pass.edPass.Text;
+        var pass = new PasswordForm {lblPass = {Text = "Введите новый пароль"}};
+        if (pass.ShowDialog() != DialogResult.OK)
+            return;
+        var passFirstEnter = pass.edPass.Text;
         pass.edPass.Text = "";
         pass.lblPass.Text = "Повторите ввод пароля";
-        if (pass.ShowDialog() == DialogResult.OK) // Открытие диалога ввода пароля 2 раз (убедимся)
-          if (pass.edPass.Text != passFirstEnter)
-          { // Если пользователь не смог 2 раза ввести одинаковые пароли
-            MessageBox.Show(this, "Введенные пароли не совпадают! Попробуйте еще раз.", ApplicationServices.GetApplicationName(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+        if (pass.ShowDialog() != DialogResult.OK) 
             return;
-          }
-          else
+        if (pass.edPass.Text != passFirstEnter)
+        { // Если пользователь не смог 2 раза ввести одинаковые пароли
+            MessageBox.Show(this, "Введенные пароли не совпадают! Попробуйте еще раз.", ApplicationServices.GetApplicationName(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        else
             Settings.Default["Password"] = Crypt.Encrypt(passFirstEnter, "t23F78C4");
-      }
     }
 
     private void btnChangeCashPass_Click(object sender, EventArgs e)
     {
       String passFirstEnter;
       PasswordForm pass = new PasswordForm("Введите новый пароль");
-      if (pass.ShowDialog() == DialogResult.OK)   // Открытие диалога ввода пароля 1 раз
-      {
+        if (pass.ShowDialog() != DialogResult.OK)
+            return;
         passFirstEnter = pass.edPass.Text;
         pass.edPass.Text = "";
         pass.lblPass.Text = "Повторите ввод пароля";
-        if (pass.ShowDialog() == DialogResult.OK) // Открытие диалога ввода пароля 2 раз (убедимся)
-          if (pass.edPass.Text != passFirstEnter)
-          { // Если пользователь не смог 2 раза ввести одинаковые пароли
-            MessageBox.Show(this, "Введенные пароли не совпадают! Попробуйте еще раз.", ApplicationServices.GetApplicationName(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+        if (pass.ShowDialog() != DialogResult.OK)
             return;
-          }
-          else
+        if (pass.edPass.Text != passFirstEnter)
+        { // Если пользователь не смог 2 раза ввести одинаковые пароли
+            MessageBox.Show(this, "Введенные пароли не совпадают! Попробуйте еще раз.", ApplicationServices.GetApplicationName(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        else
             Settings.Default["CashPassword"] = String.IsNullOrEmpty(passFirstEnter) ? "none" : Crypt.Encrypt(passFirstEnter, "A23F78C4");
-      }
     }
 
     #endregion
 
     private void ApplyLanguage()
     {
-      if (_cashDeskLanguage == CashDeskLanguage.Az)
+      if (cashDeskLanguage == CashDeskLanguage.Az)
       {
-        CultureInfo _cultureInfo = new CultureInfo("az-Latn-AZ");
-        Thread.CurrentThread.CurrentUICulture = _cultureInfo;
+        var cultureInfo = new CultureInfo("az-Latn-AZ");
+        Thread.CurrentThread.CurrentUICulture = cultureInfo;
       }
       else
       {
-        CultureInfo _cultureInfo = new CultureInfo("ru-RU");
-        Thread.CurrentThread.CurrentUICulture = _cultureInfo;
+        var cultureInfo = new CultureInfo("ru-RU");
+        Thread.CurrentThread.CurrentUICulture = cultureInfo;
       }
 
     }

@@ -10,62 +10,62 @@ namespace Parking.CashDesk
   /// </summary>
   public class CashTransactions
   {
-    private IWriter _writer;
+    private readonly IWriter writer;
 
     public CashTransactions(string fileName, IWriter writer)
     {
-      _writer = writer;
+      this.writer = writer;
 
       // Шапка
-      if (!File.Exists(fileName) || (new FileInfo(fileName).Length == 0))
-      {
-        List<String> ParamName = new List<String>();
-        ParamName.Add("Время операции");
-        ParamName.Add("Наименование");
-        ParamName.Add("Сумма");
-        ParamName.Add("Время въезда");
-        ParamName.Add("Зона");
-        ParamName.Add("Номер карты");
-        _writer.Write(ParamName);
-      }
+        if (File.Exists(fileName) && (new FileInfo(fileName).Length != 0))
+            return;
+
+        List<String> paramName = new List<String>();
+        paramName.Add("Время операции");
+        paramName.Add("Наименование");
+        paramName.Add("Сумма");
+        paramName.Add("Время въезда");
+        paramName.Add("Зона");
+        paramName.Add("Номер карты");
+        this.writer.Write(paramName);
     }
 
-    private bool WriteToFile(List<String> Param)
+    private bool WriteToFile(List<String> param)
     {
-      bool bState = _writer.Write(Param);
+      bool bState = writer.Write(param);
       return bState;
     }
 
-    public bool Write(DateTime date, String Operation)
+    public bool Write(DateTime date, String operation)
     {
       List<String> Param = new List<String>();
       Param.Add(date.ToString());
-      Param.Add(Operation);
+      Param.Add(operation);
 
       return WriteToFile(Param);
     }
 
-    public bool Write(DateTime date, String Operation, double Summa)
+    public bool Write(DateTime date, String operation, double summa)
     {
-      List<String> Param = new List<String>();
-      Param.Add(date.ToString());
-      Param.Add(Operation);
-      Param.Add(Summa.ToString());
+      List<String> param = new List<String>();
+      param.Add(date.ToString());
+      param.Add(operation);
+      param.Add(summa.ToString());
 
-      return WriteToFile(Param);
+      return WriteToFile(param);
     }
 
-    public bool Write(DateTime date, String Operation, double Summa, DateTime dateIn, byte Zone, String CardNum)
+    public bool Write(DateTime date, String operation, double summa, DateTime dateIn, byte zone, String cardNum)
     {
-      List<String> Param = new List<String>();
-      Param.Add(date.ToString());
-      Param.Add(Operation);
-      Param.Add(Summa.ToString());
-      Param.Add(dateIn.ToString());
-      Param.Add(Zone.ToString());
-      Param.Add(CardNum);
+      List<String> param = new List<String>();
+      param.Add(date.ToString());
+      param.Add(operation);
+      param.Add(summa.ToString());
+      param.Add(dateIn.ToString());
+      param.Add(zone.ToString());
+      param.Add(cardNum);
 
-      return WriteToFile(Param);
+      return WriteToFile(param);
     }
   }
 }

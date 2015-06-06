@@ -14,13 +14,13 @@ namespace Parking.CashDesk
 
     #endregion
 
-    private string _cardReadersPath;
+    private readonly string cardReadersPath;
 
     #region [ properties ]
 
     public string CardReadersPath
     {
-      get { return _cardReadersPath; }
+      get { return cardReadersPath; }
     }
 
     #endregion
@@ -35,7 +35,7 @@ namespace Parking.CashDesk
 //#if DEBUG
 //      _cardReadersPath = @"R:\Work\Projects\Parking 3.5\Output\Release\Workstation\CardReaders";
 //#else
-        _cardReadersPath = @".\CardReaders";
+        cardReadersPath = @".\CardReaders";
 //#endif
     }
 

@@ -33,69 +33,69 @@ namespace Parking.CashDesk
   {
     #region [ const ]
 
-    private const string _NO_DATA = "Нет данных";
-    private const string _NEED_PAY = "Требуется оплата";
+    private const string NO_DATA = "Нет данных";
+    private const string NEED_PAY = "Требуется оплата";
 
-    private const string _READER_NOT_FOUND = "Считыватель не найден или занят другим приложением!\r\n";
-    private const string _FISCAL_DEVICE_NOT_FOUND = "ККМ не найдена. \r\nПроверьте питание и подключение ККМ, а так же настройки программы.\r\n";
-    private const string _DISPLAY_NOT_FOUND = "Дисплей пользователя не найден. \r\nПроверьте питание и подключение дисплея, а так же настройки программы.\r\n";
-    private const string _READ_CARD_ERROR = "Ошибка чтения карты. Попробуйте еще раз.\r\n";
-    private const string _TARIF_ERROR = "Ошибка при попытке обработки тарифа. Возможно неверный тириф на карте.\r\n";
-    private const string _TARIF_PARAM_ERROR = "Ошибка в параметрах тарифа. Возможно неверный тириф на карте.\r\n";
-    private const string _TARIF_DATEOUT_ERROR = "Ошибка в определении времени выезда.\r\n";
-    private const string _ERROR_LOAD_KEYS = "Ошибка загрузки ключей в считыватель\r\n";
-    private const string _DECRYPT_ERROR = "Ошибка дешифрования ключей. Повторите настройку АРМ.\r\n";
-    private const string _PAY_ERROR = "Ошибка оплаты!\r\n";
-    private const string _PASS_ERROR = "Неверный пароль. Доступ запрещен!\r\n";
-    private const string _NETWORK_CREATE_ERROR = "Ошибка при создании сетевого протокола";
+    private const string READER_NOT_FOUND = "Считыватель не найден или занят другим приложением!\r\n";
+    private const string FISCAL_DEVICE_NOT_FOUND = "ККМ не найдена. \r\nПроверьте питание и подключение ККМ, а так же настройки программы.\r\n";
+    private const string DISPLAY_NOT_FOUND = "Дисплей пользователя не найден. \r\nПроверьте питание и подключение дисплея, а так же настройки программы.\r\n";
+    private const string READ_CARD_ERROR = "Ошибка чтения карты. Попробуйте еще раз.\r\n";
+    private const string TARIF_ERROR = "Ошибка при попытке обработки тарифа. Возможно неверный тириф на карте.\r\n";
+    private const string TARIF_PARAM_ERROR = "Ошибка в параметрах тарифа. Возможно неверный тириф на карте.\r\n";
+    private const string TARIF_DATEOUT_ERROR = "Ошибка в определении времени выезда.\r\n";
+    private const string ERROR_LOAD_KEYS = "Ошибка загрузки ключей в считыватель\r\n";
+    private const string DECRYPT_ERROR = "Ошибка дешифрования ключей. Повторите настройку АРМ.\r\n";
+    private const string PAY_ERROR = "Ошибка оплаты!\r\n";
+    private const string PASS_ERROR = "Неверный пароль. Доступ запрещен!\r\n";
+    private const string NETWORK_CREATE_ERROR = "Ошибка при создании сетевого протокола";
 
     #endregion
 
     private static int CounterDelay = Settings.Default.CounterDelay;
 
     // Для таскания мышкой за любую часть формы
-    private bool _dragging;
-    private int _dragX, _dragY;
+    private bool dragging;
+    private int dragX, dragY;
 
-    private ILogger _logger;       // Лог
-    private IFiscalDevice _fiscalDevice; // Класс работы с ККМ
-    private UserDisplay _display; // Дисплей клиента
-    private SmartCardManager _smartCardManager; // Менеджер карт
-    private ISmartCardReader _smartCardReader; // ридер
-    private ICalculator _calculator; // Калькулятор
-    private CashTransactions _trans; // Позволяет записывать транзакции оплаты в файл CSV
-    private Tariff _penaltyTariff;
+    private ILogger logger;       // Лог
+    private IFiscalDevice fiscalDevice; // Класс работы с ККМ
+    private UserDisplay display; // Дисплей клиента
+    private SmartCardManager smartCardManager; // Менеджер карт
+    private ISmartCardReader smartCardReader; // ридер
+    private ICalculator calculator; // Калькулятор
+    private CashTransactions trans; // Позволяет записывать транзакции оплаты в файл CSV
+    private Tariff penaltyTariff;
 
     // Данные по текущей операции
-    private PaymentDocument _currentDocument; // Сумма оплаты и другие параметры по текущей операции
-    private int _cardID;
-    private ISmartCardPx _smartCard;
+    private PaymentDocument currentDocument; // Сумма оплаты и другие параметры по текущей операции
+    private int cardId;
+    private ISmartCardPx smartCard;
     // Флаг - Время выезда на DateTimePicker может быть изменено пользователем
-    private bool _timeExitReadyToChange;
+    private bool timeExitReadyToChange;
 
-    private ResourceManager _rm;
-    private CultureInfo _cultureInfo;
-    private SettingsForm _configForm;
-    private ParkingAboutForm _aboutForm;
+    private ResourceManager rm;
+    private readonly CultureInfo cultureInfo;
+    private SettingsForm configForm;
+    private ParkingAboutForm aboutForm;
 
-    private MetroDiscount _metroDiscount;
-    private Tariff _metroTariffK;
-    private Tariff _metroTariffL;
-    private ICalculator _calculatorMetro;
+    private MetroDiscount metroDiscount;
+    private Tariff metroTariffK;
+    private Tariff metroTariffL;
+    private ICalculator calculatorMetro;
 
-    private bool _indicatorReseived;
-    private bool _indicatorSent;
-    private Image _imageIdle;
-    private Image _imageReceived;
-    private Image _imageSent;
+    private bool indicatorReseived;
+    private bool indicatorSent;
+    private Image imageIdle;
+    private Image imageReceived;
+    private Image imageSent;
 
-    private VirtualCashBox _device;
-    private INetworkProtocol _network;
+    private VirtualCashBox device;
+    private INetworkProtocol network;
     
-    private int _counterReceived;
-    private int _counterSent;
-    private int _counterDelay;
-    private DateTime _lastPacketTime;
+    private int counterReceived;
+    private int counterSent;
+    private readonly int counterDelay;
+    private DateTime lastPacketTime;
 
     public MainForm()
     {
@@ -103,9 +103,9 @@ namespace Parking.CashDesk
 
       this.SetLogoIcon();
 
-      _cultureInfo = Thread.CurrentThread.CurrentCulture;
-      Thread.CurrentThread.CurrentCulture = _cultureInfo;
-      Thread.CurrentThread.CurrentUICulture = _cultureInfo;
+      cultureInfo = Thread.CurrentThread.CurrentCulture;
+      Thread.CurrentThread.CurrentCulture = cultureInfo;
+      Thread.CurrentThread.CurrentUICulture = cultureInfo;
 
       //lblExitTimeLimit.Text = _rm.GetString("InPay");
       //OnCardDisConnected();
@@ -120,7 +120,7 @@ namespace Parking.CashDesk
       //btnRandomPayment.Font = Fonts.CreateFont("DS Crystal", 14, FontStyle.Regular);
       //btnPay.Font = Fonts.CreateFont("DS Crystal", 20, FontStyle.Regular);
 
-      _aboutForm = null;
+      aboutForm = null;
 
       imageList.Images.Add(Images.Exit);
       imageList.Images.Add(Images.Settings);
@@ -129,21 +129,21 @@ namespace Parking.CashDesk
       btnSetup.ImageIndex = 1;
       btnAbout.ImageIndex = 2;
 
-      _dragging = false;
-      _dragX = 0;
-      _dragY = 0;
+      dragging = false;
+      dragX = 0;
+      dragY = 0;
 
-      _penaltyTariff = null;
+      penaltyTariff = null;
 
-      _metroDiscount = null;
-      _metroTariffK = null;
-      _metroTariffL = null;
-      _calculatorMetro = null;
+      metroDiscount = null;
+      metroTariffK = null;
+      metroTariffL = null;
+      calculatorMetro = null;
 
-      _counterReceived = 0;
-      _counterSent = 0;
-      _counterDelay = CounterDelay;
-      _lastPacketTime = DateTime.Now;
+      counterReceived = 0;
+      counterSent = 0;
+      counterDelay = CounterDelay;
+      lastPacketTime = DateTime.Now;
     }
 
     #region [ window events ]
@@ -154,9 +154,9 @@ namespace Parking.CashDesk
       CashDeskPathManager pathManager = new CashDeskPathManager();
       ILogWriter writer = new FileLogWriter(pathManager.LogPath, "CashDesk");
       ILogFormatter formatter = new MultilineStringLogFormatter();
-      _logger = new Logger(1000, new ILogWriter[] { writer }, formatter);
-      _logger.Threshold = Settings.Default.LogLevel;
-      _logger.Write(LogLevel.Debug, "Запуск программы");
+      logger = new Logger(1000, new ILogWriter[] { writer }, formatter);
+      logger.Threshold = Settings.Default.LogLevel;
+      logger.Write(LogLevel.Debug, "Запуск программы");
 
       //init controls
       CheckConfiguration();
@@ -169,33 +169,33 @@ namespace Parking.CashDesk
       lblPenaltyCount.Text = Settings.Default.PenaltyCardCount.ToString();
 
       //create calculator
-      _calculator = CalculatorLoader.CreateCalculator(pathManager.CalculatorsPath, Settings.Default.CalculatorVersion);
-      _calculatorMetro = new CalculatorMetro();
+      calculator = CalculatorLoader.CreateCalculator(pathManager.CalculatorsPath, Settings.Default.CalculatorVersion);
+      calculatorMetro = new CalculatorMetro();
 
       //get devices
-      _fiscalDevice = GetFiscalDevice(); // #### Подключение ККМ из файла конфигурации ####
-      UpdateFiscalState(_fiscalDevice.ToString());
-      _display = GetDisplay(); // Дисплей клиента ################################
+      fiscalDevice = GetFiscalDevice(); // #### Подключение ККМ из файла конфигурации ####
+      UpdateFiscalState(fiscalDevice.ToString());
+      display = GetDisplay(); // Дисплей клиента ################################
       string s = Application.StartupPath + @"\Transaction.csv";
-      _trans = new CashTransactions(s, new CSVFileWriter(s));
+      trans = new CashTransactions(s, new CSVFileWriter(s));
 
       //smart card reader
       UpdateReaderState("нет карты");
-      _smartCardReader = GetReader(pathManager.CardReadersPath);
-      if (_smartCardReader != null)
+      smartCardReader = GetReader(pathManager.CardReadersPath);
+      if (smartCardReader != null)
       {
-        _smartCardManager = new SmartCardManager(_smartCardReader, null, GetKeys()); // Работа с картой
-        _smartCardReader.ConnectedCard += () =>
+        smartCardManager = new SmartCardManager(smartCardReader, null, GetKeys()); // Работа с картой
+        smartCardReader.ConnectedCard += () =>
         {
           this.SafeInvoke(new Action(OnCardConnected)); // Собитие - карта на ридере 
         };
-        _smartCardReader.RemovedCard += () =>
+        smartCardReader.RemovedCard += () =>
         {
           this.SafeInvoke(new Action(OnCardDisconnected)); // Собитие - карту убрали с ридера 
         };
 
         // Если при запуске карта уже лежала на считывателе
-        if (_smartCardReader.CardState == SCardState.Connected)
+        if (smartCardReader.CardState == SCardState.Connected)
           OnCardConnected();
         else
           OnCardDisconnected();
@@ -207,17 +207,17 @@ namespace Parking.CashDesk
 
 
       //indicators
-      _indicatorReseived = false;
-      _indicatorSent = false;
-      _imageIdle = Resources.idle;
-      _imageReceived = Resources.received;
-      _imageSent = Resources.sent;
+      indicatorReseived = false;
+      indicatorSent = false;
+      imageIdle = Resources.idle;
+      imageReceived = Resources.received;
+      imageSent = Resources.sent;
 
       //network
-      _device = new VirtualCashBox(GetCashBox());
-      lblCaption.Text = String.Format("АРМ Ручная касса #{0}", _device.Device.NetworkAddress);
-      _network = GetNetworkProtocol();
-      if (_network != null)
+      device = new VirtualCashBox(GetCashBox());
+      lblCaption.Text = String.Format("АРМ Ручная касса #{0}", device.Device.NetworkAddress);
+      network = GetNetworkProtocol();
+      if (network != null)
         timerIndicator.Start();
       else
       {
@@ -227,44 +227,43 @@ namespace Parking.CashDesk
       }
 
       //create config form
-      _configForm = new SettingsForm(_logger, _smartCardManager);
+      configForm = new SettingsForm(logger, smartCardManager);
 
       //apply localization
       Assembly assembly = Assembly.GetExecutingAssembly();
-      _rm = new ResourceManager("Parking.CashDesk.Localization.Translate", assembly);
+      rm = new ResourceManager("Parking.CashDesk.Localization.Translate", assembly);
     }
 
     private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
     {
-      _logger.Write(LogLevel.Debug, "Закрытие программы");
+      logger.Write(LogLevel.Debug, "Закрытие программы");
 
       timerIndicator.Stop();
-      if (_network != null)
-        _network.Close();
+      if (network != null)
+        network.Close();
 
       // Освобождение считывателя
-      if (_smartCardReader != null)
-        _smartCardReader.Dispose();
+      if (smartCardReader != null)
+        smartCardReader.Dispose();
 
-      if (_smartCardManager != null)
-        _smartCardManager.Dispose();
+      if (smartCardManager != null)
+        smartCardManager.Dispose();
 
-      if (_fiscalDevice != null)
-        _fiscalDevice.Dispose(); // Заверщение работы с ККМ
+      if (fiscalDevice != null)
+        fiscalDevice.Dispose(); // Заверщение работы с ККМ
 
-      ((Logger)_logger).Dispose();
+      ((Logger)logger).Dispose();
 
       ShowTimeTimer.Enabled = false;
     }
 
     private void MainForm_MouseMove(object sender, MouseEventArgs e)
     {
-      if (!_dragging)
+      if (!dragging)
         return;
 
-      int x, y;
-      x = e.X - _dragX;
-      y = e.Y - _dragY;
+      var x = e.X - dragX;
+      var y = e.Y - dragY;
       Point newpos = new Point(Location.X + x, Location.Y + y);
       Location = newpos;
     }
@@ -274,15 +273,15 @@ namespace Parking.CashDesk
       if (e.Button != MouseButtons.Left)
         return;
 
-      _dragging = true;
-      _dragX = e.X;
-      _dragY = e.Y;
+      dragging = true;
+      dragX = e.X;
+      dragY = e.Y;
       Cursor.Current = System.Windows.Forms.Cursors.SizeAll;
     }
 
     private void MainForm_MouseUp(object sender, MouseEventArgs e)
     {
-      _dragging = false;
+      dragging = false;
       Cursor.Current = System.Windows.Forms.Cursors.Arrow;
     }
 
@@ -290,9 +289,9 @@ namespace Parking.CashDesk
     {
       // запретим управление
       DisableControls();
-      if (_currentDocument == null)
+      if (currentDocument == null)
       {
-        _logger.Write(LogLevel.Warning, "Нет данных по расчету. Оплата невозможна.");
+        logger.Write(LogLevel.Warning, "Нет данных по расчету. Оплата невозможна.");
         MessageBox.Show(this, "Нет данных по расчету. Оплата невозможна.", ApplicationServices.GetApplicationName(), MessageBoxButtons.OK, MessageBoxIcon.Error);
         // Нет данных по расчету, значит и кнопки активировать не нужно.
         return;
@@ -320,7 +319,7 @@ namespace Parking.CashDesk
         ShowError(ex);
       }
 
-      _currentDocument = null;
+      currentDocument = null;
 
       // разрешим управление
       EnableControls();
@@ -328,7 +327,7 @@ namespace Parking.CashDesk
 
     private void btnCashOper_Click(object sender, EventArgs e)
     {
-      using (CashControl frmCashControl = new CashControl(_fiscalDevice, _trans, _logger))
+      using (CashControl frmCashControl = new CashControl(fiscalDevice, trans, logger))
         frmCashControl.ShowDialog();
     }
 
@@ -349,29 +348,29 @@ namespace Parking.CashDesk
       // Дальнейшее зависит от настройки штрафного тарифа. Обычно после
       // фиксированной суммы он повторяет основной тариф.
       TimeSpan tsTemp = new TimeSpan(0, 0, 0, 10); // создаем искуственную разницу между въездом и выездом - 10сек. А то калькулятор ругается.
-      _smartCard.TimeEntry = DateTime.Now - tsTemp;
-      _smartCard.TimeExit = DateTime.Now;
+      smartCard.TimeEntry = DateTime.Now - tsTemp;
+      smartCard.TimeExit = DateTime.Now;
 
       // Настройка карты как въехавшей, не заблокированной, ...
-      _smartCard.CounterEntry = 1;
-      _smartCard.CounterExit = 0;
-      _smartCard.Blocked = false;
-      _smartCard.Payment = 0;
-      _smartCard.Debt = 0;
-      _smartCard.Discount = 0;
+      smartCard.CounterEntry = 1;
+      smartCard.CounterExit = 0;
+      smartCard.Blocked = false;
+      smartCard.Payment = 0;
+      smartCard.Debt = 0;
+      smartCard.Discount = 0;
 
-      _smartCard.CustomerType = CustomerType.OnceOnly;
-      _smartCard.ZoneCurrentID = 1; //TODO: сделать возможность выбора зоны.
-      _smartCard.ZonePreviousID = 0;
+      smartCard.CustomerType = CustomerType.OnceOnly;
+      smartCard.ZoneCurrentID = 1; //TODO: сделать возможность выбора зоны.
+      smartCard.ZonePreviousID = 0;
 
       // Заменяем тариф на штрафной
-      _smartCard.Tariff = _penaltyTariff;
-      _smartCard.State = CardState.Penalty;
+      smartCard.Tariff = penaltyTariff;
+      smartCard.State = CardState.Penalty;
 
       // Расчитываем сумму оплаты (true - по штрафному тарифу)
       try
       {
-        Calculate(_smartCard.TimeExit);
+        Calculate(smartCard.TimeExit);
       }
       catch (Exception ex)
       {
@@ -379,7 +378,7 @@ namespace Parking.CashDesk
         return;
       }
 
-      UpdateParameters(_currentDocument.TimeExit);
+      UpdateParameters(currentDocument.TimeExit);
 
       try
       {
@@ -396,16 +395,16 @@ namespace Parking.CashDesk
       // танное время выезда).
       try
       {
-        Calculate(_smartCard.TimeExit);
+        Calculate(smartCard.TimeExit);
       }
       catch (Exception ex)
       {
         ShowError(ex);
-        _currentDocument = null;
+        currentDocument = null;
         return;
       }
 
-      _currentDocument = null;
+      currentDocument = null;
 
       ShowMessage("Штрафная карта создана. Передайте карту клиенту.", LogLevel.Information);
       // Запоминаем число выданных штрафных тарифов
@@ -418,10 +417,10 @@ namespace Parking.CashDesk
 
     private void dtpOut_ValueChanged(object sender, EventArgs e)
     {
-      if (!_timeExitReadyToChange)
+      if (!timeExitReadyToChange)
         return;
 
-      _timeExitReadyToChange = false;
+      timeExitReadyToChange = false;
       try
       {
         Calculate(dtpOut.Value);
@@ -439,16 +438,16 @@ namespace Parking.CashDesk
       if (InputBox.Show("Пополнение Электронного Кошелька", "Введите сумму", true, ref sSumm) != DialogResult.OK)
         return;
 
-      long Summ = 0;
+      long summ = 0;
       if (!String.IsNullOrEmpty(sSumm))
-        Summ = Convert.ToInt64(sSumm); // Сумма
+        summ = Convert.ToInt64(sSumm); // Сумма
       else
       {
         EnableControls();
         return;
       }
-      _currentDocument = new PaymentDocument(Summ, PaymentReason.ECash, DocumentType.Selling,
-        PaymentType.Cash, _cardID, DateTime.Now, DateTime.Now, 0, 0, (double)_smartCard.ECash);
+      currentDocument = new PaymentDocument(summ, PaymentReason.ECash, DocumentType.Selling,
+        PaymentType.Cash, cardId, DateTime.Now, DateTime.Now, 0, 0, (double)smartCard.ECash);
 
       try
       {
@@ -467,16 +466,16 @@ namespace Parking.CashDesk
       if (InputBox.Show("Платеж на произвольную сумму", "Введите сумму", true, ref sSumm) != DialogResult.OK)
         return;
 
-      long Summ = 0;
+      long summ = 0;
       if (!String.IsNullOrEmpty(sSumm))
-        Summ = Convert.ToInt64(sSumm); // Сумма
+        summ = Convert.ToInt64(sSumm); // Сумма
       else
       {
         EnableControls();
         return;
       }
-      _currentDocument = new PaymentDocument(Summ, PaymentReason.Any, DocumentType.Selling,
-        PaymentType.Cash, _cardID, DateTime.Now, DateTime.Now, 0, 0, 0);
+      currentDocument = new PaymentDocument(summ, PaymentReason.Any, DocumentType.Selling,
+        PaymentType.Cash, cardId, DateTime.Now, DateTime.Now, 0, 0, 0);
 
       try
       {
@@ -500,17 +499,17 @@ namespace Parking.CashDesk
       if (InputBox.Show("Возврат", "Введите сумму", true, ref sSumm) != DialogResult.OK)
         return;
 
-      long Summ = 0;
+      long summ = 0;
       if (!String.IsNullOrEmpty(sSumm))
-        Summ = Convert.ToInt64(sSumm); // Сумма в копейках
+        summ = Convert.ToInt64(sSumm); // Сумма в копейках
       else
       {
         EnableControls();
         return;
       }
 
-      _currentDocument = new PaymentDocument(Summ, PaymentReason.Refund, DocumentType.Repayment,
-        PaymentType.Cash, _cardID, DateTime.Now, DateTime.Now, 0, 0, 0);
+      currentDocument = new PaymentDocument(summ, PaymentReason.Refund, DocumentType.Repayment,
+        PaymentType.Cash, cardId, DateTime.Now, DateTime.Now, 0, 0, 0);
 
       try
       {
@@ -529,10 +528,10 @@ namespace Parking.CashDesk
 
     private void btnAbout_Click(object sender, EventArgs e)
     {
-      if (_aboutForm == null)
-        _aboutForm = new ParkingAboutForm();
+      if (aboutForm == null)
+        aboutForm = new ParkingAboutForm();
 
-      _aboutForm.ShowAbout(this);
+      aboutForm.ShowAbout(this);
     }
 
     private void btnSetup_Click(object sender, EventArgs e)
@@ -543,35 +542,35 @@ namespace Parking.CashDesk
 
       if (passwordForm.edPass.Text != Crypt.Decrypt(Settings.Default.Password, "t23F78C4"))
       {
-        ShowMessage(_PASS_ERROR, LogLevel.Error);
+        ShowMessage(PASS_ERROR, LogLevel.Error);
         return;
       }
       
-      _configForm.ShowDialog();
+      configForm.ShowDialog();
 
       try
       {
-        _penaltyTariff = CashDeskHelper.DeserializeTariff(Settings.Default.PenaltyTarif);
+        penaltyTariff = CashDeskHelper.DeserializeTariff(Settings.Default.PenaltyTarif);
       }
       catch (Exception ex)
       {
-        _logger.Write(ex, "Ошибка чтения штрафного тарифа");
+        logger.Write(ex, "Ошибка чтения штрафного тарифа");
       }
 
       try
       {
-        _metroTariffK = CashDeskHelper.DeserializeTariff(Settings.Default.MetroTariffK);
-        _metroTariffL = CashDeskHelper.DeserializeTariff(Settings.Default.MetroTariffL);
+        metroTariffK = CashDeskHelper.DeserializeTariff(Settings.Default.MetroTariffK);
+        metroTariffL = CashDeskHelper.DeserializeTariff(Settings.Default.MetroTariffL);
       }
       catch (Exception ex)
       {
-        _logger.Write(ex, "Ошибка чтения тарифов метро");
+        logger.Write(ex, "Ошибка чтения тарифов метро");
       }
     }
 
     private void timerIndicator_Tick(object sender, EventArgs e)
     {
-      if ((DateTime.Now - _lastPacketTime).TotalSeconds > 1)
+      if ((DateTime.Now - lastPacketTime).TotalSeconds > 1)
         SwitchOff();
     }
 
@@ -584,26 +583,26 @@ namespace Parking.CashDesk
     /// </summary>
     private UserDisplay GetDisplay()
     {
-      UserDisplay display = null;
+      UserDisplay userDisplay = null;
       if (Settings.Default.DisplayEnabled) // Если требуется выводить на дисплей
       {
-        display = new UserDisplay(_logger);
-        int nState = display.Initialize(Settings.Default.DisplayPort, Settings.Default.DisplayCodePage);
+        userDisplay = new UserDisplay(logger);
+        int nState = userDisplay.Initialize(Settings.Default.DisplayPort, Settings.Default.DisplayCodePage);
         if (nState != 0)
         {
-          _logger.Write(LogLevel.Error, "Невозможно инициализировать дисплей клиента. Возможно не найдена VFDDisplay.dll.");
-          ShowMessage(_DISPLAY_NOT_FOUND, LogLevel.Error, true);
+          logger.Write(LogLevel.Error, "Невозможно инициализировать дисплей клиента. Возможно не найдена VFDDisplay.dll.");
+          ShowMessage(DISPLAY_NOT_FOUND, LogLevel.Error, true);
         }
         else
         {
-          display.Clear();
-          _logger.Write(LogLevel.Debug, "Дисплей подключен.");
+          userDisplay.Clear();
+          logger.Write(LogLevel.Debug, "Дисплей подключен.");
         }
       }
       else
-        _logger.Write(LogLevel.Debug, "Подключение дисплея не требуется.");
+        logger.Write(LogLevel.Debug, "Подключение дисплея не требуется.");
 
-      return display;
+      return userDisplay;
     }
 
     /// <summary>
@@ -624,12 +623,12 @@ namespace Parking.CashDesk
       }
       catch (FiscalDeviceException err)
       {
-          _logger.Write(err, "Невозможно инициализировать ККМ. Возможно не найдена Azimuth.dll.\r\n" + err.ToString());
+          logger.Write(err, "Невозможно инициализировать ККМ. Возможно не найдена Azimuth.dll.\r\n" + err.ToString());
 
-        ShowMessage(_FISCAL_DEVICE_NOT_FOUND, LogLevel.Error, true);
+        ShowMessage(FISCAL_DEVICE_NOT_FOUND, LogLevel.Error, true);
       }
 
-      _logger.Write(LogLevel.Debug, "ККМ подключена.");
+      logger.Write(LogLevel.Debug, "ККМ подключена.");
 
       return f;
     }
@@ -642,21 +641,21 @@ namespace Parking.CashDesk
       Dictionary<int, IAccessKey> keys = new Dictionary<int, IAccessKey>();
       try
       {
-        byte[] KeyB1 = AccessKeyHelper.GetKeyFromString(Crypt.Decrypt(Settings.Default.KeyB1, "t23F78C4"));
-        keys.Add(1, new AccessKey(KeyType.KeyB, KeyB1)); // B1
-        byte[] KeyB2 = AccessKeyHelper.GetKeyFromString(Crypt.Decrypt(Settings.Default.KeyB2, "t23F78C4"));
-        keys.Add(2, new AccessKey(KeyType.KeyB, KeyB2)); // B2
-        byte[] KeyB3 = AccessKeyHelper.GetKeyFromString(Crypt.Decrypt(Settings.Default.KeyB3, "t23F78C4"));
-        keys.Add(3, new AccessKey(KeyType.KeyB, KeyB3)); // B3
-        keys.Add(4, new AccessKey(KeyType.KeyB, KeyB3)); // B3
-        keys.Add(5, new AccessKey(KeyType.KeyB, KeyB3)); // B3
-        keys.Add(6, new AccessKey(KeyType.KeyB, KeyB3)); // B3
-        byte[] KeyB4 = AccessKeyHelper.GetKeyFromString(Crypt.Decrypt(Settings.Default.KeyB4, "t23F78C4"));
-        keys.Add(7, new AccessKey(KeyType.KeyB, KeyB4)); // B4
-        keys.Add(8, new AccessKey(KeyType.KeyB, KeyB4)); // B4
-        keys.Add(9, new AccessKey(KeyType.KeyB, KeyB4)); // B4
-        byte[] KeyBM = AccessKeyHelper.GetKeyFromString(Crypt.Decrypt(Settings.Default.KeyBM, "t23F78C4"));
-        keys.Add(SmartCardLayoutHelper.MetroSectorIndex, new AccessKey(KeyType.KeyB, KeyBM)); // BM
+        byte[] keyB1 = AccessKeyHelper.GetKeyFromString(Crypt.Decrypt(Settings.Default.KeyB1, "t23F78C4"));
+        keys.Add(1, new AccessKey(KeyType.KeyB, keyB1)); // B1
+        byte[] keyB2 = AccessKeyHelper.GetKeyFromString(Crypt.Decrypt(Settings.Default.KeyB2, "t23F78C4"));
+        keys.Add(2, new AccessKey(KeyType.KeyB, keyB2)); // B2
+        byte[] keyB3 = AccessKeyHelper.GetKeyFromString(Crypt.Decrypt(Settings.Default.KeyB3, "t23F78C4"));
+        keys.Add(3, new AccessKey(KeyType.KeyB, keyB3)); // B3
+        keys.Add(4, new AccessKey(KeyType.KeyB, keyB3)); // B3
+        keys.Add(5, new AccessKey(KeyType.KeyB, keyB3)); // B3
+        keys.Add(6, new AccessKey(KeyType.KeyB, keyB3)); // B3
+        byte[] keyB4 = AccessKeyHelper.GetKeyFromString(Crypt.Decrypt(Settings.Default.KeyB4, "t23F78C4"));
+        keys.Add(7, new AccessKey(KeyType.KeyB, keyB4)); // B4
+        keys.Add(8, new AccessKey(KeyType.KeyB, keyB4)); // B4
+        keys.Add(9, new AccessKey(KeyType.KeyB, keyB4)); // B4
+        byte[] keyBm = AccessKeyHelper.GetKeyFromString(Crypt.Decrypt(Settings.Default.KeyBM, "t23F78C4"));
+        keys.Add(SmartCardLayoutHelper.MetroSectorIndex, new AccessKey(KeyType.KeyB, keyBm)); // BM
       }
       catch (Exception ex)
       {
@@ -671,8 +670,8 @@ namespace Parking.CashDesk
         keys.Add(9, new AccessKey(KeyType.KeyB, AccessKeyHelper.GetKeyFromString("B4B4B4"))); // B4
         keys.Add(SmartCardLayoutHelper.MetroSectorIndex, new AccessKey(KeyType.KeyB, AccessKeyHelper.GetKeyFromString("B4B4B4"))); // B4
         
-        ShowMessage(_DECRYPT_ERROR, LogLevel.Error, true);
-        _logger.Write(ex, @"Ошибка дешифрования ключей. Возможно отсутствует файл конфигурации. Установлены ключи по умолчанию.");
+        ShowMessage(DECRYPT_ERROR, LogLevel.Error, true);
+        logger.Write(ex, @"Ошибка дешифрования ключей. Возможно отсутствует файл конфигурации. Установлены ключи по умолчанию.");
       }
 
       return keys;
@@ -689,12 +688,12 @@ namespace Parking.CashDesk
         reader = CardReaderLoader.CreateCardReader(cardReadersPath, Settings.Default.ReaderType);
         SmartCardOptions.EnableMetroSector = Settings.Default.UseMetro;
 
-        _logger.Write(LogLevel.Debug, String.Format("Найден считыватель {0}", Settings.Default.ReaderType.GetString()));
+        logger.Write(LogLevel.Debug, String.Format("Найден считыватель {0}", Settings.Default.ReaderType.GetString()));
       }
       catch (Exception err)
       {
-        _logger.Write(err, "Считыватель не найден.", 0);
-        ShowMessage(_READER_NOT_FOUND, LogLevel.Error, true);
+        logger.Write(err, "Считыватель не найден.", 0);
+        ShowMessage(READER_NOT_FOUND, LogLevel.Error, true);
       }
 
       return reader;
@@ -705,13 +704,15 @@ namespace Parking.CashDesk
     /// </summary>
     private ManualCashBox GetCashBox()
     {
-      ManualCashBox c = new ManualCashBox();
+        var c = new ManualCashBox
+            {
+                ID = Settings.Default.DeviceID,
+                NetworkAddress = Settings.Default.DeviceNetworkAddress,
+                Name = "Ручная касса"
+            };
 
-      c.ID = Settings.Default.DeviceID;
-      c.NetworkAddress = Settings.Default.DeviceNetworkAddress;
-      c.Name = "Ручная касса";
 
-      return c;
+        return c;
     }
 
     /// <summary>
@@ -722,14 +723,14 @@ namespace Parking.CashDesk
       INetworkProtocol n = null;
       try
       {
-        n = new TcpProtocolServer(_logger);
+        n = new TcpProtocolServer(logger);
         n.PacketReceived += OnNetworkPacketReceived;
         n.Open();
       }
       catch (Exception e)
       {
-        _logger.Write(e, _NETWORK_CREATE_ERROR);
-        ShowMessage(_NETWORK_CREATE_ERROR, LogLevel.Error, true);
+        logger.Write(e, NETWORK_CREATE_ERROR);
+        ShowMessage(NETWORK_CREATE_ERROR, LogLevel.Error, true);
       }
 
       return n;
@@ -779,12 +780,12 @@ namespace Parking.CashDesk
       {
         try
         {
-          _penaltyTariff = CashDeskHelper.DeserializeTariff(Settings.Default.PenaltyTarif);
+          penaltyTariff = CashDeskHelper.DeserializeTariff(Settings.Default.PenaltyTarif);
         }
         catch (Exception e)
         {
-          _penaltyTariff = GetDefaultPenaltyTariff();
-          _logger.Write(e, String.Format("Ошибка чтения штрафного тарифа из файла конфигурации\r\nТариф:\r\n{0}", Settings.Default.PenaltyTarif));
+          penaltyTariff = GetDefaultPenaltyTariff();
+          logger.Write(e, String.Format("Ошибка чтения штрафного тарифа из файла конфигурации\r\nТариф:\r\n{0}", Settings.Default.PenaltyTarif));
           MessageBox.Show(this, "Ошибка чтения штрафного тарифа из файла конфигурации. Загрузите тариф с мастер-карты.", ApplicationServices.GetApplicationName(), MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
       }
@@ -801,14 +802,14 @@ namespace Parking.CashDesk
         {
           try
           {
-            _metroTariffK = CashDeskHelper.DeserializeTariff(Settings.Default.MetroTariffK);
-            _metroTariffL = CashDeskHelper.DeserializeTariff(Settings.Default.MetroTariffL);
+            metroTariffK = CashDeskHelper.DeserializeTariff(Settings.Default.MetroTariffK);
+            metroTariffL = CashDeskHelper.DeserializeTariff(Settings.Default.MetroTariffL);
           }
           catch (Exception e)
           {
-            _metroTariffK = GetDefaultMetroTariff();
-            _metroTariffL = GetDefaultMetroTariff();
-            _logger.Write(e, String.Format("Ошибка чтения тарифов метро из файла конфигурации\r\n{0}\r\n{1}", Settings.Default.MetroTariffK, Settings.Default.MetroTariffL));
+            metroTariffK = GetDefaultMetroTariff();
+            metroTariffL = GetDefaultMetroTariff();
+            logger.Write(e, String.Format("Ошибка чтения тарифов метро из файла конфигурации\r\n{0}\r\n{1}", Settings.Default.MetroTariffK, Settings.Default.MetroTariffL));
             MessageBox.Show(this, "Ошибка чтения тарифов метро из файла конфигурации. Загрузите тарифы метро из файлов.", ApplicationServices.GetApplicationName(), MessageBoxButtons.OK, MessageBoxIcon.Error);
           }
         }
@@ -825,21 +826,21 @@ namespace Parking.CashDesk
 
     private void OnCardConnected()
     {
-      UpdateReaderState(DataFormatter.ToHex(_smartCardReader.ReadCardNumber()));
+      UpdateReaderState(DataFormatter.ToHex(smartCardReader.ReadCardNumber()));
 
       DisableControls();
-      _currentDocument = null;
+      currentDocument = null;
 
       ShowMessage("Производится рачет суммы оплаты. Пожалуйста ждите...", LogLevel.Information);
 
-      _smartCard = ReadCard(out _cardID);
-      if (_smartCard == null)
+      smartCard = ReadCard(out cardId);
+      if (smartCard == null)
       {
-        ShowMessage(_READ_CARD_ERROR, LogLevel.Error);
+        ShowMessage(READ_CARD_ERROR, LogLevel.Error);
         return; // Ошибка чтения карты
       }
 
-      _metroDiscount = ReadMetroDiscount();
+      metroDiscount = ReadMetroDiscount();
 
       CardPresentControlState();
 
@@ -853,7 +854,7 @@ namespace Parking.CashDesk
         return;
       }
 
-      if (_currentDocument.Amount > 0)
+      if (currentDocument.Amount > 0)
         CanPayControlState(); // Если есть, что платить, то активируем кнопку.
     }
 
@@ -861,11 +862,11 @@ namespace Parking.CashDesk
     {
       UpdateReaderState("нет карты");
       NoCardControlState();
-      _timeExitReadyToChange = false;
-      _smartCard = null;
-      _metroDiscount = null;
-      _cardID = 0;
-      _currentDocument = null;
+      timeExitReadyToChange = false;
+      smartCard = null;
+      metroDiscount = null;
+      cardId = 0;
+      currentDocument = null;
       UpdateParameters(DateTime.Now);
       ShowMessage("Для оплаты парковки, штрафа или пополнения электронного кошелька приложите карту.", LogLevel.Information);
       ShowMessage("Для произвольной оплаты или возврата денег карта не используется.", LogLevel.Information, true);
@@ -878,13 +879,13 @@ namespace Parking.CashDesk
 
       try
       {
-        cardID = (int)_smartCardManager.GetCardID();
-        _smartCardManager.ReadCard(smartCard);
-        _logger.Write(LogLevel.Debug, "Карта успешно прочитана");
+        cardID = (int)smartCardManager.GetCardID();
+        smartCardManager.ReadCard(smartCard);
+        logger.Write(LogLevel.Debug, "Карта успешно прочитана");
       }
       catch (Exception err)
       {
-        _logger.Write(err, "Ошибка чтения карты: Невозможно прочитать информацию на карте");
+        logger.Write(err, "Ошибка чтения карты: Невозможно прочитать информацию на карте");
         EnableControls();
         return null;
       }
@@ -896,13 +897,13 @@ namespace Parking.CashDesk
     {
       try
       {
-        _smartCardManager.WriteCard(smartCard);
-        _logger.Write(LogLevel.Debug, "Карта успешно записана");
+        smartCardManager.WriteCard(smartCard);
+        logger.Write(LogLevel.Debug, "Карта успешно записана");
       }
       catch (Exception err)
       {
-        _logger.Write(err, "Ошибка записи карты: Невозможно записать информацию на карту");
-        throw new Exception(_READ_CARD_ERROR, err);
+        logger.Write(err, "Ошибка записи карты: Невозможно записать информацию на карту");
+        throw new Exception(READ_CARD_ERROR, err);
       }
     }
 
@@ -913,13 +914,13 @@ namespace Parking.CashDesk
         try
         {
           //check tariff
-          Tariff30 t = (Tariff30)_smartCard.Tariff;
+          Tariff30 t = (Tariff30)smartCard.Tariff;
           if (t.Type == Tariff30Type.WeekeySimple)
           {
             //read sector
             byte[] ba = new byte[SmartCardLayoutHelper.UserSectorSize];
-            _smartCardManager.Reader.ReadSector(SmartCardLayoutHelper.MetroSectorIndex,
-              _smartCardManager.KeysB[SmartCardLayoutHelper.MetroSectorIndex], ba, 0);
+            smartCardManager.Reader.ReadSector(SmartCardLayoutHelper.MetroSectorIndex,
+              smartCardManager.KeysB[SmartCardLayoutHelper.MetroSectorIndex], ba, 0);
 
             md = new MetroDiscount();
             md.UnpackData(ba);
@@ -934,7 +935,7 @@ namespace Parking.CashDesk
         }
         catch (Exception e)
         {
-          _logger.Write(LogLevel.Warning, String.Format("Ошибка чтения информации из сектора метро\r\n{0}", e.Message));
+          logger.Write(LogLevel.Warning, String.Format("Ошибка чтения информации из сектора метро\r\n{0}", e.Message));
         }
 
       return md;
@@ -950,12 +951,12 @@ namespace Parking.CashDesk
         byte[] ba = new byte[SmartCardLayoutHelper.UserSectorSize];
         md.PackData(ba);
 
-        _smartCardManager.Reader.WriteSector(SmartCardLayoutHelper.MetroSectorIndex,
-          _smartCardManager.KeysB[SmartCardLayoutHelper.MetroSectorIndex], ba);
+        smartCardManager.Reader.WriteSector(SmartCardLayoutHelper.MetroSectorIndex,
+          smartCardManager.KeysB[SmartCardLayoutHelper.MetroSectorIndex], ba);
       }
       catch (Exception e)
       {
-        _logger.Write(LogLevel.Warning, String.Format("Ошибка записи информации о скидке\r\n{0}", e.Message));
+        logger.Write(LogLevel.Warning, String.Format("Ошибка записи информации о скидке\r\n{0}", e.Message));
       }
     }
 
@@ -969,51 +970,51 @@ namespace Parking.CashDesk
     /// <param name="TimeOut">Желаемое время выезда</param>
     private void Calculate(DateTime TimeOut)
     {
-      _timeExitReadyToChange = false;
+      timeExitReadyToChange = false;
       Decimal ToPay = 0;
       DateTime EstimatedTimeOut;
 
       //select tariff and calculator
-      Tariff t = _smartCard.Tariff;
-      ICalculator c = _calculator;
-      if (_metroDiscount != null)
+      Tariff t = smartCard.Tariff;
+      ICalculator c = calculator;
+      if (metroDiscount != null)
       {
-        bool b = _metroDiscount.CanUseDiscount;
-        _logger.Write(LogLevel.Debug, String.Format("Расчёт по тарифу метро : ", b ? "льготный" : "коммерческий"));
+        bool b = metroDiscount.CanUseDiscount;
+        logger.Write(LogLevel.Debug, String.Format("Расчёт по тарифу метро : ", b ? "льготный" : "коммерческий"));
 
-        t = b ? _metroTariffL : _metroTariffK;
+        t = b ? metroTariffL : metroTariffK;
         if (t is TariffMetro)
-          c = _calculatorMetro;
+          c = calculatorMetro;
       }
 
       //calculate
       try
       {
-        ToPay = c.Calculate(t, _smartCard.TimeEntry, TimeOut, out EstimatedTimeOut);
+        ToPay = c.Calculate(t, smartCard.TimeEntry, TimeOut, out EstimatedTimeOut);
       }
       catch (Exception err)
       {
-        _logger.Write(err, "Ошибка при расчете суммы оплаты");
+        logger.Write(err, "Ошибка при расчете суммы оплаты");
         throw new Exception("Ошибка при расчете суммы оплаты:\r\n", err);
       }
 
       decimal discountTotal = 0;
-      for (int i = 0; i < _smartCard.ServicesCount; i++)
-        discountTotal += _smartCard.Discounts[i].Amount;
+      for (int i = 0; i < smartCard.ServicesCount; i++)
+        discountTotal += smartCard.Discounts[i].Amount;
 
       // Сумма = Расчетное значение + Сумма задолжности - Оплаченная сумма + Сумма услуг/скидок
-      decimal amount = ToPay + _smartCard.Debt - _smartCard.Payment + discountTotal; // - _smartCard.Discount;
-      _logger.Write(LogLevel.Debug, "Сумма к оплате: " + amount.ToString("C"));
-      _currentDocument = new PaymentDocument((double)amount, PaymentReason.Parking, DocumentType.Selling,
-        PaymentType.Cash, _cardID, _smartCard.TimeEntry, EstimatedTimeOut, (double)_smartCard.Payment,
-        (double)_smartCard.Debt, (double)_smartCard.ECash);
+      decimal amount = ToPay + smartCard.Debt - smartCard.Payment + discountTotal; // - _smartCard.Discount;
+      logger.Write(LogLevel.Debug, "Сумма к оплате: " + amount.ToString("C"));
+      currentDocument = new PaymentDocument((double)amount, PaymentReason.Parking, DocumentType.Selling,
+        PaymentType.Cash, cardId, smartCard.TimeEntry, EstimatedTimeOut, (double)smartCard.Payment,
+        (double)smartCard.Debt, (double)smartCard.ECash);
 
-      _logger.Write(LogLevel.Debug, "Создан документ: " + _currentDocument.ToString());
+      logger.Write(LogLevel.Debug, "Создан документ: " + currentDocument.ToString());
 
       UpdateParameters(TimeOut); // Обновление данных на форме
       ShowMessage("Расчет суммы оплаты успешно завершен.", LogLevel.Information);
 
-      _timeExitReadyToChange = true;// Реагировать на событие изменения даны выезда
+      timeExitReadyToChange = true;// Реагировать на событие изменения даны выезда
     }
 
     /// <summary>
@@ -1024,7 +1025,7 @@ namespace Parking.CashDesk
       ShowMessage("Производится операция оплаты. Пожалуйста ждите...", LogLevel.Information);
 
       //проверим, платить-то надо?
-      if (_currentDocument.Amount <= 0)
+      if (currentDocument.Amount <= 0)
       {
         ShowMessage("Оплата не требуется.", LogLevel.Warning);
         return;
@@ -1033,62 +1034,62 @@ namespace Parking.CashDesk
       //Оплата через фискальный регистратор
       try
       {
-        _logger.Write(LogLevel.Debug, "Оплата по документу: " + _currentDocument.ToString());
-        _fiscalDevice.Payment(_currentDocument);
+        logger.Write(LogLevel.Debug, "Оплата по документу: " + currentDocument.ToString());
+        fiscalDevice.Payment(currentDocument);
       }
       catch (FiscalDeviceException err)
       {
-        _logger.Write(err, "Ошибка проведения оплаты в фискальном регистраторе!");
+        logger.Write(err, "Ошибка проведения оплаты в фискальном регистраторе!");
         throw new Exception(err.ToString());
       }
 
       //Запись на карту
       ShowMessage("Не убирайте карту со считывателя. Производится запись на карту.", LogLevel.Warning);
 
-      switch (_currentDocument.PaymentReason)
+      switch (currentDocument.PaymentReason)
       {
         case PaymentReason.Parking:
         case PaymentReason.Fine:
-          _smartCard.TimePayment = DateTime.Now;
-          _smartCard.TimeExit = _currentDocument.TimeExit;
-          _smartCard.Payment += (Decimal)_currentDocument.Amount; // Прибавляем к тому, что уже оплачено (это очень важно).
-          _smartCard.CashBoxID = Settings.Default.CashNumber; // Передача номера кассы
+          smartCard.TimePayment = DateTime.Now;
+          smartCard.TimeExit = currentDocument.TimeExit;
+          smartCard.Payment += (Decimal)currentDocument.Amount; // Прибавляем к тому, что уже оплачено (это очень важно).
+          smartCard.CashBoxID = Settings.Default.CashNumber; // Передача номера кассы
           // Установка флага - оплачено.
-          if (_currentDocument.PaymentReason == PaymentReason.Fine)
-            _smartCard.State = CardState.Penalty;
-          else if (_currentDocument.PaymentReason == PaymentReason.Parking)
-            _smartCard.State = CardState.Paid;
+          if (currentDocument.PaymentReason == PaymentReason.Fine)
+            smartCard.State = CardState.Penalty;
+          else if (currentDocument.PaymentReason == PaymentReason.Parking)
+            smartCard.State = CardState.Paid;
 
           // TODO: переделать запись на карту
           // Запись оплаты на карту. Непосредственно запись
-          _logger.Write(LogLevel.Debug, "Запись на карту");
-          WriteCard(_smartCard);
+          logger.Write(LogLevel.Debug, "Запись на карту");
+          WriteCard(smartCard);
 
-          if (_metroDiscount != null)
+          if (metroDiscount != null)
           {
-            _metroDiscount.Time = DateTime.Now;
-            _metroDiscount.State = MetroDiscountState.Paid;
-            WriteMetroDiscount(_metroDiscount);
+            metroDiscount.Time = DateTime.Now;
+            metroDiscount.State = MetroDiscountState.Paid;
+            WriteMetroDiscount(metroDiscount);
           }
 
-          _trans.Write(DateTime.Now, _currentDocument.PaymentReason.GetString(), _currentDocument.Amount,
-            _smartCard.TimeEntry, _smartCard.ZoneCurrentID, _cardID.ToString("X"));
+          trans.Write(DateTime.Now, currentDocument.PaymentReason.GetString(), currentDocument.Amount,
+            smartCard.TimeEntry, smartCard.ZoneCurrentID, cardId.ToString("X"));
 
           break;
         case PaymentReason.ECash:
           // Переделать пополнение электронного кошелька
-          _smartCard.ECash += (Decimal)_currentDocument.Amount;
-          WriteCard(_smartCard);
+          smartCard.ECash += (Decimal)currentDocument.Amount;
+          WriteCard(smartCard);
 
-          _trans.Write(DateTime.Now, _currentDocument.PaymentReason.GetString(), _currentDocument.Amount,
-            _smartCard.TimeEntry, _smartCard.ZoneCurrentID, _cardID.ToString("X"));
+          trans.Write(DateTime.Now, currentDocument.PaymentReason.GetString(), currentDocument.Amount,
+            smartCard.TimeEntry, smartCard.ZoneCurrentID, cardId.ToString("X"));
 
           break;
         case PaymentReason.Any:
-          _trans.Write(DateTime.Now, _currentDocument.PaymentReason.GetString(), _currentDocument.Amount);
+          trans.Write(DateTime.Now, currentDocument.PaymentReason.GetString(), currentDocument.Amount);
           break;
         case PaymentReason.Refund: // Возврат
-          _trans.Write(DateTime.Now, _currentDocument.PaymentReason.GetString(), _currentDocument.Amount);
+          trans.Write(DateTime.Now, currentDocument.PaymentReason.GetString(), currentDocument.Amount);
           break;
       }
 
@@ -1097,7 +1098,7 @@ namespace Parking.CashDesk
 
       //ok
       lblSumma.Text = String.Format("{0:C}", 0);
-      _logger.Write(LogLevel.Debug, "Оплата: Оплата успешно проведена.");
+      logger.Write(LogLevel.Debug, "Оплата: Оплата успешно проведена.");
       ShowMessage("Операция успешно проведена.", LogLevel.Information);
     }
 
@@ -1234,33 +1235,33 @@ namespace Parking.CashDesk
     {
       //System.Diagnostics.Trace.WriteLine("-> OnNetworkPacketReceived #" + packet.Address.ToString());
 
-      if (packet.Address != _device.Device.NetworkAddress)
+      if (packet.Address != device.Device.NetworkAddress)
         return;
 
-      _counterReceived++;
-      if ((_counterReceived % _counterDelay) == 0)
+      counterReceived++;
+      if ((counterReceived % counterDelay) == 0)
         SwitchReceived();
-      if (_counterReceived == Int32.MaxValue)
-        _counterReceived = 0;
+      if (counterReceived == Int32.MaxValue)
+        counterReceived = 0;
 
       //DateTime timeStart = DateTime.Now;
 
-      Packet answer = _device.GetResponse(packet);
-      if (_network.State == NetworkProtocolState.Opened)
-        if (_network.SendPacket(answer))
+      Packet answer = device.GetResponse(packet);
+      if (network.State == NetworkProtocolState.Opened)
+        if (network.SendPacket(answer))
         {
-          _counterSent++;
-          if ((_counterSent % _counterDelay) == 0)
+          counterSent++;
+          if ((counterSent % counterDelay) == 0)
             SwitchSent();
-          if (_counterSent == Int32.MaxValue)
-            _counterSent = 0;
+          if (counterSent == Int32.MaxValue)
+            counterSent = 0;
         }
 
       //TimeSpan ts = DateTime.Now - timeStart;
       //if (ts > network.PacketTimeout)
       //  _logger.Write(LogLevel.Error, String.Format("Не успел ответить, таймаут = {0}", ts.ToString()), 2);
 
-      _lastPacketTime = DateTime.Now;
+      lastPacketTime = DateTime.Now;
     }
 
     ///// <summary>
@@ -1495,8 +1496,8 @@ namespace Parking.CashDesk
 
     private void SwitchReceivedCore()
     {
-      _indicatorReseived = !_indicatorReseived;
-      tslblStatusReceived.Image = _indicatorReseived ? _imageReceived : _imageIdle;
+      indicatorReseived = !indicatorReseived;
+      tslblStatusReceived.Image = indicatorReseived ? imageReceived : imageIdle;
     }
 
     private void SwitchSent()
@@ -1506,15 +1507,15 @@ namespace Parking.CashDesk
 
     private void SwitchSentCore()
     {
-      _indicatorSent = !_indicatorSent;
-      tslblStatusSent.Image = _indicatorReseived ? _imageSent : _imageIdle;
+      indicatorSent = !indicatorSent;
+      tslblStatusSent.Image = indicatorReseived ? imageSent : imageIdle;
     }
 
     private void SwitchOff()
     {
-      _indicatorReseived = true;
+      indicatorReseived = true;
       SwitchReceivedCore();
-      _indicatorSent = true;
+      indicatorSent = true;
       SwitchSentCore();
     }
 
@@ -1549,13 +1550,13 @@ namespace Parking.CashDesk
     private void UpdateParameters(DateTime timeExit)
     {
       //check
-      if ((_smartCard == null) || (_currentDocument == null)) // Не все готово
+      if ((smartCard == null) || (currentDocument == null)) // Не все готово
       {
         lblTimeIn.Text = DateTime.Now.DateToString(); // ToString("dd MMMM yyyy  H:mm:ss");
         dtpOut.Value = DateTime.Now;
-        lblTimeInParking.Text = _NO_DATA;
-        lblTimePaid.Text = _NO_DATA;
-        lblExitTimeLimit.Text = _NO_DATA;
+        lblTimeInParking.Text = NO_DATA;
+        lblTimePaid.Text = NO_DATA;
+        lblExitTimeLimit.Text = NO_DATA;
 
         lblPaid.Text = String.Format("{0:C}", 0);
         lblDebt.Text = String.Format("{0:C}", 0);
@@ -1566,35 +1567,35 @@ namespace Parking.CashDesk
       }
 
       //process
-      lblTimeIn.Text = _smartCard.TimeEntry.DateToString();
+      lblTimeIn.Text = smartCard.TimeEntry.DateToString();
       dtpOut.Value = timeExit;
-      lblTimeInParking.Text = Utils.TimeToString(DateTime.Now - _currentDocument.TimeEntry);// время на стоянке;
-      lblPaid.Text = _currentDocument.Payment.ToString("C");
-      lblDebt.Text = _currentDocument.Debt.ToString("C");
-      lblECash.Text = _currentDocument.ECash.ToString("C");
+      lblTimeInParking.Text = Utils.TimeToString(DateTime.Now - currentDocument.TimeEntry);// время на стоянке;
+      lblPaid.Text = currentDocument.Payment.ToString("C");
+      lblDebt.Text = currentDocument.Debt.ToString("C");
+      lblECash.Text = currentDocument.ECash.ToString("C");
       if (Settings.Default.DisplayEnabled) // Вывод на дисплей
       {
-        _display.Clear();
-        _display.Text(1, GetLocalizedDateTimeString(lblTimeInParking.Text)); // Время проведенное на парковке
+        display.Clear();
+        display.Text(1, GetLocalizedDateTimeString(lblTimeInParking.Text)); // Время проведенное на парковке
       }
 
-      if (_currentDocument.Amount <= 0) // Оплата не требуется
+      if (currentDocument.Amount <= 0) // Оплата не требуется
       {
-        lblTimePaid.Text = Utils.TimeToString(_currentDocument.TimeExit - DateTime.Now); // В данном случае время оставшееся на выезд
-        lblExitTimeLimit.Text = _currentDocument.TimeExit.DateToString();//Выезд до
+        lblTimePaid.Text = Utils.TimeToString(currentDocument.TimeExit - DateTime.Now); // В данном случае время оставшееся на выезд
+        lblExitTimeLimit.Text = currentDocument.TimeExit.DateToString();//Выезд до
         lblSumma.Text = String.Format("{0:C}", 0);
         if (Settings.Default.DisplayEnabled)
-          _display.Text(2, String.Format(_rm.GetString("InPay") + ": {0:C}", 0));
+          display.Text(2, String.Format(rm.GetString("InPay") + ": {0:C}", 0));
       }
       else // Требуется оплата
       {
-        lblTimePaid.Text = _NEED_PAY; // В данном случае время оставшееся на выезд
-        lblExitTimeLimit.Text = _NEED_PAY;  // Выезд до
-        lblSumma.Text = String.Format("{0:C}", _currentDocument.Amount);
+        lblTimePaid.Text = NEED_PAY; // В данном случае время оставшееся на выезд
+        lblExitTimeLimit.Text = NEED_PAY;  // Выезд до
+        lblSumma.Text = String.Format("{0:C}", currentDocument.Amount);
         try
         {
           if (Settings.Default.DisplayEnabled)
-            _display.Text(2, String.Format(_rm.GetString("InPay") + ": {0:C}", _currentDocument.Amount));
+            display.Text(2, String.Format(rm.GetString("InPay") + ": {0:C}", currentDocument.Amount));
         }
         catch (Exception ex)
         {
@@ -1608,7 +1609,7 @@ namespace Parking.CashDesk
     /// </summary>
     private string GetLocalizedDateTimeString(string s)
     {
-      s = s.Replace("сут", _rm.GetString("Days")).Replace("час", _rm.GetString("Hour")).Replace("мин", _rm.GetString("Min")).Replace("сек", _rm.GetString("Sec"));
+      s = s.Replace("сут", rm.GetString("Days")).Replace("час", rm.GetString("Hour")).Replace("мин", rm.GetString("Min")).Replace("сек", rm.GetString("Sec"));
       return s;
     }
   }

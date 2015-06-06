@@ -12,7 +12,7 @@ namespace Parking.CashDesk
   /// <summary>
   /// Язык ручной кассы
   /// </summary>
-  public enum CashDeskLanguage : int
+  public enum CashDeskLanguage
   {
     /// <summary>
     /// Русский
@@ -37,11 +37,11 @@ namespace Parking.CashDesk
 
     #endregion
 
-    private static readonly Type[] _tariffKnownTypes;
+    private static readonly Type[] TariffKnownTypes;
 
     static CashDeskHelper()
     {
-      _tariffKnownTypes = new Type[] { typeof(Tariff30), typeof(TariffMetro) };
+      TariffKnownTypes = new[] { typeof(Tariff30), typeof(TariffMetro) };
     }
 
     /// <summary>
@@ -113,7 +113,7 @@ namespace Parking.CashDesk
     /// </summary>
     public static string SerializeTariff(Tariff tariff)
     {
-      return tariff.Serialize<Tariff>(_tariffKnownTypes);
+      return tariff.Serialize(TariffKnownTypes);
     }
 
     /// <summary>
@@ -121,7 +121,7 @@ namespace Parking.CashDesk
     /// </summary>
     public static Tariff DeserializeTariff(string s)
     {
-      return s.Deserialize<Tariff>(_tariffKnownTypes);
+      return s.Deserialize<Tariff>(TariffKnownTypes);
     }
   }
 }

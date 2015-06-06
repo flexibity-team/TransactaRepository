@@ -9,7 +9,7 @@ namespace Parking.FiscalDevice
     /// </summary>
     public static String GetString(this PaymentReason reason)
     {
-      string s = String.Empty;
+      string s;
       switch (reason)
       {
         case PaymentReason.Parking:

@@ -29,7 +29,7 @@ namespace Parking.Data.Metro
     /// </summary>
     public static string GetString(this TariffMetroCommandType type)
     {
-      string s = String.Empty;
+      string s;
       switch (type)
       {
         case TariffMetroCommandType.CalculateInterval:
@@ -64,11 +64,9 @@ namespace Parking.Data.Metro
 
       //create commands and properties
       Dictionary<int, TariffMetroCommand> commands = new Dictionary<int, TariffMetroCommand>();
-      Dictionary<char, int> properties = new Dictionary<char, int>();
-      foreach (char p in PropertyNames)
-        properties.Add(p, (int)PropertyDefaultValue);
+      Dictionary<char, int> properties = PropertyNames.ToDictionary(p => p, p => (int) PropertyDefaultValue);
 
-      //parse entries
+        //parse entries
       foreach (string e in entries)
       {
         //split entry
@@ -80,7 +78,7 @@ namespace Parking.Data.Metro
         //entry is command?
         if (Char.IsDigit(name))
         {
-          int n = (int)Char.GetNumericValue(name);
+          var n = (int)Char.GetNumericValue(name);
           TariffMetroCommand cmd = ParseCommand(sa);
 
           //stop parsing at end command
@@ -93,18 +91,15 @@ namespace Parking.Data.Metro
         }
 
         //entry is property?
-        if (properties.ContainsKey(name))
-        {
+          if (!properties.ContainsKey(name)) continue;
           properties[name] = ParseProperty(name, sa);
-          continue;
-        }
       }
 
       //check command sequence
       int[] ids = commands.Keys.OrderBy(k => k).ToArray();
       if (commands.Count > 1)
       {
-        int firstID = ids[0];
+        int firstId = ids[0];
         for (int i = 1; i < ids.Length; i++)
           if ((ids[i] - ids[i - 1]) > 1)
             throw new InvalidDataException("Неверная последовательность команд");
@@ -136,7 +131,7 @@ namespace Parking.Data.Metro
         throw new InvalidDataException("Не найдены все свойства");
 
       //create tariff
-      TariffMetro tariff = new TariffMetro();
+      var tariff = new TariffMetro();
       int id = properties['C'];
       id += (properties['B'] << 8);
       id += (properties['A'] << 16);
@@ -147,7 +142,7 @@ namespace Parking.Data.Metro
       tariff.FreeTimeAfterPayment = TimeSpan.FromSeconds(properties['F']);
 
       for (int i = 0; i < ids.Length; i++)
-        tariff.AddCommand(commands[ids[i]]);
+        tariff.AddCommand(commands[i]);
 
       return tariff;
     }
@@ -169,7 +164,7 @@ namespace Parking.Data.Metro
 
     private static TimeSpan ParseTimeSpan(string s)
     {
-      TimeSpan ts = TimeSpan.Zero;
+      TimeSpan ts;
       for (int i = 0; i < s.Length; i++)
         if (Char.IsDigit(s[i]))
           if (TimeSpan.TryParse(s.Substring(i, 8), out ts))

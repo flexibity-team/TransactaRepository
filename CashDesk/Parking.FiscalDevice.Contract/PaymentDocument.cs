@@ -52,7 +52,7 @@ namespace Parking.FiscalDevice
   /// <summary>
   /// Причина оплаты
   /// </summary>
-  public enum PaymentReason : int
+  public enum PaymentReason
   {
     /// <summary>
     /// Оплата парковочной карты
@@ -85,138 +85,87 @@ namespace Parking.FiscalDevice
   /// </summary>
   public class PaymentDocument
   {
-    private double amount;
-    private PaymentReason paymentReason;
-    private DocumentType documentType;
-    private PaymentType paymentType;
-    private int cardID;
-    private DateTime timeEntry;
-    private DateTime timeExit;
-    private double payment;
-    private double debt;
-    private double eCash;
-
-    #region [ properties ]
+      #region [ properties ]
 
     /// <summary>
     /// Сумма на электронном кошельке
     /// </summary>
-    public double ECash
-    {
-      get { return eCash; }
-      set { eCash = value; }
-    }
+    public double ECash { get; set; }
 
-    /// <summary>
+      /// <summary>
     /// Сумма платежа
     /// </summary>
-    public double Amount
-    {
-      get { return amount; }
-      set { amount = value; }
-    }
+    public double Amount { get; set; }
 
-    /// <summary>
+      /// <summary>
     /// Причина оплаты
     /// </summary>
-    public PaymentReason PaymentReason
-    {
-      get { return paymentReason; }
-      set { paymentReason = value; }
-    }
+    public PaymentReason PaymentReason { get; set; }
 
-    /// <summary>
+      /// <summary>
     /// Тип документа
     /// </summary>
-    public DocumentType Type
-    {
-      get { return documentType; }
-      set { documentType = value; }
-    }
+    public DocumentType Type { get; set; }
 
-    /// <summary>
+      /// <summary>
     /// Тип оплаты
     /// </summary>
-    public PaymentType PaymentType
-    {
-      get { return paymentType; }
-      set { paymentType = value; }
-    }
+    public PaymentType PaymentType { get; set; }
 
-    /// <summary>
+      /// <summary>
     /// Номер карты
     /// </summary>
-    public int CardID
-    {
-      get { return cardID; }
-      set { cardID = value; }
-    }
+    public int CardId { get; set; }
 
-    /// <summary>
+      /// <summary>
     /// Время въезда
     /// </summary>
-    public DateTime TimeEntry
-    {
-      get { return timeEntry; }
-      set { timeEntry = value; }
-    }
+    public DateTime TimeEntry { get; set; }
 
-    /// <summary>
+      /// <summary>
     /// Время до которого оплачивается
     /// </summary>
-    public DateTime TimeExit
-    {
-      get { return timeExit; }
-      set { timeExit = value; }
-    }
+    public DateTime TimeExit { get; set; }
 
-    /// <summary>
+      /// <summary>
     /// Сумма, которая уже оплачена
     /// </summary>
-    public double Payment
-    {
-      get { return payment; }
-      set { payment = value; }
-    }
+    public double Payment { get; set; }
 
-    /// <summary>
+      /// <summary>
     /// Задолжность
     /// </summary>
-    public double Debt
-    {
-      get { return debt; }
-      set { debt = value; }
-    }
+    public double Debt { get; set; }
 
-    #endregion
+      #endregion
 
     public PaymentDocument()
     {
-      amount = 0;
-      paymentReason = FiscalDevice.PaymentReason.Any;
-      documentType = DocumentType.Buying;
-      paymentType = PaymentType.Cash;
-      cardID = -1;
-      timeEntry = DateTime.Now;
-      timeExit = DateTime.Now;
-      payment = 0;
-      debt = 0;
-      eCash = 0;
+      Amount = 0;
+      PaymentReason = FiscalDevice.PaymentReason.Any;
+      Type = DocumentType.Buying;
+      PaymentType = PaymentType.Cash;
+      CardId = -1;
+      TimeEntry = DateTime.Now;
+      TimeExit = DateTime.Now;
+      Payment = 0;
+      Debt = 0;
+      ECash = 0;
     }
 
     public PaymentDocument(double amount, PaymentReason paymentReason, DocumentType documentType, PaymentType paymentType,
-        int cardID, DateTime timeEntry, DateTime timeExit, double payment, double debt, double eCash)
+        int cardId, DateTime timeEntry, DateTime timeExit, double payment, double debt, double eCash)
     {
-      this.amount = amount;
-      this.paymentReason = paymentReason;
-      this.documentType = documentType;
-      this.paymentType = paymentType;
-      this.cardID = cardID;
-      this.timeEntry = timeEntry;
-      this.timeExit = timeExit;
-      this.payment = payment;
-      this.debt = debt;
-      this.eCash = eCash;
+      Amount = amount;
+      PaymentReason = paymentReason;
+      Type = documentType;
+      PaymentType = paymentType;
+      CardId = cardId;
+      TimeEntry = timeEntry;
+      TimeExit = timeExit;
+      Payment = payment;
+      Debt = debt;
+      ECash = eCash;
     }
 
     /// <summary>
@@ -227,8 +176,8 @@ namespace Parking.FiscalDevice
       return String.Format("\r\nAmount = {0:C}\r\n PayType = {1}\r\n Type = {2}\r\n CurrencyType = {3}\r\n" +
                                   "CardNumber = {4:X}\r\n TimeIn = {5}\r\n TimeOut = {5}\r\n Paid = {7:C}\r\n" +
                                   "ECash = {8:C}",
-                                  amount, paymentReason.GetString(), documentType, paymentType, cardID,
-                                  timeEntry, timeExit, payment, eCash);
+                                  Amount, PaymentReason.GetString(), Type, PaymentType, CardId,
+                                  TimeEntry, TimeExit, Payment, ECash);
     }
   }
 }

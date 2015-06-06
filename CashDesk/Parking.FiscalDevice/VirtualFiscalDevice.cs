@@ -23,8 +23,8 @@ namespace Parking.FiscalDevice
 
       #endregion
 
-      private XElement _root;
-      private string _xmlFileData;
+      private XElement root;
+      private string xmlFileData;
 
       #region [ properties ]
 
@@ -36,10 +36,10 @@ namespace Parking.FiscalDevice
         get
         {
           LoadXML();
-          XElement root = _xmlFileData.LoadXml();
+          XElement root = xmlFileData.LoadXml();
           XElement xe = root.Element("MoneyInKKM");
 
-          double val = 0;
+          double val;
           if (!double.TryParse(xe.Value.ToString(), out val))
             throw new FiscalDeviceException("Ошибка в фискальной памяти! Сумма в кассе не определена.");
 
@@ -48,7 +48,7 @@ namespace Parking.FiscalDevice
         set
         {
           LoadXML();
-          XElement root = _xmlFileData.LoadXml();
+          XElement root = xmlFileData.LoadXml();
           root.SetElementValue("MoneyInKKM", value);
           File.WriteAllText(SettingsFileName, root.ToString());
         }
@@ -62,11 +62,11 @@ namespace Parking.FiscalDevice
         get
         {
           LoadXML();
-          XElement root = _xmlFileData.LoadXml();
+          XElement root = xmlFileData.LoadXml();
           XElement xe = root.Element("Receipts");
 
-          double val = 0;
-          if (!double.TryParse(xe.Value.ToString(), out val))
+          double val;
+          if (!double.TryParse(xe.Value, out val))
             throw new FiscalDeviceException("Ошибка в фискальной памяти! Выручка за день не определена.");
 
           return val;
@@ -74,7 +74,7 @@ namespace Parking.FiscalDevice
         set
         {
           LoadXML();
-          XElement root = _xmlFileData.LoadXml();
+          XElement root = xmlFileData.LoadXml();
           root.SetElementValue("Receipts", value);
           File.WriteAllText(SettingsFileName, root.ToString());
         }
@@ -88,11 +88,11 @@ namespace Parking.FiscalDevice
         get
         {
           LoadXML();
-          XElement root = _xmlFileData.LoadXml();
+          XElement root = xmlFileData.LoadXml();
           XElement xe = root.Element("IsSessionOpen");
 
           bool val = true;
-          if (!bool.TryParse(xe.Value.ToString(), out val))
+          if (!bool.TryParse(xe.Value, out val))
             throw new FiscalDeviceException("Ошибка в фискальной памяти! Невозможно определить состояние смены.");
 
           return val;
@@ -100,7 +100,7 @@ namespace Parking.FiscalDevice
         set
         {
           LoadXML();
-          XElement root = _xmlFileData.LoadXml();
+          XElement root = xmlFileData.LoadXml();
           root.SetElementValue("IsSessionOpen", value);
           File.WriteAllText(SettingsFileName, root.ToString());
         }
@@ -110,14 +110,14 @@ namespace Parking.FiscalDevice
 
       public VFDMemory()
       {
-        _root = new XElement("FiscalDevice");
+        root = new XElement("FiscalDevice");
       }
 
         private void LoadXML()
       {
         try
         {
-          _xmlFileData = File.ReadAllText(SettingsFileName);
+          xmlFileData = File.ReadAllText(SettingsFileName);
         }
         catch
         {
@@ -126,18 +126,18 @@ namespace Parking.FiscalDevice
       }
     }
 
-    private VFDMemory _memory;
+    private readonly VFDMemory memory;
 
     public VirtualFiscalDevice()
     {
-      _memory = new VFDMemory();
+      memory = new VFDMemory();
     }
 
     #region [ Disposable ]
 
     protected override void DisposeManagedResources()
     {
-      _memory.Save();
+      memory.Save();
     }
 
     #endregion
@@ -149,7 +149,7 @@ namespace Parking.FiscalDevice
     /// </summary>
     public bool IsSessionOpened
     {
-      get { return _memory.IsSessionOpen; }
+      get { return memory.IsSessionOpen; }
     }
 
     /// <summary>
@@ -157,7 +157,7 @@ namespace Parking.FiscalDevice
     /// </summary>
     public void Initialize(int comPort, string name)
     {
-      _memory.Load();
+      memory.Load();
     }
 
       public void LogFileOn(bool onOff)
@@ -170,7 +170,7 @@ namespace Parking.FiscalDevice
     /// </summary>
     public double GetKKMAmount()
     {
-      return _memory.MoneyInKKM;  // денег в кассе
+      return memory.MoneyInKKM;  // денег в кассе
     }
 
     /// <summary>
@@ -178,7 +178,7 @@ namespace Parking.FiscalDevice
     /// </summary>
     public double GetSessionAmount()
     {
-      return _memory.Receipts;
+      return memory.Receipts;
     }
 
     /// <summary>
@@ -186,8 +186,8 @@ namespace Parking.FiscalDevice
     /// </summary>
     public void OpenSession()
     {
-      _memory.IsSessionOpen = true;
-      _memory.Save();
+      memory.IsSessionOpen = true;
+      memory.Save();
     }
 
     /// <summary>
@@ -195,10 +195,10 @@ namespace Parking.FiscalDevice
     /// </summary>
     public void CloseSession()
     {
-      _memory.MoneyInKKM = 0; // Инкассация
-      _memory.Receipts = 0; // Обнуляем выручку за день
-      _memory.IsSessionOpen = false;
-      _memory.Save();
+      memory.MoneyInKKM = 0; // Инкассация
+      memory.Receipts = 0; // Обнуляем выручку за день
+      memory.IsSessionOpen = false;
+      memory.Save();
     }
 
     /// <summary>
@@ -215,8 +215,8 @@ namespace Parking.FiscalDevice
     public void CashIn(double amount)
     {
       // Очень важно, что мы прибавляем к сумме денег в кассе, а не заменяем их
-      _memory.MoneyInKKM += amount;
-      _memory.Save();
+      memory.MoneyInKKM += amount;
+      memory.Save();
     }
 
     /// <summary>
@@ -225,11 +225,11 @@ namespace Parking.FiscalDevice
     public void CashOut(double amount)
     {
       // Очень важно, что мы вычитаем из денег в кассе, а не заменяем их
-      if (amount > _memory.MoneyInKKM) throw new FiscalDeviceException("Недостаточно денег для инкассации");
+      if (amount > memory.MoneyInKKM) throw new FiscalDeviceException("Недостаточно денег для инкассации");
       else
       {
-        _memory.MoneyInKKM -= amount;
-        _memory.Save();
+        memory.MoneyInKKM -= amount;
+        memory.Save();
       }
     }
 
@@ -244,15 +244,15 @@ namespace Parking.FiscalDevice
         case PaymentReason.Fine:
         case PaymentReason.ECash:
         case PaymentReason.Any:
-          _memory.MoneyInKKM += document.Amount;
-          _memory.Save();
+          memory.MoneyInKKM += document.Amount;
+          memory.Save();
           break;
         case PaymentReason.Refund:
-          if (document.Amount > _memory.MoneyInKKM)
+          if (document.Amount > memory.MoneyInKKM)
             throw new FiscalDeviceException("Недостаточно денег для возврата");
 
-          _memory.MoneyInKKM -= document.Amount;
-          _memory.Save();
+          memory.MoneyInKKM -= document.Amount;
+          memory.Save();
           break;
       }
     }

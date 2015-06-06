@@ -8,13 +8,13 @@ namespace Parking.FiscalDevice
   /// </summary>
   public class FiscalDeviceException : Exception
   {
-    private String _FDError;
-    private String _FDErrorType;
-    private String _FDErrorPrompt;
+    private readonly String fdError;
+    private readonly String fdErrorType;
+    private readonly String fdErrorPrompt;
 
     #region [ static ]
 
-    private static string[] _sErrType = 
+    private static readonly string[] SErrType = 
              {"Прекратить работу с ККМ. Сообщить в ЦТО обстоятельства появления ошибки.",
              "Исправить ошибку формирования команды в компьютере.",
              "Изменить параметры команды или выполнить требуемую команду.",
@@ -23,7 +23,7 @@ namespace Parking.FiscalDevice
              "Оператору проверить состояние принтера.",
              "Послать команду ещё раз."};
 
-    private static string[] _sErrString =
+    private static readonly string[] SErrString =
              {"Ошибок нет. Счётчики обновлены.",
               "Неверный формат сообщения.",
               "Неверный формат поля.",
@@ -105,7 +105,7 @@ namespace Parking.FiscalDevice
     /// </summary>
     public String FDError
     {
-      get { return _FDError; }
+      get { return fdError; }
     }
 
     /// <summary>
@@ -113,7 +113,7 @@ namespace Parking.FiscalDevice
     /// </summary>
     public String FDErrorType
     {
-      get { return _FDErrorType; }
+      get { return fdErrorType; }
     }
 
     /// <summary>
@@ -121,7 +121,7 @@ namespace Parking.FiscalDevice
     /// </summary>
     public String FDErrorPrompt
     {
-      get { return _FDErrorPrompt; }
+      get { return fdErrorPrompt; }
     }
 
     #endregion
@@ -133,43 +133,43 @@ namespace Parking.FiscalDevice
     public FiscalDeviceException(int nErr)
       : base("Ошибка при работе с фискальным регистратором.")
     {
-      GetErrorString(nErr, out _FDError, out _FDErrorType, out _FDErrorPrompt);
+      GetErrorString(nErr, out fdError, out fdErrorType, out fdErrorPrompt);
     }
 
     /// <summary>
     /// Создает исключение по номеру ошибки фискального регистратора
     /// </summary>
     /// <param name="nErr">Номер ошибки</param>
-    /// <param name="Msg">Дополнительный текст описания ошибки</param>
-    public FiscalDeviceException(int nErr, String Msg)
-      : base(Msg)
+    /// <param name="msg">Дополнительный текст описания ошибки</param>
+    public FiscalDeviceException(int nErr, String msg)
+      : base(msg)
     {
-      GetErrorString(nErr, out _FDError, out _FDErrorType, out _FDErrorPrompt);
+      GetErrorString(nErr, out fdError, out fdErrorType, out fdErrorPrompt);
     }
 
     /// <summary>
     /// Создает исключение по номеру ошибки фискального регистратора
     /// </summary>
     /// <param name="err">Ошибка</param>
-    /// <param name="InnerException">Изначальное исключение</param>
-    public FiscalDeviceException(String Msg, FiscalDeviceException InnerException)
-      : base(Msg, InnerException)
+    /// <param name="innerException">Изначальное исключение</param>
+    public FiscalDeviceException(String msg, FiscalDeviceException innerException)
+      : base(msg, innerException)
     {
-      _FDError = InnerException.FDError;
-      _FDErrorType = InnerException.FDErrorType;
-      _FDErrorPrompt = InnerException.FDErrorPrompt;
+      fdError = innerException.FDError;
+      fdErrorType = innerException.FDErrorType;
+      fdErrorPrompt = innerException.FDErrorPrompt;
     }
 
     /// <summary>
     /// Создает исключение фискального регистратора с текстовым сообщением
     /// </summary>
-    /// <param name="Message">Текстовое сообщение</param>
-    public FiscalDeviceException(String Message)
-      : base(Message)
+    /// <param name="message">Текстовое сообщение</param>
+    public FiscalDeviceException(String message)
+      : base(message)
     {
-      _FDError = String.Empty;
-      _FDErrorType = String.Empty;
-      _FDErrorPrompt = String.Empty;
+      fdError = String.Empty;
+      fdErrorType = String.Empty;
+      fdErrorPrompt = String.Empty;
     }
 
     /// <summary>
@@ -183,19 +183,17 @@ namespace Parking.FiscalDevice
     {
       int bbError = nErr & 0xFF;
       int bbErrorEx = (nErr >> 8) & 0xFF;
-      int bbErrorType = 0;
 
-      // Текст ошибки
+        // Текст ошибки
       sErrName = String.Empty;
-      if (bbError < _sErrString.Length)
-        sErrName = _sErrString[bbError];
+      if (bbError < SErrString.Length)
+        sErrName = SErrString[bbError];
 
       switch (bbError)
       {
         case 0:
           sErrType = "Ошибки нет";
-          bbErrorType = -1;
-          break;
+              break;
         case 1:
         case 2:
         case 5:
@@ -204,9 +202,8 @@ namespace Parking.FiscalDevice
         case 10:
         case 12:
         case 14:
-          sErrType = _sErrType[1];
-          bbErrorType = 1;
-          break;
+          sErrType = SErrType[1];
+              break;
         case 3:
         case 7:
         case 11:
@@ -230,36 +227,31 @@ namespace Parking.FiscalDevice
         case 45:
         case 46:
         case 47:
-          sErrType = _sErrType[2];
-          bbErrorType = 2;
-          break;
+          sErrType = SErrType[2];
+              break;
         case 4:
         case 8:
         case 33:
         case 34:
-          sErrType = _sErrType[6];
-          bbErrorType = 6;
-          break;
+          sErrType = SErrType[6];
+              break;
         case 15:
         case 20:
         case 28:
         case 50:
-          sErrType = _sErrType[4];
-          bbErrorType = 4;
-          break;
+          sErrType = SErrType[4];
+              break;
         case 22:
         case 23:
         case 24:
         case 25:
         case 40:
-          sErrType = _sErrType[5];
-          bbErrorType = 5;
-          break;
+          sErrType = SErrType[5];
+              break;
         case 29:
         case 51:
-          sErrType = _sErrType[3];
-          bbErrorType = 3;
-          break;
+          sErrType = SErrType[3];
+              break;
         case 35:
         case 48:
         case 52:
@@ -280,13 +272,11 @@ namespace Parking.FiscalDevice
         case 67:
         case 68:
         case 69:
-          sErrType = _sErrType[0];
-          bbErrorType = 0;
-          break;
+          sErrType = SErrType[0];
+              break;
         default:
           sErrType = "Неизвестен!";
-          bbErrorType = 0xFF;
-          break;
+              break;
       }
 
       //Текст расширеной ошибки
@@ -337,21 +327,21 @@ namespace Parking.FiscalDevice
     public override string ToString()
     {
       StringBuilder sb = new StringBuilder();
-      sb.Append(base.Message);
-      if (!String.IsNullOrEmpty(_FDError))
+      sb.Append(Message);
+      if (!String.IsNullOrEmpty(fdError))
       {
         sb.AppendLine();
-        sb.Append(_FDError);
+        sb.Append(fdError);
       }
-      if (!String.IsNullOrEmpty(_FDErrorType))
+      if (!String.IsNullOrEmpty(fdErrorType))
       {
         sb.AppendLine();
-        sb.Append(_FDErrorType);
+        sb.Append(fdErrorType);
       }
-      if (!String.IsNullOrEmpty(_FDErrorPrompt))
+      if (!String.IsNullOrEmpty(fdErrorPrompt))
       {
         sb.AppendLine();
-        sb.Append(_FDErrorPrompt);
+        sb.Append(fdErrorPrompt);
       }
 
       return sb.ToString();

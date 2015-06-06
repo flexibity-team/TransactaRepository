@@ -17,7 +17,7 @@ namespace Parking.FiscalDevice
 
     private void KKMStateForm_Load(object sender, EventArgs e)
     {
-      this.Update();
+      Update();
     }
 
     #endregion
@@ -29,7 +29,7 @@ namespace Parking.FiscalDevice
     {
       tbKKMMessage.Clear();
       tbKKMMessage.Text = message;
-      this.Update();
+      Update();
     }
   }
 }

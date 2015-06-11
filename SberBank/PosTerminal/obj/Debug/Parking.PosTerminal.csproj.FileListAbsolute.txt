@@ -1,0 +1,5 @@
+C:\!DATA\!Projects\C#\!WorkProjects\TRANSACTA\SberBank\PosTerminal\bin\Debug\PosTerminal.dll
+C:\!DATA\!Projects\C#\!WorkProjects\TRANSACTA\SberBank\PosTerminal\bin\Debug\PosTerminal.pdb
+C:\!DATA\!Projects\C#\!WorkProjects\TRANSACTA\SberBank\PosTerminal\obj\Debug\Parking.PosTerminal.csprojResolveAssemblyReference.cache
+C:\!DATA\!Projects\C#\!WorkProjects\TRANSACTA\SberBank\PosTerminal\obj\Debug\PosTerminal.dll
+C:\!DATA\!Projects\C#\!WorkProjects\TRANSACTA\SberBank\PosTerminal\obj\Debug\PosTerminal.pdb

@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8F77BE11-25ED-450B-BCC3-29B5E5601E83}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Parking.SberBank</RootNamespace>
+    <AssemblyName>Parking.SberBank</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>main.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Log">
+      <HintPath>Library\Log.dll</HintPath>
+    </Reference>
+    <Reference Include="Log.Contract">
+      <HintPath>Library\Log.Contract.dll</HintPath>
+    </Reference>
+    <Reference Include="Parking.About">
+      <HintPath>Library\Parking.About.dll</HintPath>
+    </Reference>
+    <Reference Include="Parking.Common">
+      <HintPath>Library\Parking.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Parking.Common.Design">
+      <HintPath>Library\Parking.Common.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Parking.Data.Common">
+      <HintPath>Library\Parking.Data.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Parking.Data.Contract">
+      <HintPath>Library\Parking.Data.Contract.dll</HintPath>
+    </Reference>
+    <Reference Include="Parking.Data.Design">
+      <HintPath>Library\Parking.Data.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Parking.Licensing">
+      <HintPath>Library\Parking.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Parking.Monitoring">
+      <HintPath>Library\Parking.Monitoring.dll</HintPath>
+    </Reference>
+    <Reference Include="Parking.Network">
+      <HintPath>Library\Parking.Network.dll</HintPath>
+    </Reference>
+    <Reference Include="Parking.Network.Serial">
+      <HintPath>Library\Parking.Network.Serial.dll</HintPath>
+    </Reference>
+    <Reference Include="Parking.TypeFilterEditor">
+      <HintPath>Library\Parking.TypeFilterEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Parking.Version">
+      <HintPath>Library\Parking.Version.dll</HintPath>
+    </Reference>
+    <Reference Include="RMLib">
+      <HintPath>Library\RMLib.dll</HintPath>
+    </Reference>
+    <Reference Include="RMLib.Forms">
+      <HintPath>Library\RMLib.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contract\SberBankMode.cs" />
+    <Compile Include="Contract\ISberBank.cs" />
+    <Compile Include="Contract\MonitoringObjectCategory.cs" />
+    <Compile Include="Extensions\ISberBankExtension.cs" />
+    <Compile Include="Extensions\SberBankEventHandlers.cs" />
+    <Compile Include="Extensions\SberBankExtension.cs" />
+    <Compile Include="Extensions\SberBankExtensionLogCategories.cs" />
+    <Compile Include="SberBankAboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SberBankAboutForm.Designer.cs">
+      <DependentUpon>SberBankAboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Network\BankingDevice.cs" />
+    <Compile Include="Network\EgateAPI.cs" />
+    <Compile Include="Network\NetworkThread.cs" />
+    <Compile Include="Internal\HotKeyHelper.cs" />
+    <Compile Include="Internal\Monitoring.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SberBank.cs" />
+    <Compile Include="SberBankHelper.cs" />
+    <Compile Include="SberBankLogCategories.cs" />
+    <Compile Include="SberBankLogWriters.cs" />
+    <Compile Include="SberBankPathManager.cs" />
+    <Compile Include="SberBankTray.cs" />
+    <Compile Include="SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsForm.designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemVersion.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="main.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

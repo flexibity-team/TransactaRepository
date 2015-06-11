@@ -375,7 +375,7 @@ namespace Parking.FiscalDevice
       _SetCashierID(0);
 
       _ClearRequisites();
-      String sCardNum = Convert.ToString(doc.CardID, 16);
+      String sCardNum = Convert.ToString(doc.CardId, 16);
 
       switch (doc.PaymentReason)
       {

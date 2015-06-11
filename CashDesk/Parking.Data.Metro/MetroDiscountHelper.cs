@@ -9,7 +9,7 @@ namespace Parking.Data.Metro
     /// </summary>
     public static string GetString(this MetroDiscountState state)
     {
-      string s = String.Empty;
+      string s;
       switch (state)
       {
         case MetroDiscountState.Entered:

@@ -11,7 +11,7 @@ namespace Parking.Data.Metro
   /// Тип команды тарифа метро
   /// </summary>
   [DataContract(Namespace = DataContract.Namespace)]
-  public enum TariffMetroCommandType : int
+  public enum TariffMetroCommandType
   {
     /// <summary>
     /// Подсчёт суммы за интервал
@@ -48,7 +48,7 @@ namespace Parking.Data.Metro
     #endregion
 
     [DataMember(Name = TypeString)]
-    private TariffMetroCommandType _type; //тип команды
+    private TariffMetroCommandType type; //тип команды
 
     #region [ properties ]
 
@@ -57,20 +57,20 @@ namespace Parking.Data.Metro
     /// </summary>
     public TariffMetroCommandType Type
     {
-      get { return _type; }
+      get { return type; }
     }
 
     #endregion
 
     protected TariffMetroCommand(TariffMetroCommandType type)
     {
-      _type = type;
+      this.type = type;
     }
 
     protected TariffMetroCommand(TariffMetroCommand command)
       : base(command.ID)
 	  {
-      _type = command.Type;
+      type = command.Type;
 	  }
 
     #region [ ICloneable ]
@@ -81,7 +81,7 @@ namespace Parking.Data.Metro
     public override object Clone()
     {
       TariffMetroCommand command = null;
-      switch (_type)
+      switch (type)
       {
         case TariffMetroCommandType.CalculateInterval:
           command = new TariffMetroCommandCalculateInterval((TariffMetroCommandCalculateInterval)this);
@@ -98,7 +98,7 @@ namespace Parking.Data.Metro
 
     public override string ToString()
     {
-      return _type.GetString();
+      return type.GetString();
     }
   }
 
@@ -119,15 +119,15 @@ namespace Parking.Data.Metro
     #endregion
 
     [DataMember(Name = StartTimeString)]
-    private TimeSpan _startTime;        //время начала интервала
+    private TimeSpan startTime;        //время начала интервала
     [DataMember(Name = IntervalAmountString)]
-    private decimal _intervalAmount;    //сумма за интервал
+    private decimal intervalAmount;    //сумма за интервал
     [DataMember(Name = DiscreteString)]
-    private TimeSpan _discrete;         //дискрет
+    private TimeSpan discrete;         //дискрет
     [DataMember(Name = PerDiscreteAmountString)]
-    private decimal _perDiscreteAmount; //сумма за дискрет
+    private decimal perDiscreteAmount; //сумма за дискрет
     [DataMember(Name = RountToNextString)]
-    private bool _roundToNext;          //округлять время до следующего интервала
+    private bool roundToNext;          //округлять время до следующего интервала
 
     #region [ properties ]
 
@@ -136,8 +136,8 @@ namespace Parking.Data.Metro
     /// </summary>
     public TimeSpan StartTime
     {
-      get { return _startTime; }
-      set { _startTime = value; }
+      get { return startTime; }
+      set { startTime = value; }
     }
 
     /// <summary>
@@ -145,8 +145,8 @@ namespace Parking.Data.Metro
     /// </summary>
     public decimal IntervalAmount
     {
-      get { return _intervalAmount; }
-      set { _intervalAmount = value; }
+      get { return intervalAmount; }
+      set { intervalAmount = value; }
     }
 
     /// <summary>
@@ -154,8 +154,8 @@ namespace Parking.Data.Metro
     /// </summary>
     public TimeSpan Discrete
     {
-      get { return _discrete; }
-      set { _discrete = value; }
+      get { return discrete; }
+      set { discrete = value; }
     }
 
     /// <summary>
@@ -163,8 +163,8 @@ namespace Parking.Data.Metro
     /// </summary>
     public decimal PerDiscreteAmount
     {
-      get { return _perDiscreteAmount; }
-      set { _perDiscreteAmount = value; }
+      get { return perDiscreteAmount; }
+      set { perDiscreteAmount = value; }
     }
 
     /// <summary>
@@ -172,8 +172,8 @@ namespace Parking.Data.Metro
     /// </summary>
     public bool RountToNext
     {
-      get { return _roundToNext; }
-      set { _roundToNext = value; }
+      get { return roundToNext; }
+      set { roundToNext = value; }
     }
 
     /// <summary>
@@ -181,7 +181,7 @@ namespace Parking.Data.Metro
     /// </summary>
     public bool CanCalculateInterval
     {
-      get { return (_intervalAmount > 0); }
+      get { return (intervalAmount > 0); }
     }
 
     /// <summary>
@@ -189,7 +189,7 @@ namespace Parking.Data.Metro
     /// </summary>
     public bool CanCalculateDiscrete
     {
-      get { return ((_discrete > TimeSpan.Zero) && (_perDiscreteAmount > 0)); }
+      get { return ((discrete > TimeSpan.Zero) && (perDiscreteAmount > 0)); }
     }
 
     #endregion
@@ -197,21 +197,21 @@ namespace Parking.Data.Metro
     public TariffMetroCommandCalculateInterval()
       : base(TariffMetroCommandType.CalculateInterval)
     {
-      _startTime = TimeSpan.Zero;
-      _intervalAmount = 0;
-      _discrete = TimeSpan.Zero;
-      _perDiscreteAmount = 0;
-      _roundToNext = false;
+      startTime = TimeSpan.Zero;
+      intervalAmount = 0;
+      discrete = TimeSpan.Zero;
+      perDiscreteAmount = 0;
+      roundToNext = false;
     }
 
     public TariffMetroCommandCalculateInterval(TariffMetroCommandCalculateInterval command)
       : base(command)
     {
-      _startTime = command.StartTime;
-      _intervalAmount = command.IntervalAmount;
-      _discrete = command.Discrete;
-      _perDiscreteAmount = command.PerDiscreteAmount;
-      _roundToNext = command.RountToNext;
+      startTime = command.StartTime;
+      intervalAmount = command.IntervalAmount;
+      discrete = command.Discrete;
+      perDiscreteAmount = command.PerDiscreteAmount;
+      roundToNext = command.RountToNext;
     }
   }
 
@@ -228,7 +228,7 @@ namespace Parking.Data.Metro
     #endregion
 
     [DataMember(Name = DestinationString)]
-    private int _destination; //ID команды назначения
+    private int destination; //ID команды назначения
 
     #region [ properties ]
 
@@ -237,8 +237,8 @@ namespace Parking.Data.Metro
     /// </summary>
     public int Destination
     {
-      get { return _destination; }
-      set { _destination = value; }
+      get { return destination; }
+      set { destination = value; }
     }
 
     #endregion
@@ -246,13 +246,13 @@ namespace Parking.Data.Metro
     public TariffMetroCommandGoto()
       : base(TariffMetroCommandType.Goto)
     {
-      _destination = (int)DataContract.DefaultID;
+      destination = (int)DataContract.DefaultID;
     }
 
     public TariffMetroCommandGoto(TariffMetroCommandGoto command)
       : base(command)
     {
-      _destination = command.Destination;
+      destination = command.Destination;
     }
   }
 
@@ -262,7 +262,9 @@ namespace Parking.Data.Metro
   [DataContract(Namespace = DataContract.Namespace)]
   public class TariffMetroCommandEnd : TariffMetroCommand
   {
-    public TariffMetroCommandEnd()
+      private readonly TariffMetroCommandEnd command;
+
+      public TariffMetroCommandEnd()
       : base(TariffMetroCommandType.End)
     {
       //
@@ -271,7 +273,8 @@ namespace Parking.Data.Metro
     public TariffMetroCommandEnd(TariffMetroCommandEnd command)
       : base(command)
     {
-      //
+        this.command = command;
+        //
     }
   }
 
@@ -290,7 +293,7 @@ namespace Parking.Data.Metro
     #endregion
 
     [DataMember(Name = CommandsString)]
-    private List<TariffMetroCommand> _commands; //команды
+    private List<TariffMetroCommand> commands; //команды
 
     #region [ properties ]
 
@@ -300,7 +303,7 @@ namespace Parking.Data.Metro
     [LogProperty]
     public IEnumerable<TariffMetroCommand> Commands
     {
-      get { return _commands; }
+      get { return commands; }
     }
 
     #endregion
@@ -317,13 +320,13 @@ namespace Parking.Data.Metro
     public TariffMetro()
       : base(TariffVersion.Version40)
     {
-      _commands = new List<TariffMetroCommand>();
+      commands = new List<TariffMetroCommand>();
     }
 
     public TariffMetro(TariffMetro tariffMetro)
       : base(tariffMetro)
     {
-      _commands = new List<TariffMetroCommand>(tariffMetro.Commands);
+      commands = new List<TariffMetroCommand>(tariffMetro.Commands);
     }
 
     #region [ DataItem ]
@@ -332,18 +335,18 @@ namespace Parking.Data.Metro
     {
       base.SerializeCustomPropertiesCore(propertiesRoot);
 
-      propertiesRoot.Add(_commands.ToXml(CommandsString, CommandString));
+      propertiesRoot.Add(commands.ToXml(rootName: CommandsString, nodeName: CommandString));
     }
 
     protected override void DeserializeCustomPropertiesCore(XElement propertiesRoot)
     {
       base.DeserializeCustomPropertiesCore(propertiesRoot);
 
-      XElement xe = propertiesRoot.Element(CommandsString);
+      XElement xe = propertiesRoot.Element(name: CommandsString);
       if (xe != null)
       {
-        _commands.Clear();
-        _commands.AddRange(xe.FromXml<TariffMetroCommand>());
+        commands.Clear();
+        commands.AddRange(xe.FromXml<TariffMetroCommand>());
       }
     }
 
@@ -363,10 +366,10 @@ namespace Parking.Data.Metro
     /// </summary>
     public void AddCommand(TariffMetroCommand command)
     {
-      if (_commands.Any(c => c.ID == command.ID))
+      if (commands.Any(c => c.ID == command.ID))
         throw new ArgumentException(String.Format("Команда с ID = {0} уже есть в тарифе", command.ID), "command");
 
-      _commands.Add(command);
+      commands.Add(command);
     }
 
     /// <summary>
@@ -374,7 +377,7 @@ namespace Parking.Data.Metro
     /// </summary>
     public void RemoveAllCommands()
     {
-      _commands.Clear();
+      commands.Clear();
     }
   }
 }

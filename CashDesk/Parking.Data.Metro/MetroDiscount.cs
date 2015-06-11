@@ -29,47 +29,34 @@ namespace Parking.Data.Metro
   /// </summary>
   public class MetroDiscount
   {
-    private bool _enabled;
-    private DateTime _time;
-    private bool _isTimeValid;
-    private long _deviceID;
-    private MetroDiscountState _state;
-    private int _parkingID;
+    private bool enabled;
+    private DateTime time;
+    private bool isTimeValid;
 
-    #region [ properties ]
+      #region [ properties ]
 
     public bool Enabled
     {
-      get { return _enabled; }
+      get { return enabled; }
     }
 
     public DateTime Time
     {
-      get { return _time; }
-      set { _time = value; }
+      get { return time; }
+      set { time = value; }
     }
 
-    public long DeviceID
-    {
-      get { return _deviceID; }
-    }
+    public long DeviceId { get; private set; }
 
-    public MetroDiscountState State
-    {
-      get { return _state; }
-      set { _state = value; }
-    }
+      public MetroDiscountState State { get; set; }
 
-    public int ParkingID
-    {
-      get { return _parkingID; }
-    }
+      public int ParkingId { get; private set; }
 
-    public bool CanUseDiscount
+      public bool CanUseDiscount
     {
       get
       {
-        return (_enabled && _isTimeValid && (_state == MetroDiscountState.Discounted));
+        return (enabled && isTimeValid && (State == MetroDiscountState.Discounted));
       }
     }
 
@@ -77,60 +64,60 @@ namespace Parking.Data.Metro
 
     public MetroDiscount()
     {
-      _enabled = false;
-      _time = DataContract.DefaultDateTime;
-      _isTimeValid = false;
-      _deviceID = DataContract.DefaultID;
-      _state = MetroDiscountState.Entered;
-      _parkingID = (int)DataContract.DefaultID;
+      enabled = false;
+      time = DataContract.DefaultDateTime;
+      isTimeValid = false;
+      DeviceId = DataContract.DefaultID;
+      State = MetroDiscountState.Entered;
+      ParkingId = (int)DataContract.DefaultID;
     }
 
-    public MetroDiscount(int parkingID, int deviceID,  bool enabled)
+    public MetroDiscount(int parkingId, int deviceId,  bool enabled)
     {
-      _enabled = enabled;
-      _time = DataContract.DefaultDateTime;
-      _isTimeValid = false;
-      _deviceID = deviceID;
-      _state = MetroDiscountState.Entered;
-      _parkingID = parkingID;
+      this.enabled = enabled;
+      time = DataContract.DefaultDateTime;
+      isTimeValid = false;
+      DeviceId = deviceId;
+      State = MetroDiscountState.Entered;
+      ParkingId = parkingId;
     }
 
     public void PackData(byte[] data)
     {
-      data[0] = (byte)(_enabled ? 1 : 0);
-      Utils.PackDateTime(data, 1, _time);
-      data[9] = (byte)(_deviceID & 0xFF);
-      data[10] = (byte)((_deviceID >> 8) & 0xFF);
-      data[11] = (byte)_state;
-      data[12] = (byte)(_parkingID & 0xFF);
-      data[13] = (byte)((_parkingID >> 8) & 0xFF);
+      data[0] = (byte)(enabled ? 1 : 0);
+      Utils.PackDateTime(data, 1, time);
+      data[9] = (byte)(DeviceId & 0xFF);
+      data[10] = (byte)((DeviceId >> 8) & 0xFF);
+      data[11] = (byte)State;
+      data[12] = (byte)(ParkingId & 0xFF);
+      data[13] = (byte)((ParkingId >> 8) & 0xFF);
     }
 
     public void UnpackData(byte[] data)
     {
-      _enabled = (data[0] != 0);
-      _time = Utils.UnpackDateTime(data, 1);
-      _isTimeValid = ((_time != DataContract.DefaultDateTime) && (_time < DateTime.Now));
-      _deviceID = data[9];
-      _deviceID += data[10] << 8;
-      _state = (MetroDiscountState)data[11];
-      _parkingID = data[12];
-      _parkingID += data[13] << 8;
+      enabled = (data[0] != 0);
+      time = Utils.UnpackDateTime(data, 1);
+      isTimeValid = ((time != DataContract.DefaultDateTime) && (time < DateTime.Now));
+      DeviceId = data[9];
+      DeviceId += data[10] << 8;
+      State = (MetroDiscountState)data[11];
+      ParkingId = data[12];
+      ParkingId += data[13] << 8;
     }
 
     public override string ToString()
     {
-      return _state.GetString();
+      return State.GetString();
     }
 
     public string ToLogString()
     {
       StringBuilder sb = new StringBuilder();
-      sb.AppendFormat("{0} = {1}\r\n", "Время", DataFormatter.FormatDateTime(_time));
-      sb.AppendFormat("{0} = {1}\r\n", "Льгота", _enabled.GetString());
-      sb.AppendFormat("{0} = {1}\r\n", "Состояние", _state.GetString());
-      sb.AppendFormat("{0} = {1}\r\n", "ID устройства", _deviceID);
-      sb.AppendFormat("{0} = {1}", "ID парковки", _parkingID);
+      sb.AppendFormat("{0} = {1}\r\n", "Время", DataFormatter.FormatDateTime(time));
+      sb.AppendFormat("{0} = {1}\r\n", "Льгота", enabled.GetString());
+      sb.AppendFormat("{0} = {1}\r\n", "Состояние", State.GetString());
+      sb.AppendFormat("{0} = {1}\r\n", "ID устройства", DeviceId);
+      sb.AppendFormat("{0} = {1}", "ID парковки", ParkingId);
 
       return sb.ToString();
     }

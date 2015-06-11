@@ -30,11 +30,8 @@ namespace Parking.Data.Metro
 
     private static TariffMetroCommand Goto(this TariffMetro tariff, TariffMetroCommand command)
     {
-      TariffMetroCommandGoto g = command as TariffMetroCommandGoto;
-      if (g == null)
-        return command;
-
-      return tariff.Commands.FirstOrDefault(c => c.ID == g.Destination);
+      var g = command as TariffMetroCommandGoto;
+      return g == null ? command : tariff.Commands.FirstOrDefault(c => c.ID == g.Destination);
     }
   }
 }

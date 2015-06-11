@@ -321,7 +321,7 @@ namespace Parking.FiscalDevice
 
            ChangeOpName(cashierName);
 
-            String sCardNum = Convert.ToString(doc.CardID, 16);
+            String sCardNum = Convert.ToString(doc.CardId, 16);
 
             switch (doc.PaymentReason)
             {

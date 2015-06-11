@@ -9,12 +9,12 @@ namespace Parking.Data.Metro
   /// </summary>
   public class CalculatorMetro : Calculator
   {
-    private ReaderWriterLockSlim _locker;
+    private readonly ReaderWriterLockSlim locker;
 
     public CalculatorMetro()
       : base(CalculatorVersion.Version40)
     {
-      _locker = new ReaderWriterLockSlim();
+      locker = new ReaderWriterLockSlim();
     }
 
     #region [ Calculator ]
@@ -26,27 +26,27 @@ namespace Parking.Data.Metro
 
     protected override decimal CalculateCore(Tariff tariff, DateTime dateEntry, DateTime dateExitAssumed, out DateTime dateExitEstimated)
     {
-      _locker.EnterWriteLock();
+      locker.EnterWriteLock();
       dateExitEstimated = dateExitAssumed;
-      decimal d = -1;
+      decimal d;
       try
       {
         //проверка версии
-        TariffMetro tm = tariff as TariffMetro;
+        var tm = tariff as TariffMetro;
         if (tm == null)
           throw new InvalidOperationException(String.Format("Калькулятор не поддерживает тариф типа {0} версии {1}", tariff.GetType().Name, tariff.Version.GetString()));
 
         //расчёт
         dateExitEstimated = dateEntry; //t_опл = t_въезда
         d = 0; //S_опл = 0
-        DateTime dtEstimatedDate = dateEntry.Date; //t_опл/дата = t_въезда/дата
+        var dtEstimatedDate = dateEntry.Date; //t_опл/дата = t_въезда/дата
 
         //макрос1
         TariffMetroCommandCalculateInterval command = tm.First(); //U_к = 1я команда
         if (command == null)
           return 0;
 
-        DateTime endTime = dtEstimatedDate; //объявление t_интNкон
+        DateTime endTime; //объявление t_интNкон
         while (true)
         {
           //вызов макроса2; обновление t_интNкон и t_опл/дата
@@ -107,7 +107,7 @@ namespace Parking.Data.Metro
       }
       finally
       {
-        _locker.ExitWriteLock();
+        locker.ExitWriteLock();
       }
 
       return d;
@@ -121,15 +121,14 @@ namespace Parking.Data.Metro
       TariffMetroCommandCalculateInterval nextCommand = tariff.Next(currentCommand); //U_к = U_к + 1
 
       //TimeSpan t2 = nextCommand.StartTime; //t2 = t_интN+1
-      DateTime endTime = dtEstimatedDate.Add(nextCommand.StartTime); //t_интNкон = t_опл/дата + t_интN+1
+      var endTime = dtEstimatedDate.Add(nextCommand.StartTime); //t_интNкон = t_опл/дата + t_интN+1
 
-      if (nextCommand.StartTime <= currentCommand.StartTime) //t2 <= t1
-      {
+        if (nextCommand.StartTime > currentCommand.StartTime)
+            return endTime;
         endTime += TimeSpan.FromDays(1); //t_интNкон = t_интNкон + 24ч
         dtEstimatedDate += TimeSpan.FromDays(1); //t_опл/дата = t_опл/дата + 24ч
-      }
 
-      return endTime;
+        return endTime;
     }
 
     //private decimal Test(TariffMetro tariff, DateTime dtEntry, DateTime dtExit, out DateTime dtEstimated)

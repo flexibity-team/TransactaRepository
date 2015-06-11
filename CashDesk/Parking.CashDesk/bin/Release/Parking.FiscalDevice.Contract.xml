@@ -209,6 +209,11 @@
             Производит подключение к фискальному регистратору
             </summary>
         </member>
+        <member name="M:Parking.FiscalDevice.IFiscalDevice.LogFileOn(System.Boolean)">
+            <summary>
+            Ведение лог-файла обмена с ККМ  
+            </summary>
+        </member>
         <member name="M:Parking.FiscalDevice.IFiscalDevice.GetKKMAmount">
             <summary>
             Возвращает количество денег в кассе

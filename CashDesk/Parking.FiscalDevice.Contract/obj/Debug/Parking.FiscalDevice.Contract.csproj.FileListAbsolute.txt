@@ -12,3 +12,8 @@ D:\Pol\Projects\CashDesk\Parking.FiscalDevice.Contract\bin\Debug\Parking.FiscalD
 D:\Pol\Projects\CashDesk\Parking.FiscalDevice.Contract\bin\Debug\Parking.FiscalDevice.Contract.pdb
 D:\Pol\Projects\CashDesk\Parking.FiscalDevice.Contract\obj\Debug\Parking.FiscalDevice.Contract.dll
 D:\Pol\Projects\CashDesk\Parking.FiscalDevice.Contract\obj\Debug\Parking.FiscalDevice.Contract.pdb
+c:\!DATA\!Projects\C#\!WorkProjects\TRANSACTA\TransactaRepository\CashDesk\Parking.FiscalDevice.Contract\bin\Debug\Parking.FiscalDevice.Contract.dll
+c:\!DATA\!Projects\C#\!WorkProjects\TRANSACTA\TransactaRepository\CashDesk\Parking.FiscalDevice.Contract\bin\Debug\Parking.FiscalDevice.Contract.pdb
+c:\!DATA\!Projects\C#\!WorkProjects\TRANSACTA\TransactaRepository\CashDesk\Parking.FiscalDevice.Contract\obj\Debug\Parking.FiscalDevice.Contract.csprojResolveAssemblyReference.cache
+c:\!DATA\!Projects\C#\!WorkProjects\TRANSACTA\TransactaRepository\CashDesk\Parking.FiscalDevice.Contract\obj\Debug\Parking.FiscalDevice.Contract.dll
+c:\!DATA\!Projects\C#\!WorkProjects\TRANSACTA\TransactaRepository\CashDesk\Parking.FiscalDevice.Contract\obj\Debug\Parking.FiscalDevice.Contract.pdb

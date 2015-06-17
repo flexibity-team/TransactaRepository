@@ -142,7 +142,7 @@ namespace Parking.FiscalDevice
     public PaymentDocument()
     {
       Amount = 0;
-      PaymentReason = FiscalDevice.PaymentReason.Any;
+      PaymentReason = PaymentReason.Any;
       Type = DocumentType.Buying;
       PaymentType = PaymentType.Cash;
       CardId = -1;

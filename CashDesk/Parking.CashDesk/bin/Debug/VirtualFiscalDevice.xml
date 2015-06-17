@@ -1,5 +1,5 @@
 <VirtualFiscalDevice>
-  <MoneyInKKM>1000000</MoneyInKKM>
+  <MoneyInKKM>1000577</MoneyInKKM>
   <Receipts>0</Receipts>
-  <IsSessionOpen>false</IsSessionOpen>
+  <IsSessionOpen>true</IsSessionOpen>
 </VirtualFiscalDevice>

@@ -143,7 +143,7 @@ namespace Parking.CashDesk.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public byte CashNumber {
+        public byte  CashNumber {
             get {
                 return ((byte)(this["CashNumber"]));
             }
